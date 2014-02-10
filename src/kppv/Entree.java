@@ -86,11 +86,14 @@ public class Entree {
 	
 	public Cible getCible(){
 		
-		TableauCibles c=new TableauCibles();
 		Voisins v=this.getVoisins();
+		TableauCibles t=this.banque.getAllCibles();
 		for (int i=0;i<v.size();i++){
-			if (c.add(v.get(i).getCible());
+			v
 		}
+				
+			
+		
 		
 		
 	}

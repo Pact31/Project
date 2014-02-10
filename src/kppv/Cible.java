@@ -21,5 +21,9 @@ public class Cible {
 	public void setCompteur(int compteur){
 		this.compteur=compteur;
 	}
+	
+	public int compareSyllabe(String syllabe){
+		return this.syllabe.compareTo(syllabe);
+	}
 
 }

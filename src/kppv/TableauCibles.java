@@ -18,9 +18,15 @@ public class TableauCibles {
 	public void set(int index,Cible cible){
 		this.set(index,cible);
 	}
+	
+	public Cible get(int i){
+		return this.get(i);
+	}
 
-
-
+	public int size() {
+		
+		return tableauCibles.size();
+	}
 }
 
 
