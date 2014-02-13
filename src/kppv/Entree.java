@@ -89,13 +89,10 @@ public class Entree {
 		Voisins v=this.getVoisins();
 		TableauCibles t=this.banque.getAllCibles();
 		for (int i=0;i<v.size();i++){
-			v
+			
 		}
 				
-			
-		
-		
-		
+		return null;
 	}
 
 }

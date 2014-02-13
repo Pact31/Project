@@ -1,4 +1,4 @@
-package leapMotion;
+package ui_leapmotion;
 
 public class Finger {
     

@@ -9,7 +9,7 @@ public class Leap {
 
 
 
-
+/*
 class SampleListener extends Listener {
 	
 	float m_fingers = 0;
@@ -40,4 +40,4 @@ class SampleListener extends Listener {
 				);
 	}
 		
-	}
+	}*/

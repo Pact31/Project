@@ -7,29 +7,13 @@ public class DrawingAppModel extends Observable{
 
 	private 	String		msg					= 	null;
 	private 	Boolean 	handleClick 		= 	false;
-	private 	Color		currentButtonColor	=	Color.RED;
-	private 	String		currentButtonMark	=	"Start";
+	private 	Color		currentButtonColor	=	Color.CYAN;
+	private 	String		currentButtonMark	=	"START";
+	private		String		currentGesture		=	null;
+	
 	public DrawingAppModel(){
 
 	}
-	
-	/*public void launchceLeapMotion(){
-		
-		if(!handleClick){
-			msg = kppvClassification() + " " + adaboostClassification();
-			CurrentButtonColor	=	Color.RED;
-		}
-		else{
-			msg	= null;
-			CurrentButtonColor	=	Color.CYAN;
-		}
-		
-		handleClick = !handleClick;
-	}*/
-
-
-	//getters and setters
-	
 	
 	public String getCurrentMessage(){
 		
@@ -76,6 +60,18 @@ public class DrawingAppModel extends Observable{
 	public String getCurrentBottonMark(){
 		
 		return currentButtonMark;
+		
+	}
+	
+	public void setCurrentGesture(String file){
+		
+		this.currentGesture	=	file;
+		
+	}
+	
+	public String getCurrentGesture(){
+		
+		return currentGesture;
 		
 	}
 }
