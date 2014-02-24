@@ -10,6 +10,10 @@ public class Cible {
 	private String syllabe;
 	private int compteur;
 
+	public Cible(String syllabe){
+		this.syllabe=syllabe;
+	}
+	
 	public String getSyllabe() {
 		return syllabe;
 	}

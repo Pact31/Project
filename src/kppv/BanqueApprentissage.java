@@ -14,7 +14,7 @@ public class BanqueApprentissage {
 	}
 
 	/*ajoute un apprentissage au tableau*/
-	public void addAprrentissage(Apprentissage apprentissage){
+	public void addApprentissage(Apprentissage apprentissage){
 		this.banque.add(apprentissage);
 	}
 
