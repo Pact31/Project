@@ -91,6 +91,7 @@ public class Entree {
 		Voisins v=this.getVoisins();
 		TableauCibles t=this.banque.getAllCibles();
 		for (int i=0;i<v.size();i++){
+<<<<<<< HEAD
 			int k=0;
 			pivot = v.get(i).getCible();
 			while(pivot.compareSyllabe(t.get(k).getSyllabe())!=0){
@@ -100,6 +101,12 @@ public class Entree {
 			t.set(k,t.get(k));
 		}
 		return t;
+=======
+			
+		}
+				
+		return null;
+>>>>>>> refs/remotes/origin/xgan_ui
 	}
 
 	public String associeSyllabe(){
