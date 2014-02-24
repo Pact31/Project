@@ -20,8 +20,10 @@ public class Classifier {
 				return "B";
 			case 5:
 				return "G";
+			default:
+				return "NO";
+				
 		}
-		
-		return "NO";
+
 	}
 }

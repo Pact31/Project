@@ -14,7 +14,7 @@ public class LeapPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	private final DrawingApp drawingApp;
-	private final int width = 800, height = 630;
+	private final int width = 800, height = 580;
     
 	private Color color = Color.BLUE;
     private Vector<Finger> tab = new Vector<Finger>();

@@ -18,6 +18,7 @@ public class GesturePanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	private final DrawingApp drawingApp;	
+	private final GesturesPositions gesturesPositions = new GesturesPositions();
 	
 	public GesturePanel(DrawingApp drawingApp){
 		
@@ -54,7 +55,6 @@ public class GesturePanel extends JPanel{
 	
 	}
 	
-	private GesturesPositions gesturesPositions = new GesturesPositions();
 	
 	private void showGestures(Graphics g, String gesture){
 		
