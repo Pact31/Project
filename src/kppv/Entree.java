@@ -83,19 +83,35 @@ public class Entree {
 		}
 		return v;
 	}
-	
-	public Cible getCible(){
-		
+
+	public TableauCibles countCible(){
+		Cible pivot;
 		Voisins v=this.getVoisins();
 		TableauCibles t=this.banque.getAllCibles();
 		for (int i=0;i<v.size();i++){
-			v
+			int k=0;
+			pivot = v.get(i).getCible();
+			while(pivot.compareSyllabe(t.get(k).getSyllabe())!=0){
+				k=k+1;
+			}
+			t.get(k).setCompteur(t.get(k).getCompteur()+1);
+			t.set(k,t.get(k));
 		}
-				
-			
-		
-		
-		
+		return t;
 	}
+
+	public String associeSyllabe(){
+		TableauCibles t = this.countCible();
+		int pivot = 1000;
+		int indice = 0;
+		for (int i=0;i<t.size();i=i+1){
+			if (t.get(i).getCompteur()<pivot){
+				pivot=t.get(i).getCompteur();
+				indice=i;
+			}
+		}
+		return t.get(indice).getSyllabe();
+	}
+
 
 }

@@ -1,6 +1,10 @@
 package kppv;
 
-
+/*Une cible est constituée d'une syllabe et 
+ * d'un compteur qui permet lors de la 
+ * classification d'une entrée de 
+ * compter le nombre de fois qu'une cible 
+ * apparaît dans les k plus proches voisins*/
 public class Cible {
 	
 	private String syllabe;
@@ -22,6 +26,7 @@ public class Cible {
 		this.compteur=compteur;
 	}
 	
+	/*compare deux syllabes*/
 	public int compareSyllabe(String syllabe){
 		return this.syllabe.compareTo(syllabe);
 	}
