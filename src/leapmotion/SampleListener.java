@@ -23,10 +23,13 @@ public class SampleListener extends Listener {
 	ArrayList<Vector> Liste= new ArrayList<Vector>();
 	public void onFrame(Controller controller){
 		
-		
+		 long fid ;
+		fid= controller.frame().id();
 			
 		for(int i = 0; i < 10; i++){
+			if (fid==100){
 			Frame frame = controller.frame(i);
+		
 			m_fingers= m_fingers + frame.fingers().count();
 			m_radius= m_radius + frame.hands().get(0).sphereRadius();
 			m_position1 = m_position1.plus(frame.fingers().get(0).tipPosition().minus(frame.hand(0).palmPosition()));
@@ -35,7 +38,7 @@ public class SampleListener extends Listener {
 			m_position4 = m_position4.plus(frame.fingers().get(3).tipPosition().minus(frame.hand(0).palmPosition()));
 			m_position5 = m_position5.plus(frame.fingers().get(4).tipPosition().minus(frame.hand(0).palmPosition()));
 			
-			
+			}
 			
 		}
 	}
@@ -49,14 +52,13 @@ public class SampleListener extends Listener {
 			Liste.add(m_position5.divide(10));
 			return(Liste);
 		}
-//		System.out.println("Fingers : " + m/5);
-		
-/*	System.out.println(" Fingers : " + m_fingers/mean
-						+  " Sphere radius : " + m_radius/mean
-						+  " Postion : " + m_position.divide(mean)
-						+  " Thumb : " + m_thumb.divide(mean)
+		  public static void main (String [] args){
+		       
+	System.out.println(" Fingers : " );/*+ m_fingers/10
+						+  " Sphere radius : " + m_radius/10
+						+  " Postion : " + m_position.divide(10)
+						+  " Thumb : " + m_thumb.divide(10));*/
 
-				);
+				
 	}
-		*/
 }

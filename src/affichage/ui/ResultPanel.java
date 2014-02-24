@@ -1,10 +1,13 @@
 package ui;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.JLabel;
 
-import java.awt.*;
 
 public class ResultPanel extends JLabel{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private final DrawingApp drawingApp;	
 	

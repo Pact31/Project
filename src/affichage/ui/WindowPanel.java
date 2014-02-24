@@ -1,9 +1,12 @@
 package ui;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 
 public class WindowPanel extends JPanel{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private final LeapPanel leapPanel;
 	private final ButtonsPanel buttonsPanel;

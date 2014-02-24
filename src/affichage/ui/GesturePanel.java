@@ -11,6 +11,8 @@ import javax.imageio.ImageIO;
 
 public class GesturePanel extends JPanel{
 	
+	private static final long serialVersionUID = 1L;
+	
 	private final DrawingApp drawingApp;	
 	
 	public GesturePanel(DrawingApp drawingApp){
@@ -30,7 +32,7 @@ public class GesturePanel extends JPanel{
 	protected void paintComponent(Graphics g) {
 	
 		try {
-			image = ImageIO.read(new File("lpc2.jpg"));
+			image = ImageIO.read(new File("src/affichage/lpc2.jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -41,6 +43,6 @@ public class GesturePanel extends JPanel{
 	}
 	
 	public void notifyForUpdate(){
-		
+		//image	=	drawingApp.getModel().setCurrentGesture(file)
 	}
 }

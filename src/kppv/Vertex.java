@@ -1,8 +1,10 @@
 package kppv;
 
-public class Vertex {
+import com.leapmotion.leap.Vector;
+
+public class Vertex extends Vector {
 	
-	private int x;
+	/*private int x;
 	private int y;
 	private int z;
 	
@@ -25,9 +27,9 @@ public class Vertex {
 	public int getZ(){
 		return z;
 	}
-	
-	public int getDistance(Vertex vertex){
-		return(((this.x-vertex.getX())^2+(this.y-vertex.getY())^2+(this.z-vertex.getZ())^2)^(1/2));
-	}
+	*/
+	public double getDistance(Vertex vertex){
+		return(Math.pow(Math.pow(this.getX()-vertex.getX(),2)+Math.pow(this.getY()-vertex.getY(),2)+Math.pow(this.getY()-vertex.getY(),2),1/2));
 
+	}
 }

@@ -1,8 +1,10 @@
 package kppv;
+import leapmotion.*;
 
 
 public class Entree {
 
+	private SampleListener samplelistner;
 	private Vertex d1;
 	private Vertex d2;
 	private Vertex d3;
@@ -16,11 +18,11 @@ public class Entree {
 
 	public Entree(Vertex d1, Vertex d2, Vertex d3, Vertex d4, Vertex d5, Point m, int k ){
 
-		this.d1=d1;
-		this.d2=d2;
-		this.d3=d3;
-		this.d4=d4;
-		this.d5=d5;
+		this.d1=(Vertex)samplelistner.VecteurDonnées().get(0);
+		this.d2=(Vertex)samplelistner.VecteurDonnées().get(1);
+		this.d3=(Vertex)samplelistner.VecteurDonnées().get(2);
+		this.d4=(Vertex)samplelistner.VecteurDonnées().get(3);
+		this.d5=(Vertex)samplelistner.VecteurDonnées().get(4);
 		this.m=m;
 		this.k=k;
 
@@ -50,7 +52,7 @@ public class Entree {
 		return m;
 	}
 
-	public int getDistance(Apprentissage element){
+	public double getDistance(Apprentissage element){
 
 		return (this.d1.getDistance(element.getD1())
 				+this.d2.getDistance(element.getD2())
@@ -83,19 +85,39 @@ public class Entree {
 		}
 		return v;
 	}
-	
-	public Cible getCible(){
-		
+
+	public TableauCibles countCible(){
+		Cible pivot;
 		Voisins v=this.getVoisins();
 		TableauCibles t=this.banque.getAllCibles();
 		for (int i=0;i<v.size();i++){
-			v
+
+			int k=0;
+			pivot = v.get(i).getCible();
+			while(pivot.compareSyllabe(t.get(k).getSyllabe())!=0){
+				k=k+1;
+			}
+			t.get(k).setCompteur(t.get(k).getCompteur()+1);
+			t.set(k,t.get(k));
 		}
-				
+		return t;
+
 			
-		
-		
-		
+		}
+
+
+	public String associeSyllabe(){
+		TableauCibles t = this.countCible();
+		int pivot = 1000;
+		int indice = 0;
+		for (int i=0;i<t.size();i=i+1){
+			if (t.get(i).getCompteur()<pivot){
+				pivot=t.get(i).getCompteur();
+				indice=i;
+			}
+		}
+		return t.get(indice).getSyllabe();
 	}
+
 
 }

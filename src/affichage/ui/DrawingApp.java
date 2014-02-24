@@ -11,6 +11,8 @@ public class DrawingApp extends JFrame
 	implements Observer
 {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private final WindowPanel 				windowPanel;
 	private final HandSpeakController 		handSpeakController;
 	private 		DrawingAppModel 		drawingAppModel;

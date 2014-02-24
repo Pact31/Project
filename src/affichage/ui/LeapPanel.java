@@ -1,15 +1,17 @@
 package ui;
 
-import javax.swing.*;
+import ui_leapmotion.Finger;
 
-import com.leapmotion.leap.*;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Vector;
 
-import leapMotion.Finger;
+import javax.swing.JPanel;
+
 
 public class LeapPanel extends JPanel{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private final DrawingApp drawingApp;
 	private final int width = 800, height = 630;
