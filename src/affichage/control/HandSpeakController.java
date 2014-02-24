@@ -1,6 +1,8 @@
 package control;
 
 import java.awt.Color;
+
+import classification.Classifier;
 import model.DrawingAppModel;
 
 public class HandSpeakController 
@@ -36,8 +38,10 @@ public class HandSpeakController
 		
 		if( !handleClick ){
 
-			msg = kppvClassification() + " " + adaboostClassification();
+			msg = kppvClassification();
+			
 			model.setCurrentMessage(msg);
+			model.setCurrentGesture(kppvClassification());
 			model.setCurrentBottonMark("STOP");
 			model.setCurrentBottonColor(Color.RED);
 		
@@ -46,6 +50,7 @@ public class HandSpeakController
 
 			msg	= null;
 			model.setCurrentMessage(msg);
+			model.setCurrentGesture("NO");
 			model.setCurrentBottonMark("START");
 			model.setCurrentBottonColor(Color.CYAN);
 		
@@ -56,8 +61,8 @@ public class HandSpeakController
 	}
 	
 	private String kppvClassification(){
-		
-		return "HelloWorld kppv";
+		Classifier classifier = new Classifier();
+		return classifier.getGestures();
 		
 	}
 	

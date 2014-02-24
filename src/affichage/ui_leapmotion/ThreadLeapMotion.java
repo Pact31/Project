@@ -31,7 +31,7 @@ public class ThreadLeapMotion 	extends Thread
 			
 			InteractionBox ibox 	  = leap.frame().interactionBox();
 			PointableList  pointables = leap.frame().pointables();
-		    int j=0;
+		    //int j=0;
 			for(int p = 0; p < pointables.count(); p++) {
             
 				Pointable pointable = pointables.get(p);
@@ -42,11 +42,11 @@ public class ThreadLeapMotion 	extends Thread
 				int z = (int) (normalizedPosition.getZ()       * 100);
             
 				leapPanel.setPosition( new Finger(x, y, z) );
-				j= p;
+				//j= p;
 			}
 			
-			drawingApp.getModel().setCurrentMessage(String.format("Number of fingers %d", j));
-			drawingApp.update(drawingApp.getModel(), null);
+			//drawingApp.getModel().setCurrentMessage(String.format("Number of fingers %d", j));
+			//drawingApp.update(drawingApp.getModel(), null);
 			
 			leapPanel.repaint();
 		

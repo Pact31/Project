@@ -1,5 +1,8 @@
 package ui;
 
+import gestures.GesturesPositions;
+import gestures.Gestures;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -8,6 +11,7 @@ import javax.swing.JPanel;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
 
 public class GesturePanel extends JPanel{
 	
@@ -27,6 +31,7 @@ public class GesturePanel extends JPanel{
 	}
 	
 	private BufferedImage image;
+	private String gesture = "src/affichage/lpc2.jpg";
 	
 	@Override
 	protected void paintComponent(Graphics g) {
@@ -36,13 +41,28 @@ public class GesturePanel extends JPanel{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		super.paintComponent(g);
-		g.drawImage(image, 0, 0, null); 
-	
+		g.drawImage(image, 100, 0, null);
 	}
 	
+
 	public void notifyForUpdate(){
-		//image	=	drawingApp.getModel().setCurrentGesture(file)
+		
+		gesture	=	drawingApp.getModel().getCurrentGesture();
+		showGestures(this.getGraphics(), gesture);
+	
 	}
+	
+	private GesturesPositions gesturesPositions = new GesturesPositions();
+	
+	private void showGestures(Graphics g, String gesture){
+		
+		Gestures gestures=gesturesPositions.getGestures(gesture);
+		
+		g.drawImage(image, 100, 0, null);
+		g.setColor(Color.blue);
+		g.drawOval(gestures.getX(), gestures.getY(), gestures.getHeight(), gestures.getWidth());
+	}
+
 }
