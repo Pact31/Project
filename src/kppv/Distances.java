@@ -20,17 +20,17 @@ public class Distances {
 
 	/*renvoie l'élément à l'indice n*/
 	public int get(int n){
-		return this.get(n);
+		return this.distances.get(n);
 	}
 
 	/*renvoie la taille du tableau*/
 	private int size() {
-		return this.size();
+		return this.distances.size();
 	}
 
 	/*modifie un élément du tableau*/
 	public void set(int index,int nouveau){
-		this.set(index,nouveau);
+		this.distances.set(index,nouveau);
 	}
 	
 	/*renvoie l'indice de la distance la plus petite*/

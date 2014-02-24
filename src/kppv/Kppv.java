@@ -1,17 +1,17 @@
 package kppv;
 
 public class Kppv {
-	
+
 	private BanqueApprentissage banque;
 	private int k; 
-	
+
 	public Kppv(BanqueApprentissage banque, int k){
 		this.banque=banque;
 		this.k=k;
 	}
-	
 
-	
+
+
 	public int getDistance(Apprentissage element, Entree entree){
 
 		return (entree.getD1().getDistance(element.getD1())
@@ -22,8 +22,8 @@ public class Kppv {
 				+entree.getM().getDistance(element.getM()));
 
 	}
-	
-	
+
+
 	public Voisins getVoisins(Entree entree){
 
 		Voisins v=new Voisins();
@@ -46,7 +46,7 @@ public class Kppv {
 		}
 		return v;
 	}
-	
+
 
 	public TableauCibles countCible(Entree entree){
 		Cible pivot;
@@ -56,7 +56,7 @@ public class Kppv {
 
 			int k=0;
 			pivot = v.get(i).getCible();
-			while(pivot.compareSyllabe(t.get(k).getSyllabe())!=0){
+			while(k<t.size()-1&&pivot.compareSyllabe(t.get(k).getSyllabe())!=0){
 				k=k+1;
 			}
 			t.get(k).setCompteur(t.get(k).getCompteur()+1);
@@ -64,10 +64,10 @@ public class Kppv {
 		}
 		return t;
 	}
-	
+
 
 	public String kppv(Entree entree){
-		TableauCibles t = this.countCible(entree);
+		TableauCibles t = countCible(entree);
 		int pivot = 1000;
 		int indice = 0;
 		for (int i=0;i<t.size();i=i+1){
@@ -82,3 +82,27 @@ public class Kppv {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
