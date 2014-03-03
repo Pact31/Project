@@ -34,12 +34,12 @@ public class Distances {
 	}
 	
 	/*renvoie l'indice de la distance la plus petite*/
-	public int indiceLePlusPres(){
+	public int indiceLePlusLoin(){
 
 		int pivot=0;
 		int p=this.get(pivot);
 		for (int i=0;i<this.size();i++){
-			if (this.get(i)<p){ 
+			if (this.get(i)>p){ 
 				pivot=i;
 				p=this.get(pivot);
 			}

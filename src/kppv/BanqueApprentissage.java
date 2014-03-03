@@ -34,7 +34,7 @@ public class BanqueApprentissage {
 	/*retourne un tableau de cibles qui énumère toutes 
 	 * les cibles existantes dans la base d'apprentissage 
 	 * avec pour chacune un compteur initialisé à 0*/
-	public TableauCibles getAllCibles(){
+	/*public TableauCibles getAllCibles(){
 		TableauCibles t= new TableauCibles();
 		for (int i=0;i<this.size();i++){
 			int k=0;
@@ -47,5 +47,5 @@ public class BanqueApprentissage {
 			t.get(i).setCompteur(0);
 		}
 		return t;
-	}
+	}*/
 }

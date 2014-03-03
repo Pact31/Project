@@ -37,7 +37,7 @@ public class Kppv {
 		}
 
 		for (int i=k; i<this.banque.size(); i++){
-			indiceDist=d.indiceLePlusPres();
+			indiceDist=d.indiceLePlusLoin();
 			dist=d.get(indiceDist);
 			if(this.getDistance(banque.getApprentissage(i),entree)<dist){
 				v.set(indiceDist,banque.getApprentissage(i));
@@ -48,8 +48,8 @@ public class Kppv {
 	}
 
 
-	public TableauCibles countCible(Entree entree){
-		Cible pivot;
+	public int[] countCible(Entree entree){
+		/*Cible pivot;
 		Voisins v=this.getVoisins(entree);
 		TableauCibles t=this.banque.getAllCibles();
 		for (int i=0;i<v.size();i++){
@@ -62,12 +62,27 @@ public class Kppv {
 			t.get(k).setCompteur(t.get(k).getCompteur()+1);
 			t.set(k,t.get(k));
 		}
-		return t;
+		return t;*/
+		
+
+		Apprentissage pivot;
+		Voisins v=this.getVoisins(entree);
+		int compteur[]={0,0,0,0,0,0,0,0};
+		Cible c[]=Cible.values();
+		for(int i =0; i<v.size();i=i+1){
+			pivot=v.get(i);
+			int k=0;
+			while(pivot.getCible().equals(c[k])==false && k<8) k=k+1;
+			compteur[k]=compteur[k]+1;
+		}
+		return compteur;
+		
+		
 	}
 
 
-	public String kppv(Entree entree){
-		TableauCibles t = countCible(entree);
+	public Cible kppv(Entree entree){
+		/*TableauCibles t = countCible(entree);
 		int pivot = 1000;
 		int indice = 0;
 		for (int i=0;i<t.size();i=i+1){
@@ -76,7 +91,20 @@ public class Kppv {
 				indice=i;
 			}
 		}
-		return t.get(indice).getSyllabe();
+		return t.get(indice).getSyllabe();*/
+		
+		int compteur[]=this.countCible(entree);
+		int indice=0;
+		int pivot=compteur[0];
+		for (int i=0;i<8;i=i+1){
+			if (compteur[i]>pivot){
+				pivot=compteur[i];
+				indice=i;
+			}
+		}
+		return Cible.values()[indice];
+		
+		
 	}
 
 

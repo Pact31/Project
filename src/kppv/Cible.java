@@ -5,9 +5,9 @@ package kppv;
  * classification d'une entrée de 
  * compter le nombre de fois qu'une cible 
  * apparaît dans les k plus proches voisins*/
-public class Cible {
+public enum Cible {
 	
-	private String syllabe;
+	/*private String syllabe;
 	private int compteur;
 
 	public Cible(String syllabe){
@@ -28,11 +28,14 @@ public class Cible {
 	
 	public void setCompteur(int compteur){
 		this.compteur=compteur;
-	}
+	}*/
+	
 	
 	/*compare deux syllabes*/
-	public int compareSyllabe(String syllabe){
+	/*public int compareSyllabe(String syllabe){
 		return this.syllabe.compareTo(syllabe);
-	}
+	}*/
+	
+	A,B,C,D,E,F,G,H;
 
 }
