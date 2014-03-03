@@ -2,9 +2,9 @@ package kppv;
 
 public class Vertex {
 	
-	private int x;
-	private int y;
-	private int z;
+	private double x;
+	private double y;
+	private double z;
 	
 	public Vertex(int x,int y,int z){
 		this.x=x;
@@ -14,20 +14,20 @@ public class Vertex {
 	
 	
 	
-	public int getX(){
+	public double getX(){
 		return x;
 	}
 	
-	public int getY(){
+	public double getY(){
 		return y;
 	}
 	
-	public int getZ(){
+	public double getZ(){
 		return z;
 	}
 	
-	public int getDistance(Vertex vertex){
-		return(((this.x-vertex.getX())^2+(this.y-vertex.getY())^2+(this.z-vertex.getZ())^2)^(1/2));
+	public double getDistance(Vertex vertex){
+		return(Math.pow(Math.pow(this.x-vertex.getX(),2)+Math.pow(this.y-vertex.getY(),2)+Math.pow(this.z-vertex.getZ(),2),0.5));
 	}
 
 }

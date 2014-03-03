@@ -12,7 +12,7 @@ public class Kppv {
 
 
 
-	public int getDistance(Apprentissage element, Entree entree){
+	public double getDistance(Apprentissage element, Entree entree){
 
 		return (entree.getD1().getDistance(element.getD1())
 				+entree.getD2().getDistance(element.getD2())
@@ -28,7 +28,7 @@ public class Kppv {
 
 		Voisins v=new Voisins();
 		Distances d=new Distances();
-		int dist = 1000;
+		double dist = 1000;
 		int indiceDist=0;
 
 		for (int i=0; i<this.k; i++){

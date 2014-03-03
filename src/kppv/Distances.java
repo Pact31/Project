@@ -7,19 +7,19 @@ import java.util.ArrayList;
 
 public class Distances {
 
-	private ArrayList<Integer> distances;  
+	private ArrayList<Double> distances;  
 
 	public Distances(){
-		this.distances= new ArrayList<Integer>();
+		this.distances= new ArrayList<Double>();
 	}
 
 	/*ajout d'une distance au tableau*/
-	public void add(int n){
+	public void add(double n){
 		this.distances.add(n);
 	}
 
 	/*renvoie l'élément à l'indice n*/
-	public int get(int n){
+	public double get(int n){
 		return this.distances.get(n);
 	}
 
@@ -29,7 +29,7 @@ public class Distances {
 	}
 
 	/*modifie un élément du tableau*/
-	public void set(int index,int nouveau){
+	public void set(int index,double nouveau){
 		this.distances.set(index,nouveau);
 	}
 	
@@ -37,7 +37,7 @@ public class Distances {
 	public int indiceLePlusLoin(){
 
 		int pivot=0;
-		int p=this.get(pivot);
+		double p=this.get(pivot);
 		for (int i=0;i<this.size();i++){
 			if (this.get(i)>p){ 
 				pivot=i;
