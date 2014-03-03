@@ -1,5 +1,12 @@
 package kppv;
 
+import classification.Apprentissage;
+import classification.BanqueApprentissage;
+import classification.Cible;
+import classification.Entree;
+import classification.Point;
+import classification.Vertex;
+
 public class Test {
 
 		public static void main(String[] args) {

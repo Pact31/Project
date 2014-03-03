@@ -1,5 +1,10 @@
 package kppv;
 
+import classification.Apprentissage;
+import classification.BanqueApprentissage;
+import classification.Cible;
+import classification.Entree;
+
 public class Kppv {
 
 	private BanqueApprentissage banque;
@@ -49,21 +54,7 @@ public class Kppv {
 
 
 	public int[] countCible(Entree entree){
-		/*Cible pivot;
-		Voisins v=this.getVoisins(entree);
-		TableauCibles t=this.banque.getAllCibles();
-		for (int i=0;i<v.size();i++){
 
-			int k=0;
-			pivot = v.get(i).getCible();
-			while(k<t.size()-1&&pivot.compareSyllabe(t.get(k).getSyllabe())!=0){
-				k=k+1;
-			}
-			t.get(k).setCompteur(t.get(k).getCompteur()+1);
-			t.set(k,t.get(k));
-		}
-		return t;*/
-		
 
 		Apprentissage pivot;
 		Voisins v=this.getVoisins(entree);
@@ -76,22 +67,11 @@ public class Kppv {
 			compteur[k]=compteur[k]+1;
 		}
 		return compteur;
-		
-		
 	}
 
 
 	public Cible kppv(Entree entree){
-		/*TableauCibles t = countCible(entree);
-		int pivot = 1000;
-		int indice = 0;
-		for (int i=0;i<t.size();i=i+1){
-			if (t.get(i).getCompteur()<pivot){
-				pivot=t.get(i).getCompteur();
-				indice=i;
-			}
-		}
-		return t.get(indice).getSyllabe();*/
+
 		
 		int compteur[]=this.countCible(entree);
 		int indice=0;

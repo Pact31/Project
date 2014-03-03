@@ -2,7 +2,8 @@ package control;
 
 import java.awt.Color;
 
-import classification.Classifier;
+import test_classification.Classifier;
+
 import model.DrawingAppModel;
 
 public class HandSpeakController 
