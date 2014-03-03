@@ -1,4 +1,4 @@
-package ui;
+package affichage.ui;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
-import model.DrawingAppModel;
+import affichage.model.DrawingAppModel;
 
 public class ButtonStart extends JButton
 	implements ActionListener

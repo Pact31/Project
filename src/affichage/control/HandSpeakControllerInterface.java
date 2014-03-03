@@ -1,4 +1,4 @@
-package control;
+package affichage.control;
 
 public interface HandSpeakControllerInterface {
 	

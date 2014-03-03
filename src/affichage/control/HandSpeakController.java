@@ -1,10 +1,10 @@
-package control;
+package affichage.control;
 
 import java.awt.Color;
 
-import test_classification.Classifier;
+import affichage.test_classification.Classifier;
 
-import model.DrawingAppModel;
+import affichage.model.DrawingAppModel;
 
 public class HandSpeakController 
 	implements HandSpeakControllerInterface

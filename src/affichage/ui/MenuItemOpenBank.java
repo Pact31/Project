@@ -1,4 +1,4 @@
-package ui;
+package affichage.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,7 +7,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 
-import model.DrawingAppModel;
+import affichage.model.DrawingAppModel;
 
 
 public class MenuItemOpenBank extends JMenuItem

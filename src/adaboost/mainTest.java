@@ -1,8 +1,6 @@
 package adaboost;
 import java.util.ArrayList;
 
-import test_classification.Classifier;
-
 
 public class mainTest {
 

@@ -1,4 +1,4 @@
-package gestures;
+package affichage.gestures;
 
 import java.util.Hashtable;
 

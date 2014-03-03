@@ -1,6 +1,6 @@
-package ui;
+package affichage.ui;
 
-import ui_leapmotion.Finger;
+import affichage.ui_leapmotion.Finger;
 
 import java.awt.Color;
 import java.awt.Graphics;

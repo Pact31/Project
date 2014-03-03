@@ -1,4 +1,4 @@
-package gestures;
+package affichage.gestures;
 
 public interface GesturesInterface {
 	

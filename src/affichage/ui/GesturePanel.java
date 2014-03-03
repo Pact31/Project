@@ -1,7 +1,7 @@
-package ui;
+package affichage.ui;
 
-import gestures.GesturesPositions;
-import gestures.Gestures;
+import affichage.gestures.GesturesPositions;
+import affichage.gestures.Gestures;
 
 import java.awt.Color;
 import java.awt.Dimension;

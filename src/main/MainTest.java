@@ -1,9 +1,9 @@
 package main;
 
-import model.DrawingAppModel;
-import ui.DrawingApp;
-import ui_leapmotion.ThreadLeapMotion;
-import control.HandSpeakController;
+import affichage.model.DrawingAppModel;
+import affichage.ui.DrawingApp;
+import affichage.ui_leapmotion.ThreadLeapMotion;
+import affichage.control.HandSpeakController;
 
 public class MainTest {
 	

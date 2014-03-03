@@ -1,4 +1,4 @@
-package ui_leapmotion;
+package affichage.ui_leapmotion;
 
 public class Finger {
     

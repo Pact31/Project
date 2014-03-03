@@ -1,4 +1,4 @@
-package ui;
+package affichage.ui;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;

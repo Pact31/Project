@@ -1,4 +1,4 @@
-package test_classification;
+package affichage.test_classification;
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Pointable;
 import com.leapmotion.leap.PointableList;

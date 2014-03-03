@@ -1,4 +1,4 @@
-package ui;
+package affichage.ui;
 
 import javax.swing.JMenuBar;
 
