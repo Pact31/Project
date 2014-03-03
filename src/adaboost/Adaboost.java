@@ -8,7 +8,8 @@ public class Adaboost {
 	private ArrayList<ArrayList<Integer>> classifierList = new ArrayList<ArrayList<Integer>>();
 	private ArrayList<Double> poidsList = new ArrayList<Double>();
 	
-	public Adaboost(){
+	public Adaboost(/*ArrayList<Integer> enter*/){
+		//car = enter;
 		car.add(1);
 		car.add(1);
 		car.add(1);
@@ -19,6 +20,17 @@ public class Adaboost {
 		car.add(1);
 		car.add(1);
 		car.add(-1);
+		car.add(-1);
+		car.add(1);
+		car.add(1);
+		car.add(1);
+		car.add(-1);
+		car.add(-1);
+		car.add(1);
+		car.add(1);
+		car.add(1);
+		car.add(-1);
+		
 		calculClassifiers();
 	}
 	public void print(){
@@ -52,7 +64,7 @@ public class Adaboost {
 			distribution.add(1.0/(double)car.size());
 		}
 		
-		for(int j=0;j<3;j++){
+		for(int j=0;j<100;j++){
 		
 			minError = 1;
 			
@@ -80,6 +92,26 @@ public class Adaboost {
 			
 		}
 		
+	}
+	public ArrayList<Integer> getFortClassifier(){
+		
+		ArrayList<Integer> fortClassifier = new ArrayList<Integer>();
+		double res = 0;
+		
+		for(int i=0;i<classifierList.get(0).size();i++){
+			
+			for(int j=0;j<poidsList.size();j++){
+				res += classifierList.get(j).get(i)*poidsList.get(j);
+				System.out.println(res);
+			}
+			if(res>0)
+				fortClassifier.add(1);
+			else
+				fortClassifier.add(-1);
+			res=0;
+		}
+		
+		return fortClassifier;
 	}
 	
 	private ArrayList<Double> newDistribution(ArrayList<Double> distribution, double poids, ArrayList<Integer> classifier){
