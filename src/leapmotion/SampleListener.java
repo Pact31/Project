@@ -14,12 +14,12 @@ public class SampleListener extends Listener {
 	float m_fingers = 0;
 	float m_radius = 0;
 	
-	Vector m_thumb = new Vector();
- Vector m_position1 =new Vector();
-	Vector m_position2 =new Vector();
-	Vector m_position3 =new Vector();
-	Vector m_position4 =new Vector();
-	Vector m_position5 =new Vector();
+	private Vector m_thumb = new Vector();
+ private Vector m_position1 =new Vector();
+	private Vector m_position2 =new Vector();
+	private Vector m_position3 =new Vector();
+	private Vector m_position4 =new Vector();
+	private Vector m_position5 =new Vector();
 	ArrayList<Vector> Liste= new ArrayList<Vector>();
 	public void onFrame(Controller controller){
 		
@@ -53,7 +53,8 @@ public class SampleListener extends Listener {
 			return(Liste);
 		}
 		  public static void main (String [] args){
-			  System.out.println(m_position1);
+			  SampleListener S=new SampleListener();
+			  System.out.println(S.VecteurDonnées().get(0));
 					  
 
 				
