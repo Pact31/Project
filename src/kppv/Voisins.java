@@ -1,6 +1,8 @@
 package kppv;
 import java.util.ArrayList;
 
+import classification.Apprentissage;
+
 
 public class Voisins {
 	
