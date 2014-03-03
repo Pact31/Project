@@ -15,7 +15,7 @@ public class SampleListener extends Listener {
 	float m_radius = 0;
 	
 	Vector m_thumb = new Vector();
-	Vector m_position1 =new Vector();
+ Vector m_position1 =new Vector();
 	Vector m_position2 =new Vector();
 	Vector m_position3 =new Vector();
 	Vector m_position4 =new Vector();
@@ -53,11 +53,8 @@ public class SampleListener extends Listener {
 			return(Liste);
 		}
 		  public static void main (String [] args){
-		       
-	System.out.println(" Fingers : " );/*+ m_fingers/10
-						+  " Sphere radius : " + m_radius/10
-						+  " Postion : " + m_position.divide(10)
-						+  " Thumb : " + m_thumb.divide(10));*/
+			  System.out.println(m_position1);
+					  
 
 				
 	}
