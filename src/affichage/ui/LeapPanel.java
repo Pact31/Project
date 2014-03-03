@@ -1,4 +1,4 @@
-package ui;
+package affichage.ui;
 
 import javax.swing.*;
 
@@ -7,7 +7,7 @@ import com.leapmotion.leap.*;
 import java.awt.*;
 import java.util.Vector;
 
-import leapMotion.Finger;
+import affichage.leapMotion.Finger;
 
 public class LeapPanel extends JPanel{
 	

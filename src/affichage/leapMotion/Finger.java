@@ -1,4 +1,4 @@
-package leapMotion;
+package affichage.leapMotion;
 
 public class Finger {
     

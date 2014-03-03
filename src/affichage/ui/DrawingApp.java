@@ -1,11 +1,11 @@
-package ui;
+package affichage.ui;
 
 import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JFrame;
-import model.DrawingAppModel;
-import control.HandSpeakController;
+import affichage.model.DrawingAppModel;
+import affichage.control.HandSpeakController;
 
 public class DrawingApp extends JFrame
 	implements Observer

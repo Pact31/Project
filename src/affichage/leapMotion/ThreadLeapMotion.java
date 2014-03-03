@@ -1,12 +1,12 @@
-package leapMotion;
+package affichage.leapMotion;
 
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Pointable;
 import com.leapmotion.leap.PointableList;
 import com.leapmotion.leap.Vector;
 import com.leapmotion.leap.InteractionBox;
-import ui.DrawingApp;
-import ui.LeapPanel;
+import affichage.ui.DrawingApp;
+import affichage.ui.LeapPanel;
 
 public class ThreadLeapMotion 	extends Thread
 {

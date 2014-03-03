@@ -1,7 +1,7 @@
-package control;
+package affichage.control;
 
 import java.awt.Color;
-import model.DrawingAppModel;
+import affichage.model.DrawingAppModel;
 
 public class HandSpeakController 
 	implements HandSpeakControllerInterface

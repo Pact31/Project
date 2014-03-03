@@ -1,4 +1,4 @@
-package model;
+package affichage.model;
 
 import java.util.Observable;
 import java.awt.Color;

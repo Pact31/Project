@@ -1,4 +1,4 @@
-package ui;
+package affichage.ui;
 
 import java.awt.Dimension;
 import javax.swing.JPanel;
