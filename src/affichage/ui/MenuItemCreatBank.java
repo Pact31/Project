@@ -13,18 +13,21 @@ implements ActionListener
 	
    private final DrawingApp drawingApp ;
    
-   public MenuItemCreatBank(DrawingApp drawingApp)
-   {
+   public MenuItemCreatBank(DrawingApp drawingApp){
+	   
       super("New") ; // Text of menu item
       this.addActionListener(this);
       this.drawingApp = drawingApp;
+   
    }
 
    @Override
    public void actionPerformed(ActionEvent arg0) {
+	
 	  DrawingAppModel drawingAppModel = drawingApp.getModel();
 	  drawingAppModel.setCurrentMessage("phase d'apprentissage");
 	  drawingApp.update(drawingAppModel, null);
+	  
    }
 
 }

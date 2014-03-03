@@ -6,11 +6,11 @@ import java.io.File;
 
 public class DrawingAppModel extends Observable{
 
-	private 	String		msg					= 	"NO";
+	private 	String		msg					= 	"NO detection!";
 	private 	Boolean 	handleClick 		= 	false;
 	private 	Color		currentButtonColor	=	Color.CYAN;
 	private 	String		currentButtonMark	=	"START";
-	private		String		currentGesture		=	"NO";
+	private		String		currentGesture		=	"NO detection!";
 	private		File		currentBank			=	null;
 	public DrawingAppModel(){
 

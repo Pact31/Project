@@ -39,9 +39,9 @@ public class HandSpeakController
 		if( !handleClick ){
 
 			msg = kppvClassification();
-			
 			model.setCurrentMessage(msg);
-			model.setCurrentGesture(kppvClassification());
+			//model.setCurrentGesture(kppvClassification());
+			model.setCurrentGesture(msg);
 			model.setCurrentBottonMark("STOP");
 			model.setCurrentBottonColor(Color.RED);
 		
@@ -50,7 +50,7 @@ public class HandSpeakController
 
 			msg	= null;
 			model.setCurrentMessage(msg);
-			model.setCurrentGesture("NO");
+			model.setCurrentGesture("NO detection!");
 			model.setCurrentBottonMark("START");
 			model.setCurrentBottonColor(Color.CYAN);
 		
@@ -61,8 +61,12 @@ public class HandSpeakController
 	}
 	
 	private String kppvClassification(){
+		
 		Classifier classifier = new Classifier();
-		return classifier.getGestures();
+		//if(classifier.contaisThum())
+		    return classifier.getGestures();
+		//else
+		//	return classifier.getGestures() + "thum";
 		
 	}
 	

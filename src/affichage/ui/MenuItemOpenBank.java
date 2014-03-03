@@ -27,6 +27,7 @@ implements ActionListener
 
    @Override
    public void actionPerformed(ActionEvent e) {
+	   
 	   fc = new JFileChooser();
 	   DrawingAppModel drawingAppModel = drawingApp.getModel();
 	   
@@ -39,7 +40,7 @@ implements ActionListener
            drawingAppModel.setCurrentMessage("Opening: " + file.getName() + "." + "\n");
        } 
 	   else {
-           //log.append("Open command cancelled by user." + newline);
+           drawingAppModel.setCurrentMessage("Open command cancelled by user." + "\n");
        }
 	   
 	   drawingApp.update(drawingAppModel, null);

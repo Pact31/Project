@@ -15,7 +15,7 @@ public class GesturesPositions
 		allGestures.put("B", new Gestures(370, 410));
 		allGestures.put("G", new Gestures(100, 490));
 		
-		allGestures.put("NO",new Gestures(0,0,0,0));
+		allGestures.put("NO detection!",new Gestures(0,0,0,0));
 		
 	}
 	
