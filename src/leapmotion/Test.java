@@ -10,10 +10,9 @@ public class Test{
 	 	
 public static void main(String[] args) {
        
-        Controller controller = new Controller();
+       Controller controller = new Controller();
        DataFK table =new DataFK() ;
     
-
         
         int inChar;
         System.out.println("Press Enter to quit...");

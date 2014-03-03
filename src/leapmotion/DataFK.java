@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import com.leapmotion.leap.*;
 public class DataFK {
+	
 	public enum Key {
 	      PDJ, KVZ, SR, BNUI, MTF, ICHGNW, G, YNG; //Correspond aux différentes "consonnes" codées par les clefs.
 	}
@@ -23,8 +24,7 @@ public class DataFK {
 		   case 114:table.put(frame, Key.BNUI);
 		   }
 		   
-		   
-		   
+		   		   
 		  
 	   }
 
