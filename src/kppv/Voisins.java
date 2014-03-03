@@ -15,15 +15,15 @@ public class Voisins {
 	}
 	
 	public void set(int index,Apprentissage apprentissage){
-		this.set(index,apprentissage);
+		this.voisins.set(index,apprentissage);
 	}
 	
 	public Apprentissage get(int i){
-		return this.get(i);
+		return this.voisins.get(i);
 	}
 	
 	public int size(){
-		return this.size();
+		return this.voisins.size();
 	}
 	
 	
