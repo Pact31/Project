@@ -12,6 +12,7 @@ public class DrawingAppModel extends Observable{
 	private 	String		currentButtonMark	=	"START";
 	private		String		currentGesture		=	"NO detection!";
 	private		File		currentBank			=	null;
+	
 	public DrawingAppModel(){
 
 	}
