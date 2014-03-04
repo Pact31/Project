@@ -11,28 +11,28 @@ public class KnownMov {
 		this.mov = new Mouvement(a);
 		
 		if(a.getCible()==Cible.PDJ){
-			this.classe=1;
+			this.classe=0;
 		}
 		else if (a.getCible()==Cible.KVZ){
-			this.classe=2;
+			this.classe=1;
 		}
 		else if (a.getCible()==Cible.SR){
-			this.classe=3;
+			this.classe=2;
 		}
 		else if (a.getCible()==Cible.BNUI){
-			this.classe=4;
+			this.classe=3;
 		}
 		else if (a.getCible()==Cible.MTF){
-			this.classe=5;
+			this.classe=4;
 		}
 		else if (a.getCible()==Cible.ICHGNW){
-			this.classe=6;
+			this.classe=5;
 		}
 		else if (a.getCible()==Cible.G){
-			this.classe=7;
+			this.classe=6;
 		}
 		else if (a.getCible()==Cible.YNG){
-			this.classe=8;
+			this.classe=7;
 		}
 	}
 
