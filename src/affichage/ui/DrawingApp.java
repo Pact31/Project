@@ -15,7 +15,7 @@ public class DrawingApp extends JFrame
 	
 	private final WindowPanel 				windowPanel;
 	private final HandSpeakController 		handSpeakController;
-	private final DrawingMenuBar drawingMenuBar ;
+	private final DrawingMenuBar 			drawingMenuBar ;
 	private 		DrawingAppModel 		drawingAppModel;
 	
 	public DrawingApp(HandSpeakController controller){

@@ -24,12 +24,6 @@ public class HandSpeakController
 		
 	}
 	
-	@Override
-	public void Start() {
-		
-		
-		
-	}
 	
 	@Override
 	public void launchceLeapMotion(){
@@ -62,6 +56,7 @@ public class HandSpeakController
 	}
 	
 	private String kppvClassification(){
+		// TODO add the classifier Kppv
 		
 		Classifier classifier = new Classifier();
 		//if(classifier.contaisThum())
@@ -72,8 +67,15 @@ public class HandSpeakController
 	}
 	
 	private String adaboostClassification(){
+		// TODO add the classifier adaboost
 		
 		return "HelloWorld adaboost";
+		
+	}
+
+	@Override
+	public void Start() {
+		// TODO Auto-generated method stub
 		
 	}
 	

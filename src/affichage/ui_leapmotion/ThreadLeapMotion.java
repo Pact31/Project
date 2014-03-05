@@ -41,7 +41,7 @@ public class ThreadLeapMotion 	extends Thread
 				int y = (int) (600 - normalizedPosition.getY() * leapPanel.getHeight());
 				int z = (int) (normalizedPosition.getZ()       * 100);
             
-				leapPanel.setPosition( new Finger(x, y, z) );
+				leapPanel.setPosition( new OurFinger(x, y, z) );
 				//j= p;
 			}
 			
