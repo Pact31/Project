@@ -4,6 +4,8 @@ import java.util.Observable;
 import java.awt.Color;
 import java.io.File;
 
+import affichage.gestures.*;
+
 import syntheseparole.Sound;
 
 public class DrawingAppModel extends Observable{
@@ -90,10 +92,30 @@ public class DrawingAppModel extends Observable{
 		return currentBank;
 		
 	}
-	
+ 
 	public void setCurrentSound(String msg){
-		
-		//Thread song = new Sound(msg);
-        //song.run();
+	/*	switch(msg){
+			case "SR":
+				break;
+			case "PDJ":
+				break;
+			case "BNUI":
+				break;
+			case "G":
+				break;
+			case "KVZ":
+				break;
+			case "YNG":
+				break;
+			case "ICHGNW":
+				break;
+			case "MDF":
+				break;
+			default: msg = null;
+		}
+		if(msg != null){
+			Thread song = new Sound(msg);
+        	song.run();
+		}*/
 	}
 }

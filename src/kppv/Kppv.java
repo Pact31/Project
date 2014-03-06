@@ -42,7 +42,7 @@ public class Kppv {
 		}
 
 		for (int i=k; i<this.banque.size(); i++){
-			indiceDist=d.indiceLePlusLoin();
+	//		indiceDist=d.indiceLePlusLoin();
 			dist=d.get(indiceDist);
 			if(this.getDistance(banque.getApprentissage(i),entree)<dist){
 				v.set(indiceDist,banque.getApprentissage(i));

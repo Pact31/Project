@@ -53,7 +53,7 @@ public class SampleListener extends Listener {
 			return(Liste);
 		}
 		  public static void main (String [] args){
-			  System.out.println(m_position1);
+			  //System.out.println(m_position1);
 		      
 	}
 }

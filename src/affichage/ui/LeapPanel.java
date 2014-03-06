@@ -1,12 +1,12 @@
 package affichage.ui;
 
-import affichage.ui_leapmotion.OurFinger;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
 
 import javax.swing.JPanel;
+
+import affichage.ui_leapmotion.OurFinger;
 
 
 public class LeapPanel extends JPanel{
