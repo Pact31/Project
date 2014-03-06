@@ -12,7 +12,7 @@ public interface LeapDataBaseInterface {
 	//passe en argument. L'utilisateur positionne sa main, appuie sur la
 	//touche correspondant a la clef et valide son choix en appuyant
 	//sur la touche entree.
-	public void write(String file);
+	public void write(String file) throws Exception;
 	
 	//Renvoit la table de hachage enregistree a l'adresse specifiee
 //	public Hashtable<FrameTS, Cible> read(String file);

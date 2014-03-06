@@ -1,9 +1,12 @@
 package leapmotion;
 import java.io.BufferedReader;
+import java.io.EOFException;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Hashtable;
@@ -21,7 +24,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	//////////////////////////////////////////////
 	
 	private static final long serialVersionUID = 1L;
-	Hashtable<FrameTS, Cible> table;
+	Hashtable<Cible, FrameTS> table;
 
 	
 	
@@ -31,7 +34,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	//////////////////////////////////////////////	
 	
 	public LeapDataBase(){
-		this.table = new Hashtable<FrameTS, Cible>(); 
+		this.table = new Hashtable<Cible, FrameTS>(); 
 	}
 
 	
@@ -39,28 +42,28 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	public void put( FrameTS framets,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{
 		switch(inChar){
 		case 'a' : 
-			table.put(framets, Cible.PDJ);
+			table.put(Cible.PDJ, framets);
 			break;
 		case 'z':
-			table.put(framets, Cible.KVZ);
+			table.put(Cible.KVZ, framets);
 			break;
 		case 'e':
-			table.put(framets, Cible.SR);
+			table.put(Cible.SR, framets);
 			break;
 		case 'r':
-			table.put(framets, Cible.G);
+			table.put(Cible.G, framets);
 			break;
 		case 't':
-			table.put(framets, Cible.ICHGNW);
+			table.put(Cible.ICHGNW, framets);
 			break;
 		case 'y':
-			table.put(framets, Cible.MTF);
+			table.put(Cible.MTF, framets);
 			break;
 		case 'u':
-			table.put(framets, Cible.YNG);
+			table.put(Cible.YNG, framets);
 			break;
 		case 'i':
-			table.put(framets, Cible.BNUI);
+			table.put(Cible.BNUI, framets);
 			break;
 		default: 
 			throw (new LetterException(inChar));
@@ -69,38 +72,39 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	}
 	
 	
-	public void write(String file) {
+	public void write(String file) throws Exception {
 
 		Controller controller = new Controller();
-		LeapDataBase table = new LeapDataBase() ;
 		char inChar = 0;
 		BufferedReader entree;
 		ObjectOutputStream oos = null;
 		FileOutputStream fos = null;
 		
-		try {
-			fos = new FileOutputStream(file);
-			oos = new ObjectOutputStream(fos);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
+		fos = new FileOutputStream("test.test");
+		oos = new ObjectOutputStream(fos);
 
 		
 		System.out.println("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");
-
-		while(true){
-
-			entree = new BufferedReader(new InputStreamReader(System.in));
-			try {
-				inChar = (char) entree.read();
+		
+		for(int i = 0; i < 3; i ++){
+			
+	//		try {
+				
+/*			}  catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
+			}*/ 
+
+			entree = new BufferedReader(new InputStreamReader(System.in));
+			//try {
+				inChar = (char) entree.read();
+			/*} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}*/
 
 			if(inChar == 'q'){ //quitter le programme
 				return;
@@ -108,9 +112,9 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 			FrameTS framets = new FrameTS(controller.frame());
 
-			try{
+		//	try{
 				this.put(framets, inChar); 
-			} 
+		/*	} 
 			catch (LetterException e){
 				System.out.println("La touche pressee n'est pas valide");
 				break;
@@ -122,18 +126,57 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 				e.printStackTrace();
 			}
 			finally {
-			}
+			}*/
 
-			try {
-				oos.writeObject(table);
+		//	try {
+				oos.writeObject(this.table);
 				oos.flush();
-			} catch (IOException e) {
+		/*	} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		}    
+			} finally {
+				try {*/
+				/*} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+				try {*/
+				/*} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}*/
+		//	}
+		//	}
 
-	} 
+
+	}
+				oos.close();
+
+		fos.close();
+
+
+	}
+	
+	public void read(String file) throws Exception{
+
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+
+	
+			fis = new FileInputStream("test.test");
+			ois = new ObjectInputStream(fis); 
+
+	try{
+				this.table = (Hashtable<Cible, FrameTS>) ois.readObject();
+	}catch(EOFException e){
+		
+	}
+					ois.close();
+				
+					fis.close();
+
+
+	}
 	
 
 
