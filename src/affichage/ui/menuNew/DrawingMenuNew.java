@@ -18,7 +18,6 @@ extends JFrame
 		
 		super("Drawing Application");
 		
-		
 		this.setPreferredSize(new Dimension(800,100));
 		this.setLocation(0, 200);
 		

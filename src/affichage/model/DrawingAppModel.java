@@ -16,9 +16,17 @@ public class DrawingAppModel extends Observable{
 	private 	String		currentButtonMark	=	"START";
 	private		String		currentGesture		=	"NO detection!";
 	private		File		currentBank			=	null;
-	
+	private		boolean    currentCibleOption  =   true;
 	public DrawingAppModel(){
 		
+	}
+	
+	public boolean getCurrentCibleOption(){
+		return currentCibleOption;
+	}
+	
+	public void setCurrentCibleOption(boolean i){
+		currentCibleOption = i;
 	}
 	
 	public String getCurrentMessage(){
@@ -94,9 +102,9 @@ public class DrawingAppModel extends Observable{
 	}
  
 	public void setCurrentSound(String msg){
-	/*	switch(msg){
-			case "SR":
-				break;
+		
+			/*if(msg ==" SR")
+				msg = 
 			case "PDJ":
 				break;
 			case "BNUI":
@@ -112,10 +120,11 @@ public class DrawingAppModel extends Observable{
 			case "MDF":
 				break;
 			default: msg = null;
-		}
+		}*/
+		msg =null;
 		if(msg != null){
 			Thread song = new Sound(msg);
         	song.run();
-		}*/
+		}
 	}
 }

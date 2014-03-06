@@ -5,21 +5,25 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import leapmotion.LeapDataBase;
-import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
 
-public class ButtonCible extends JButton
+public class ButtonOption extends JButton
 implements ActionListener
+
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final DrawingApp drawingApp;
-	private final String name;
-	
-	public ButtonCible(DrawingApp drawingApp, String name){
-		super(name);
-		this.name = name;
+	private boolean option = true;
+	public ButtonOption(DrawingApp drawingApp){
+		
+		super("Son");
 		this.drawingApp = drawingApp;
+		
 		addActionListener(this);
+	
 	}
 	
 	@Override
@@ -27,31 +31,21 @@ implements ActionListener
 		// TODO Auto-generated method stub
 		//drawingApp.getModel().setCurrentMessage("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");
 		//drawingApp.update(drawingApp.getModel(), null);
-		DrawingAppModel model = drawingApp.getModel();
-		if(model.getCurrentCibleOption()){
-			LeapDataBase DB = new LeapDataBase();
-			DB.write("test.txt");
-		}
-		else{
-			
-		}
-		
+		drawingApp.getModel().setCurrentCibleOption(option);
+		option = !option;
 	}
-/*	
+
 	@Override
 	protected final void paintComponent(Graphics g){		
 		
-		super.paintComponents(g);
-		
-		int w = getWidth();
-		int h = getHeight();
-		
-		
+		super.paintComponents(g);	
+		int x = this.getX();
+		int y = this.getY();
 		g.setColor(Color.white);
-		g.drawRect(2, 2, w - 5, h - 5);
-			
-		g.drawString("haha", h, w);
-		
+		if(option)
+			g.drawString("Store", x+11, y+11);
+		else
+			g.drawString("Sound", x+11, y+11);
 	}
-*/
+
 }
