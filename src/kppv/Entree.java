@@ -1,5 +1,5 @@
 package kppv;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 /*
 =======
 import leapmotion.*;

@@ -1,6 +1,7 @@
 package classification;
 
 
+
 /*Cette classe est celle des elements que nous appellerons Apprentissage de la base de donnees */
 
 public class Apprentissage extends Entree {

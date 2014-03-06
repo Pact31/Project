@@ -2,11 +2,11 @@ package classification;
 
 public class Point {
 	
-	private double x;
-	private double y;
-	private double z;
+	private int x;
+	private int y;
+	private int z;
 	
-	public Point(double x,double y,double z){
+	public Point(int x,int y,int z){
 		this.x=x;
 		this.y=y;
 		this.z=z;
@@ -14,26 +14,20 @@ public class Point {
 	
 	
 	
-	public double getX(){
+	public int getX(){
 		return x;
 	}
 	
-	public double getY(){
+	public int getY(){
 		return y;
 	}
 	
-	public double getZ(){
+	public int getZ(){
 		return z;
 	}
 
-	public double getDistance(Point point){
-		return(Math.pow(Math.pow(this.x-point.getX(),2)+Math.pow(this.y-point.getY(),2)+Math.pow(this.z-point.getZ(),2),1/2));
-	}
-
-
-
-	public static void main(String[] args) {
-		
+	public int getDistance(Point point){
+		return(((this.x-point.getX())^2+(this.y-point.getY())^2+(this.z-point.getZ())^2)^(1/2));
 	}
 	
 	
