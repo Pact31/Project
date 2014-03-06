@@ -4,6 +4,8 @@ import java.util.Observable;
 import java.awt.Color;
 import java.io.File;
 
+import syntheseparole.Sound;
+
 public class DrawingAppModel extends Observable{
 
 	private 	String		msg					= 	"NO detection!";
@@ -14,7 +16,7 @@ public class DrawingAppModel extends Observable{
 	private		File		currentBank			=	null;
 	
 	public DrawingAppModel(){
-
+		
 	}
 	
 	public String getCurrentMessage(){
@@ -87,5 +89,11 @@ public class DrawingAppModel extends Observable{
 		
 		return currentBank;
 		
+	}
+	
+	public void setCurrentSound(String msg){
+		
+		//Thread song = new Sound(msg);
+        //song.run();
 	}
 }

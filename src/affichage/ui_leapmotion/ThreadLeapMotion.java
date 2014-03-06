@@ -24,7 +24,10 @@ public class ThreadLeapMotion 	extends Thread
 	
 	@Override
 	public void run(){
-		
+	/**
+	 * http://2froblog.wordpress.com/2013/09/01/developper-sur-la-leap-motion-en-java/
+	 * @author francois
+	 */	
 		LeapPanel leapPanel = drawingApp.getWindowPanel().getLeapPanel();
 		
 		while(true){
