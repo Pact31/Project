@@ -53,6 +53,7 @@ public class GesturePanel extends JPanel{
 		gesture	=	drawingApp.getModel().getCurrentGesture();
 		showGestures(this.getGraphics(), gesture);
 	
+		//image	=	drawingApp.getModel().setCurrentGesture(file)
 	}
 	
 	

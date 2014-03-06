@@ -3,6 +3,9 @@ package affichage.ui;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 
 public class WindowPanel extends JPanel{
 	
