@@ -16,7 +16,7 @@ public class ButtonsPanel extends JPanel{
 		
 		setPreferredSize(new Dimension(32,32));	
 		add(start = new ButtonStart(drawingApp));
-	
+		
 	}
 	
 	public ButtonStart getButtonStart(){
