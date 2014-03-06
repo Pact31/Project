@@ -22,9 +22,13 @@ public class MainTest {
 		HandSpeakController handSpeakController = 	new HandSpeakController(model);
 		DrawingApp 			drawingApp 			= 	new DrawingApp(handSpeakController);
 		
-		//MyApprentissage app = new MyApprentissage();
-		
+		/*MyApprentissage app = new MyApprentissage();
+		while(true){
+			app.setBank();
+			Thread.sleep(2000);
+		}*/
 		//app.saveBank("123");
+		
 		/*
 		 * use second thread for showing the detection of Leap Motion
 		 */

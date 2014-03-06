@@ -35,6 +35,7 @@ public class HandSpeakController
 
 			msg = kppvClassification();
 			model.setCurrentMessage(msg);
+			//model.setCurrentSon(msg);
 			//model.setCurrentGesture(kppvClassification());
 			model.setCurrentGesture(msg);
 			model.setCurrentBottonMark("STOP");

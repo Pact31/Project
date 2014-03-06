@@ -9,27 +9,6 @@ public class Adaboost {
 	private ArrayList<Double> poidsList = new ArrayList<Double>();
 	
 	public Adaboost(/*ArrayList<Integer> enter*/){
-		//car = enter;
-		car.add(1);
-		car.add(1);
-		car.add(1);
-		car.add(-1);
-		car.add(-1);
-		car.add(-1);
-		car.add(1);
-		car.add(1);
-		car.add(1);
-		car.add(-1);
-		car.add(-1);
-		car.add(1);
-		car.add(1);
-		car.add(1);
-		car.add(-1);
-		car.add(-1);
-		car.add(1);
-		car.add(1);
-		car.add(1);
-		car.add(-1);
 		
 		calculClassifiers();
 	}
@@ -48,7 +27,6 @@ public class Adaboost {
 	public ArrayList<Double> getPoids(){
 		return poidsList;
 	}
-	
 	
 	private void calculClassifiers(){
 		
@@ -104,10 +82,12 @@ public class Adaboost {
 				res += classifierList.get(j).get(i)*poidsList.get(j);
 				System.out.println(res);
 			}
+			
 			if(res>0)
 				fortClassifier.add(1);
 			else
 				fortClassifier.add(-1);
+			
 			res=0;
 		}
 		
@@ -155,10 +135,8 @@ public class Adaboost {
 		double error = 0;
 		
 		for(int i=0;i<car.size();i++){
-		
 			if(car.get(i) != e.get(i))
 				error += distribution.get(i);
-		
 		}
 		
 		return error;

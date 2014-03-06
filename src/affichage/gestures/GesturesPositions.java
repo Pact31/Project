@@ -9,11 +9,14 @@ public class GesturesPositions
 	
 	public GesturesPositions() {
 		
-		allGestures.put("M", new Gestures(100, 410));
-		allGestures.put("R", new Gestures(190, 410));
-		allGestures.put("P", new Gestures(280, 410));
-		allGestures.put("B", new Gestures(370, 410));
+		allGestures.put("MTF", new Gestures(100, 410));
+		allGestures.put("SR", new Gestures(190, 410));
+		allGestures.put("PDJ", new Gestures(280, 410));
+		allGestures.put("BNUI", new Gestures(370, 410));
 		allGestures.put("G", new Gestures(100, 490));
+		allGestures.put("KVZ", new Gestures(190, 490));
+		allGestures.put("YNG", new Gestures(280, 490));
+		allGestures.put("ICHGNW", new Gestures(370, 490));
 		
 		allGestures.put("NO detection!",new Gestures(0,0,0,0));
 		
