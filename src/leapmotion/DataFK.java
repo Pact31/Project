@@ -1,31 +1,62 @@
 package leapmotion;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Hashtable;
+
+import LeapTS.FrameTS;
+
 import com.leapmotion.leap.*;
-public class DataFK {
+
+import classification.Cible;
+
+public class DataFK implements Serializable {
 	
-	public enum Key {
-	      PDJ, KVZ, SR, BNUI, MTF, ICHGNW, G, YNG; //Correspond aux différentes "consonnes" codées par les clefs.
-	}
-	
-	   Hashtable<Frame, Key> table
-	     = new Hashtable<Frame, Key>();
-	
-	   public void put( Frame frame,Integer inchar){
+		
+	   Hashtable<FrameTS, Integer> table;
+	   
+	   public DataFK(){
+	    this.table = new Hashtable<FrameTS, Integer>(); 
+	   }
+	   
+	   public void put( FrameTS framets,Integer inchar) throws Exception{
 		   switch(inchar){
-		   case 97 : table.put(frame, Key.PDJ);
-		   case 122:table.put(frame, Key.KVZ);
-		   case 101:table.put(frame, Key.SR);
-		   case 100:table.put(frame, Key.G);
-		   case 115:table.put(frame, Key.ICHGNW);
-		   case 113:table.put(frame, Key.MTF);
-		   case 102:table.put(frame, Key.YNG);
-		   case 114:table.put(frame, Key.BNUI);
+		   case 1 : 
+			   table.put(framets, 1);
+			   break;
+		  /* case 'z':
+			   table.put(framets, Cible.KVZ);
+			   break;
+		   case 'e':
+			   table.put(framets, Cible.SR);
+			   break;
+		   case 'r':
+			   table.put(framets, Cible.G);
+			   break;
+		   case 't':
+			   table.put(framets, Cible.ICHGNW);
+			   break;
+		   case 'y':
+			   table.put(framets, Cible.MTF);
+			   break;
+		   case 'u':
+			   table.put(framets, Cible.YNG);
+			   break;
+		   case 'i':
+			   table.put(framets, Cible.BNUI);
+			   break;*/
+		   default: 
+			   throw (new Exception("Caractere invalide\n"));
+			   
 		   }
-		   
-		   		   
+	   
 		  
 	   }
+	   
+	   		   
+	/*	public Cible test(){
+			return this.table.elements().nextElement();
+		}*/
+		   
 
 }

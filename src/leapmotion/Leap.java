@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package leapmotion;
 import java.io.IOException;
 import com.leapmotion.leap.*;
@@ -143,4 +143,4 @@ class SampleListener extends Listener {
 	}
 		
 	}*/
->>>>>>> origin/Kppv
+

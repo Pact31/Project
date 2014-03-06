@@ -1,12 +1,14 @@
 package classification;
 
+import java.io.Serializable;
+
 /**************************************
  *                                    *
  *       Vecteur a trois dimensions   *       
  *                                    *
  **************************************/
 
-public class Vertex {
+public class Vertex implements Serializable {
 	
 	private double x;
 	private double y;
