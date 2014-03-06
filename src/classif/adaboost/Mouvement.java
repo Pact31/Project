@@ -31,21 +31,21 @@ public class Mouvement {
 		double length5 = Math.sqrt(Math.pow(X5, 2)+Math.pow(Y5, 2)+Math.pow(Z5, 2));
 		
 		
-		this.car[0]=e.getD1().getX()/length1;
-		this.car[1]=e.getD1().getY()/length1;
-		this.car[2]=e.getD1().getZ()/length1;
-		this.car[3]=e.getD2().getX()/length2;
-		this.car[4]=e.getD2().getY()/length2;
-		this.car[5]=e.getD2().getZ()/length2;
-		this.car[6]=e.getD3().getX()/length3;
-		this.car[7]=e.getD3().getY()/length3;
-		this.car[8]=e.getD3().getZ()/length3;
-		this.car[9]=e.getD4().getX()/length4;
-		this.car[10]=e.getD4().getY()/length4;
-		this.car[11]=e.getD4().getZ()/length4;
-		this.car[12]=e.getD5().getX()/length5;
-		this.car[13]=e.getD5().getY()/length5;
-		this.car[14]=e.getD5().getZ()/length5;
+		this.car[0]=X1/length1;
+		this.car[1]=Y1/length1;
+		this.car[2]=Z1/length1;
+		this.car[3]=X2/length2;
+		this.car[4]=Y2/length2;
+		this.car[5]=Z2/length2;
+		this.car[6]=X3/length3;
+		this.car[7]=Y3/length3;
+		this.car[8]=Z3/length3;
+		this.car[9]=X4/length4;
+		this.car[10]=Y4/length4;
+		this.car[11]=Z4/length4;
+		this.car[12]=X5/length5;
+		this.car[13]=Y5/length5;
+		this.car[14]=Z5/length5;
 		this.car[15]=e.getM().getX();
 		this.car[16]=e.getM().getY();
 		this.car[17]=e.getM().getZ();

@@ -164,4 +164,35 @@ public class Adaboost {
 		this.corectors = new double[this.numOfClasses][T];
 		this.learn(T);
 	}
+	public String predictSound(Entree e){
+		int k = this.predict(e);
+		if(k==0){
+			return "data/di.wav";
+		}
+		else if(k==1){
+			return "data/zeu(renaitre).wav";
+		}
+		else if(k==2){
+			return "data/so(sol).wav";
+		}
+		else if(k==3){
+			return "data/bi.wav";
+		}
+		else if(k==4){
+			return "data/teu.wav";
+		}
+		else if(k==5){
+			return "data/cha(court).wav";
+		}
+		else if(k==6){
+			return "data/geu(renaitre).wav";
+		}
+		else if(k==7){
+			return "data/ping.wav";
+		}
+		else{
+			return "";
+		}
+	}
+	
 }
