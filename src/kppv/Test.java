@@ -1,63 +1,71 @@
 package kppv;
 
-import LeapTS.Vertex;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import com.leapmotion.leap.Controller;
+import com.leapmotion.leap.Frame;
+
+import leapmotion.LeapDataBase;
+import LeapTS.FrameTS;
+import LeapTS.VectorTS;
 import classification.Apprentissage;
 import classification.BanqueApprentissage;
 import classification.Cible;
 import classification.Entree;
-import classification.Point;
 
 public class Test {
 
-		public static void main(String[] args) {
+		public static void main(String[] args) throws Exception {
 
-		BanqueApprentissage banque = new BanqueApprentissage();
+		LeapDataBase leapDataBase = new LeapDataBase();
+		leapDataBase.read("test.test");
 		
-		Point  p0  = new Point  (0,0,0);
+		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
-		Vertex d0  = new Vertex (0,0,0);
-		Vertex d111 = new Vertex (10,10,10);
-		Vertex d121 = new Vertex (9,10,11);
-		Vertex d131 = new Vertex (10,11,10);
-		Vertex d141 = new Vertex (11,9,10);
-		Vertex d211 = new Vertex (8,10,11);
-		Vertex d221 = new Vertex (9,10,10);
-		Vertex d231 = new Vertex (10,10,10);
-		Vertex d241 = new Vertex (11,10,9);
-		Vertex d311 = new Vertex (11,10,10);
-		Vertex d321 = new Vertex (10,10,10);
-		Vertex d331 = new Vertex (11,9,10);
-		Vertex d341 = new Vertex (10,10,11);
-		Vertex d112 = new Vertex (20,20,20);
-		Vertex d122 = new Vertex (21,22,19);
-		Vertex d132 = new Vertex (20,19,21);
-		Vertex d142 = new Vertex (21,21,21);
-		Vertex d212 = new Vertex (19,19,19);
-		Vertex d222 = new Vertex (20,20,20);
-		Vertex d232 = new Vertex (19,20,19);
-		Vertex d242 = new Vertex (19,20,21);
-		Vertex d312 = new Vertex (19,19,21);
-		Vertex d322 = new Vertex (19,20,21);
-		Vertex d332 = new Vertex (21,21,19);
-		Vertex d342 = new Vertex (19,21,21);
-		Vertex d113 = new Vertex (30,31,30);
-		Vertex d123 = new Vertex (30,30,30);
-		Vertex d133 = new Vertex (30,30,31);
-		Vertex d143 = new Vertex (30,31,31);
-		Vertex d213 = new Vertex (32,31,30);
-		Vertex d223 = new Vertex (29,29,29);
-		Vertex d233 = new Vertex (30,30,30);
-		Vertex d243 = new Vertex (31,31,31);
-		Vertex d313 = new Vertex (30,32,29);
-		Vertex d323 = new Vertex (29,29,29);
-		Vertex d333 = new Vertex (30,30,30);
-		Vertex d343 = new Vertex (29,30,30);
+		VectorTS  p0  = new VectorTS  (0,0,0);
 		
-		/*Cible c1 = new Cible("la");
-		Cible c2 = new Cible("mai");
-		Cible c3 = new Cible("son");*/
-
+		VectorTS d0  = new VectorTS (0,0,0);
+		VectorTS d111 = new VectorTS (10,10,10);
+		VectorTS d121 = new VectorTS (9,10,11);
+		VectorTS d131 = new VectorTS (10,11,10);
+		VectorTS d141 = new VectorTS (11,9,10);
+		VectorTS d211 = new VectorTS (8,10,11);
+		VectorTS d221 = new VectorTS (9,10,10);
+		VectorTS d231 = new VectorTS (10,10,10);
+		VectorTS d241 = new VectorTS (11,10,9);
+		VectorTS d311 = new VectorTS (11,10,10);
+		VectorTS d321 = new VectorTS (10,10,10);
+		VectorTS d331 = new VectorTS (11,9,10);
+		VectorTS d341 = new VectorTS (10,10,11);
+		VectorTS d112 = new VectorTS (20,20,20);
+		VectorTS d122 = new VectorTS (21,22,19);
+		VectorTS d132 = new VectorTS (20,19,21);
+		VectorTS d142 = new VectorTS (21,21,21);
+		VectorTS d212 = new VectorTS (19,19,19);
+		VectorTS d222 = new VectorTS (20,20,20);
+		VectorTS d232 = new VectorTS (19,20,19);
+		VectorTS d242 = new VectorTS (19,20,21);
+		VectorTS d312 = new VectorTS (19,19,21);
+		VectorTS d322 = new VectorTS (19,20,21);
+		VectorTS d332 = new VectorTS (21,21,19);
+		VectorTS d342 = new VectorTS (19,21,21);
+		VectorTS d113 = new VectorTS (30,31,30);
+		VectorTS d123 = new VectorTS (30,30,30);
+		VectorTS d133 = new VectorTS (30,30,31);
+		VectorTS d143 = new VectorTS (30,31,31);
+		VectorTS d213 = new VectorTS (32,31,30);
+		VectorTS d223 = new VectorTS (29,29,29);
+		VectorTS d233 = new VectorTS (30,30,30);
+		VectorTS d243 = new VectorTS (31,31,31);
+		VectorTS d313 = new VectorTS (30,32,29);
+		VectorTS d323 = new VectorTS (29,29,29);
+		VectorTS d333 = new VectorTS (30,30,30);
+		VectorTS d343 = new VectorTS (29,30,30);
 		
+			
 
 		Apprentissage a11 =  new Apprentissage( d111,d211,d311,d0,d0,p0,Cible.values()[1]);
 		Apprentissage a12 =  new Apprentissage( d121,d221,d321,d0,d0,p0,Cible.values()[1]);
@@ -86,6 +94,18 @@ public class Test {
 		banque.addApprentissage(a34);
 		
 		Entree entree = new Entree(d143,d243,d343,d0,d0,p0);
+		
+		
+	/*	Controller controller = new Controller();
+		
+		System.out.println("Appuer sur une touche pour valider");
+		
+		BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
+		char inChar = (char) buf.read();
+			
+		Frame frame = controller.frame();
+		FrameTS framets = new FrameTS(frame);
+		Entree entree = new Entree(framets.getFingerList(), framets.getHandList());*/
 		
 		Kppv classificateur = new Kppv(banque,3);
 		System.out.println(classificateur.kppv(entree));

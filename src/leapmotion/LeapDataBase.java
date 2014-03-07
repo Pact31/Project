@@ -93,7 +93,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 		while(true){//on gere la sortie de la boucle par le clavier
 
-			fos = new FileOutputStream("test.test"); //on reeouvre un fichier a chaque tour de boucle pour enregistrer le fichier a chaque tour de boucle
+			fos = new FileOutputStream(file); //on reeouvre un fichier a chaque tour de boucle pour enregistrer le fichier a chaque tour de boucle
 			oos = new ObjectOutputStream(fos);
 
 
@@ -102,6 +102,10 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 
 			if(inChar == 'q'){ //quitter le programme
+				oos.writeObject(this.table);
+				oos.flush();
+				oos.close();
+				fos.close();
 				return;
 			}
 
@@ -124,6 +128,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 		}
 
 
+
 	}
 
 	public void read(String file) throws Exception{
@@ -132,7 +137,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 		ObjectInputStream ois = null;
 
 	
-			fis = new FileInputStream("test.test");
+			fis = new FileInputStream(file);
 			ois = new ObjectInputStream(fis); 
 
 	try{

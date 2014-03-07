@@ -11,8 +11,8 @@ public class main {
 	public static void main(String[] args) throws Exception {
 		LeapDataBase DB = new LeapDataBase();
 		
-		//DB.read("test.txt");
-		DB.write("test.txt");
+	//	DB.write("test.test");
+		DB.read("test.test");
 		for (Cible cible : DB.table.keySet()){
 		System.out.println(cible);
 		}
@@ -24,12 +24,7 @@ public class main {
 			System.out.println(apprentissage.getCible());
 		}
 		
-/*		test a = new test();
-		a.u.put(3,"hello");
-		a.u.put(4, "coucou");
-		a.read();
-		//System.out.println(a.u);
-*/
+
 	}
 
 }
