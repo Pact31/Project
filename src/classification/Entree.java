@@ -12,7 +12,11 @@ import LeapTS.VectorTS;
 /***************************************************************************
  *                                                                         *
  *                                                                         *
- * Represente une main par la position de son centre et de ses cinq doigts *
+ * Represente une main par : - la position du centre de la main            *
+ * 						     - la position du bout de chaque doigt         *
+ *                               par rapport au centre de la main          *
+ *                                                                         *
+ *       CONSTRUCTEUR : A partir d'une FrameTS                             *
  *                                                                         *
  *                                                                         *
  ***************************************************************************/
@@ -20,34 +24,29 @@ import LeapTS.VectorTS;
 
 public class Entree {
 
+	/********************Attributs**************************/
 	
-	private VectorTS d1;
-	private VectorTS d2;
-	private VectorTS d3;
-	private VectorTS d4;
-	private VectorTS d5;
-	private VectorTS m;
-	
+	private VectorTS d1;//doigt 1
+	private VectorTS d2;//doigt 2
+	private VectorTS d3;//doigt 3
+	private VectorTS d4;//doigt 4
+	private VectorTS d5;//doigt 5
+	private VectorTS m;//main
 
-	public Entree(VectorTS d1, VectorTS d2, VectorTS d3, VectorTS d4, VectorTS d5, VectorTS m){
 
-		this.d1=d1;
-		this.d2=d2;
-		this.d3=d3;
-		this.d4=d4;
-		this.d5=d5;
-		this.m=m;
-		
 
-	}
-	
-	
+	/**********************Contructeurs************************/
+
 	public Entree(FrameTS frameTS){
-		
+
 		this.m = frameTS.getHandList().get(0).getPalmPosition();
 
 		int fingerLength = frameTS.getFingerList().size();
 
+		//On regarde le nombre de doigts presents dans la FrameTS et on les ajoute de la maniere suivante :
+		//    - on prend les cinq premiers doigts. A priori il ne devrait pas en avoir plus de cinq. Mais il peut en avoir moins.
+		//    - s'il n'y en a pas cinq, on complete par des vecteurs nuls.
+		//    - on prend la premiere main. A priori il ne devrait pas en avoir plus d'une.
 		if(fingerLength >= 1){
 			this.d1 = frameTS.getFingerList().get(0).getTipPosition().minus(this.m);
 		} 
@@ -79,30 +78,52 @@ public class Entree {
 		else {
 			this.d5 = new VectorTS(0,0,0);
 		}
-		
+
 	}
 
 
+	
+	/***********************Getters*****************************/
 	public VectorTS getD1() {
 		return d1;
 	}
-
+	
 	public VectorTS getD2() {
 		return d2;
 	}
+	
 	public VectorTS getD3() {
 		return d3;
 	}
+
 	public VectorTS getD4() {
 		return d4;
 	}
+
 	public VectorTS getD5() {
 		return d5;
 	}
+
 	public VectorTS getM(){
 		return m;
 	}
 
+
+
+
+	/**********************Fonctions diverses************************/
 	
+	//Donne la distance d'un element a la base d'appentissage
+	public double getDistance(Entree entree){
+	
+		return (getD1().getDistance(entree.getD1())
+				+getD2().getDistance(entree.getD2())
+				+getD3().getDistance(entree.getD3())
+				+getD4().getDistance(entree.getD4())
+				+getD5().getDistance(entree.getD5())
+				/*+entree.getM().getDistance(element.getM())*/); //On ne prend pas en compte la position du centre de la main
+																 //dans le prototype allege
+	
+	}
 
 }
