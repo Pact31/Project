@@ -1,12 +1,6 @@
 package kppv;
 import java.util.ArrayList;
 
-/***********************************************************
- * cette classe est un tableau de distance qui permet      *
- * de stocker les distances de l'entree aux differents     *
- * objets de la base de donnees                            *
- * *********************************************************/
-
 /*cette classe est un tableau de distance qui permet 
  * de stocker les distances de l'entrée aux différents 
  * objets de la base de données*/
@@ -16,7 +10,7 @@ public class Distances {
 	private ArrayList<Double> distances;  
 
 	public Distances(){
-		this.distances= new ArrayList<Double> ();
+		this.distances= new ArrayList<Double>();
 	}
 
 	/*ajout d'une distance au tableau*/
@@ -25,8 +19,8 @@ public class Distances {
 	}
 
 	/*renvoie l'élément à l'indice n*/
-	public int get(int n){
-		return this.get(n);
+	public double get(int n){
+		return this.distances.get(n);
 	}
 
 	/*renvoie la taille du tableau*/
@@ -36,11 +30,11 @@ public class Distances {
 
 	/*modifie un élément du tableau*/
 	public void set(int index,double nouveau){
-		this.set(index,nouveau);
+		this.distances.set(index,nouveau);
 	}
 	
 	/*renvoie l'indice de la distance la plus petite*/
-	public int indiceLePlusPres(){
+	public int indiceLePlusLoin(){
 
 		int pivot=0;
 		double p=this.get(pivot);
@@ -55,4 +49,3 @@ public class Distances {
 	}
 
 }
-

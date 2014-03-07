@@ -17,11 +17,17 @@ import com.leapmotion.leap.*;
 public class FrameTS implements Serializable{
 	
 	
+	/**************Attributs**************************/
 
 	private static final long serialVersionUID = 1L;
 	private ArrayList<FingerTS> fingerList;
 	private ArrayList<HandTS> handList;
 	
+
+	
+	
+	/**********************Consctructeur******************/
+
 	public FrameTS(Frame frame){
 		
 		fingerList = new ArrayList<FingerTS>();
@@ -37,6 +43,9 @@ public class FrameTS implements Serializable{
 
 	}
 
+	
+	/********************************Getters*********************************/
+	
 	public ArrayList<FingerTS> getFingerList() {
 		return fingerList;
 	}

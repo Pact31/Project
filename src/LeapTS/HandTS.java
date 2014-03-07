@@ -13,6 +13,7 @@ import com.leapmotion.leap.Hand;
 
 public class HandTS implements Serializable {
 	
+	/**************Attributs**************************/
 
 	private static final long serialVersionUID = 1L;
 	private int id;
@@ -22,6 +23,9 @@ public class HandTS implements Serializable {
 	private VectorTS sphereCenter;
 	private float sphereRadius;
 	
+	
+	/**********************Consctructeur******************/
+
 	public HandTS(Hand hand){
 		
 		this.id = hand.id();
@@ -32,6 +36,9 @@ public class HandTS implements Serializable {
 		this.sphereRadius = hand.sphereRadius();
 	}
 
+	
+	/*****************************************Getters*****************************/
+	
 	public int getId() {
 		return id;
 	}

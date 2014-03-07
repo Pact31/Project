@@ -2,83 +2,83 @@ package leapmotion;
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.ArrayList;
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
-import LeapTS.FrameTS;
+import LeapTS.LeapData;
 import classification.Cible;
 
+
+/*************************************************************************************************
+ *                                                                                               *
+ * Cette classe permet de creer une base de donnees                                              *
+ * d'information relatives a la LeapMotion                                                       *
+ *                                                                                               *
+ * Elle contient une ArrayList de LeapData                                                       *
+ * On peut  : - creer cette base de donnee via interaction avec le clavier                       *
+ *            - sauvegarder la base dans un fichier                                              *
+ *            - importer la base depuis un fichier                                               *
+ *                                                                                               *
+ *************************************************************************************************/
 public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	
-	//////////////////////////////////////////////
-	//         Declaration des variables        //
-	//////////////////////////////////////////////
+	/***********************Attributs***************************/
 	
 	private static final long serialVersionUID = 1L;
-	Hashtable<Cible, FrameTS> table;
+	public ArrayList<LeapData> table;
 
 	
 	
 	
-	//////////////////////////////////////////////
-	//                Constructeur              //
-	//////////////////////////////////////////////	
+	/***********************Consctruceurs************************/	
 	
 	public LeapDataBase(){
-		this.table = new Hashtable<Cible, FrameTS>(); 
+		this.table = new ArrayList<LeapData>(); 
 	}
 
 	
-	public Set<Map.Entry<Cible, FrameTS>> getMapEntry(){
-		return table.entrySet();
-	}
-	
-		
-	public void put( FrameTS framets,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{
+    /*************************Fonctions diverses***********************/
+	//Associe une frame avec une cible et la met dans la base en fonction d'un char tappe au clavier
+	public void put( Frame frame,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{
 		switch(inChar){
 		case 'a' : 
-			table.put(Cible.PDJ, framets);
+			this.table.add(new LeapData(frame, Cible.PDJ));
 			break;
 		case 'z':
-			table.put(Cible.KVZ, framets);
+			this.table.add(new LeapData(frame, Cible.KVZ));
 			break;
 		case 'e':
-			table.put(Cible.SR, framets);
+			this.table.add(new LeapData(frame, Cible.SR));
 			break;
 		case 'r':
-			table.put(Cible.G, framets);
+			this.table.add(new LeapData(frame, Cible.G));
 			break;
 		case 't':
-			table.put(Cible.ICHGNW, framets);
+			this.table.add(new LeapData(frame, Cible.ICHGNW));
 			break;
-		case 'y':
-			table.put(Cible.MTF, framets);
+		case 'y': 			
+			this.table.add(new LeapData(frame, Cible.MTF));
 			break;
-		case 'u':
-			table.put(Cible.YNG, framets);
+		case 'u': 
+			this.table.add(new LeapData(frame, Cible.YNG));
 			break;
 		case 'i':
-			table.put(Cible.BNUI, framets);
+			this.table.add(new LeapData(frame, Cible.BNUI));
 			break;
 		default: 
 			throw (new LetterException(inChar));
-
+			
 		}
 	}
 	
 	
+	//Enregistre la base dans un fichier
 	public void write(String file) throws Exception {
 
 		Controller controller = new Controller();
@@ -86,105 +86,76 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 		BufferedReader entree;
 		ObjectOutputStream oos = null;
 		FileOutputStream fos = null;
-		
-		fos = new FileOutputStream("test.test");
-		oos = new ObjectOutputStream(fos);
 
-		
+
 		System.out.println("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");
-		
-		for(int i = 0; i < 3; i ++){
-			
-	//		try {
-				
-/*			}  catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}*/ 
 
-			entree = new BufferedReader(new InputStreamReader(System.in));
-			//try {
-				inChar = (char) entree.read();
-			/*} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}*/
+
+		while(true){//on gere la sortie de la boucle par le clavier
+
+			fos = new FileOutputStream(file); //on reeouvre un fichier a chaque tour de boucle pour enregistrer le fichier a chaque tour de boucle
+			oos = new ObjectOutputStream(fos);
+
+
+			entree = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
+			inChar = (char) entree.read();
+
 
 			if(inChar == 'q'){ //quitter le programme
+				oos.writeObject(this.table);
+				oos.flush();
+				oos.close();
+				fos.close();
 				return;
 			}
 
-			FrameTS framets = new FrameTS(controller.frame());
+			Frame frame = controller.frame();//capute de l'image leapmotion
+			
+			if(frame.hands().count() > 0 && frame.fingers().count() > 0){//on verifie que l'image n'est pas vide et qu'il y a bien une main
+				try{
+				this.put(frame, inChar); 
+				} catch (LetterException e){
+					System.out.println("Caractere non valide");
+				} finally {}
+			}
+			else {
+				System.out.println("L'image capturee n'est pas valide. Elle n'est pas enregistreee.");
+			}
+						
+			
+			oos.writeObject(this.table);
+			oos.flush();
+			oos.close();
+			fos.close();
 
-		//	try{
-				this.put(framets, inChar); 
-		/*	} 
-			catch (LetterException e){
-				System.out.println("La touche pressee n'est pas valide");
-				break;
-			}
-			catch (IllegalArgumentException e){
-				e.printStackTrace();
-			}
-			catch (NullPointerException e){
-				e.printStackTrace();
-			}
-			finally {
-			}*/
+		}
 
-		//	try {
-				oos.writeObject(this.table);
-				oos.flush();
-		/*	} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				try {*/
-				/*} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} finally {
-				try {*/
-				/*} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
-		//	}
-		//	}
 
 
 	}
-				oos.close();
 
-		fos.close();
-
-
-	}
 	
+	//Importation d'une base depuis un fichier
 	public void read(String file) throws Exception{
 
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
 
-	
-			fis = new FileInputStream("test.test");
-			ois = new ObjectInputStream(fis); 
 
-	try{
-				this.table = (Hashtable<Cible, FrameTS>) ois.readObject();
-	}catch(EOFException e){
-		
+		fis = new FileInputStream(file);
+		ois = new ObjectInputStream(fis); 
+
+		try{
+			this.table = (ArrayList<LeapData>) ois.readObject();
+		}catch(EOFException e){
+
+		}
+		ois.close();
+		fis.close();
 	}
-					ois.close();
-				
-					fis.close();
 
 
-	}
-	
+
 
 
 }

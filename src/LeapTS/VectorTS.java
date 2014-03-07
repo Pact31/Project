@@ -12,13 +12,15 @@ import com.leapmotion.leap.Vector;
 
 public class VectorTS implements Serializable {
 	
-
+	/**************Attributs**************************/
+	
 	private static final long serialVersionUID = 1L;
 	private float x;
 	private float y;
 	private float z;
 	
-	
+	/**********************Consctructeur******************/
+
 	public VectorTS(Vector vector){
 		this.x=vector.get(0);
 		this.y=vector.get(1);
@@ -32,6 +34,9 @@ public class VectorTS implements Serializable {
 	}
 
 	
+	
+	/***************************Getters**********************/
+	
 	public float getX(){
 		return x;
 	}
@@ -43,6 +48,9 @@ public class VectorTS implements Serializable {
 	public float getZ(){
 		return z;
 	}
+	
+	
+	/****************************Fonctions diverses****************************************/
 	
 	public double getDistance(VectorTS vertex){
 		return(Math.pow(Math.pow(this.x-vertex.getX(),2)+Math.pow(this.y-vertex.getY(),2)+Math.pow(this.z-vertex.getZ(),2),0.5));

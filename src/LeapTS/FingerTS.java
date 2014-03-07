@@ -14,7 +14,8 @@ import com.leapmotion.leap.Finger;
 
 public class FingerTS implements Serializable{
 	
-
+	/**************Attributs**************************/
+	
 	private static final long serialVersionUID = 1L;
 	private VectorTS direction;
 	private int id;
@@ -23,6 +24,10 @@ public class FingerTS implements Serializable{
 	private VectorTS tipVelocity;
 	private float touchDistance;
 	private float width;
+	
+	
+	
+	/**********************Consctructeur******************/
 	
 	public FingerTS(Finger finger){
 		this.direction = new VectorTS(finger.direction());
@@ -34,6 +39,10 @@ public class FingerTS implements Serializable{
 		this.width = finger.width();
 	}
 
+	
+	
+	/*****************Getters**************************************/
+	
 	public VectorTS getDirection() {
 		return direction;
 	}
