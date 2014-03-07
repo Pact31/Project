@@ -1,11 +1,9 @@
 package classif.kppv;
 import java.util.ArrayList;
 
-/***********************************************************
- * cette classe est un tableau de distance qui permet      *
- * de stocker les distances de l'entree aux differents     *
- * objets de la base de donnees                            *
- * *********************************************************/
+/*cette classe est un tableau de distance qui permet 
+ * de stocker les distances de l'entrée aux différents 
+ * objets de la base de données*/
 
 public class Distances {
 
@@ -51,4 +49,3 @@ public class Distances {
 	}
 
 }
-

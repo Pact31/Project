@@ -2,10 +2,12 @@ package classif.adaboost;
 
 import java.util.ArrayList;
 
+import classif.ClassifierInterface;
 import classif.classification.BanqueApprentissage;
+import classif.classification.Cible;
 import classif.classification.Entree;
 
-public class Adaboost {
+public class Adaboost implements ClassifierInterface {
 	private int numOfCarac;
 	private int numOfClasses;
 	private ArrayList<ArrayList<Weak>> strongClassif;
@@ -117,7 +119,7 @@ public class Adaboost {
 		}
 	}
 	
-	public int predict(Entree e){
+	public int predictClassOf(Entree e){
 		Mouvement mov = new Mouvement(e);
 		double[] reply = new double[this.strongClassif.size()];
 		for(int j = 0; j<this.strongClassif.size(); j++){
@@ -164,35 +166,36 @@ public class Adaboost {
 		this.corectors = new double[this.numOfClasses][T];
 		this.learn(T);
 	}
-	public String predictSound(Entree e){
-		int k = this.predict(e);
+	public Cible predict(Entree e) throws Exception{
+		int k = this.predictClassOf(e);
 		if(k==0){
-			return "data/di.wav";
+			return Cible.PDJ;
 		}
 		else if(k==1){
-			return "data/zeu(renaitre).wav";
+			return Cible.KVZ;
 		}
 		else if(k==2){
-			return "data/so(sol).wav";
+			return Cible.SR;
 		}
 		else if(k==3){
-			return "data/bi.wav";
+			return Cible.BNUI;
 		}
 		else if(k==4){
-			return "data/teu.wav";
+			return Cible.MTF;
 		}
 		else if(k==5){
-			return "data/cha(court).wav";
+			return Cible.ICHGNW;
 		}
 		else if(k==6){
-			return "data/geu(renaitre).wav";
+			return Cible.G;
 		}
 		else if(k==7){
-			return "data/ping.wav";
+			return Cible.YNG;
 		}
 		else{
-			return "";
+			throw new Exception();
 		}
+
 	}
 	
 }

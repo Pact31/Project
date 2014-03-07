@@ -1,5 +1,13 @@
 package classif.classification;
 
+import java.util.ArrayList;
+
+import LeapTS.FingerTS;
+import LeapTS.FrameTS;
+import LeapTS.HandTS;
+import LeapTS.VectorTS;
+
+
 
 /***************************************************************************
  *                                                                         *
@@ -13,15 +21,15 @@ package classif.classification;
 public class Entree {
 
 	
-	private Vertex d1;
-	private Vertex d2;
-	private Vertex d3;
-	private Vertex d4;
-	private Vertex d5;
-	private Point m;
+	private VectorTS d1;
+	private VectorTS d2;
+	private VectorTS d3;
+	private VectorTS d4;
+	private VectorTS d5;
+	private VectorTS m;
 	
 
-	public Entree(Vertex d1, Vertex d2, Vertex d3, Vertex d4, Vertex d5, Point m){
+	public Entree(VectorTS d1, VectorTS d2, VectorTS d3, VectorTS d4, VectorTS d5, VectorTS m){
 
 		this.d1=d1;
 		this.d2=d2;
@@ -32,25 +40,66 @@ public class Entree {
 		
 
 	}
+	
+	
+	public Entree(FrameTS frameTS){
+		
+		this.m = frameTS.getHandList().get(0).getPalmPosition();
+
+		int fingerLength = frameTS.getFingerList().size();
+
+		if(fingerLength >= 1){
+			this.d1 = frameTS.getFingerList().get(0).getTipPosition().minus(this.m);
+		} 
+		else {
+			this.d1 = new VectorTS(0,0,0);
+		}
+
+		if(fingerLength >= 2){
+			this.d2 = frameTS.getFingerList().get(1).getTipPosition().minus(this.m);
+		} 
+		else {
+			this.d2 = new VectorTS(0,0,0);
+		}
+		if(fingerLength >= 3){
+			this.d3 = frameTS.getFingerList().get(2).getTipPosition().minus(this.m);
+		} 
+		else {
+			this.d3 = new VectorTS(0,0,0);
+		}
+		if(fingerLength >= 4){
+			this.d4 = frameTS.getFingerList().get(3).getTipPosition().minus(this.m);
+		} 
+		else {
+			this.d4 = new VectorTS(0,0,0);
+		}
+		if(fingerLength >= 5){
+			this.d5 = frameTS.getFingerList().get(4).getTipPosition().minus(this.m);
+		} 
+		else {
+			this.d5 = new VectorTS(0,0,0);
+		}
+		
+	}
 
 
-	public Vertex getD1() {
+	public VectorTS getD1() {
 		return d1;
 	}
 
-	public Vertex getD2() {
+	public VectorTS getD2() {
 		return d2;
 	}
-	public Vertex getD3() {
+	public VectorTS getD3() {
 		return d3;
 	}
-	public Vertex getD4() {
+	public VectorTS getD4() {
 		return d4;
 	}
-	public Vertex getD5() {
+	public VectorTS getD5() {
 		return d5;
 	}
-	public Point getM(){
+	public VectorTS getM(){
 		return m;
 	}
 

@@ -1,7 +1,8 @@
 package classif;
 
+import classif.classification.Cible;
 import classif.classification.Entree;
 
 public interface ClassifierInterface {
-	String predict(Entree e);
+	Cible predict(Entree e) throws Exception;
 }

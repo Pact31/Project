@@ -21,10 +21,10 @@ public class Kppv {
 
 		return (entree.getD1().getDistance(element.getD1())
 				+entree.getD2().getDistance(element.getD2())
-				+entree.getD3().getDistance(element.getD3())
+				/*+entree.getD3().getDistance(element.getD3())
 				+entree.getD4().getDistance(element.getD4())
 				+entree.getD5().getDistance(element.getD5())
-				+entree.getM().getDistance(element.getM()));
+				+entree.getM().getDistance(element.getM())*/);
 
 	}
 

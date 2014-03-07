@@ -1,3 +1,4 @@
+import leapmotion.LeapDataBase;
 import classif.adaboost.Adaboost;
 import classif.classification.BanqueApprentissage;
 import classif.kppv.Kppv;
@@ -11,35 +12,40 @@ public class Main {
 
 	/**
 	 * @param args
+	 * @throws Exception 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		
 
 		if(args.length!=3){
-			System.out.print("utilisation : filename, T, numsteps, K");
+			System.out.print("utilisation : classifier num, T, K");//classifier num = 1 lance adaboost, le reste lance kppv
 		}
 		
-		String j = args[0];
+		int classifierNum = Integer.valueOf(args[0]).intValue();
 		
 		int T = Integer.valueOf(args[1]).intValue();
 		
-		float seuilMax = 50;
+		int k = Integer.valueOf(args[2]).intValue();
 		
-		int numSteps = Integer.valueOf(args[2]).intValue();
+		LeapDataBase leapDataBase = new LeapDataBase();
 		
-		int k = Integer.valueOf(args[3]).intValue();
+		leapDataBase.read("test.test");
 		
-		Adaboost a=new Adaboost(j, T, seuilMax, numSteps);
+		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
-		System.out.print("AdaBoost initialisé");
+		if(classifierNum == 1){
+			Adaboost a=new Adaboost(banque, T);
+			System.out.print("AdaBoost initialisé");
+			
+		}
 		
-		BanqueApprentissage banque = new BanqueApprentissage();
-		
-		Kppv kppv = new Kppv(banque, k);
-		
-		System.out.print("Kppv initialisé");
-		
+		else{
+			Kppv a = new Kppv(banque, k);
+			System.out.print("Kppv initialisé");
+			
+		}
+
 		DrawingAppModel		model				=	new	DrawingAppModel();
 		HandSpeakController handSpeakController = 	new HandSpeakController(model);
 		DrawingApp 			drawingApp 			= 	new DrawingApp(handSpeakController);
