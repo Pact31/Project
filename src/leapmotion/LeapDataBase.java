@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -18,6 +19,7 @@ import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
 import LeapTS.FrameTS;
+import LeapTS.LeapData;
 import classification.Cible;
 
 public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
@@ -27,7 +29,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	//////////////////////////////////////////////
 	
 	private static final long serialVersionUID = 1L;
-	Hashtable<Cible, FrameTS> table;
+	public ArrayList<LeapData> table;
 
 	
 	
@@ -37,44 +39,44 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	//////////////////////////////////////////////	
 	
 	public LeapDataBase(){
-		this.table = new Hashtable<Cible, FrameTS>(); 
+		this.table = new ArrayList<LeapData>(); 
 	}
 
 	
-	public Set<Map.Entry<Cible, FrameTS>> getMapEntry(){
+	/*public Set<Map.Entry<Cible, FrameTS>> getMapEntry(){
 		return table.entrySet();
-	}
+	}*/
 	
 		
-	public void put( FrameTS framets,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{
+	public void put( Frame frame,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{
 		switch(inChar){
 		case 'a' : 
-			table.put(Cible.PDJ, framets);
+			this.table.add(new LeapData(frame, Cible.PDJ));
 			break;
 		case 'z':
-			table.put(Cible.KVZ, framets);
+			this.table.add(new LeapData(frame, Cible.KVZ));
 			break;
 		case 'e':
-			table.put(Cible.SR, framets);
+			this.table.add(new LeapData(frame, Cible.SR));
 			break;
 		case 'r':
-			table.put(Cible.G, framets);
+			this.table.add(new LeapData(frame, Cible.G));
 			break;
 		case 't':
-			table.put(Cible.ICHGNW, framets);
+			this.table.add(new LeapData(frame, Cible.ICHGNW));
 			break;
-		case 'y':
-			table.put(Cible.MTF, framets);
+		case 'y': 			
+			this.table.add(new LeapData(frame, Cible.MTF));
 			break;
-		case 'u':
-			table.put(Cible.YNG, framets);
+		case 'u': 
+			this.table.add(new LeapData(frame, Cible.YNG));
 			break;
 		case 'i':
-			table.put(Cible.BNUI, framets);
+			this.table.add(new LeapData(frame, Cible.BNUI));
 			break;
 		default: 
 			throw (new LetterException(inChar));
-
+			
 		}
 	}
 	
@@ -112,8 +114,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			Frame frame = controller.frame();//capute de l'image leapmotion
 			
 			if(frame.hands().count() > 0 && frame.fingers().count() > 0){//on verifie que l'image n'est pas vide et qu'il y a bien une main
-				FrameTS framets = new FrameTS(frame);
-				this.put(framets, inChar); 
+				this.put(frame, inChar); 
 			}
 			else {
 				System.out.println("L'image capturee n'est pas valide. Elle n'est pas enregistreee.");
@@ -141,7 +142,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			ois = new ObjectInputStream(fis); 
 
 	try{
-				this.table = (Hashtable<Cible, FrameTS>) ois.readObject();
+				this.table = (ArrayList<LeapData>) ois.readObject();
 	}catch(EOFException e){
 		
 	}
@@ -151,6 +152,8 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 
 	}
+
+
 	
 
 

@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Set;
 
 import LeapTS.FrameTS;
+import LeapTS.LeapData;
 import leapmotion.LeapDataBase;
 
 /************************************************************
@@ -24,9 +25,8 @@ public class BanqueApprentissage {
 	
 	public BanqueApprentissage(LeapDataBase leapDataBase){
 		this.banque=new ArrayList<Apprentissage>();
-		Set<Map.Entry<Cible, FrameTS>> mapEntry = leapDataBase.getMapEntry();
-		for(Map.Entry<Cible, FrameTS> entry : mapEntry){
-			Apprentissage apprentissage = new Apprentissage(entry.getValue().getFingerList(), entry.getValue().getHandList(), entry.getKey());
+		for(LeapData leapData : leapDataBase.table){
+			Apprentissage apprentissage = new Apprentissage(leapData.getFingerList(), leapData.getHandList(), leapData.getCible());
 			this.banque.add(apprentissage);
 		}
 	}

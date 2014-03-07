@@ -2,6 +2,7 @@ package leapmotion;
 
 import java.io.IOException;
 
+import LeapTS.LeapData;
 import classification.Apprentissage;
 import classification.BanqueApprentissage;
 import classification.Cible;
@@ -11,10 +12,10 @@ public class main {
 	public static void main(String[] args) throws Exception {
 		LeapDataBase DB = new LeapDataBase();
 		
-	//	DB.write("test.test");
+		DB.write("test.test");
 		DB.read("test.test");
-		for (Cible cible : DB.table.keySet()){
-		System.out.println(cible);
+		for (LeapData leapData : DB.table){
+		System.out.println(leapData.getCible());
 		}
 		
 		System.out.println("__________________");
