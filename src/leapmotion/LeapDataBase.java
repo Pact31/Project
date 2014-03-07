@@ -86,94 +86,46 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 		BufferedReader entree;
 		ObjectOutputStream oos = null;
 		FileOutputStream fos = null;
-		
-	//	fos = new FileOutputStream("test.test");
-	//	oos = new ObjectOutputStream(fos);
 
-		
+
 		System.out.println("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");
-		
-		
-		for(int i = 0; i < 3; i ++){
-					fos = new FileOutputStream("test.test");
 
-					oos = new ObjectOutputStream(fos);
 
-	//		try {
-				
-/*			}  catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}*/ 
+		while(true){//on gere la sortie de la boucle par le clavier
 
-			entree = new BufferedReader(new InputStreamReader(System.in));
-			//try {
-				inChar = (char) entree.read();
-			/*} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}*/
+			fos = new FileOutputStream("test.test"); //on reeouvre un fichier a chaque tour de boucle pour enregistrer le fichier a chaque tour de boucle
+			oos = new ObjectOutputStream(fos);
+
+
+			entree = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
+			inChar = (char) entree.read();
+
 
 			if(inChar == 'q'){ //quitter le programme
 				return;
 			}
 
-			FrameTS framets = new FrameTS(controller.frame());
-
-		//	try{
+			Frame frame = controller.frame();//capute de l'image leapmotion
+			
+			if(frame.hands().count() > 0 && frame.fingers().count() > 0){//on verifie que l'image n'est pas vide et qu'il y a bien une main
+				FrameTS framets = new FrameTS(frame);
 				this.put(framets, inChar); 
-		/*	} 
-			catch (LetterException e){
-				System.out.println("La touche pressee n'est pas valide");
-				break;
 			}
-			catch (IllegalArgumentException e){
-				e.printStackTrace();
+			else {
+				System.out.println("L'image capturee n'est pas valide. Elle n'est pas enregistreee.");
 			}
-			catch (NullPointerException e){
-				e.printStackTrace();
-			}
-			finally {
-			}*/
+						
+			
+			oos.writeObject(this.table);
+			oos.flush();
+			oos.close();
+			fos.close();
 
-		//	try {
-//				oos.writeObject(this.table);
-//				oos.flush();
-		/*	} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				try {*/
-				/*} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} finally {
-				try {*/
-				/*} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
-		//	}
-		//	}
-
-						oos.writeObject(this.table);
-						oos.flush();
-						oos.close();
-						fos.close();
-
-	}
-		//oos.writeObject(this.table);
-		//		oos.flush();
-		//		oos.close();
-
-		//fos.close();
+		}
 
 
 	}
-	
+
 	public void read(String file) throws Exception{
 
 		FileInputStream fis = null;
