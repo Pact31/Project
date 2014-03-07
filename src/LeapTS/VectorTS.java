@@ -37,5 +37,9 @@ public class VectorTS implements Serializable {
 	public double getZ(){
 		return z;
 	}
+	
+	public double getDistance(VectorTS vertex){
+		return(Math.pow(Math.pow(this.x-vertex.getX(),2)+Math.pow(this.y-vertex.getY(),2)+Math.pow(this.z-vertex.getZ(),2),0.5));
+	}
 
 }

@@ -36,6 +36,14 @@ public class FrameTS implements Serializable{
 		}
 
 	}
+
+	public ArrayList<FingerTS> getFingerList() {
+		return fingerList;
+	}
+
+	public ArrayList<HandTS> getHandList() {
+		return handList;
+	}
 	
 	
 	

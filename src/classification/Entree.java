@@ -1,5 +1,11 @@
 package classification;
 
+import java.util.ArrayList;
+
+import LeapTS.FingerTS;
+import LeapTS.HandTS;
+import LeapTS.VectorTS;
+
 
 
 /***************************************************************************
@@ -14,15 +20,15 @@ package classification;
 public class Entree {
 
 	
-	private Vertex d1;
-	private Vertex d2;
-	private Vertex d3;
-	private Vertex d4;
-	private Vertex d5;
+	private VectorTS d1;
+	private VectorTS d2;
+	private VectorTS d3;
+	private VectorTS d4;
+	private VectorTS d5;
 	private Point m;
 	
 
-	public Entree(Vertex d1, Vertex d2, Vertex d3, Vertex d4, Vertex d5, Point m){
+	public Entree(VectorTS d1, VectorTS d2, VectorTS d3, VectorTS d4, VectorTS d5, Point m){
 
 		this.d1=d1;
 		this.d2=d2;
@@ -33,22 +39,31 @@ public class Entree {
 		
 
 	}
+	
+	
+	public Entree(ArrayList<FingerTS> fingerListTS, ArrayList<HandTS> handListTS){
+		
+		int fingerLength = fingerListTS.size();
+		
+		this.d1 = fingerListTS.get(0).getTipPosition();
+		
+	}
 
 
-	public Vertex getD1() {
+	public VectorTS getD1() {
 		return d1;
 	}
 
-	public Vertex getD2() {
+	public VectorTS getD2() {
 		return d2;
 	}
-	public Vertex getD3() {
+	public VectorTS getD3() {
 		return d3;
 	}
-	public Vertex getD4() {
+	public VectorTS getD4() {
 		return d4;
 	}
-	public Vertex getD5() {
+	public VectorTS getD5() {
 		return d5;
 	}
 	public Point getM(){

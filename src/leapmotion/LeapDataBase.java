@@ -10,6 +10,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Hashtable;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
@@ -37,6 +40,10 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 		this.table = new Hashtable<Cible, FrameTS>(); 
 	}
 
+	
+	public Set<Map.Entry<Cible, FrameTS>> getMapEntry(){
+		return table.entrySet();
+	}
 	
 		
 	public void put( FrameTS framets,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{

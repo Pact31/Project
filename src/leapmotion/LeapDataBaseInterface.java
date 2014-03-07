@@ -1,5 +1,9 @@
 package leapmotion;
 
+import java.util.Map;
+import java.util.Set;
+
+import classification.Cible;
 import LeapTS.FrameTS;
 
 public interface LeapDataBaseInterface {
@@ -13,6 +17,8 @@ public interface LeapDataBaseInterface {
 	//touche correspondant a la clef et valide son choix en appuyant
 	//sur la touche entree.
 	public void write(String file) throws Exception;
+	
+	public Set<Map.Entry<Cible, FrameTS>> getMapEntry();
 	
 	//Renvoit la table de hachage enregistree a l'adresse specifiee
 //	public Hashtable<FrameTS, Cible> read(String file);
