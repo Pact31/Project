@@ -87,14 +87,18 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 		ObjectOutputStream oos = null;
 		FileOutputStream fos = null;
 		
-		fos = new FileOutputStream("test.test");
-		oos = new ObjectOutputStream(fos);
+	//	fos = new FileOutputStream("test.test");
+	//	oos = new ObjectOutputStream(fos);
 
 		
 		System.out.println("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");
 		
+		
 		for(int i = 0; i < 3; i ++){
-			
+					fos = new FileOutputStream("test.test");
+
+					oos = new ObjectOutputStream(fos);
+
 	//		try {
 				
 /*			}  catch (FileNotFoundException e1) {
@@ -136,8 +140,8 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			}*/
 
 		//	try {
-				oos.writeObject(this.table);
-				oos.flush();
+//				oos.writeObject(this.table);
+//				oos.flush();
 		/*	} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -155,11 +159,17 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 		//	}
 		//	}
 
+						oos.writeObject(this.table);
+						oos.flush();
+						oos.close();
+						fos.close();
 
 	}
-				oos.close();
+		//oos.writeObject(this.table);
+		//		oos.flush();
+		//		oos.close();
 
-		fos.close();
+		//fos.close();
 
 
 	}

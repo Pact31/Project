@@ -67,13 +67,13 @@ public class Entree {
 			this.d1 = new VectorTS(0,0,0);
 		}
 		if(fingerLength >= 4){
-			this.d1 = fingerListTS.get(4).getTipPosition().minus(this.m);
+			this.d1 = fingerListTS.get(3).getTipPosition().minus(this.m);
 		} 
 		else {
 			this.d1 = new VectorTS(0,0,0);
 		}
 		if(fingerLength >= 5){
-			this.d1 = fingerListTS.get(5).getTipPosition().minus(this.m);
+			this.d1 = fingerListTS.get(4).getTipPosition().minus(this.m);
 		} 
 		else {
 			this.d1 = new VectorTS(0,0,0);
