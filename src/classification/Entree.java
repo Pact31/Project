@@ -55,28 +55,28 @@ public class Entree {
 		}
 
 		if(fingerLength >= 2){
-			this.d1 = fingerListTS.get(1).getTipPosition().minus(this.m);
+			this.d2 = fingerListTS.get(1).getTipPosition().minus(this.m);
 		} 
 		else {
-			this.d1 = new VectorTS(0,0,0);
+			this.d2 = new VectorTS(0,0,0);
 		}
 		if(fingerLength >= 3){
-			this.d1 = fingerListTS.get(2).getTipPosition().minus(this.m);
+			this.d3 = fingerListTS.get(2).getTipPosition().minus(this.m);
 		} 
 		else {
-			this.d1 = new VectorTS(0,0,0);
+			this.d3 = new VectorTS(0,0,0);
 		}
 		if(fingerLength >= 4){
-			this.d1 = fingerListTS.get(3).getTipPosition().minus(this.m);
+			this.d4 = fingerListTS.get(3).getTipPosition().minus(this.m);
 		} 
 		else {
-			this.d1 = new VectorTS(0,0,0);
+			this.d4 = new VectorTS(0,0,0);
 		}
 		if(fingerLength >= 5){
-			this.d1 = fingerListTS.get(4).getTipPosition().minus(this.m);
+			this.d5 = fingerListTS.get(4).getTipPosition().minus(this.m);
 		} 
 		else {
-			this.d1 = new VectorTS(0,0,0);
+			this.d5 = new VectorTS(0,0,0);
 		}
 		
 	}

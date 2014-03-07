@@ -25,7 +25,7 @@ public class Test {
 		
 		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
-		VectorTS  p0  = new VectorTS  (0,0,0);
+		/*VectorTS  p0  = new VectorTS  (0,0,0);
 		
 		VectorTS d0  = new VectorTS (0,0,0);
 		VectorTS d111 = new VectorTS (10,10,10);
@@ -93,10 +93,10 @@ public class Test {
 		banque.addApprentissage(a33);
 		banque.addApprentissage(a34);
 		
-		Entree entree = new Entree(d143,d243,d343,d0,d0,p0);
+		Entree entree = new Entree(d143,d243,d343,d0,d0,p0);*/
 		
 		
-	/*	Controller controller = new Controller();
+		Controller controller = new Controller();
 		
 		System.out.println("Appuer sur une touche pour valider");
 		
@@ -105,7 +105,7 @@ public class Test {
 			
 		Frame frame = controller.frame();
 		FrameTS framets = new FrameTS(frame);
-		Entree entree = new Entree(framets.getFingerList(), framets.getHandList());*/
+		Entree entree = new Entree(framets.getFingerList(), framets.getHandList());
 		
 		Kppv classificateur = new Kppv(banque,3);
 		System.out.println(classificateur.kppv(entree));
