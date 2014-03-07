@@ -16,7 +16,13 @@ import LeapTS.VectorTS;
  * 						     - la position du bout de chaque doigt         *
  *                               par rapport au centre de la main          *
  *                                                                         *
+ *       ATTRIBUTS : Cinqs doigt de la main + main						   *                                                                  
+ *                                                                         *
  *       CONSTRUCTEUR : A partir d'une FrameTS                             *
+ *                                                                         *
+ *       FONCTIONS : Calculer la distance d'une entree a la base           *
+ *                                                                         *
+ *                                                                         *
  *                                                                         *
  *                                                                         *
  ***************************************************************************/

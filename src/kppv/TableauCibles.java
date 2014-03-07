@@ -6,13 +6,20 @@ import classification.Cible;
 
 public class TableauCibles {
 
-
+	/********************Attributs**********************/
+	
 	private ArrayList<Cible> tableauCibles;  
 
+	
+	
+	/*****************Comnstructeur***********************/
+	
 	public TableauCibles(){
 		this.tableauCibles= new ArrayList<Cible>();
 	}
 
+	
+	/****************Fonctions diverses******************/
 	public void add(Cible cible){
 		this.tableauCibles.add(cible);
 	}

@@ -12,6 +12,7 @@ import leapmotion.LeapDataBase;
  *                                                                                         *
  *    CONSTRUCTEUR : - Creation d'une nouvelle base vide                                   *
  *    				 - Importation d'une base a partir d'une base de dnnees LeapDataBase   *
+ *                                                                                         *
  * *****************************************************************************************/
 
 
@@ -87,16 +88,18 @@ public class BanqueApprentissage {
 		return v;
 	}
 
-	public int[] countCible(Kppv kppv, Entree entree){
+	
+		//Donne le nombre de representants de chaque cible parmis les k plus proches voisins
+	public int[] countCible(int k, Entree entree){
 		Apprentissage pivot;
-		Voisins v=getVoisins(kppv.k, entree);
+		Voisins v=getVoisins(k, entree);
 		int compteur[]={0,0,0,0,0,0,0,0};
 		Cible c[]=Cible.values();
 		for(int i =0; i<v.size();i=i+1){
 			pivot=v.get(i);
-			int k=0;
-			while(pivot.getCible().equals(c[k])==false && k<8) k=k+1;
-			compteur[k]=compteur[k]+1;
+			int p=0;
+			while(pivot.getCible().equals(c[p])==false && p<8) p=p+1;
+			compteur[p]=compteur[p]+1;
 		}
 		return compteur;
 	}

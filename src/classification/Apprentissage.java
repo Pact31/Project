@@ -13,7 +13,9 @@ import LeapTS.VectorTS;
 *             La classe apprentissage etend la classe Entree                               *
 *             Elle permet d'associer une entree a une cible                                *
 *                                                                                          *
-*                                                                                          *
+*             ATTRIBUTS : - Cinq doigts                                                    *
+*             		      - Main                                                           *
+*                         - Cible                                                          *
 *                                                                                          *
 *             CONTRUCTEUR : - Un Apprentissage se construit avec une FrameTS et une Cible  *
 *                                                                                          *

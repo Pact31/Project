@@ -14,11 +14,21 @@ import com.leapmotion.leap.Frame;
 import LeapTS.LeapData;
 import classification.Cible;
 
+
+/*************************************************************************************************
+ *                                                                                               *
+ * Cette classe permet de creer une base de donnees                                              *
+ * d'information relatives a la LeapMotion                                                       *
+ *                                                                                               *
+ * Elle contient une ArrayList de LeapData                                                       *
+ * On peut  : - creer cette base de donnee via interaction avec le clavier                       *
+ *            - sauvegarder la base dans un fichier                                              *
+ *            - importer la base depuis un fichier                                               *
+ *                                                                                               *
+ *************************************************************************************************/
 public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	
-	//////////////////////////////////////////////
-	//         Declaration des variables        //
-	//////////////////////////////////////////////
+	/***********************Attributs***************************/
 	
 	private static final long serialVersionUID = 1L;
 	public ArrayList<LeapData> table;
@@ -26,20 +36,15 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	
 	
 	
-	//////////////////////////////////////////////
-	//                Constructeur              //
-	//////////////////////////////////////////////	
+	/***********************Consctruceurs************************/	
 	
 	public LeapDataBase(){
 		this.table = new ArrayList<LeapData>(); 
 	}
 
 	
-	/*public Set<Map.Entry<Cible, FrameTS>> getMapEntry(){
-		return table.entrySet();
-	}*/
-	
-		
+    /*************************Fonctions diverses***********************/
+	//Associe une frame avec une cible et la met dans la base en fonction d'un char tappe au clavier
 	public void put( Frame frame,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{
 		switch(inChar){
 		case 'a' : 
@@ -73,6 +78,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	}
 	
 	
+	//Enregistre la base dans un fichier
 	public void write(String file) throws Exception {
 
 		Controller controller = new Controller();
@@ -106,7 +112,11 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			Frame frame = controller.frame();//capute de l'image leapmotion
 			
 			if(frame.hands().count() > 0 && frame.fingers().count() > 0){//on verifie que l'image n'est pas vide et qu'il y a bien une main
+				try{
 				this.put(frame, inChar); 
+				} catch (LetterException e){
+					System.out.println("Caractere non valide");
+				} finally {}
 			}
 			else {
 				System.out.println("L'image capturee n'est pas valide. Elle n'est pas enregistreee.");
@@ -124,29 +134,28 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 	}
 
+	
+	//Importation d'une base depuis un fichier
 	public void read(String file) throws Exception{
 
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
 
-	
-			fis = new FileInputStream(file);
-			ois = new ObjectInputStream(fis); 
 
-	try{
-				this.table = (ArrayList<LeapData>) ois.readObject();
-	}catch(EOFException e){
-		
-	}
-					ois.close();
-				
-					fis.close();
+		fis = new FileInputStream(file);
+		ois = new ObjectInputStream(fis); 
 
+		try{
+			this.table = (ArrayList<LeapData>) ois.readObject();
+		}catch(EOFException e){
 
+		}
+		ois.close();
+		fis.close();
 	}
 
 
-	
+
 
 
 }

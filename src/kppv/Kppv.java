@@ -18,7 +18,7 @@ public class Kppv {
 	/********************Attributs******************************/
 	
 	public BanqueApprentissage banque;
-	public int k; 
+	private int k; 
 
 	
 	
@@ -33,7 +33,7 @@ public class Kppv {
 	public Cible kppv(Entree entree){
 
 		
-		int compteur[]=this.banque.countCible(this, entree);
+		int compteur[]=this.banque.countCible(k, entree);
 		int indice=0;
 		int pivot=compteur[0];
 		for (int i=0;i<8;i=i+1){

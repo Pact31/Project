@@ -4,13 +4,29 @@ import java.util.ArrayList;
 import classification.Apprentissage;
 
 
+/****************************************************
+ *                                                  *
+ *  Cette classe est une ArrayList d'Apprentissage  *
+ *                                                  *
+ ****************************************************/ 
+
 public class Voisins {
 	
+	/*******************Attributs************************/
+	
 	private ArrayList<Apprentissage> voisins;  
+	
+	
+	/**********************Constructeur*********************/
 	
 	public Voisins(){
 		this.voisins= new ArrayList<Apprentissage>();
 	}
+	
+	
+	
+	
+	/***********************Fonctions diverses*********************/
 	
 	public void add(Apprentissage apprentissage){
 		this.voisins.add(apprentissage);
