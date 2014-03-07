@@ -1,11 +1,8 @@
 package leapmotion;
 
-import java.io.IOException;
-
 import LeapTS.LeapData;
 import classification.Apprentissage;
 import classification.BanqueApprentissage;
-import classification.Cible;
 
 public class main {
 

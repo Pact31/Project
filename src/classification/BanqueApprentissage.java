@@ -1,9 +1,5 @@
 package classification;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
-
-import LeapTS.FrameTS;
 import LeapTS.LeapData;
 import leapmotion.LeapDataBase;
 
@@ -26,7 +22,7 @@ public class BanqueApprentissage {
 	public BanqueApprentissage(LeapDataBase leapDataBase){
 		this.banque=new ArrayList<Apprentissage>();
 		for(LeapData leapData : leapDataBase.table){
-			Apprentissage apprentissage = new Apprentissage(leapData.getFingerList(), leapData.getHandList(), leapData.getCible());
+			Apprentissage apprentissage = new Apprentissage(leapData, leapData.getCible());
 			this.banque.add(apprentissage);
 		}
 	}

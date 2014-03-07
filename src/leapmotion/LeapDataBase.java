@@ -2,23 +2,15 @@ package leapmotion;
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
-import LeapTS.FrameTS;
 import LeapTS.LeapData;
 import classification.Cible;
 

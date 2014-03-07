@@ -3,6 +3,7 @@ package classification;
 import java.util.ArrayList;
 
 import LeapTS.FingerTS;
+import LeapTS.FrameTS;
 import LeapTS.HandTS;
 import LeapTS.VectorTS;
 
@@ -41,39 +42,39 @@ public class Entree {
 	}
 	
 	
-	public Entree(ArrayList<FingerTS> fingerListTS, ArrayList<HandTS> handListTS){
+	public Entree(FrameTS frameTS){
 		
-		this.m = handListTS.get(0).getPalmPosition();
+		this.m = frameTS.getHandList().get(0).getPalmPosition();
 
-		int fingerLength = fingerListTS.size();
+		int fingerLength = frameTS.getFingerList().size();
 
 		if(fingerLength >= 1){
-			this.d1 = fingerListTS.get(0).getTipPosition().minus(this.m);
+			this.d1 = frameTS.getFingerList().get(0).getTipPosition().minus(this.m);
 		} 
 		else {
 			this.d1 = new VectorTS(0,0,0);
 		}
 
 		if(fingerLength >= 2){
-			this.d2 = fingerListTS.get(1).getTipPosition().minus(this.m);
+			this.d2 = frameTS.getFingerList().get(1).getTipPosition().minus(this.m);
 		} 
 		else {
 			this.d2 = new VectorTS(0,0,0);
 		}
 		if(fingerLength >= 3){
-			this.d3 = fingerListTS.get(2).getTipPosition().minus(this.m);
+			this.d3 = frameTS.getFingerList().get(2).getTipPosition().minus(this.m);
 		} 
 		else {
 			this.d3 = new VectorTS(0,0,0);
 		}
 		if(fingerLength >= 4){
-			this.d4 = fingerListTS.get(3).getTipPosition().minus(this.m);
+			this.d4 = frameTS.getFingerList().get(3).getTipPosition().minus(this.m);
 		} 
 		else {
 			this.d4 = new VectorTS(0,0,0);
 		}
 		if(fingerLength >= 5){
-			this.d5 = fingerListTS.get(4).getTipPosition().minus(this.m);
+			this.d5 = frameTS.getFingerList().get(4).getTipPosition().minus(this.m);
 		} 
 		else {
 			this.d5 = new VectorTS(0,0,0);

@@ -1,12 +1,6 @@
 package leapmotion;
 
-import java.util.Map;
-import java.util.Set;
-
 import com.leapmotion.leap.Frame;
-
-import classification.Cible;
-import LeapTS.FrameTS;
 
 public interface LeapDataBaseInterface {
 	

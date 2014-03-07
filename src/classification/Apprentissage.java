@@ -3,6 +3,7 @@ package classification;
 import java.util.ArrayList;
 
 import LeapTS.FingerTS;
+import LeapTS.FrameTS;
 import LeapTS.HandTS;
 import LeapTS.VectorTS;
 
@@ -21,8 +22,8 @@ public class Apprentissage extends Entree {
 		this.cible=cible;
 	}
 	
-	public Apprentissage(ArrayList<FingerTS> fingerListTS, ArrayList<HandTS> handListTS, Cible cible){
-		super(fingerListTS, handListTS);
+	public Apprentissage(FrameTS frameTS, Cible cible){
+		super(frameTS);
 		this.cible = cible;
 	}
 	
