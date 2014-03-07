@@ -25,10 +25,10 @@ public class Entree {
 	private VectorTS d3;
 	private VectorTS d4;
 	private VectorTS d5;
-	private Point m;
+	private VectorTS m;
 	
 
-	public Entree(VectorTS d1, VectorTS d2, VectorTS d3, VectorTS d4, VectorTS d5, Point m){
+	public Entree(VectorTS d1, VectorTS d2, VectorTS d3, VectorTS d4, VectorTS d5, VectorTS m){
 
 		this.d1=d1;
 		this.d2=d2;
@@ -43,9 +43,41 @@ public class Entree {
 	
 	public Entree(ArrayList<FingerTS> fingerListTS, ArrayList<HandTS> handListTS){
 		
+		this.m = handListTS.get(0).getPalmPosition();
+
 		int fingerLength = fingerListTS.size();
-		
-		this.d1 = fingerListTS.get(0).getTipPosition();
+
+		if(fingerLength >= 1){
+			this.d1 = fingerListTS.get(0).getTipPosition().minus(this.m);
+		} 
+		else {
+			this.d1 = new VectorTS(0,0,0);
+		}
+
+		if(fingerLength >= 2){
+			this.d1 = fingerListTS.get(1).getTipPosition().minus(this.m);
+		} 
+		else {
+			this.d1 = new VectorTS(0,0,0);
+		}
+		if(fingerLength >= 3){
+			this.d1 = fingerListTS.get(2).getTipPosition().minus(this.m);
+		} 
+		else {
+			this.d1 = new VectorTS(0,0,0);
+		}
+		if(fingerLength >= 4){
+			this.d1 = fingerListTS.get(4).getTipPosition().minus(this.m);
+		} 
+		else {
+			this.d1 = new VectorTS(0,0,0);
+		}
+		if(fingerLength >= 5){
+			this.d1 = fingerListTS.get(5).getTipPosition().minus(this.m);
+		} 
+		else {
+			this.d1 = new VectorTS(0,0,0);
+		}
 		
 	}
 
@@ -66,7 +98,7 @@ public class Entree {
 	public VectorTS getD5() {
 		return d5;
 	}
-	public Point getM(){
+	public VectorTS getM(){
 		return m;
 	}
 

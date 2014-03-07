@@ -1,6 +1,10 @@
 package classification;
 
-import LeapTS.Vertex;
+import java.util.ArrayList;
+
+import LeapTS.FingerTS;
+import LeapTS.HandTS;
+import LeapTS.VectorTS;
 
 
 
@@ -12,7 +16,7 @@ public class Apprentissage extends Entree {
 	private Cible cible;
 	
 	/*Constructeur de classe*/
-	public Apprentissage(Vertex d1, Vertex d2, Vertex d3, Vertex d4, Vertex d5, Point m, Cible cible){
+	public Apprentissage(VectorTS d1, VectorTS d2, VectorTS d3, VectorTS d4, VectorTS d5, VectorTS m, Cible cible){
 		super(d1,d2,d3,d4,d5,m);
 		this.cible=cible;
 	}

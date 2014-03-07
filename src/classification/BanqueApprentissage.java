@@ -26,8 +26,8 @@ public class BanqueApprentissage {
 		this.banque=new ArrayList<Apprentissage>();
 		Set<Map.Entry<Cible, FrameTS>> mapEntry = leapDataBase.getMapEntry();
 		for(Map.Entry<Cible, FrameTS> entry : mapEntry){
-			Apprentissage apprentissage = new Apprentissage(entry.getValue().getFingerList(), entry.getValue().getHandList().get(0).getPalmPosition(), entry.getKey());
-			this.banque.add(appentissage);
+			Apprentissage apprentissage = new Apprentissage(entry.getValue().getFingerList(), entry.getValue().getHandList(), entry.getKey());
+			this.banque.add(apprentissage);
 		}
 	}
 
