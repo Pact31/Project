@@ -28,13 +28,17 @@ implements ActionListener
 		//drawingApp.getModel().setCurrentMessage("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");
 		//drawingApp.update(drawingApp.getModel(), null);
 		DrawingAppModel model = drawingApp.getModel();
+		
 		if(model.getCurrentCibleOption()){
 			LeapDataBase DB = new LeapDataBase();
 			DB.write("test.txt");
 		}
 		else{
-			
+			model.setCurrentMessage(name);
+			model.setCurrentSound(name);
 		}
+		
+		drawingApp.update(model, null);
 		
 	}
 /*	

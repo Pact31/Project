@@ -1,5 +1,6 @@
 package affichage.model;
 
+import java.util.Hashtable;
 import java.util.Observable;
 import java.awt.Color;
 import java.io.File;
@@ -17,9 +18,25 @@ public class DrawingAppModel extends Observable{
 	private		String		currentGesture		=	"NO detection!";
 	private		File		currentBank			=	null;
 	private		boolean    currentCibleOption  =   true;
+	private    Hashtable<String, String> soundSource = new Hashtable<String, String>();
+	
 	public DrawingAppModel(){
+		setSoundSource();
+	}
+	
+	private void setSoundSource(){
+		
+		soundSource.put("SR", "data/di.wav");
+		soundSource.put("PDJ", "data/di.wav");
+		soundSource.put("BNUI", "data/bi.wav");
+		soundSource.put("G", "data/geu(bleu).wav");
+		soundSource.put("KVZ", "data/zeu(bleu).wav");
+		soundSource.put("YNG", "data/ping.wav");
+		soundSource.put("ICHGNW", "data/cha(court).wav");
+		soundSource.put("MDF", "data/teu.wav");
 		
 	}
+	
 	
 	public boolean getCurrentCibleOption(){
 		return currentCibleOption;
@@ -102,29 +119,12 @@ public class DrawingAppModel extends Observable{
 	}
  
 	public void setCurrentSound(String msg){
-		
-			/*if(msg ==" SR")
-				msg = 
-			case "PDJ":
-				break;
-			case "BNUI":
-				break;
-			case "G":
-				break;
-			case "KVZ":
-				break;
-			case "YNG":
-				break;
-			case "ICHGNW":
-				break;
-			case "MDF":
-				break;
-			default: msg = null;
-		}*/
-		msg =null;
-		if(msg != null){
+	
+		if(soundSource.containsKey(msg)){
+			msg = soundSource.get(msg);
 			Thread song = new Sound(msg);
         	song.run();
 		}
+
 	}
 }

@@ -17,6 +17,8 @@ implements ActionListener
 	private static final long serialVersionUID = 1L;
 	private final DrawingApp drawingApp;
 	private boolean option = true;
+	private String	  mark   = "save";
+	
 	public ButtonOption(DrawingApp drawingApp){
 		
 		super("Son");
@@ -32,7 +34,14 @@ implements ActionListener
 		//drawingApp.getModel().setCurrentMessage("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");
 		//drawingApp.update(drawingApp.getModel(), null);
 		drawingApp.getModel().setCurrentCibleOption(option);
+		
+		if(option)
+			mark = "save";
+		else
+			mark = "sound";
+		
 		option = !option;
+	
 	}
 
 	@Override
@@ -41,11 +50,12 @@ implements ActionListener
 		super.paintComponents(g);	
 		int x = this.getX();
 		int y = this.getY();
+		
 		g.setColor(Color.white);
-		if(option)
-			g.drawString("Store", x+11, y+11);
-		else
-			g.drawString("Sound", x+11, y+11);
+		g.fillRect(0, 0, x+120, y+20);
+		
+		g.setColor(Color.red);
+		g.drawString(mark, x+10, y+10);
 	}
 
 }

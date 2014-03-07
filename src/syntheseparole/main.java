@@ -12,9 +12,9 @@ public class main {
 		
 		//InterfacePlayer player = new InterfacePlayer("data/pain.wav");
         //player.setVisible(true);
-        File file = new File("data/po(beau).wav");
+        File file = new File("data/ping.wav");
         System.out.println(file.exists());
-        Thread song = new Sound("data/po(beau).wav");
+        Thread song = new Sound("data/ping.wav");
         song.run();
 	}
 
