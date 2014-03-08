@@ -1,15 +1,9 @@
 package affichage.ui.menuNew;
 
-import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-
 import javax.swing.JPanel;
 
-import affichage.ui.ButtonsPanel;
 import affichage.ui.DrawingApp;
-import affichage.ui.GesturePanel;
-import affichage.ui.LeapPanel;
-import affichage.ui.ResultPanel;
 
 public class MenuApprentiWindow  extends JPanel{
 	

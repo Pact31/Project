@@ -1,10 +1,6 @@
 package affichage.ui.menuNew;
 
-import java.awt.Dimension;
-
 import javax.swing.JPanel;
-
-import affichage.ui.ButtonStart;
 import affichage.ui.DrawingApp;
 
 public class ButtonCiblePanel extends JPanel{
@@ -22,7 +18,5 @@ public class ButtonCiblePanel extends JPanel{
 		add(buttonCible = new ButtonCible(drawingApp, name));
 		
 	}
-	
-	
 	
 }

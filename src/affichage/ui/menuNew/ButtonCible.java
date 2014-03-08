@@ -1,7 +1,5 @@
 package affichage.ui.menuNew;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -17,14 +15,16 @@ implements ActionListener
 	
 	public ButtonCible(DrawingApp drawingApp, String name){
 		super(name);
+
 		this.name = name;
 		this.drawingApp = drawingApp;
+		
 		addActionListener(this);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+		
 		//drawingApp.getModel().setCurrentMessage("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");
 		//drawingApp.update(drawingApp.getModel(), null);
 		DrawingAppModel model = drawingApp.getModel();

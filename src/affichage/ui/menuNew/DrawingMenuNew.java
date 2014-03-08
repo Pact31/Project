@@ -1,13 +1,8 @@
 package affichage.ui.menuNew;
 
 import java.awt.Dimension;
-
 import javax.swing.JFrame;
-
-import affichage.control.HandSpeakController;
 import affichage.ui.DrawingApp;
-import affichage.ui.DrawingMenuBar;
-import affichage.ui.WindowPanel;
 
 public class DrawingMenuNew 
 extends JFrame
