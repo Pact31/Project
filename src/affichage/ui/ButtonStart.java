@@ -47,7 +47,7 @@ public class ButtonStart extends JButton
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-
+		
 		DrawingAppModel model = drawingApp.getModel();
 		drawingApp.getHandSpeakController().launchceLeapMotion();
 		drawingApp.update(model, null);

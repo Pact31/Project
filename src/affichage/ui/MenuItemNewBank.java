@@ -16,7 +16,7 @@ implements ActionListener
    
    public MenuItemNewBank(DrawingApp drawingApp){
 	   
-      super("New") ; // Text of menu item
+      super("SonTest") ; // Text of menu item
       this.addActionListener(this);
       this.drawingApp = drawingApp;
    
@@ -28,7 +28,7 @@ implements ActionListener
 	  //DrawingAppModel drawingAppModel = drawingApp.getModel();
 	  //drawingAppModel.setCurrentMessage("phase d'apprentissage");
 	  //drawingApp.update(drawingAppModel, null);
-	   DrawingMenuNew drawingMenuNew = new DrawingMenuNew(drawingApp);
+	  DrawingMenuNew drawingMenuNew = new DrawingMenuNew(drawingApp);
 		
    }
 

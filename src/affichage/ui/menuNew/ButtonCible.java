@@ -31,7 +31,7 @@ implements ActionListener
 		if(model.getCurrentCibleOption()){
 			LeapDataBase DB = new LeapDataBase();
 			try {
-				DB.write("test.txt");
+				//DB.write("test.txt");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

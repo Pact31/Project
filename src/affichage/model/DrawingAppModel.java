@@ -4,22 +4,19 @@ import java.util.Hashtable;
 import java.util.Observable;
 import java.awt.Color;
 import java.io.File;
-
-import affichage.gestures.*;
-
 import synthese.Sound;
 
 public class DrawingAppModel extends Observable{
 
 	private 	String		msg					= 	"NO detection!";
-	private 	Boolean 	handleClick 		= 	false;
-	private 	Color		currentButtonColor	=	Color.CYAN;
 	private 	String		currentButtonMark	=	"START";
 	private		String		currentGesture		=	"NO detection!";
+	private    String      currentClassifier    =    "KPPV";
+	private 	Boolean 	handleClick 		= 	false;
+	private 	Color		currentButtonColor	=	Color.CYAN;
 	private		File		currentBank			=	null;
 	private		boolean    currentCibleOption  =   true;
 	private    Hashtable<String, String> soundSource = new Hashtable<String, String>();
-	private    String      currentClassifier    =    "KPPV";
 	
 	
 	public DrawingAppModel(){
@@ -28,14 +25,14 @@ public class DrawingAppModel extends Observable{
 	
 	private void setSoundSource(){
 		
-		soundSource.put("SR", "data/di.wav");
+		soundSource.put("SR", "data/so(seau).wav");
 		soundSource.put("PDJ", "data/di.wav");
 		soundSource.put("BNUI", "data/bi.wav");
 		soundSource.put("G", "data/geu(bleu).wav");
 		soundSource.put("KVZ", "data/zeu(bleu).wav");
 		soundSource.put("YNG", "data/ping.wav");
 		soundSource.put("ICHGNW", "data/cha(court).wav");
-		soundSource.put("MDF", "data/teu.wav");
+		soundSource.put("MTF", "data/teu.wav");
 		
 	}
 	
