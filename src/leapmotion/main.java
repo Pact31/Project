@@ -1,8 +1,15 @@
 package leapmotion;
 
 import LeapTS.LeapData;
+<<<<<<< HEAD
 import classif.classification.Apprentissage;
 import classif.classification.BanqueApprentissage;
+=======
+
+import classif.classification.Apprentissage;
+import classif.classification.BanqueApprentissage;
+
+>>>>>>> Fin du merge
 
 public class main {
 
