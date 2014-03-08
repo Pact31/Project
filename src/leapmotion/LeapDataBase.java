@@ -8,11 +8,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
 import LeapTS.LeapData;
-import classification.Cible;
 
 
 /*************************************************************************************************
@@ -40,6 +40,11 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 	
 	public LeapDataBase(){
 		this.table = new ArrayList<LeapData>(); 
+	}
+	
+	public LeapDataBase(String file) throws Exception{
+		this.table = new ArrayList<LeapData>();
+		read(file);
 	}
 
 	

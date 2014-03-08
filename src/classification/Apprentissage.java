@@ -1,11 +1,6 @@
 package classification;
 
-import java.util.ArrayList;
-
-import LeapTS.FingerTS;
 import LeapTS.FrameTS;
-import LeapTS.HandTS;
-import LeapTS.VectorTS;
 
 
 /*******************************************************************************************

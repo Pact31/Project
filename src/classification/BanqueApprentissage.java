@@ -1,8 +1,8 @@
 package classification;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import kppv.Distances;
-import kppv.Kppv;
 import kppv.Voisins;
 import LeapTS.LeapData;
 import leapmotion.LeapDataBase;
@@ -16,11 +16,12 @@ import leapmotion.LeapDataBase;
  * *****************************************************************************************/
 
 
-public class BanqueApprentissage {
+public class BanqueApprentissage implements Iterator<Apprentissage>{
 
 	/*****************Attributs**************************/
 	
 	private ArrayList<Apprentissage> banque;
+	private Iterator<Apprentissage> iterator = banque.iterator();
 
 	
 	
@@ -31,6 +32,15 @@ public class BanqueApprentissage {
 	}
 	
 	public BanqueApprentissage(LeapDataBase leapDataBase){
+		this.banque=new ArrayList<Apprentissage>();
+		for(LeapData leapData : leapDataBase.table){
+			Apprentissage apprentissage = new Apprentissage(leapData, leapData.getCible());
+			this.banque.add(apprentissage);
+		}
+	}
+	
+	public BanqueApprentissage(String file) throws Exception{
+		LeapDataBase leapDataBase = new LeapDataBase(file);
 		this.banque=new ArrayList<Apprentissage>();
 		for(LeapData leapData : leapDataBase.table){
 			Apprentissage apprentissage = new Apprentissage(leapData, leapData.getCible());
@@ -102,5 +112,18 @@ public class BanqueApprentissage {
 			compteur[p]=compteur[p]+1;
 		}
 		return compteur;
+	}
+	
+	/****************Iterator*******************/
+	public boolean hasNext(){
+		return iterator.hasNext();
+	}
+	
+	public Apprentissage next(){
+		return iterator.next();
+	}
+	
+	public void remove(){
+		iterator.remove();
 	}
 }

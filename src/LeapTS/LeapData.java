@@ -8,6 +8,8 @@ import classification.Cible;
 
 public class LeapData extends FrameTS{
 
+
+	private static final long serialVersionUID = 1L;
 	/**************Attributs**************************/
 
 	private Cible cible;
