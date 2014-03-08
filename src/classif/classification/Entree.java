@@ -1,4 +1,4 @@
-package classification;
+package classif.classification;
 
 import java.util.ArrayList;
 
@@ -119,7 +119,6 @@ public class Entree {
 
 	/**********************Fonctions diverses************************/
 	
-
 	//Donne la distance d'un element a la base d'appentissage
 	public double getDistance(Entree entree){
 	

@@ -1,9 +1,13 @@
 package affichage.main;
 
+<<<<<<< HEAD
 import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
 import affichage.ui_leapmotion.ThreadLeapMotion;
+=======
+import affichage.leapMotion.ThreadLeapMotion;
+>>>>>>> pactHub/Adaboost2
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
 import affichage.control.HandSpeakController;

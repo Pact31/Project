@@ -7,7 +7,11 @@ import java.io.File;
 
 import affichage.gestures.*;
 
+<<<<<<< HEAD
 import syntheseparole.Sound;
+=======
+import synthese.Sound;
+>>>>>>> pactHub/Adaboost2
 
 public class DrawingAppModel extends Observable{
 
@@ -19,10 +23,15 @@ public class DrawingAppModel extends Observable{
 	private		File		currentBank			=	null;
 	private		boolean    currentCibleOption  =   true;
 	private    Hashtable<String, String> soundSource = new Hashtable<String, String>();
+<<<<<<< HEAD
 	private 	ClassifierInterface kppv;
 	private    ClassifierInterface adaboost;
 	
 	public DrawingAppModel(ClassifierInterface i){
+=======
+	
+	public DrawingAppModel(){
+>>>>>>> pactHub/Adaboost2
 		setSoundSource();
 	}
 	

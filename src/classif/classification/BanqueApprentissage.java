@@ -1,9 +1,9 @@
-package classification;
+package classif.classification;
 import java.util.ArrayList;
 
-import kppv.Distances;
-import kppv.Kppv;
-import kppv.Voisins;
+import classif.kppv.Distances;
+import classif.kppv.Kppv;
+import classif.kppv.Voisins;
 import LeapTS.LeapData;
 import leapmotion.LeapDataBase;
 

@@ -1,8 +1,8 @@
-package kppv;
+package classif.kppv;
 
-import classification.BanqueApprentissage;
-import classification.Cible;
-import classification.Entree;
+import classif.classification.BanqueApprentissage;
+import classif.classification.Cible;
+import classif.classification.Entree;
 
 
 /************************************************************************************************************

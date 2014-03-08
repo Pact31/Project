@@ -1,4 +1,4 @@
-package classification;
+package classif.classification;
 
 /******************************************************
  *                                                    *
@@ -10,5 +10,5 @@ package classification;
 
 
 public enum Cible {
-  	PDJ, KVZ, SR, BNUI, MTF, ICHGNW, G, YNG; //Correspond aux différentes "consonnes" codées par les clefs.
+  	PDJ, KVZ, SR, BNUI, MTF, ICHGNW, G, YNG; //Correspond aux diffï¿½rentes "consonnes" codï¿½es par les clefs.
 }

@@ -2,7 +2,11 @@ package LeapTS;
 
 import com.leapmotion.leap.Frame;
 
+<<<<<<< HEAD
 import classification.Cible;
+=======
+import classif.classification.Cible;
+>>>>>>> pactHub/Adaboost2
 
 public class LeapData extends FrameTS{
 

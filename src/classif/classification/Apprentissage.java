@@ -1,4 +1,4 @@
-package classification;
+package classif.classification;
 
 import java.util.ArrayList;
 

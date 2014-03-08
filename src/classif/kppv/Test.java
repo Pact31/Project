@@ -1,4 +1,4 @@
-package kppv;
+package classif.kppv;
 
 
 import java.io.BufferedReader;
@@ -9,8 +9,8 @@ import com.leapmotion.leap.Frame;
 
 import leapmotion.LeapDataBase;
 import LeapTS.FrameTS;
-import classification.BanqueApprentissage;
-import classification.Entree;
+import classif.classification.BanqueApprentissage;
+import classif.classification.Entree;
 
 public class Test {
 
