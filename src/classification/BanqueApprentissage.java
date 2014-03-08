@@ -21,7 +21,7 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 	/*****************Attributs**************************/
 	
 	private ArrayList<Apprentissage> banque;
-	private Iterator<Apprentissage> iterator = banque.iterator();
+	private Iterator<Apprentissage> iterator;
 
 	
 	
@@ -48,6 +48,10 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 		}
 	}
 	
+	public Iterator<Apprentissage> iterator(){
+		this.iterator = banque.iterator();
+		return this.iterator;
+	}
 	
 	
 	/******************Getters*****************************/
@@ -113,6 +117,7 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 		}
 		return compteur;
 	}
+	
 	
 	/****************Iterator*******************/
 	public boolean hasNext(){
