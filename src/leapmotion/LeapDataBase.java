@@ -12,13 +12,7 @@ import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
 import LeapTS.LeapData;
-<<<<<<< HEAD
 import classif.classification.Cible;
-=======
-
-import classif.classification.Cible;
-
->>>>>>> Fin du merge
 
 
 /*************************************************************************************************

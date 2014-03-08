@@ -4,10 +4,6 @@ import leapmotion.LetterException;
 
 import com.leapmotion.leap.Frame;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> Fin du merge
 import classif.classification.Cible;
 
 public class LeapData extends FrameTS{
