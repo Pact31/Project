@@ -46,35 +46,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
     /*************************Fonctions diverses***********************/
 	//Associe une frame avec une cible et la met dans la base en fonction d'un char tappe au clavier
 	public void put( Frame frame,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{
-		switch(inChar){
-		case 'a' : 
-			this.table.add(new LeapData(frame, Cible.PDJ));
-			break;
-		case 'z':
-			this.table.add(new LeapData(frame, Cible.KVZ));
-			break;
-		case 'e':
-			this.table.add(new LeapData(frame, Cible.SR));
-			break;
-		case 'r':
-			this.table.add(new LeapData(frame, Cible.G));
-			break;
-		case 't':
-			this.table.add(new LeapData(frame, Cible.ICHGNW));
-			break;
-		case 'y': 			
-			this.table.add(new LeapData(frame, Cible.MTF));
-			break;
-		case 'u': 
-			this.table.add(new LeapData(frame, Cible.YNG));
-			break;
-		case 'i':
-			this.table.add(new LeapData(frame, Cible.BNUI));
-			break;
-		default: 
-			throw (new LetterException(inChar));
-			
-		}
+		this.table.add(new LeapData(frame, inChar));
 	}
 	
 	
