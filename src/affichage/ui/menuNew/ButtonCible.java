@@ -22,7 +22,6 @@ implements ActionListener
 		addActionListener(this);
 	}
 	
-	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
 		//drawingApp.getModel().setCurrentMessage("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");

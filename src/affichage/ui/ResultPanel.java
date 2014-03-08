@@ -16,7 +16,6 @@ public class ResultPanel extends JLabel{
 		super();
 		
 		this.drawingApp = drawingApp;
-		
 		setPreferredSize(new Dimension(64,64));	
 		setBackground(Color.GREEN);
 		

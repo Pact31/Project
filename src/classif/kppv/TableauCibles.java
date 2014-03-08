@@ -1,11 +1,7 @@
 package classif.kppv;
 import java.util.ArrayList;
 
-<<<<<<< HEAD:src/kppv/TableauCibles.java
-import classification.Cible;
-=======
 import classif.classification.Cible;
->>>>>>> pactHub/Adaboost2:src/classif/kppv/TableauCibles.java
 
 
 public class TableauCibles {

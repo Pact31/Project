@@ -1,7 +1,7 @@
-package kppv;
+package classif.kppv;
 import java.util.ArrayList;
 
-import classification.Apprentissage;
+import classif.classification.Apprentissage;
 
 
 /****************************************************

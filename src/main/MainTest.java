@@ -20,14 +20,14 @@ public class MainTest {
 		DrawingAppModel		model				=	new	DrawingAppModel();
 		HandSpeakController handSpeakController = 	new HandSpeakController(model);
 		DrawingApp 			drawingApp 			= 	new DrawingApp(handSpeakController);
-		//
+		
 		/*
 		 * use second thread for showing the detection of Leap Motion
 		 */
 		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
 		threadLeapMotion.start();
-		
-		//System.out.println(123);
+		//
+		System.out.println(123);
 	}
 }
 

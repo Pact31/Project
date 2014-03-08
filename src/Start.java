@@ -60,7 +60,7 @@ public class Start {
 			throw new Exception();
 		}
 		
-		String fileName = "/data"+s+".wav";//sera le nom du fichier joué
+		String fileName = "data/"+s+".wav";//sera le nom du fichier joué
 		
 		System.out.println("Le fichier son qui va être joué est : "+fileName);
 		

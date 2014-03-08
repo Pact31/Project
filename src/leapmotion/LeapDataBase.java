@@ -12,11 +12,7 @@ import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
 import LeapTS.LeapData;
-<<<<<<< HEAD
-import classification.Cible;
-=======
 import classif.classification.Cible;
->>>>>>> pactHub/Adaboost2
 
 
 /*************************************************************************************************

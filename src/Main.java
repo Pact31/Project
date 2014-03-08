@@ -2,9 +2,9 @@ import leapmotion.LeapDataBase;
 import classif.adaboost.Adaboost;
 import classif.classification.BanqueApprentissage;
 import classif.kppv.Kppv;
-import affichage.leapMotion.ThreadLeapMotion;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
+import affichage.ui_leapmotion.ThreadLeapMotion;
 import affichage.control.HandSpeakController;
 
 
@@ -29,7 +29,7 @@ public class Main {
 		
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		leapDataBase.read("/data/baseLeap.dat");
+		leapDataBase.read("data/baseLeap.dat");
 		
 		System.out.println("Base de test initialisée");
 		
@@ -51,8 +51,6 @@ public class Main {
 		threadLeapMotion.start();
 		
 		System.out.print("Interface graphique initialisé");
-		
-		
 		
 		
 	}

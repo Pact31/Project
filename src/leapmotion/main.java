@@ -1,13 +1,8 @@
 package leapmotion;
 
 import LeapTS.LeapData;
-<<<<<<< HEAD
-import classification.Apprentissage;
-import classification.BanqueApprentissage;
-=======
 import classif.classification.Apprentissage;
 import classif.classification.BanqueApprentissage;
->>>>>>> pactHub/Adaboost2
 
 public class main {
 

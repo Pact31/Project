@@ -21,6 +21,7 @@ public class LeapPanel extends JPanel{
      
     public LeapPanel (DrawingApp drawingApp) {
     	
+    	setLocation(0,32);
     	this.drawingApp = drawingApp;
     		
     }
