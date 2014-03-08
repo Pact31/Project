@@ -9,8 +9,8 @@ public class main {
 	public static void main(String[] args) throws Exception {
 		LeapDataBase DB = new LeapDataBase();
 		
-		DB.write("test.test");
-		DB.read("test.test");
+		DB.write("baseLeap.dat");
+		DB.read("baseLeap.dat");
 		for (LeapData leapData : DB.table){
 		System.out.println(leapData.getCible());
 		}

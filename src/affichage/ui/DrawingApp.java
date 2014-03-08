@@ -11,8 +11,11 @@ public class DrawingApp extends JFrame
 	implements Observer
 {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private final WindowPanel 				windowPanel;
 	private final HandSpeakController 		handSpeakController;
+	private final DrawingMenuBar 			drawingMenuBar ;
 	private 		DrawingAppModel 		drawingAppModel;
 	
 	public DrawingApp(HandSpeakController controller){
@@ -25,6 +28,7 @@ public class DrawingApp extends JFrame
 		this.setPreferredSize(new Dimension(1366,768));
 		this.setLocation(0, 200);
 		
+		setJMenuBar(drawingMenuBar = new DrawingMenuBar(this));
 		//window content creation
 		windowPanel = new WindowPanel(this);
 		setContentPane(windowPanel);

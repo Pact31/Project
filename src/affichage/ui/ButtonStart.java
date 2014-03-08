@@ -12,6 +12,8 @@ public class ButtonStart extends JButton
 	implements ActionListener
 {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private final DrawingApp drawingApp;
 	private			Color	   currentButtonClor	= Color.CYAN;
 	private			String	   currentButtonMark	= "Start";

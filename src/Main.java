@@ -19,20 +19,24 @@ public class Main {
 		
 
 		if(args.length!=3){
-			System.out.print("utilisation : classifier num, T, K");//classifier num = 1 lance adaboost, le reste lance kppv
+			System.out.print("utilisation : classifier num, T, K");
 		}
 		
-		int classifierNum = Integer.valueOf(args[0]).intValue();
+		int classifierNum = Integer.valueOf(args[0]).intValue();//classifier num = 1 lance adaboost, le reste lance kppv
 		
-		int T = Integer.valueOf(args[1]).intValue();
+		int T = Integer.valueOf(args[1]).intValue();//nombre de tour d'apprentissage pour adaboost
 		
-		int k = Integer.valueOf(args[2]).intValue();
+		int k = Integer.valueOf(args[2]).intValue();//nombre de voisins pour kppv
 		
-		LeapDataBase leapDataBase = new LeapDataBase();
+		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		leapDataBase.read("test.test");
+		leapDataBase.read("/data/baseLeap.dat");
+		
+		System.out.println("Base de test initialisée");
 		
 		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
+		
+		System.out.println("Banque d'apprentissage initialisée");
 		
 		if(classifierNum == 1){
 			Adaboost a=new Adaboost(banque, T);
@@ -49,7 +53,6 @@ public class Main {
 		DrawingAppModel		model				=	new	DrawingAppModel();
 		HandSpeakController handSpeakController = 	new HandSpeakController(model);
 		DrawingApp 			drawingApp 			= 	new DrawingApp(handSpeakController);
-		
 		
 		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
 		threadLeapMotion.start();

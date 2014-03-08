@@ -4,14 +4,22 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
+
+import affichage.gestures.Gestures;
+import affichage.gestures.GesturesPositions;
+
 
 public class GesturePanel extends JPanel{
 	
+	private static final long serialVersionUID = 1L;
+	
 	private final DrawingApp drawingApp;	
+	private final GesturesPositions gesturesPositions = new GesturesPositions();
 	
 	public GesturePanel(DrawingApp drawingApp){
 		
@@ -25,22 +33,38 @@ public class GesturePanel extends JPanel{
 	}
 	
 	private BufferedImage image;
+	private String gesture = "src/affichage/lpc2.jpg";
 	
 	@Override
 	protected void paintComponent(Graphics g) {
 	
 		try {
-			image = ImageIO.read(new File("lpc2.jpg"));
+			image = ImageIO.read(new File("src/affichage/lpc2.jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		super.paintComponent(g);
-		g.drawImage(image, 0, 0, null); 
-	
+		g.drawImage(image, 100, 0, null);
 	}
 	
+
 	public void notifyForUpdate(){
 		
+		gesture	=	drawingApp.getModel().getCurrentGesture();
+		showGestures(this.getGraphics(), gesture);
+	
+		//image	=	drawingApp.getModel().setCurrentGesture(file)
 	}
+	
+	
+	private void showGestures(Graphics g, String gesture){
+		
+		Gestures gestures=gesturesPositions.getGestures(gesture);
+		
+		g.drawImage(image, 100, 0, null);
+		g.setColor(Color.blue);
+		g.drawOval(gestures.getX(), gestures.getY(), gestures.getHeight(), gestures.getWidth());
+	}
+
 }

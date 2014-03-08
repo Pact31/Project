@@ -168,34 +168,7 @@ public class Adaboost implements ClassifierInterface {
 	}
 	public Cible predict(Entree e) throws Exception{
 		int k = this.predictClassOf(e);
-		if(k==0){
-			return Cible.PDJ;
-		}
-		else if(k==1){
-			return Cible.KVZ;
-		}
-		else if(k==2){
-			return Cible.SR;
-		}
-		else if(k==3){
-			return Cible.BNUI;
-		}
-		else if(k==4){
-			return Cible.MTF;
-		}
-		else if(k==5){
-			return Cible.ICHGNW;
-		}
-		else if(k==6){
-			return Cible.G;
-		}
-		else if(k==7){
-			return Cible.YNG;
-		}
-		else{
-			throw new Exception();
-		}
-
+		return Cible.values()[k];
 	}
 	
 }

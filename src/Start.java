@@ -2,6 +2,8 @@ import java.io.File;
 
 import LeapTS.FrameTS;
 
+import affichage.model.DrawingAppModel;
+
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
@@ -13,23 +15,23 @@ import classif.classification.Entree;
 
 public class Start {
 
-	public static void start(ClassifierInterface c) throws Exception{
+	public static void start(ClassifierInterface c, DrawingAppModel model) throws Exception{//fonction à exécuter par l'interface graphique à chaque pression sur le boutton Start
 		System.out.println("Début de la séquence de traduction!");
 		
-		Controller controller = new Controller();
+		Controller controller = new Controller(); //ces quatre preimères lignes permettent d'acquérir une nouvelle Entree 
 		Frame frame = controller.frame();
 		FrameTS framets = new FrameTS(frame);
 		Entree e = new Entree(framets);
 		
 		System.out.println("Une nouvelle entrée a été crée!");
 		
-		Cible cible = c.predict(e);
+		Cible cible = c.predict(e);//on trouve la classe asociée à l'entrée
 				
 		System.out.println("La cible détéctée est :"+cible);
 		
 		String s = "";
 		
-		if(cible==Cible.PDJ){
+		if(cible==Cible.PDJ){//cette suite de if permet de transformer la cible en String
 			s= "di";
 		}
 		else if(cible==Cible.KVZ){
@@ -58,17 +60,18 @@ public class Start {
 			throw new Exception();
 		}
 		
-		String fileName = "/data"+s+".wav";
+		String fileName = "/data"+s+".wav";//sera le nom du fichier joué
 		
 		System.out.println("Le fichier son qui va être joué est : "+fileName);
 		
-		File file = new File(fileName);
+		File file = new File(fileName);//on vérifie si le fichier existe
         System.out.println(file.exists());
         
-        
+        model.setCurrentMessage("La syllabe reconnue est : "+s);//le message est affiché sur l'interface graphique
         
         Thread song = new Sound(fileName);
-        song.run();
+        
+        song.run();//le son est joué
         
         System.out.println("Fin de la séquence de détection!");
         

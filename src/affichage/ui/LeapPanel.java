@@ -1,21 +1,23 @@
 package affichage.ui;
 
-import javax.swing.*;
-
-import com.leapmotion.leap.*;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Vector;
 
-import affichage.leapMotion.Finger;
+import javax.swing.JPanel;
+
+import affichage.ui_leapmotion.OurFinger;
+
 
 public class LeapPanel extends JPanel{
 	
+	private static final long serialVersionUID = 1L;
+	
 	private final DrawingApp drawingApp;
-	private final int width = 800, height = 630;
+	private final int width = 800, height = 595;
     
 	private Color color = Color.BLUE;
-    private Vector<Finger> tab = new Vector<Finger>();
+    private Vector<OurFinger> tab = new Vector<OurFinger>();
      
     public LeapPanel (DrawingApp drawingApp) {
     	
@@ -33,15 +35,15 @@ public class LeapPanel extends JPanel{
         	
             color = new Color(0, 0, 0, 100 - tab.elementAt(i).getZ());
             g.setColor(color);
-            //g.fillOval(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 20);
-            g.fillArc(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 200, 0, 200);
+            g.fillOval(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 20);//circle
+            //g.fillArc(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 200, 0, 200);//triangle
         
         }
         
         tab.clear();
     }
     
-    public void setPosition(Finger d) {
+    public void setPosition(OurFinger d) {
         
         tab.add(d);
         

@@ -1,6 +1,9 @@
 package affichage.control;
 
 import java.awt.Color;
+
+import affichage.test_classification.Classifier;
+
 import affichage.model.DrawingAppModel;
 
 public class HandSpeakController 
@@ -21,12 +24,6 @@ public class HandSpeakController
 		
 	}
 	
-	@Override
-	public void Start() {
-		
-		
-		
-	}
 	
 	@Override
 	public void launchceLeapMotion(){
@@ -36,8 +33,11 @@ public class HandSpeakController
 		
 		if( !handleClick ){
 
-			msg = kppvClassification() + " " + adaboostClassification();
+			msg = kppvClassification();
 			model.setCurrentMessage(msg);
+			model.setCurrentSound(msg);
+			//model.setCurrentGesture(kppvClassification());
+			model.setCurrentGesture(msg);
 			model.setCurrentBottonMark("STOP");
 			model.setCurrentBottonColor(Color.RED);
 		
@@ -46,6 +46,7 @@ public class HandSpeakController
 
 			msg	= null;
 			model.setCurrentMessage(msg);
+			model.setCurrentGesture("NO detection!");
 			model.setCurrentBottonMark("START");
 			model.setCurrentBottonColor(Color.CYAN);
 		
@@ -56,14 +57,26 @@ public class HandSpeakController
 	}
 	
 	private String kppvClassification(){
+		// TODO add the classifier Kppv
 		
-		return "HelloWorld kppv";
+		Classifier classifier = new Classifier();
+		//if(classifier.contaisThum())
+		    return classifier.getGestures();
+		//else
+		//	return classifier.getGestures() + "thum";
 		
 	}
 	
 	private String adaboostClassification(){
+		// TODO add the classifier adaboost
 		
 		return "HelloWorld adaboost";
+		
+	}
+
+	@Override
+	public void Start() {
+		// TODO Auto-generated method stub
 		
 	}
 	

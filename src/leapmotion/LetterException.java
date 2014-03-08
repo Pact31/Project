@@ -1,5 +1,8 @@
 package leapmotion;
 
+//Exception pour une lettre ne correspondant a aucune clef.
+
+
 public class LetterException extends Exception{
 	
 

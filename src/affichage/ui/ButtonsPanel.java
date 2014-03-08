@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 
 public class ButtonsPanel extends JPanel{
 	
+	private static final long serialVersionUID = 1L;
+	
 	private final ButtonStart start;
 	
 	public ButtonsPanel(DrawingApp drawingApp){
@@ -14,7 +16,7 @@ public class ButtonsPanel extends JPanel{
 		
 		setPreferredSize(new Dimension(32,32));	
 		add(start = new ButtonStart(drawingApp));
-	
+		
 	}
 	
 	public ButtonStart getButtonStart(){
