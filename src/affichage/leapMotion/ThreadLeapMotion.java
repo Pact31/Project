@@ -7,6 +7,7 @@ import com.leapmotion.leap.Vector;
 import com.leapmotion.leap.InteractionBox;
 import affichage.ui.DrawingApp;
 import affichage.ui.LeapPanel;
+import affichage.ui_leapmotion.OurFinger;
 
 public class ThreadLeapMotion 	extends Thread
 {
@@ -41,7 +42,7 @@ public class ThreadLeapMotion 	extends Thread
 				int y = (int) (600 - normalizedPosition.getY() * leapPanel.getHeight());
 				int z = (int) (normalizedPosition.getZ()       * 100);
             
-				leapPanel.setPosition( new Finger(x, y, z) );
+				leapPanel.setPosition( new OurFinger(x, y, z) );
 			}
 			
 			leapPanel.repaint();

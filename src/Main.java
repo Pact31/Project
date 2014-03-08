@@ -18,18 +18,21 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 
-		if(args.length!=3){
+		/*if(args.length!=2){
 			System.out.println("utilisation : T, k");
 		}
 		
 		
 		int T = Integer.valueOf(args[0]).intValue();//nombre de tour d'apprentissage pour adaboost
 		
-		int k = Integer.valueOf(args[1]).intValue();//nombre de voisins pour kppv
+		int k = Integer.valueOf(args[1]).intValue();//nombre de voisins pour kppv*/
+		
+		int T = 6;
+		int k =3;
 		
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		leapDataBase.read("/data/baseLeap.dat");
+		leapDataBase.read("data/baseLeap.dat");
 		
 		System.out.println("Base de test initialisée");
 		
@@ -51,9 +54,6 @@ public class Main {
 		threadLeapMotion.start();
 		
 		System.out.print("Interface graphique initialisé");
-		
-		
-		
 		
 	}
 	

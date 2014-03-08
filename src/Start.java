@@ -16,6 +16,7 @@ import classif.classification.Entree;
 public class Start {
 
 	public static void start(ClassifierInterface c, DrawingAppModel model) throws Exception{//fonction à exécuter par l'interface graphique à chaque pression sur le boutton Start
+		
 		System.out.println("Début de la séquence de traduction!");
 		
 		Controller controller = new Controller(); //ces quatre preimères lignes permettent d'acquérir une nouvelle Entree 
@@ -35,10 +36,10 @@ public class Start {
 			s= "di";
 		}
 		else if(cible==Cible.KVZ){
-			s= "zeu(renaitre)";
+			s= "zeu(bleu)";
 		}
 		else if(cible==Cible.SR){
-			s= "so(sol)";
+			s= "so(seau)";
 		}
 		else if(cible==Cible.BNUI){
 			s= "bi";
@@ -50,7 +51,7 @@ public class Start {
 			s= "cha(court)";
 		}
 		else if(cible==Cible.G){
-			s= "geu(renaitre)";
+			s= "geu(bleu)";
 		}
 		else if(cible==Cible.YNG){
 			s= "ping";
@@ -60,7 +61,7 @@ public class Start {
 			throw new Exception();
 		}
 		
-		String fileName = "/data"+s+".wav";//sera le nom du fichier joué
+		String fileName = "data/"+s+".wav";//sera le nom du fichier joué
 		
 		System.out.println("Le fichier son qui va être joué est : "+fileName);
 		
