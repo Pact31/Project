@@ -16,6 +16,7 @@ public class MenuApprentiWindow  extends JPanel{
 	private final ButtonCiblePanel ciblePanel7;
 	private final ButtonCiblePanel ciblePanel8;
 	private final ButtonOptionPanel buttonOptionPanel;
+	
 	public MenuApprentiWindow(DrawingApp drawingApp){
 		
 		super();

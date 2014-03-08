@@ -19,8 +19,10 @@ public class DrawingAppModel extends Observable{
 	private		File		currentBank			=	null;
 	private		boolean    currentCibleOption  =   true;
 	private    Hashtable<String, String> soundSource = new Hashtable<String, String>();
+	private 	ClassifierInterface kppv;
+	private    ClassifierInterface adaboost;
 	
-	public DrawingAppModel(){
+	public DrawingAppModel(ClassifierInterface i){
 		setSoundSource();
 	}
 	
