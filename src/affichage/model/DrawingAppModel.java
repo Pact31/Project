@@ -4,7 +4,6 @@ import java.util.Hashtable;
 import java.util.Observable;
 import java.awt.Color;
 import java.io.File;
-
 import leapmotion.LeapDataBase;
 import classif.adaboost.Adaboost;
 import classif.classification.BanqueApprentissage;
@@ -28,33 +27,38 @@ public class DrawingAppModel extends Observable{
 	public DrawingAppModel() throws Exception{
 		
 		setSoundSource();
-		int T = 6;
+		int T = 5;
 		int k = 3;
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		//leapDataBase.read("data/baseLeap.dat");
+		leapDataBase.read("mybaseLeap.dat");
 		
 		System.out.println("Base de test initialisée");
 		
-		//BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
+		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
 		System.out.println("Banque d'apprentissage initialisée");
 		
 		//Adaboost adaboost =new Adaboost(banque, T);
-		//adaboost = new Adaboost(banque, T);
+		adaboost = new Adaboost(banque, T);
 		System.out.print("AdaBoost initialisé");
 			
 		//Kppv kppv = new Kppv(banque, k);
-		//kppv = new Kppv(banque, k);
+		kppv = new Kppv(banque, k);
 		System.out.print("Kppv initialisé");
 
 	}
 	
 	public Adaboost getAdaboost(){
+		
 		return adaboost;
+	
 	}
+	
 	public Kppv getKppv(){
+		
 		return kppv;
+	
 	}
 	
 	private void setSoundSource(){

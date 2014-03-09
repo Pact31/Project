@@ -166,7 +166,7 @@ public class Adaboost implements ClassifierInterface {
 		this.corectors = new double[this.numOfClasses][T];
 		this.learn(T);
 	}
-	public Cible predict(Entree e) throws Exception{
+	public Cible predict(Entree e){
 		int k = this.predictClassOf(e);
 		return Cible.values()[k];
 	}

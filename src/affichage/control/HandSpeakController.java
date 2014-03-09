@@ -53,13 +53,14 @@ public class HandSpeakController
 			File file = new File("LeapHnv22.dat");
 			System.out.println(file.exists());
 			// comment créer une classificateur?
-			/*if(model.getCurrentClassifier() == "KPPV")
-				msg="NO detection!";
+			if(model.getCurrentClassifier() == "KPPV")
+				//msg="NO detection!";
+				kppvClassification();
 				//msg = start(model.getKppv());				
 			else
+				adaboostClassification();
 				//msg = start(model.getAdaboost());
-				msg="NO detection!";*/
-			kppvClassification();
+				//msg="NO detection!";*/
 			model.setCurrentMessage(msg);
 			model.setCurrentSound(msg);
 			//model.setCurrentGesture(kppvClassification());
@@ -124,8 +125,15 @@ public class HandSpeakController
 	
 	private String adaboostClassification(){
 		// TODO add the classifier adaboost
+		Controller controller = new Controller();
 		
-		return "HelloWorld adaboost";
+		Frame frame = controller.frame();
+		FrameTS framets = new FrameTS(frame);
+		Entree entree = new Entree(framets);
+		
+		Cible c = model.getAdaboost().predict(entree);
+		System.out.println(c);
+		return "NO detection!";
 		
 	}
 
