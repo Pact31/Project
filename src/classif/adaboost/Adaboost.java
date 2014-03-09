@@ -14,6 +14,22 @@ public class Adaboost extends Classificateur {
 	private ArrayList<KnownMov> learningBase;
 	private double[][] corectors;
 	
+	public Adaboost (BanqueApprentissage b, int T){
+		super(b);
+		this.acquireBase(b);
+		this.numOfCarac = this.learningBase.get(0).getMov().getCar().length;
+		this.numOfClasses=0;
+		for(int i = 0; i<this.learningBase.size(); i++){
+			if(this.learningBase.get(i).getClasse()>this.numOfClasses){
+				this.numOfClasses=this.learningBase.get(i).getClasse();
+			}
+		}
+		this.numOfClasses++;
+		this.corectors = new double[this.numOfClasses][T];
+		this.learn(T);
+	}
+
+	
 	private void learn(int T){
 		
 		for(int k = 0; k<numOfClasses; k++){
@@ -153,19 +169,7 @@ public class Adaboost extends Classificateur {
 		return newProb;
 	}
 	
-	public Adaboost (BanqueApprentissage b, int T){
-		this.acquireBase(b);
-		this.numOfCarac = this.learningBase.get(0).getMov().getCar().length;
-		this.numOfClasses=0;
-		for(int i = 0; i<this.learningBase.size(); i++){
-			if(this.learningBase.get(i).getClasse()>this.numOfClasses){
-				this.numOfClasses=this.learningBase.get(i).getClasse();
-			}
-		}
-		this.numOfClasses++;
-		this.corectors = new double[this.numOfClasses][T];
-		this.learn(T);
-	}
+
 	public Cible classifier(Entree e){
 		int k = this.predictClassOf(e);
 		return Cible.values()[k];

@@ -18,15 +18,13 @@ public class Kppv extends Classificateur{
 	
 	/********************Attributs******************************/
 	
-	public BanqueApprentissage banque;
 	private int k; 
-
 	
 	
 	/*********************Constructeur**************************/
 	
 	public Kppv(BanqueApprentissage banque, int k){
-		this.banque=banque;
+		super(banque);
 		this.k=k;
 	}
 
@@ -34,7 +32,6 @@ public class Kppv extends Classificateur{
 	
 	public Cible classifier(Entree entree){
 
-		
 		int compteur[]=this.banque.countCible(k, entree);
 		int indice=0;
 		int pivot=compteur[0];
@@ -44,8 +41,9 @@ public class Kppv extends Classificateur{
 				indice=i;
 			}
 		}
+
 		return Cible.values()[indice];
-		
+
 		
 	}
 

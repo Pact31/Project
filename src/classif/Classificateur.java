@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public abstract class Classificateur implements ClassificateurInterface{
 	
-	private BanqueApprentissage banque;
+	protected BanqueApprentissage banque;
 	
 	
 	public Classificateur(){
@@ -25,6 +25,10 @@ public abstract class Classificateur implements ClassificateurInterface{
 		this.banque = banque;
 	}
 	
+	public BanqueApprentissage getBanque(){
+		return this.banque;
+	}
+	
 	public abstract Cible classifier(Entree entree);
 		
 	
@@ -40,7 +44,7 @@ public abstract class Classificateur implements ClassificateurInterface{
 			Cible cible = apprentissage.getCible();
 			Cible cibleFound = classifier(entree);
 			if (cible == cibleFound){
-				reussite = reussite + 1/length;
+				reussite = reussite + 1;
 			}
 		}
 		
@@ -53,7 +57,8 @@ public abstract class Classificateur implements ClassificateurInterface{
 		int size = banque.size();
 		for (CoupleBanqueApprentissage couple : banques){
 			setBanque(couple.getBanqueClassificateur());
-			reussite = reussite + test(couple.getBanqueTest())/size;
+			BanqueApprentissage banqueTest = couple.getBanqueTest();
+			reussite = reussite + test(couple.getBanqueTest());
 		}
 		return reussite;
 	}
