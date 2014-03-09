@@ -1,4 +1,4 @@
-package classif.classification;
+package classif;
 import java.util.ArrayList;
 import java.util.Iterator;
 

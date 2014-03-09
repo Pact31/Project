@@ -2,12 +2,12 @@ package classif.adaboost;
 
 import java.util.ArrayList;
 
-import classif.ClassifierInterface;
-import classif.classification.BanqueApprentissage;
-import classif.classification.Cible;
-import classif.classification.Entree;
+import classif.BanqueApprentissage;
+import classif.Cible;
+import classif.Classificateur;
+import classif.Entree;
 
-public class Adaboost implements ClassifierInterface {
+public class Adaboost extends Classificateur {
 	private int numOfCarac;
 	private int numOfClasses;
 	private ArrayList<ArrayList<Weak>> strongClassif;
@@ -166,9 +166,10 @@ public class Adaboost implements ClassifierInterface {
 		this.corectors = new double[this.numOfClasses][T];
 		this.learn(T);
 	}
-	public Cible predict(Entree e) throws Exception{
+	public Cible classifier(Entree e){
 		int k = this.predictClassOf(e);
 		return Cible.values()[k];
 	}
+
 	
 }

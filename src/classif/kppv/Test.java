@@ -9,8 +9,8 @@ import com.leapmotion.leap.Frame;
 
 import leapmotion.LeapDataBase;
 import LeapTS.FrameTS;
-import classif.classification.BanqueApprentissage;
-import classif.classification.Entree;
+import classif.BanqueApprentissage;
+import classif.Entree;
 
 public class Test {
 

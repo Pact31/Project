@@ -1,4 +1,4 @@
-package classif.classification;
+package classif;
 
 /*******************************************************
  *                                                     *

@@ -1,21 +1,20 @@
 import java.io.File;
 
 import LeapTS.FrameTS;
-
 import affichage.model.DrawingAppModel;
 
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
 import synthese.Sound;
-import classif.ClassifierInterface;
-import classif.classification.Cible;
-import classif.classification.Entree;
+import classif.Cible;
+import classif.ClassificateurInterface;
+import classif.Entree;
 
 
 public class Start {
 
-	public static void start(ClassifierInterface c, DrawingAppModel model) throws Exception{//fonction à exécuter par l'interface graphique à chaque pression sur le boutton Start
+	public static void start(ClassificateurInterface c, DrawingAppModel model) throws Exception{//fonction à exécuter par l'interface graphique à chaque pression sur le boutton Start
 		System.out.println("Début de la séquence de traduction!");
 		
 		Controller controller = new Controller(); //ces quatre preimères lignes permettent d'acquérir une nouvelle Entree 
@@ -25,7 +24,7 @@ public class Start {
 		
 		System.out.println("Une nouvelle entrée a été crée!");
 		
-		Cible cible = c.predict(e);//on trouve la classe asociée à l'entrée
+		Cible cible = c.classifier(e);//on trouve la classe asociée à l'entrée
 				
 		System.out.println("La cible détéctée est :"+cible);
 		

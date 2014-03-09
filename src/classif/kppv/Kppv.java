@@ -1,8 +1,9 @@
 package classif.kppv;
 
-import classif.classification.BanqueApprentissage;
-import classif.classification.Cible;
-import classif.classification.Entree;
+import classif.BanqueApprentissage;
+import classif.Cible;
+import classif.Classificateur;
+import classif.Entree;
 
 
 /************************************************************************************************************
@@ -13,7 +14,7 @@ import classif.classification.Entree;
  *                                                                                                          *
  ************************************************************************************************************/
 
-public class Kppv {
+public class Kppv extends Classificateur{
 	
 	/********************Attributs******************************/
 	
@@ -47,7 +48,6 @@ public class Kppv {
 		
 		
 	}
-
 
 
 }

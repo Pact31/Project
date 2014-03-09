@@ -1,8 +1,8 @@
 package leapmotion;
 
 import LeapTS.LeapData;
-import classif.classification.Apprentissage;
-import classif.classification.BanqueApprentissage;
+import classif.Apprentissage;
+import classif.BanqueApprentissage;
 
 public class main {
 

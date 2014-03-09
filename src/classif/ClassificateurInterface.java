@@ -1,4 +1,4 @@
-package classif.classification;
+package classif;
 
 /*****************************************************
  *                                                   *
@@ -18,5 +18,5 @@ public interface ClassificateurInterface {
 	
 	//Effectue un test croisee avec la banque d'apprentissage du classificateur.
 	//Renvoie un taux de reussite.
-	public float crossTest(int n);
+	public float crossTest();
 }

@@ -6,8 +6,8 @@ import java.awt.Color;
 import java.io.File;
 
 import leapmotion.LeapDataBase;
+import classif.BanqueApprentissage;
 import classif.adaboost.Adaboost;
-import classif.classification.BanqueApprentissage;
 import classif.kppv.Kppv;
 import synthese.Sound;
 
