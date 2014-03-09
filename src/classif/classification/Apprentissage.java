@@ -5,7 +5,7 @@ import LeapTS.FrameTS;
 
 /*******************************************************************************************
 *                                                                                          *
-*             La classe apprentissage etend la classe Entree                               *
+*             La classe apprentissage étend la classe Entree                               *
 *             Elle permet d'associer une entree a une cible                                *
 *                                                                                          *
 *             ATTRIBUTS : - Cinq doigts                                                    *
