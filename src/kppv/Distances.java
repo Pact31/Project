@@ -1,4 +1,4 @@
-package classif.kppv;
+package kppv;
 import java.util.ArrayList;
 
 /*cette classe est un tableau de distance qui permet 

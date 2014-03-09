@@ -1,6 +1,6 @@
-package classif.adaboost;
+package adaboost;
 
-import classif.classification.Entree;
+import classification.Entree;
 
 public class Mouvement {
 	

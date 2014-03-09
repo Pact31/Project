@@ -1,7 +1,7 @@
-package classif.adaboost;
+package adaboost;
 
-import classif.classification.Apprentissage;
-import classif.classification.Cible;
+import classification.Apprentissage;
+import classification.Cible;
 
 public class KnownMov {
 	private Mouvement mov;

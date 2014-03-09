@@ -1,8 +1,8 @@
-package classif.kppv;
+package kppv;
 
-import classif.classification.BanqueApprentissage;
-import classif.classification.Cible;
-import classif.classification.Entree;
+import classification.BanqueApprentissage;
+import classification.Cible;
+import classification.Entree;
 
 
 /************************************************************************************************************
@@ -30,7 +30,8 @@ public class Kppv {
 	}
 
 
-	public Cible kppv(Entree entree){
+	
+	public Cible classifier(Entree entree){
 
 		
 		int compteur[]=this.banque.countCible(k, entree);

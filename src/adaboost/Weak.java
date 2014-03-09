@@ -1,4 +1,4 @@
-package classif.adaboost;
+package adaboost;
 
 public class Weak {
 	private int numOfCarac;
