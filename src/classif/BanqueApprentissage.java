@@ -201,8 +201,6 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 			  (jG < sizeG) &&
 			  (jYNG < sizeYNG)){
 			
-			System.out.println(jPDJ);
-
 			BanqueApprentissage currentBanqueTest = new BanqueApprentissage();
 			currentBanqueTest.addBanqueApprentissage(banqueApprentissagePDJ.subBanqueApprentissage(iPDJ, jPDJ));
 			currentBanqueTest.addBanqueApprentissage(banqueApprentissageKVZ.subBanqueApprentissage(iKVZ, jKVZ));
