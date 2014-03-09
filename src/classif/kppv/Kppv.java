@@ -1,8 +1,9 @@
 package classif.kppv;
 
-import classif.classification.BanqueApprentissage;
-import classif.classification.Cible;
-import classif.classification.Entree;
+import classif.BanqueApprentissage;
+import classif.Cible;
+import classif.Classificateur;
+import classif.Entree;
 
 
 /************************************************************************************************************
@@ -13,19 +14,17 @@ import classif.classification.Entree;
  *                                                                                                          *
  ************************************************************************************************************/
 
-public class Kppv {
+public class Kppv extends Classificateur{
 	
 	/********************Attributs******************************/
 	
-	public BanqueApprentissage banque;
 	private int k; 
-
 	
 	
 	/*********************Constructeur**************************/
 	
 	public Kppv(BanqueApprentissage banque, int k){
-		this.banque=banque;
+		super(banque);
 		this.k=k;
 	}
 
@@ -33,7 +32,6 @@ public class Kppv {
 	
 	public Cible classifier(Entree entree){
 
-		
 		int compteur[]=this.banque.countCible(k, entree);
 		int indice=0;
 		int pivot=compteur[0];
@@ -43,11 +41,11 @@ public class Kppv {
 				indice=i;
 			}
 		}
+
 		return Cible.values()[indice];
-		
+
 		
 	}
-
 
 
 }

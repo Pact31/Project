@@ -8,18 +8,15 @@ import java.io.InputStreamReader;
 
 import leapmotion.LeapDataBase;
 
-import classif.ClassifierInterface;
-import classif.classification.BanqueApprentissage;
-import classif.classification.Cible;
-import classif.classification.Entree;
-import classif.kppv.Kppv;
+import classif.Cible;
+import classif.ClassificateurInterface;
+import classif.Entree;
 
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
 import LeapTS.FrameTS;
 import affichage.test_classification.Classifier;
-
 import affichage.model.DrawingAppModel;
 
 public class HandSpeakController 
@@ -137,7 +134,7 @@ public class HandSpeakController
 		
 	}
 
-	private String start(ClassifierInterface c) throws Exception {
+	private String start(ClassificateurInterface c) throws Exception {
 		
 		System.out.println("Début de la séquence de traduction!");
 		
@@ -148,7 +145,7 @@ public class HandSpeakController
 		
 		System.out.println("Une nouvelle entrée a été crée!");
 		
-		Cible cible = c.predict(e);//on trouve la classe asociée à l'entrée
+		Cible cible = c.classifier(e);//on trouve la classe asociée à l'entrée
 				
 		System.out.println("La cible détéctée est :"+cible);
 		

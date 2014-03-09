@@ -1,6 +1,6 @@
 import leapmotion.LeapDataBase;
+import classif.BanqueApprentissage;
 import classif.adaboost.Adaboost;
-import classif.classification.BanqueApprentissage;
 import classif.kppv.Kppv;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;

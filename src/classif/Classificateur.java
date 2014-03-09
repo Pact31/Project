@@ -1,4 +1,4 @@
-package classif.classification;
+package classif;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public abstract class Classificateur implements ClassificateurInterface{
 	
-	private BanqueApprentissage banque;
+	protected BanqueApprentissage banque;
 	
 	
 	public Classificateur(){
@@ -25,6 +25,10 @@ public abstract class Classificateur implements ClassificateurInterface{
 		this.banque = banque;
 	}
 	
+	public BanqueApprentissage getBanque(){
+		return this.banque;
+	}
+	
 	public abstract Cible classifier(Entree entree);
 		
 	
@@ -40,22 +44,25 @@ public abstract class Classificateur implements ClassificateurInterface{
 			Cible cible = apprentissage.getCible();
 			Cible cibleFound = classifier(entree);
 			if (cible == cibleFound){
-				reussite = reussite + 1/length;
+				reussite = reussite + 1;
 			}
 		}
 		
-		return reussite;
+		return reussite/length;
 	}
 	
 	public float crossTest(){
 		float reussite = 0;
 		ArrayList<CoupleBanqueApprentissage> banques = this.banque.divise();
 		int size = banque.size();
+		int i = 0;
 		for (CoupleBanqueApprentissage couple : banques){
+			i++;
 			setBanque(couple.getBanqueClassificateur());
-			reussite = reussite + test(couple.getBanqueTest())/size;
+			BanqueApprentissage banqueTest = couple.getBanqueTest();
+			reussite = reussite + test(couple.getBanqueTest());
 		}
-		return reussite;
+		return reussite/(float) i;
 	}
 
 	

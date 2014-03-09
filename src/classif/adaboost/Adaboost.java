@@ -2,40 +2,43 @@ package classif.adaboost;
 
 import java.util.ArrayList;
 
-import classif.ClassifierInterface;
-import classif.classification.BanqueApprentissage;
-import classif.classification.Cible;
-import classif.classification.Entree;
+import classif.BanqueApprentissage;
+import classif.Cible;
+import classif.Classificateur;
+import classif.Entree;
 
-public class Adaboost implements ClassifierInterface {
+
+
+public class Adaboost extends Classificateur{
 	private int numOfCarac;
 	private int numOfClasses;
 	private ArrayList<ArrayList<Weak>> strongClassif;
 	private ArrayList<KnownMov> learningBase;
 	private double[][] corectors;
 	
+	
 	private void learn(int T){
 		
 		for(int k = 0; k<numOfClasses; k++){
-			
+			//System.out.println("Classe : "+k);
 			int[] prob = this.createBinaryProblem(k);
 			
 			double[] distrib = new double[this.learningBase.size()];
 			
 			for(int i = 0; i<distrib.length; i++){//init de la distrib
-				distrib[i]=1/distrib.length;
+				distrib[i]=1.0/distrib.length;
 			}
 			
 			for(int j= 0; j<T; j++){//boucle d'apprentissage
 				
-				double minError = 1;//ca sera l'erreur mini pour cette iteration, on l'init a 1 (erreur maximale)
-				Weak bestWeak = new Weak(0, 0, 1);//sera le meilleur classifieur faible pour cette iteration
+				double minError = 1.0;//ca sera l'erreur mini pour cette iteration, on l'init a 1 (erreur maximale)
+				Weak bestWeak = new Weak(0, 0.0, 0);//sera le meilleur classifieur faible pour cette iteration
 				
 				for(int m = 0; m<this.numOfCarac; m++){
 					for(int h=0; h<2; h++){
 						for(int n = 0; n<this.learningBase.size(); n++){//on teste tout les classifieurs possibles
 							
-							double currentError = 0;
+							double currentError = 0.0;
 							Weak w = new Weak(m,this.learningBase.get(n).getMov().getCar()[m], (-1)^h);//on cree un nouveau classifieur faible avec un certain seuil
 							
 							for(int l=0; l<this.learningBase.size(); l++){//on calcule l'erreur faite par ce classifieur
@@ -44,19 +47,21 @@ public class Adaboost implements ClassifierInterface {
 									currentError = currentError + distrib[l];
 								}	
 							}
-							if(currentError<minError){//si on a trouvé une meilleur erreur mini on la recupere ainsi que le classifieur
+							if(currentError<minError && currentError<0.5){//si on a trouvé une meilleur erreur mini on la recupere ainsi que le classifieur
 								minError = currentError;
 								bestWeak = w;
 							}
 						}
 					}
 				}
+				
+				//System.out.println(minError);
 				this.strongClassif.get(k).add(bestWeak);
 				this.corectors[k][j]=(Math.log((1-minError)/minError))/2;
 				
 				double norm = 0;//sera la somme de la distrib (pour la normalisation)
 				for(int i = 0; i<distrib.length; i++){//on maj la distrib
-						distrib[i]=distrib[i]*Math.exp(-this.corectors[k][j]*bestWeak.classify(this.learningBase.get(i).getMov().getCar())*this.learningBase.get(i).getClasse());
+						distrib[i]=distrib[i]*Math.exp(-this.corectors[k][j]*bestWeak.classify(this.learningBase.get(i).getMov().getCar())*prob[i]);
 						norm = norm + distrib[i];
 				}
 				for(int i = 0; i<distrib.length; i++){//on normalise la distrib
@@ -125,12 +130,14 @@ public class Adaboost implements ClassifierInterface {
 		for(int j = 0; j<this.strongClassif.size(); j++){
 			double aux = 0;
 			for(int i = 0; i<this.corectors[j].length;i++){
+				//System.out.println(corectors[j][i]);
 				aux = aux + this.corectors[j][i]*this.strongClassif.get(j).get(i).classify(mov.getCar());
 			}
 			reply[j]=aux;
 		}
 		int rep = 0;
 		for(int k = 0; k<this.strongClassif.size(); k ++){
+			//System.out.println(reply[k]);
 			if(reply[k]>reply[rep]){
 				rep=k;
 			}
@@ -149,11 +156,14 @@ public class Adaboost implements ClassifierInterface {
 					newProb[i]=-1;
 				}
 			}
+
 		}
 		return newProb;
 	}
 	
 	public Adaboost (BanqueApprentissage b, int T){
+		super(b);
+		this.learningBase = new ArrayList<KnownMov>();
 		this.acquireBase(b);
 		this.numOfCarac = this.learningBase.get(0).getMov().getCar().length;
 		this.numOfClasses=0;
@@ -164,11 +174,20 @@ public class Adaboost implements ClassifierInterface {
 		}
 		this.numOfClasses++;
 		this.corectors = new double[this.numOfClasses][T];
+		this.strongClassif = new ArrayList<ArrayList<Weak>>();
+		for(int i =0; i<this.numOfClasses; i++){
+			this.strongClassif.add(new ArrayList<Weak>());
+		}
 		this.learn(T);
 	}
+<<<<<<< HEAD
 	public Cible predict(Entree e){
+=======
+	public Cible classifier(Entree e){
+>>>>>>> 026ee8cab6b19313259fcdffc96609a3ed3961fe
 		int k = this.predictClassOf(e);
 		return Cible.values()[k];
 	}
+
 	
 }

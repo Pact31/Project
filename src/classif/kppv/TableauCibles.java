@@ -1,7 +1,7 @@
 package classif.kppv;
 import java.util.ArrayList;
 
-import classif.classification.Cible;
+import classif.Cible;
 
 
 public class TableauCibles {

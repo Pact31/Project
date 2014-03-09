@@ -1,6 +1,6 @@
 package affichage.control;
 
-import classif.ClassifierInterface;
+import classif.ClassificateurInterface;
 import affichage.model.DrawingAppModel;
 
 public interface HandSpeakControllerInterface {
