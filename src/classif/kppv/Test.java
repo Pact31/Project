@@ -34,7 +34,7 @@ public class Test {
 		Entree entree = new Entree(framets);
 		
 		Kppv classificateur = new Kppv(banque,3);
-		System.out.println(classificateur.kppv(entree));
+		System.out.println(classificateur.classifier(entree));
 		
 
 	}

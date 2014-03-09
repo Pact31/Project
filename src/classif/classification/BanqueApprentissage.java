@@ -25,7 +25,7 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 	
 	private ArrayList<Apprentissage> banque;
 	private Iterator<Apprentissage> iterator;
-
+	
 	
 	
 	/*****************Constructeurs**********************/
