@@ -1,5 +1,6 @@
 package classification;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public abstract class Classificateur implements ClassificateurInterface{
@@ -33,6 +34,16 @@ public abstract class Classificateur implements ClassificateurInterface{
 		}
 		
 		return reussite;
+	}
+	
+	public float crossTest(){
+		float reussite = 0;
+		ArrayList<CoupleBanqueApprentissage> banques = this.banque.divise();
+		int size = banque.size();
+		for (CoupleBanqueApprentissage couple : banques){
+			Classificateur classificateur = new Classificateur(couple.getBanqueClassificateur());
+			reussite = reussite + classificateur.test(couple.getBanqueTest())/size;
+		}
 	}
 	
 	

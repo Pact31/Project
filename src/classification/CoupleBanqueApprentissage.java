@@ -17,8 +17,8 @@ public class CoupleBanqueApprentissage {
 
 	/******************Constructeur*****************/
 	
-	public CoupleBanqueApprentissage(BanqueApprentissage banqueClassificateur,	BanqueApprentissage banqueTest) {
-		this.banqueClassificateur = banqueClassificateur;
+	public CoupleBanqueApprentissage(BanqueApprentissage banqueApprentissage,	BanqueApprentissage banqueTest) {
+		this.banqueClassificateur = banqueApprentissage;
 		this.banqueTest = banqueTest;
 	}
 
