@@ -1,5 +1,7 @@
 package main;
 
+import java.io.File;
+
 import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
@@ -14,7 +16,8 @@ public class MainTest {
 	 */
 	public static void main(String[] args) throws Exception
 	{
-		
+		File file = new File("LeapHnv22.dat");
+		System.out.println(file.exists());
 		/*
 		 * the principal window
 		 */
