@@ -8,9 +8,11 @@ import java.io.InputStreamReader;
 
 import leapmotion.LeapDataBase;
 
+import classif.BanqueApprentissage;
 import classif.Cible;
 import classif.ClassificateurInterface;
 import classif.Entree;
+import classif.kppv.Kppv;
 
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
@@ -128,8 +130,8 @@ public class HandSpeakController
 		FrameTS framets = new FrameTS(frame);
 		Entree entree = new Entree(framets);
 		
-		Cible c = model.getAdaboost().predict(entree);
-		System.out.println(c);
+		//Cible c = model.getAdaboost().predict(entree);
+		//System.out.println(c);
 		return "NO detection!";
 		
 	}
