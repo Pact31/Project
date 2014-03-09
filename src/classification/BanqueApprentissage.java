@@ -8,7 +8,9 @@ import LeapTS.LeapData;
 import leapmotion.LeapDataBase;
 
 /*******************************************************************************************
- *   BanqueApprentissage est une ArrayList d'Apprentissages                                * 
+ *   BanqueApprentissage est une ArrayList d'Apprentissages                                *
+ *                                                                                         *
+ *   Cette classe implemente l'interface Iterator pour parcourir tous ses elements         * 
  *                                                                                         *
  *    CONSTRUCTEUR : - Creation d'une nouvelle base vide                                   *
  *    				 - Importation d'une base a partir d'une base de dnnees LeapDataBase   *
@@ -117,6 +119,7 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 		}
 		return compteur;
 	}
+	
 	
 	
 	/****************Iterator*******************/

@@ -30,7 +30,8 @@ public class Kppv {
 	}
 
 
-	public Cible kppv(Entree entree){
+	
+	public Cible classifier(Entree entree){
 
 		
 		int compteur[]=this.banque.countCible(k, entree);
