@@ -42,12 +42,14 @@ public class HandSpeakController
 		
 		if( !handleClick ){
 			
+			
 			// comment créer une classificateur?
-			/*if(model.getCurrentClassifier() == "KPPV")
-				
+			if(model.getCurrentClassifier() == "KPPV")
+				msg="NO detection!";
+				//msg = start(model.getKppv());				
 			else
-				
-			msg = start();*/
+				//msg = start(model.getAdaboost());
+				msg="NO detection!";
 			//msg = kppvClassification();
 			model.setCurrentMessage(msg);
 			model.setCurrentSound(msg);

@@ -10,8 +10,9 @@ public class MainTest {
 	
 	/**
 	 * @param args
+	 * @throws Exception 
 	 */
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
 		
 		/*
@@ -27,7 +28,6 @@ public class MainTest {
 		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
 		threadLeapMotion.start();
 		//
-		System.out.println(123);
 	}
 }
 
