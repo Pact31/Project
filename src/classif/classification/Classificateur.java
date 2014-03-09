@@ -21,9 +21,12 @@ public abstract class Classificateur implements ClassificateurInterface{
 		this.banque=banque;
 	}
 	
-	public Cible classifier(Entree entree){
-		
+	public void setBanque(BanqueApprentissage banque){
+		this.banque = banque;
 	}
+	
+	public abstract Cible classifier(Entree entree);
+		
 	
 	
 	public float test(BanqueApprentissage banqueApprentissage){
@@ -49,8 +52,8 @@ public abstract class Classificateur implements ClassificateurInterface{
 		ArrayList<CoupleBanqueApprentissage> banques = this.banque.divise();
 		int size = banque.size();
 		for (CoupleBanqueApprentissage couple : banques){
-			Classificateur classificateur = ClassificateurInterface(couple.getBanqueClassificateur());
-			reussite = reussite + classificateur.test(couple.getBanqueTest())/size;
+			setBanque(couple.getBanqueClassificateur());
+			reussite = reussite + test(couple.getBanqueTest())/size;
 		}
 		return reussite;
 	}
