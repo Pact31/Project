@@ -34,7 +34,7 @@ public class HandSpeakController
 	
 	
 	@Override
-	public void launchceLeapMotion(){
+	public void launchceLeapMotion() throws Exception{
 		
 		Boolean 		handleClick =	model.getHandleClick();
 		String 			msg			=	"NO detection!";
@@ -44,11 +44,11 @@ public class HandSpeakController
 			
 			// comment créer une classificateur?
 			if(model.getCurrentClassifier() == "KPPV")
-				msg="NO detection!";
-				//msg = start(model.getKppv());				
+				//msg="NO detection!";
+				msg = start(model.getKppv());				
 			else
-				//msg = start(model.getAdaboost());
-				msg="NO detection!";
+				msg = start(model.getAdaboost());
+				//msg="NO detection!";
 			//msg = kppvClassification();
 			model.setCurrentMessage(msg);
 			model.setCurrentSound(msg);

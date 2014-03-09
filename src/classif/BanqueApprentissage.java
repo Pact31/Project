@@ -156,96 +156,100 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 				
 		BanqueApprentissage banqueApprentissagePDJ = banqueApprentissageCible(Cible.PDJ);
 		BanqueApprentissage banqueApprentissageKVZ = banqueApprentissageCible(Cible.KVZ);
-		/*BanqueApprentissage banqueApprentissageSR = banqueApprentissageCible(Cible.SR);
+		BanqueApprentissage banqueApprentissageSR = banqueApprentissageCible(Cible.SR);
 		BanqueApprentissage banqueApprentissageBNUI = banqueApprentissageCible(Cible.BNUI);
 		BanqueApprentissage banqueApprentissageMTF = banqueApprentissageCible(Cible.MTF);
 		BanqueApprentissage banqueApprentissageICHGNW = banqueApprentissageCible(Cible.ICHGNW);
 		BanqueApprentissage banqueApprentissageG = banqueApprentissageCible(Cible.G);
-		BanqueApprentissage banqueApprentissageYNG = banqueApprentissageCible(Cible.YNG);*/
+		BanqueApprentissage banqueApprentissageYNG = banqueApprentissageCible(Cible.YNG);
 		
 		int sizePDJ = banqueApprentissagePDJ.size();
 		int sizeKVZ = banqueApprentissageKVZ.size();
-	/*	int sizeSR = banqueApprentissageSR.size();
+		int sizeSR = banqueApprentissageSR.size();
 		int sizeBNUI = banqueApprentissageBNUI.size();
 		int sizeMTF = banqueApprentissageMTF.size();
 		int sizeICHGNW = banqueApprentissageICHGNW.size();
 		int sizeG = banqueApprentissageG.size();
-		int sizeYNG = banqueApprentissageYNG.size();*/
+		int sizeYNG = banqueApprentissageYNG.size();
 
 		int iPDJ = 0;
 		int iKVZ = 0;
-		/*int iSR = 0;
+		int iSR = 0;
 		int iBNUI = 0;
 		int iMTF = 0;
 		int iICHGNW = 0;
 		int iG = 0;
-		int iYNG = 0;*/
+		int iYNG = 0;
 		
-		int jPDJ = 6;
-		int jKVZ = 6;
-		/*int jSR = sizeSR - 1;
-		int jBNUI = sizeBNUI - 1;
-		int jMTF = sizeMTF - 1;
-		int jICHGNW = sizeICHGNW - 1;
-		int jG = sizeG - 1;
-		int jYNG = sizeYNG - 1;*/
 		
-		while((jPDJ < sizePDJ) ||
-			  (jKVZ < sizeKVZ) /*||
-			  (jSR < sizeSR) ||
-			  (jBNUI < sizeBNUI) ||
-			  (jMTF < sizeMTF) ||
-			  (jICHGNW < sizeICHGNW) ||
-			  (jG < sizeG) ||
-			  (jYNG < sizeYNG)*/){
+		int jPDJ = 6 * sizePDJ / 10;
+		int jKVZ = 6*sizeKVZ / 10;
+		int jSR = 6*sizeSR / 10;
+		int jBNUI = 6*sizeBNUI / 10;
+		int jMTF = 6*sizeMTF / 10;
+		int jICHGNW = 6*sizeICHGNW / 10;
+		int jG = 6*sizeG / 10;
+		int jYNG = 6*sizeYNG /  10;
+
+		
+		while((jPDJ < sizePDJ) &&
+			  (jKVZ < sizeKVZ) &&
+			  (jSR < sizeSR) &&
+			  (jBNUI < sizeBNUI) &&
+			  (jMTF < sizeMTF) &&
+			  (jICHGNW < sizeICHGNW) &&
+			  (jG < sizeG) &&
+			  (jYNG < sizeYNG)){
+			
+			System.out.println(jPDJ);
 
 			BanqueApprentissage currentBanqueTest = new BanqueApprentissage();
 			currentBanqueTest.addBanqueApprentissage(banqueApprentissagePDJ.subBanqueApprentissage(iPDJ, jPDJ));
 			currentBanqueTest.addBanqueApprentissage(banqueApprentissageKVZ.subBanqueApprentissage(iKVZ, jKVZ));
-			/*currentBanqueTest.addBanqueApprentissage(banqueApprentissageSR.subBanqueApprentissage(iSR, jSR));
+			currentBanqueTest.addBanqueApprentissage(banqueApprentissageSR.subBanqueApprentissage(iSR, jSR));
 			currentBanqueTest.addBanqueApprentissage(banqueApprentissageBNUI.subBanqueApprentissage(iBNUI, jBNUI));
 			currentBanqueTest.addBanqueApprentissage(banqueApprentissageMTF.subBanqueApprentissage(iMTF, jMTF));
 			currentBanqueTest.addBanqueApprentissage(banqueApprentissageICHGNW.subBanqueApprentissage(iICHGNW, jICHGNW));
 			currentBanqueTest.addBanqueApprentissage(banqueApprentissageG.subBanqueApprentissage(iG, jG));
-			currentBanqueTest.addBanqueApprentissage(banqueApprentissageYNG.subBanqueApprentissage(iYNG, jYNG))*/;
+			currentBanqueTest.addBanqueApprentissage(banqueApprentissageYNG.subBanqueApprentissage(iYNG, jYNG));
 			
 			BanqueApprentissage currentBanqueApprentissage = new BanqueApprentissage();
 			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissagePDJ.subBanqueApprentissage(0,iPDJ));
 			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageKVZ.subBanqueApprentissage(0,iKVZ));
-		/*	currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageSR.subBanqueApprentissage(0,iSR));
+			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageSR.subBanqueApprentissage(0,iSR));
 			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageBNUI.subBanqueApprentissage(0,iBNUI));
 			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageMTF.subBanqueApprentissage(0,iMTF));
 			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageICHGNW.subBanqueApprentissage(0,iICHGNW));
 			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageG.subBanqueApprentissage(0,iG));
-			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageYNG.subBanqueApprentissage(0,iYNG));*/
+			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageYNG.subBanqueApprentissage(0,iYNG));
 			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissagePDJ.subBanqueApprentissage(jPDJ,sizePDJ));
 			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageKVZ.subBanqueApprentissage(jKVZ,sizeKVZ));
-		/*	currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageSR.subBanqueApprentissage(jSR,sizeSR - 1 ));
-			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageBNUI.subBanqueApprentissage(jBNUI,sizeBNUI - 1));
-			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageMTF.subBanqueApprentissage(jMTF,sizeMTF - 1));
-			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageICHGNW.subBanqueApprentissage(jICHGNW,sizeICHGNW - 1));
-			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageG.subBanqueApprentissage(jG,sizeG - 1));
-			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageYNG.subBanqueApprentissage(jYNG,sizeYNG - 1));*/
+		    currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageSR.subBanqueApprentissage(jSR,sizeSR));
+			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageBNUI.subBanqueApprentissage(jBNUI,sizeBNUI));
+			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageMTF.subBanqueApprentissage(jMTF,sizeMTF));
+			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageICHGNW.subBanqueApprentissage(jICHGNW,sizeICHGNW));
+			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageG.subBanqueApprentissage(jG,sizeG));
+			currentBanqueApprentissage.addBanqueApprentissage(banqueApprentissageYNG.subBanqueApprentissage(jYNG,sizeYNG));
 			
 			banques.add(new CoupleBanqueApprentissage(currentBanqueTest, currentBanqueApprentissage));
 			
 			iPDJ++;
 			iKVZ++;
-	/*		iSR++;
+			iSR++;
 			iBNUI++;
 			iMTF++;
 			iICHGNW++;
 			iG++;
-			iYNG++;*/
+			iYNG++;
 			
 			jPDJ++;
 			jKVZ++;
-	/*		jSR = iSR + (int)0.6*sizeSR;
-			jBNUI = iBNUI + (int)0.6*sizeBNUI;
-			jMTF = iMTF + (int)0.6*sizeMTF;
-			jICHGNW = iICHGNW + (int)0.6*sizeICHGNW;
-			jG = iG + (int)0.6*sizeG;
-			jYNG = iYNG + (int)0.6*sizeYNG;*/
+			jSR++;
+			jBNUI++;
+			jMTF++;
+			jICHGNW++;
+			jG++;
+			jYNG++;
 			
 		}
 		

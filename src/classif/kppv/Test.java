@@ -20,35 +20,33 @@ public class Test {
 		public static void main(String[] args) throws Exception {
 
 		LeapDataBase leapDataBase = new LeapDataBase();
-		leapDataBase.read("baseLeap.dat");
+		leapDataBase.read("baseLeap3.dat");
 		
 		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
 				
 		Controller controller = new Controller();
 		
-		System.out.println("Appuer sur une touche pour valider");
+		/*System.out.println("Appuer sur une touche pour valider");
 		
-	/*	BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
+		BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
 		char inChar = (char) buf.read();
 			
 		Frame frame = controller.frame();
 		FrameTS framets = new FrameTS(frame);
 		Entree entree = new Entree(framets);*/
 		
-		Adaboost classificateur = new Adaboost(banque,5);
+		Adaboost classificateur = new Adaboost(banque,14);
 		
-	/*	for(Apprentissage apprentissage : banque.getAllApprentissage()){
+		/*for(Apprentissage apprentissage : banque.getAllApprentissage()){
 			System.out.println(apprentissage.getCible());
-		}*/
+		}
+		*/
 		
-		
-		BanqueApprentissage banquetekppv = classificateur.getBanque();
-		
-		System.out.println(banquetekppv.size());
-		
+			
 		System.out.println(classificateur.crossTest());
 		
+				
 
 	}
 
