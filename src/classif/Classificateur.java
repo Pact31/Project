@@ -48,19 +48,21 @@ public abstract class Classificateur implements ClassificateurInterface{
 			}
 		}
 		
-		return reussite;
+		return reussite/length;
 	}
 	
 	public float crossTest(){
 		float reussite = 0;
 		ArrayList<CoupleBanqueApprentissage> banques = this.banque.divise();
 		int size = banque.size();
+		int i = 0;
 		for (CoupleBanqueApprentissage couple : banques){
+			i++;
 			setBanque(couple.getBanqueClassificateur());
 			BanqueApprentissage banqueTest = couple.getBanqueTest();
 			reussite = reussite + test(couple.getBanqueTest());
 		}
-		return reussite;
+		return reussite/(float) i;
 	}
 
 	
