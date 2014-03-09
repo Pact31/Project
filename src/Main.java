@@ -1,7 +1,7 @@
 import leapmotion.LeapDataBase;
-import classif.adaboost.Adaboost;
-import classif.classification.BanqueApprentissage;
-import classif.kppv.Kppv;
+import adaboost.Adaboost;
+import classification.BanqueApprentissage;
+import kppv.Kppv;
 import affichage.leapMotion.ThreadLeapMotion;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
