@@ -87,7 +87,7 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 	}
 	
     public BanqueApprentissage subBanqueApprentissage(int fromIndex, int toIndex){
-    	return (new BanqueApprentissage(banque.subList(fromIndex, toIndex)));
+    	return (new BanqueApprentissage((ArrayList<Apprentissage>)banque.subList(fromIndex, toIndex)));
     }
 		//Taille de la base
 	public int size(){
@@ -134,8 +134,8 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 		return compteur;
 	}
 	
-	//Renvoit la liste des apprentissages correspondant a la cible donnee
-	public BanqueApprentissage BanqueApprentissageCible(Cible cible){
+	//Renvoie la liste des apprentissages correspondant a la cible donnee
+	public BanqueApprentissage banqueApprentissageCible(Cible cible){
 		BanqueApprentissage BanqueApprentissageCible = new BanqueApprentissage();
 		for(Apprentissage apprentissage : this.banque){
 			if (apprentissage.getCible() == cible){
@@ -145,30 +145,30 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 		return BanqueApprentissageCible;
 	}
 	
-	//Renvoit une lisste de CoupleBanqueApprentissage ou chaque base de Test a une longueur 0,6*taille base
+	//Renvoie une liste de CoupleBanqueApprentissage ou chaque base de Test a une longueur 0,6*taille base
 	public ArrayList<CoupleBanqueApprentissage> divise(){
 		
-		int l = (int) 0.6 * this.size();
+
 		
 		ArrayList<CoupleBanqueApprentissage> banques = new ArrayList<CoupleBanqueApprentissage>();
 				
-		BanqueApprentissage banqueApprentissagePDJ = BanqueApprentissageCible(Cible.PDJ);
-		BanqueApprentissage banqueApprentissageKVZ = BanqueApprentissageCible(Cible.KVZ);
-		BanqueApprentissage banqueApprentissageSR = BanqueApprentissageCible(Cible.SR);
-		BanqueApprentissage banqueApprentissageBNUI = BanqueApprentissageCible(Cible.BNUI);
-		BanqueApprentissage banqueApprentissageMTF = BanqueApprentissageCible(Cible.MTF);
-		BanqueApprentissage banqueApprentissageICHGNW = BanqueApprentissageCible(Cible.ICHGNW);
-		BanqueApprentissage banqueApprentissageG = BanqueApprentissageCible(Cible.G);
-		BanqueApprentissage banqueApprentissageYNG = BanqueApprentissageCible(Cible.YNG);
+		BanqueApprentissage banqueApprentissagePDJ = banqueApprentissageCible(Cible.PDJ);
+		BanqueApprentissage banqueApprentissageKVZ = banqueApprentissageCible(Cible.KVZ);
+		BanqueApprentissage banqueApprentissageSR = banqueApprentissageCible(Cible.SR);
+		BanqueApprentissage banqueApprentissageBNUI = banqueApprentissageCible(Cible.BNUI);
+		BanqueApprentissage banqueApprentissageMTF = banqueApprentissageCible(Cible.MTF);
+		BanqueApprentissage banqueApprentissageICHGNW = banqueApprentissageCible(Cible.ICHGNW);
+		BanqueApprentissage banqueApprentissageG = banqueApprentissageCible(Cible.G);
+		BanqueApprentissage banqueApprentissageYNG = banqueApprentissageCible(Cible.YNG);
 		
 		int sizePDJ = banqueApprentissagePDJ.size();
-		int sizeKVZ = banqueApprentissagePDJ.size();
-		int sizeSR = banqueApprentissagePDJ.size();
-		int sizeBNUI = banqueApprentissagePDJ.size();
-		int sizeMTF = banqueApprentissagePDJ.size();
-		int sizeICHGNW = banqueApprentissagePDJ.size();
-		int sizeG = banqueApprentissagePDJ.size();
-		int sizeYNG = banqueApprentissagePDJ.size();
+		int sizeKVZ = banqueApprentissageKVZ.size();
+		int sizeSR = banqueApprentissageSR.size();
+		int sizeBNUI = banqueApprentissageBNUI.size();
+		int sizeMTF = banqueApprentissageMTF.size();
+		int sizeICHGNW = banqueApprentissageICHGNW.size();
+		int sizeG = banqueApprentissageG.size();
+		int sizeYNG = banqueApprentissageYNG.size();
 		
 		
 		int iPDJ = 0;
@@ -180,23 +180,23 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 		int iG = 0;
 		int iYNG = 0;
 		
-		int jPDJ = l;
-		int jKVZ = l;
-		int jSR = l;
-		int jBNUI = l;
-		int jMTF = l;
-		int jICHGNW = l;
-		int jG = l;
-		int jYNG = l;
+		int jPDJ = sizePDJ;
+		int jKVZ = sizeKVZ;
+		int jSR = sizeSR;
+		int jBNUI = sizeBNUI;
+		int jMTF = sizeMTF;
+		int jICHGNW = sizeICHGNW;
+		int jG = sizeG;
+		int jYNG = sizeYNG;
 		
 		while((jPDJ < sizePDJ) ||
-			  (jKVZ < sizePDJ) ||
-			  (jSR < sizePDJ) ||
-			  (jBNUI < sizePDJ) ||
-			  (jMTF < sizePDJ) ||
-			  (jICHGNW < sizePDJ) ||
-			  (jG < sizePDJ) ||
-			  (jYNG < sizePDJ)){
+			  (jKVZ < sizeKVZ) ||
+			  (jSR < sizeSR) ||
+			  (jBNUI < sizeBNUI) ||
+			  (jMTF < sizeMTF) ||
+			  (jICHGNW < sizeICHGNW) ||
+			  (jG < sizeG) ||
+			  (jYNG < sizeYNG)){
 
 			BanqueApprentissage currentBanqueTest = new BanqueApprentissage();
 			currentBanqueTest.addBanqueApprentissage(banqueApprentissagePDJ.subBanqueApprentissage(iPDJ, jPDJ));
@@ -237,14 +237,14 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 			iG++;
 			iYNG++;
 			
-			jPDJ = iPDJ + l;
-			jKVZ = iKVZ + l;
-			jSR = iSR + l;
-			jBNUI = iBNUI + l;
-			jMTF = iMTF + l;
-			jICHGNW = iICHGNW + l;
-			jG = iG + l;
-			jYNG = iYNG + l;
+			jPDJ = iPDJ + (int)0.6*sizePDJ;
+			jKVZ = iKVZ + (int)0.6*sizeKVZ;
+			jSR = iSR + (int)0.6*sizeSR;
+			jBNUI = iBNUI + (int)0.6*sizeBNUI;
+			jMTF = iMTF + (int)0.6*sizeMTF;
+			jICHGNW = iICHGNW + (int)0.6*sizeICHGNW;
+			jG = iG + (int)0.6*sizeG;
+			jYNG = iYNG + (int)0.6*sizeYNG;
 			
 		}
 		

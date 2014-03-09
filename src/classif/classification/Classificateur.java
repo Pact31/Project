@@ -8,6 +8,7 @@ public abstract class Classificateur implements ClassificateurInterface{
 	
 	private BanqueApprentissage banque;
 	
+	
 	public Classificateur(){
 		this.banque = new BanqueApprentissage();
 	}
@@ -16,7 +17,16 @@ public abstract class Classificateur implements ClassificateurInterface{
 		this.banque = new BanqueApprentissage(file);
 	}
 	
+	public Classificateur(BanqueApprentissage banque){
+		this.banque=banque;
+	}
+	
+	public void setBanque(BanqueApprentissage banque){
+		this.banque = banque;
+	}
+	
 	public abstract Cible classifier(Entree entree);
+		
 	
 	
 	public float test(BanqueApprentissage banqueApprentissage){
@@ -42,10 +52,12 @@ public abstract class Classificateur implements ClassificateurInterface{
 		ArrayList<CoupleBanqueApprentissage> banques = this.banque.divise();
 		int size = banque.size();
 		for (CoupleBanqueApprentissage couple : banques){
-			Classificateur classificateur = new Classificateur(couple.getBanqueClassificateur());
-			reussite = reussite + classificateur.test(couple.getBanqueTest())/size;
+			setBanque(couple.getBanqueClassificateur());
+			reussite = reussite + test(couple.getBanqueTest())/size;
 		}
+		return reussite;
 	}
+
 	
 	
 	
