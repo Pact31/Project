@@ -47,7 +47,6 @@ public abstract class Classificateur implements ClassificateurInterface{
 				reussite = reussite + 1;
 			}
 		}
-		
 		return reussite/length;
 	}
 	

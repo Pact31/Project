@@ -63,13 +63,13 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 		BufferedReader entree;
 		ObjectOutputStream oos = null;
 		FileOutputStream fos = null;
-
+		int i = 0;
 
 		System.out.println("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");
 
 
 		while(true){//on gere la sortie de la boucle par le clavier
-
+			i++;
 			fos = new FileOutputStream(file); //on reeouvre un fichier a chaque tour de boucle pour enregistrer le fichier a chaque tour de boucle
 			oos = new ObjectOutputStream(fos);
 
@@ -90,6 +90,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			
 			if(frame.hands().count() > 0 && frame.fingers().count() > 0){//on verifie que l'image n'est pas vide et qu'il y a bien une main
 				try{
+				System.out.println(i);
 				this.put(frame, inChar); 
 				} catch (LetterException e){
 					System.out.println("Caractere non valide");

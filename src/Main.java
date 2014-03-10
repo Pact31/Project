@@ -31,7 +31,7 @@ public class Main {
 		int k = 3;
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		leapDataBase.read("data/baseLeap.dat");
+		leapDataBase.read("baseLeap3.dat");
 		
 		System.out.println("Base de test initialisée");
 		
