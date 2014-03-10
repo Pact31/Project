@@ -33,17 +33,17 @@ public class Main {
 		
 		leapDataBase.read("baseLeap3.dat");
 		
-		System.out.println("Base de test initialisée");
+		System.out.println("Base de test initialisee");
 		
 		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
-		System.out.println("Banque d'apprentissage initialisée");
+		System.out.println("Banque d'apprentissage initialisee");
 		
 		Adaboost adaboost =new Adaboost(banque, T);
-		System.out.print("AdaBoost initialisé");
+		System.out.print("AdaBoost initialise");
 			
 		Kppv kppv = new Kppv(banque, k);
-		System.out.print("Kppv initialisé");
+		System.out.print("Kppv initialise");
 
 		DrawingAppModel		model				=	new	DrawingAppModel();
 		HandSpeakController handSpeakController = 	new HandSpeakController(model);
@@ -52,7 +52,7 @@ public class Main {
 		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
 		threadLeapMotion.start();
 		
-		System.out.print("Interface graphique initialisé");
+		System.out.print("Interface graphique initialise");
 		
 		
 	}

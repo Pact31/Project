@@ -92,18 +92,18 @@ public class HandSpeakController
 
 	private String start(ClassificateurInterface c) throws Exception {
 		
-		System.out.println("Début de la séquence de traduction!");
+		System.out.println("Debut de la sequence de traduction!");
 		
 		Controller controller = new Controller(); //ces quatre preimères lignes permettent d'acquérir une nouvelle Entree 
 		Frame frame = controller.frame();
 		FrameTS framets = new FrameTS(frame);
 		Entree e = new Entree(framets);
 		
-		System.out.println("Une nouvelle entrée a été crée!");
+		System.out.println("Une nouvelle entree a ete creee!");
 		
 		Cible cible = c.classifier(e);//on trouve la classe asociée à l'entrée
 				
-		System.out.println("La cible détéctée est :"+cible);
+		System.out.println("La cible detectee est :"+cible);
 		
 		String s = "";
 		String msg = "No detection!";
@@ -147,8 +147,8 @@ public class HandSpeakController
 		
 		String fileName = "data/"+s+".wav";//sera le nom du fichier joué
 		
-		System.out.println("Le fichier son qui va être joué est : "+fileName);
-		
+		System.out.println("Le fichier son qui va etre joue est : "+fileName);
+			// 
 		File file = new File(fileName);//on vérifie si le fichier existe
         System.out.println(file.exists());
         
