@@ -41,7 +41,7 @@ public class HandSpeakController
 	
 	
 	@Override
-	public void launchceLeapMotion(){
+	public void launchceLeapMotion() throws Exception{
 		
 		Boolean 		handleClick =	model.getHandleClick();
 		String 			msg			=	"NO detection!";
@@ -49,17 +49,12 @@ public class HandSpeakController
 		if( !handleClick ){
 			
 			
-			File file = new File("LeapHnv22.dat");
-			System.out.println(file.exists());
 			// comment créer une classificateur?
 			if(model.getCurrentClassifier() == "KPPV")
-				//msg="NO detection!";
-				kppvClassification();
-				//msg = start(model.getKppv());				
+				msg = start(model.getKppv());				
 			else
-				adaboostClassification();
-				//msg = start(model.getAdaboost());
-				//msg="NO detection!";*/
+				msg = start(model.getAdaboost());
+			
 			model.setCurrentMessage(msg);
 			model.setCurrentSound(msg);
 			//model.setCurrentGesture(kppvClassification());

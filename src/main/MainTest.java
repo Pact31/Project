@@ -16,9 +16,6 @@ public class MainTest {
 	 */
 	public static void main(String[] args) throws Exception
 	{
-		//File file = new File("LeapHnv22.dat");
-		//System.out.println(file.exists());
-		
 		
 		/*
 		 * the principal window

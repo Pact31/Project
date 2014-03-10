@@ -6,6 +6,6 @@ import affichage.model.DrawingAppModel;
 public interface HandSpeakControllerInterface {
 	
 	
-	public void launchceLeapMotion();
+	public void launchceLeapMotion() throws Exception;
 	
 }
