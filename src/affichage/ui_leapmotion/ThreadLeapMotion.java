@@ -24,7 +24,10 @@ public class ThreadLeapMotion 	extends Thread
 	
 	@Override
 	public void run(){
-		
+	/**
+	 * http://2froblog.wordpress.com/2013/09/01/developper-sur-la-leap-motion-en-java/
+	 * @author francois
+	 */	
 		LeapPanel leapPanel = drawingApp.getWindowPanel().getLeapPanel();
 		
 		while(true){
@@ -32,6 +35,7 @@ public class ThreadLeapMotion 	extends Thread
 			InteractionBox ibox 	  = leap.frame().interactionBox();
 			PointableList  pointables = leap.frame().pointables();
 		    //int j=0;
+		    int j=0;
 			for(int p = 0; p < pointables.count(); p++) {
             
 				Pointable pointable = pointables.get(p);

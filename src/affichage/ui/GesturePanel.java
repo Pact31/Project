@@ -1,16 +1,17 @@
 package affichage.ui;
 
-import affichage.gestures.GesturesPositions;
-import affichage.gestures.Gestures;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
+
+import affichage.gestures.Gestures;
+import affichage.gestures.GesturesPositions;
 
 
 public class GesturePanel extends JPanel{
@@ -53,6 +54,7 @@ public class GesturePanel extends JPanel{
 		gesture	=	drawingApp.getModel().getCurrentGesture();
 		showGestures(this.getGraphics(), gesture);
 	
+		//image	=	drawingApp.getModel().setCurrentGesture(file)
 	}
 	
 	

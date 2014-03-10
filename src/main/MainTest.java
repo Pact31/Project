@@ -1,10 +1,12 @@
 package main;
 
+import java.io.File;
+
+import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
-import affichage.test_classification.MyApprentissage;
 import affichage.ui.DrawingApp;
 import affichage.ui_leapmotion.ThreadLeapMotion;
-import affichage.control.HandSpeakController;
+
 
 public class MainTest {
 	
@@ -22,15 +24,12 @@ public class MainTest {
 		HandSpeakController handSpeakController = 	new HandSpeakController(model);
 		DrawingApp 			drawingApp 			= 	new DrawingApp(handSpeakController);
 		
-		//MyApprentissage app = new MyApprentissage();
-		
-		//app.saveBank("123");
 		/*
 		 * use second thread for showing the detection of Leap Motion
 		 */
 		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
 		threadLeapMotion.start();
-		
+	
 	}
 }
 

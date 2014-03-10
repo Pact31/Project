@@ -10,22 +10,35 @@ public class Classifier {
 	public String getGestures(){
 		
 		PointableList  pointables = leap.frame().pointables();
-		switch(pointables.count()){
-			case 1:
-				return "M";
-			case 2:
-				return "R";
-			case 3:
-				return "P";
-			case 4:
-				return "B";
-			case 5:
-				return "G";
-			default:
-				return "NO detection!";
-				
+		if(this.contaisThum()){
+			switch(pointables.count()){
+				case 5:
+					return "MNT";
+				case 2:
+					return "ICHGNW";
+				case 3:
+					return "G";
+				default:
+					return "NO detection!";
+					//return "YNG";
+			}
 		}
-
+		
+		else{
+			switch(pointables.count()){
+				case 3:
+					return "SR";
+				case 1:
+					return "PDJ";
+				case 2:
+					return "KVZ";
+				case 4:
+					return "BNUI";
+				default:
+					return "NO detection!"; 
+			}
+		}
+			
 	}
 	
 	public boolean contaisThum(){
@@ -33,16 +46,20 @@ public class Classifier {
 		PointableList pointableList = leap.frame().pointables();
 		Pointable pointable = null;
 		float min = 200;
-		
+		float max = 0;
 		for(int i = 0;i < pointableList.count();i++){
 			pointable = pointableList.get(i);
 			float length = pointable.length(); // get length of a finger
+			float width = pointable.width();
+			
 			System.out.print(length + " " + i + "\n");
 			if(length < min)
 				min = length;
+			if(width > max)
+				max = width;
 		}
 		
-		if(min < 100)
+		if(min < 60 || max > 15)
 			return true;
 		else
 			return false;

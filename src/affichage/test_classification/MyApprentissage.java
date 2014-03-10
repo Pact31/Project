@@ -13,28 +13,29 @@ import com.leapmotion.leap.FingerList;
 
 public class MyApprentissage {
 	
-	FingerCar car = new FingerCar();
-	MyBanqueApprentissage bank = new MyBanqueApprentissage();
-	
+	private MyBanqueApprentissage bank = new MyBanqueApprentissage();
+	/*private ArrayList<Float> lengthSeuil = new ArrayList<Float>();
+	private ArrayList<Float> widthSeuil = new ArrayList<Float>();
+	*/
 	public MyApprentissage(){
 		
 	}
 	
 	private Controller leap = new Controller();
 	
-	public void setBank(){
+	public void setBank() throws InterruptedException{
 		
 		
 		FingerList  allFingers = leap.frame().fingers();
 		int numOfFinger = allFingers.count();
+		System.out.println(numOfFinger);
 		
 		for(int p = 0; p < numOfFinger; p++) {
             
 			Finger finger = allFingers.get(p);
 			bank.setCar(p, finger);
-        
+			System.out.println(String.format("leng: %f, wid: %f", finger.length(), finger.width()));
 		}
-		
 		
 	}
 	
@@ -47,6 +48,7 @@ public class MyApprentissage {
 	    	
 	    	float l = bank.getCar(i).getLength();
 	    	float w = bank.getCar(i).getWidth();
+	    	//myFinger.carLength(seuil)
 	    	dos.writeUTF( String.format("length: %f, width: %f", l, w) );
 	    }
 	    

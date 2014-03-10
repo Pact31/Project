@@ -18,8 +18,15 @@ extends Pointable
 		
 	}
 	
-	public int carLength(float seuil){
-		if(this.length() > seuil)
+	public int carLength(float val){
+		if( Math.abs(this.length() - val) <= 10)
+			return 1;
+		else
+			return -1;
+	}  
+	
+	public int carWidth(float val){
+		if( Math.abs(this.width() - val) <= 10)
 			return 1;
 		else
 			return -1;

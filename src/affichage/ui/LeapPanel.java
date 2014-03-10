@@ -1,12 +1,12 @@
 package affichage.ui;
 
-import affichage.ui_leapmotion.OurFinger;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
 
 import javax.swing.JPanel;
+
+import affichage.ui_leapmotion.OurFinger;
 
 
 public class LeapPanel extends JPanel{
@@ -21,6 +21,7 @@ public class LeapPanel extends JPanel{
      
     public LeapPanel (DrawingApp drawingApp) {
     	
+    	setLocation(0,32);
     	this.drawingApp = drawingApp;
     		
     }
@@ -35,8 +36,8 @@ public class LeapPanel extends JPanel{
         	
             color = new Color(0, 0, 0, 100 - tab.elementAt(i).getZ());
             g.setColor(color);
-            //g.fillOval(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 20);
-            g.fillArc(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 200, 0, 200);
+            g.fillOval(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 20);//circle
+            //g.fillArc(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 200, 0, 200);//triangle
         
         }
         

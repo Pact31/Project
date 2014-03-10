@@ -1,9 +1,11 @@
 package affichage.control;
 
+import classif.ClassificateurInterface;
+import affichage.model.DrawingAppModel;
+
 public interface HandSpeakControllerInterface {
 	
-	public void Start();
 	
-	public void launchceLeapMotion();
+	public void launchceLeapMotion() throws Exception;
 	
 }
