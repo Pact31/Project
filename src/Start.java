@@ -8,14 +8,14 @@ import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
 import synthese.Sound;
-import classif.ClassifierInterface;
-import classif.classification.Cible;
-import classif.classification.Entree;
+import classification.Cible;
+import classification.Classificateur;
+import classification.Entree;
 
 
 public class Start {
 
-	public static void start(ClassifierInterface c, DrawingAppModel model) throws Exception{//fonction à exécuter par l'interface graphique à chaque pression sur le boutton Start
+	public static void start(Classificateur c, DrawingAppModel model) throws Exception{//fonction à exécuter par l'interface graphique à chaque pression sur le boutton Start
 		
 		System.out.println("Début de la séquence de traduction!");
 		
@@ -24,9 +24,10 @@ public class Start {
 		FrameTS framets = new FrameTS(frame);
 		Entree e = new Entree(framets);
 		
+		
 		System.out.println("Une nouvelle entrée a été crée!");
 		
-		Cible cible = c.predict(e);//on trouve la classe asociée à l'entrée
+		Cible cible = c.classifier(e);//on trouve la classe asociée à l'entrée
 				
 		System.out.println("La cible détéctée est :"+cible);
 		

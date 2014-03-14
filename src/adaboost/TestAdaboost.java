@@ -23,14 +23,16 @@ public class TestAdaboost {
 		
 		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
-		int T = 5;
+		int T = 16;
+		
+		int i = 160;
 		
 		Adaboost adaboost =new Adaboost(banque, T);
 		
-		System.out.println("le premier élément de la banque a pour cible : "+ banque.getApprentissage(90).getCible());
+		System.out.println("l'élément " +i + " de la banque a pour cible : "+ banque.getApprentissage(i).getCible());
 		
 		
-		System.out.println("la classe prédite par adaboost pour cet élément est : " + adaboost.predict(banque.getApprentissage(90)));
+		System.out.println("la classe prédite par adaboost pour cet élément est : " + adaboost.predict(banque.getApprentissage(i)));
 		
 	}
 
