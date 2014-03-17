@@ -13,6 +13,7 @@ public class Adaboost extends Classificateur{
 	private ArrayList<ArrayList<Weak>> strongClassif;
 	private ArrayList<KnownMov> learningBase;
 	private double[][] corectors;
+	private int T;
 	
 	private void learn(int T){
 		
@@ -122,6 +123,8 @@ public class Adaboost extends Classificateur{
 	}
 	
 	public Adaboost (BanqueApprentissage b, int T){
+		super(b);
+		this.T = T;
 		this.learningBase = new ArrayList<KnownMov>();
 		this.acquireBase(b);
 		this.numOfCarac = this.learningBase.get(0).getMov().getCar().length;
@@ -137,25 +140,25 @@ public class Adaboost extends Classificateur{
 		for(int i =0; i<this.numOfClasses; i++){
 			this.strongClassif.add(new ArrayList<Weak>());
 		}
-		this.learn(T);
+		this.learn(this.T);
 	}
 	
-	public Cible predict(Entree e) throws Exception{
+	@Override
+	public Cible classifier(Entree e){
 		int k = this.predictClassOf(e);
 		return Cible.values()[k];
 	}
-
+	
 	@Override
-	public float crossTest(int n) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void setBanque(BanqueApprentissage banque){
+		this.banque = banque;
+		ArrayList<KnownMov> b = new ArrayList<KnownMov>();
+		for(int i = 0; i<banque.size(); i++){
+			b.add(new KnownMov(banque.getApprentissage(i)));
+		}
+		this.learningBase = b;
+		this.learn(this.T);
 	}
-
-	@Override
-	public Cible classifier(Entree entree) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	
 }

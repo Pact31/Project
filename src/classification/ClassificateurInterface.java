@@ -18,5 +18,5 @@ public interface ClassificateurInterface {
 	
 	//Effectue un test croisee avec la banque d'apprentissage du classificateur.
 	//Renvoit un taux de reussite.
-	public float crossTest(int n);
+	public float crossTest();
 }
