@@ -1,4 +1,4 @@
-package affichage.ui.menuNew;
+package affichage.ui.Newmenu;
 
 import javax.swing.JPanel;
 import affichage.ui.DrawingApp;

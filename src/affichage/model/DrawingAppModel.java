@@ -31,20 +31,20 @@ public class DrawingAppModel extends Observable{
 		int k = 3;
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		leapDataBase.read("baseLeap3.dat");
+		//leapDataBase.read("baseLeap3.dat");
 		
 		System.out.println("Base de test initialisée");
 		
-		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
+		//BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
 		System.out.println("Banque d'apprentissage initialisée");
 		
 		//Adaboost adaboost =new Adaboost(banque, T);
-		adaboost = new Adaboost(banque, T);
-		System.out.print("AdaBoost initialisé");
+		//adaboost = new Adaboost(banque, T);
+		System.out.print("AdaBoost initialisé" + " ");
 			
 		//Kppv kppv = new Kppv(banque, k);
-		kppv = new Kppv(banque, k);
+		//kppv = new Kppv(banque, k);
 		System.out.print("Kppv initialisé");
 
 	}
@@ -76,19 +76,27 @@ public class DrawingAppModel extends Observable{
 	}
 	
 	public String getCurrentClassifier(){
+		
 		return currentClassifier;
+	
 	}
 	
 	public void setCurrentClassifer(String c){
+	
 		currentClassifier = c;
+	
 	}
 	
 	public boolean getCurrentCibleOption(){
+	
 		return currentCibleOption;
+	
 	}
 	
 	public void setCurrentCibleOption(boolean i){
+	
 		currentCibleOption = i;
+	
 	}
 	
 	public String getCurrentMessage(){

@@ -1,6 +1,7 @@
 package affichage.ui;
 
 import java.awt.Dimension;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JFrame;
@@ -18,7 +19,7 @@ public class DrawingApp extends JFrame
 	private final DrawingMenuBar 			drawingMenuBar ;
 	private 		DrawingAppModel 		drawingAppModel;
 	
-	public DrawingApp(HandSpeakController controller){
+	public DrawingApp(HandSpeakController controller) throws IOException{
 		
 		super("Drawing Application");
 		
@@ -72,5 +73,11 @@ public class DrawingApp extends JFrame
 	
 		windowPanel.notifyForUpdate();
 	
+	}
+	
+	public void close(){
+		
+		this.setVisible(false);
+		
 	}
 }

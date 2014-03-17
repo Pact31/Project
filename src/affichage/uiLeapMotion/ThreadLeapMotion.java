@@ -1,4 +1,4 @@
-package affichage.ui_leapmotion;
+package affichage.uiLeapMotion;
 
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Pointable;

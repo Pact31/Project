@@ -45,7 +45,8 @@ public class Adaboost extends Classificateur{
 								
 								if(w.classify(this.learningBase.get(l).getMov().getCar())!=prob[l]){
 									currentError = currentError + distrib[l];
-								}	
+								}
+								
 							}
 							if(currentError<minError && currentError<0.5){//si on a trouvé une meilleur erreur mini on la recupere ainsi que le classifieur
 								minError = currentError;
@@ -61,8 +62,8 @@ public class Adaboost extends Classificateur{
 				
 				double norm = 0;//sera la somme de la distrib (pour la normalisation)
 				for(int i = 0; i<distrib.length; i++){//on maj la distrib
-						distrib[i]=distrib[i]*Math.exp(-this.corectors[k][j]*bestWeak.classify(this.learningBase.get(i).getMov().getCar())*prob[i]);
-						norm = norm + distrib[i];
+					distrib[i]=distrib[i]*Math.exp(-this.corectors[k][j]*bestWeak.classify(this.learningBase.get(i).getMov().getCar())*prob[i]);
+					norm = norm + distrib[i];
 				}
 				for(int i = 0; i<distrib.length; i++){//on normalise la distrib
 					distrib[i]=distrib[i]/norm;

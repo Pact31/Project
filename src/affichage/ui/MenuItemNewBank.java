@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 
 import affichage.model.DrawingAppModel;
-import affichage.ui.menuNew.DrawingMenuNew;
+import affichage.ui.Newmenu.DrawingMenuNew;
 
 public class MenuItemNewBank extends JMenuItem
 implements ActionListener

@@ -1,4 +1,4 @@
-package affichage.ui.menuNew;
+package affichage.ui.Newmenu;
 
 import java.awt.FlowLayout;
 import javax.swing.JPanel;

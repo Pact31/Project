@@ -1,22 +1,22 @@
 package affichage.ui;
 
 import java.awt.BorderLayout;
+import java.io.IOException;
+
 import javax.swing.JPanel;
 
-import java.awt.BorderLayout;
-import javax.swing.JPanel;
-
-
-public class WindowPanel extends JPanel{
+public class WindowPanel 
+extends JPanel
+{
 	
 	private static final long serialVersionUID = 1L;
 	
 	private final LeapPanel leapPanel;
-	private final ButtonPanel buttonsPanel;
+	private final ButtonStartPanel buttonsPanel;
 	private final ResultPanel resultPanel;
 	private final GesturePanel gesturePanel;
-
-	public WindowPanel(DrawingApp drawingApp){
+	//private final ButtonLeftPanel buttonLeftPanel;
+	public WindowPanel(DrawingApp drawingApp) throws IOException{
 	
 		super();
 		
@@ -25,8 +25,14 @@ public class WindowPanel extends JPanel{
 		add(leapPanel = new LeapPanel(drawingApp), BorderLayout.CENTER);
 		add(resultPanel = new ResultPanel(drawingApp), BorderLayout.SOUTH);
 		add(gesturePanel = new GesturePanel(drawingApp), BorderLayout.EAST);
-		add(buttonsPanel = new ButtonPanel(drawingApp), BorderLayout.NORTH);
+		add(buttonsPanel = new ButtonStartPanel(drawingApp), BorderLayout.NORTH);
 		
+		/*add(leapPanel = new LeapPanel(drawingApp));
+		add(resultPanel = new ResultPanel(drawingApp));
+		add(gesturePanel = new GesturePanel(drawingApp));
+		add(buttonsPanel = new ButtonStartPanel(drawingApp));
+		*/
+		//add(buttonLeftPanel = new ButtonLeftPanel(drawingApp), BorderLayout.PAGE_START);
 	}
 	
 	public LeapPanel getLeapPanel(){

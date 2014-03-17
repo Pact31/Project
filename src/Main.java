@@ -4,7 +4,7 @@ import classif.adaboost.Adaboost;
 import classif.kppv.Kppv;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
-import affichage.ui_leapmotion.ThreadLeapMotion;
+import affichage.uiLeapMotion.ThreadLeapMotion;
 import affichage.control.HandSpeakController;
 
 
