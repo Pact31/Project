@@ -1,4 +1,4 @@
-package affichage.ui.menuNew;
+package affichage.ui.OptionMenu;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -15,6 +15,7 @@ implements ActionListener
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private final DrawingApp drawingApp;
 	private boolean option = true;
 	private String	  mark   = "save";
@@ -52,10 +53,11 @@ implements ActionListener
 		int y = this.getY();
 		
 		g.setColor(Color.white);
-		g.fillRect(0, 0, x+120, y+20);
+		g.fillRect(0, 0, x+80, y+20);
 		
 		g.setColor(Color.red);
-		g.drawString(mark, x+10, y+10);
+		g.drawString(mark, x-15, y+10);
+	
 	}
 
 }

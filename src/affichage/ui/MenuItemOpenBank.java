@@ -20,6 +20,7 @@ implements ActionListener
    public MenuItemOpenBank(DrawingApp drawingApp){
 	   
       super("Open") ; // Text of menu item
+      
       this.addActionListener(this);
       this.drawingApp = drawingApp;
    

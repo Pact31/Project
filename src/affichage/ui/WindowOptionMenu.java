@@ -2,7 +2,7 @@ package affichage.ui;
 
 import javax.swing.JMenu;
 
-public class OptionMenu 
+public class WindowOptionMenu 
 extends JMenu
 {
 	
@@ -10,12 +10,15 @@ extends JMenu
 	private final MenuItemOpenBank menuItemOpenBank;
 	private final MenuItemNewBank menuItemNewBank;
 	
-	public OptionMenu(DrawingApp drawingApp){
+	public WindowOptionMenu(DrawingApp drawingApp){
+	
 		super("Option") ; // Text of the menu
-	    // Create and add menu items
-		add(menuItemNewBank = new MenuItemNewBank(drawingApp));
+
+		// Create and add menu items
 		add(menuItemOpenBank = new MenuItemOpenBank(drawingApp));
+		add(menuItemNewBank = new MenuItemNewBank(drawingApp));
 	    add(quitMenuItem = new MenuItemQuit(drawingApp)) ;
+	
 	}
 
 }

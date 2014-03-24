@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 
 import affichage.model.DrawingAppModel;
-import affichage.ui.Newmenu.DrawingMenuNew;
+import affichage.ui.OptionMenu.DrawingMenuNew;
 
 public class MenuItemNewBank extends JMenuItem
 implements ActionListener
@@ -16,7 +16,7 @@ implements ActionListener
    
    public MenuItemNewBank(DrawingApp drawingApp){
 	   
-      super("SonTest") ; // Text of menu item
+      super("Setting") ; // Text of menu item
       this.addActionListener(this);
       this.drawingApp = drawingApp;
    

@@ -31,11 +31,11 @@ public class DrawingAppModel extends Observable{
 		int k = 3;
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		//leapDataBase.read("baseLeap3.dat");
+		leapDataBase.read("baseLeap3.dat");
 		
 		System.out.println("Base de test initialisée");
 		
-		//BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
+		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
 		System.out.println("Banque d'apprentissage initialisée");
 		

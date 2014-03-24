@@ -1,4 +1,4 @@
-package affichage.ui.menuNew;
+package affichage.ui.OptionMenu;
 
 import java.awt.Dimension;
 import javax.swing.JFrame;
@@ -18,8 +18,8 @@ extends JFrame
 		
 		super("Drawing Application");
 		
-		this.setPreferredSize(new Dimension(800,100));
-		this.setLocation(0, 200);
+		this.setPreferredSize(new Dimension(1000,300));
+		this.setLocation(100, 200);
 		
 		//window content creation
 		//windowPanel = new WindowPanel(this);

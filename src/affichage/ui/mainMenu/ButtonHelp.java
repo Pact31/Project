@@ -1,5 +1,6 @@
 package affichage.ui.mainMenu;
 
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -42,8 +43,13 @@ implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 
 		//this.drawingMainMenu.close();
-		// TODO Auto-generated method stub
-		
+		try {
+			// ouvrir la page d'apprentissage du LPC
+			Desktop.getDesktop().browse(java.net.URI.create("http://www.cis.gouv.fr/spip.php?article1196"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Override

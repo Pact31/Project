@@ -1,4 +1,4 @@
-package affichage.ui;
+package affichage.ui.mainMenu;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -15,25 +15,25 @@ import javax.swing.JButton;
 import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
-import affichage.ui.mainMenu.DrawingMainMenu;
 import affichage.uiLeapMotion.ThreadLeapMotion;
 
-public class ButtonLeft extends JButton
+public class ButtonQuit extends JButton
 implements ActionListener
 {
 	private static final long serialVersionUID = 1L;
 	
-	private final DrawingApp drawingApp;
+	private final DrawingMainMenu drawingMainMenu;
 	private final Image			image;
-	private final int             width =	100;
-	private final int				height = 50;
+	private final int             width =	250;
+	private final int				height = 100;
 	
-	public ButtonLeft(DrawingApp drawingApp) throws IOException{
+	public ButtonQuit(DrawingMainMenu drawingMainMenu) throws IOException{
 		
 		super();
-		this.drawingApp = drawingApp;
-		this.setSize(width, height);
-		image = ImageIO.read(new File("src/affichage/hand-point-left.jpg"));
+		//this.setSize(new Dimension(100, 10));
+		this.setBounds(450, 400, width, height);
+		this.drawingMainMenu = drawingMainMenu;
+		image = ImageIO.read(new File("src/affichage/quit.png"));
 		addActionListener(this);
 		
 	}
@@ -41,14 +41,7 @@ implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 
-		drawingApp.close();
-		   
-		try {
-			DrawingMainMenu drawingMainMenu = new DrawingMainMenu();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		this.drawingMainMenu.close();
 		
 	}
 	

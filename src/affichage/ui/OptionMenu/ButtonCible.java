@@ -1,4 +1,4 @@
-package affichage.ui.Newmenu;
+package affichage.ui.OptionMenu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,12 +19,14 @@ implements ActionListener
 	private final String name;
 	
 	public ButtonCible(DrawingApp drawingApp, String name){
+		
 		super(name);
 
 		this.name = name;
 		this.drawingApp = drawingApp;
 		
 		addActionListener(this);
+	
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {

@@ -17,9 +17,9 @@ extends JPanel
 	public ButtonLeftPanel(DrawingApp drawingApp) throws IOException{
 
 		super();
-		
+
 		this.drawingApp = drawingApp;
-		this.setSize(new Dimension(100, 100));
+		this.setLayout(null);
 		this.add(buttonLeft = new ButtonLeft(drawingApp));
 	}
 	

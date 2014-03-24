@@ -1,4 +1,4 @@
-package affichage.ui;
+package affichage.ui.OptionMenu;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import affichage.model.DrawingAppModel;
+import affichage.ui.DrawingApp;
 
 public class ButtonClassifierOption extends JButton
 	implements ActionListener
@@ -36,11 +37,12 @@ public class ButtonClassifierOption extends JButton
 		g.fillRect(0, 0, w+10, h);
 		
 		g.setColor(Color.red);
-		g.drawString(option, w/2-34, h/2+5);
+		g.drawString(option, w/2-31, h/2+5);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent evt) {
+		
 		DrawingAppModel model = drawingApp.getModel();
 		
 		if(option == "KPPV"){
@@ -51,6 +53,7 @@ public class ButtonClassifierOption extends JButton
 		}
 
 		model.setCurrentClassifer(option);
+	
 	}
 	
 }

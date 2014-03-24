@@ -5,8 +5,8 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import affichage.ui.ButtonClassifierOption;
 import affichage.ui.ButtonStart;
+import affichage.ui.OptionMenu.ButtonClassifierOption;
 
 public class ButtonLearnPanel 
 extends JPanel
