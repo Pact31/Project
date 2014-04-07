@@ -2,13 +2,11 @@ package integration;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
-import LeapTS.FrameTS;
 import affichage.model.DrawingAppModel;
 
 import classif.Entree;
 
 import com.leapmotion.leap.Controller;
-import com.leapmotion.leap.Frame;
 
 
 public class RunnableLeap extends Thread{
@@ -75,7 +73,7 @@ public class RunnableLeap extends Thread{
 			}
 			//rajouter ici commande sur model pour faire passer le voyant au vert
 			Entree e = new Entree(this.control);//remplacer par le code pour faire la moyenne ou autre méthode d'aquisition
-			//rajouter ici commandesur model pour faire passer le voyant au rouge
+			//rajouter ici commande sur model pour faire passer le voyant au rouge
 			try {
 				this.chain.put(e);
 			} catch (InterruptedException e1) {

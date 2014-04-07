@@ -21,7 +21,7 @@ public class Test {
 		public static void main(String[] args) throws Exception {
 
 		LeapDataBase leapDataBase = new LeapDataBase();
-		leapDataBase.read("baseTestPos.dat");
+		leapDataBase.write("baseTestPos.dat");
 		
 		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		

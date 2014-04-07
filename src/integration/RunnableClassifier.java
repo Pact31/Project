@@ -16,7 +16,7 @@ import classif.Entree;
 public class RunnableClassifier extends Thread{
 	
 	private int N;
-	private Classificateur c;
+	private Classificateur classif;
 	private LinkedBlockingQueue <Entree> chain;
 	private DrawingAppModel model;
 	private ArrayList<String> syllabes;
@@ -25,7 +25,7 @@ public class RunnableClassifier extends Thread{
 	public RunnableClassifier(int n, Classificateur c, LinkedBlockingQueue<Entree> chain, DrawingAppModel model) {
 		super();
 		N = n;
-		this.c = c;
+		this.classif = c;
 		this.chain = chain;
 		this.model = model;
 		this.syllabes = new ArrayList<String>();
@@ -80,21 +80,22 @@ public class RunnableClassifier extends Thread{
 		N = n;
 	}
 
-	public Classificateur getC() {
-		return c;
+	public Classificateur getClassif() {
+		return classif;
 	}
 
-	public void setC(Classificateur c) {
-		this.c = c;
+	public void setClassif(Classificateur c) {
+		this.classif = c;
 	}
 
 	public void setChain(LinkedBlockingQueue<Entree> chain) {
 		this.chain = chain;
 	}
 	
-	private String getSyllabe (Cible c1, Cible c2){
-		int forme = c1.ordinal();
-		int main = c2.ordinal();
+	private String getSyllabe (Cible c){
+		int temp = c.ordinal();
+		int forme = temp/5;
+		int main = 5-(temp%5);
 		return this.correspondances[forme][main];
 	}
 	
@@ -108,8 +109,8 @@ public class RunnableClassifier extends Thread{
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
-			Cible c = this.c.classifier(e);//rajouter méthode pour la deuxième cible
-			String s = getSyllabe(c, c);//remplacer la deuxième cible par celle pour la position de la main
+			Cible c = this.classif.classifier(e);
+			String s = getSyllabe(c);
 			this.syllabes.add(s);
 			mot = mot + s;
 			

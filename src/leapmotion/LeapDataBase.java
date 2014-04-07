@@ -49,17 +49,13 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 	
     /*************************Fonctions diverses***********************/
-	//Associe une frame avec une cible et la met dans la base en fonction d'un char tappe au clavier
-	public void put( Frame frame,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{
-		this.table.add(new LeapData(frame, inChar));
-	}
-	
 	
 	//Enregistre la base dans un fichier
 	public void write(String file) throws Exception {
 
 		Controller controller = new Controller();
 		char inChar = 0;
+		int inPos= 0;
 		BufferedReader entree;
 		ObjectOutputStream oos = null;
 		FileOutputStream fos = null;
@@ -76,6 +72,9 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 			entree = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
 			inChar = (char) entree.read();
+			inPos = (int) entree.read() - 48; //le 1 correspond a 49
+			
+			System.out.println(inChar + "___" + inPos);
 
 
 			if(inChar == 'q'){ //quitter le programme
@@ -91,7 +90,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			if(frame.hands().count() > 0 && frame.fingers().count() > 0){//on verifie que l'image n'est pas vide et qu'il y a bien une main
 				try{
 				System.out.println(i);
-				this.put(frame, inChar); 
+				this.table.add(new LeapData(frame, inChar, inPos)); 
 				} catch (LetterException e){
 					System.out.println("Caractere non valide");
 				} finally {}

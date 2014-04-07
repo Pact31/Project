@@ -1,6 +1,7 @@
 package LeapTS;
 
 import leapmotion.LetterException;
+import leapmotion.NumberException;
 
 import com.leapmotion.leap.Frame;
 
@@ -23,32 +24,176 @@ public class LeapData extends FrameTS{
 		this.cible = cible;
 	}
 	
-		public LeapData( Frame frame,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{
+		public LeapData( Frame frame,char inChar, int inPos) throws IllegalArgumentException, NullPointerException, LetterException, NumberException{
 		super(frame);
 		switch(inChar){
 		case 'a' : 
-			this.cible = Cible.PDJ;
+			switch(inPos){
+			case 1 :
+				this.cible = Cible.YNG_G;
+				break;
+			case 2 :
+				this.cible = Cible.YNG_M;
+				break;
+			case 3 : 
+				this.cible = Cible.YNG_B;
+				break;
+			case 4 :
+				this.cible = Cible.YNG_C;
+				break;
+			case 5 : 
+				this.cible = Cible.YNG_P;
+				break;
+			default :
+				throw(new NumberException (inPos));
+			}
 			break;
 		case 'z':
-			this.cible = Cible.KVZ;
+			switch(inPos){
+			case 1 :
+				this.cible = Cible.KVZ_G;
+				break;
+			case 2 :
+				this.cible = Cible.KVZ_M;
+				break;
+			case 3 : 
+				this.cible = Cible.KVZ_B;
+				break;
+			case 4 :
+				this.cible = Cible.KVZ_C;
+				break;
+			case 5 : 
+				this.cible = Cible.KVZ_P;
+				break;
+			default :
+				throw(new NumberException (inPos));
+			}
 			break;
 		case 'e':
-			this.cible = Cible.SR;
+			switch(inPos){
+			case 1 :
+				this.cible = Cible.SR_G;
+				break;
+			case 2 :
+				this.cible = Cible.SR_M;
+				break;
+			case 3 : 
+				this.cible = Cible.SR_B;
+				break;
+			case 4 :
+				this.cible = Cible.SR_C;
+				break;
+			case 5 : 
+				this.cible = Cible.SR_P;
+				break;
+			default :
+				throw(new NumberException (inPos));
+			}
 			break;
 		case 'r':
-			this.cible = Cible.G;
+			switch(inPos){
+			case 1 :
+				this.cible = Cible.G_G;
+				break;
+			case 2 :
+				this.cible = Cible.G_M;
+				break;
+			case 3 : 
+				this.cible = Cible.G_B;
+				break;
+			case 4 :
+				this.cible = Cible.G_C;
+				break;
+			case 5 : 
+				this.cible = Cible.G_P;
+				break;
+			default :
+				throw(new NumberException (inPos));
+			}
 			break;
 		case 't':
-			this.cible = Cible.ICHGNW;
+			switch(inPos){
+			case 1 :
+				this.cible = Cible.ICHGNW_G;
+				break;
+			case 2 :
+				this.cible = Cible.ICHGNW_M;
+				break;
+			case 3 : 
+				this.cible = Cible.ICHGNW_B;
+				break;
+			case 4 :
+				this.cible = Cible.ICHGNW_C;
+				break;
+			case 5 : 
+				this.cible = Cible.ICHGNW_P;
+				break;
+			default :
+				throw(new NumberException (inPos));
+			}
 			break;
 		case 'y': 			
-			this.cible = Cible.MTF;
+			switch(inPos){
+			case 1 :
+				this.cible = Cible.MTF_G;
+				break;
+			case 2 :
+				this.cible = Cible.MTF_M;
+				break;
+			case 3 : 
+				this.cible = Cible.MTF_B;
+				break;
+			case 4 :
+				this.cible = Cible.MTF_C;
+				break;
+			case 5 : 
+				this.cible = Cible.MTF_P;
+				break;
+			default :
+				throw(new NumberException (inPos));
+			}
 			break;
 		case 'u': 
-			this.cible = Cible.YNG;
+			switch(inPos){
+			case 1 :
+				this.cible = Cible.YNG_G;
+				break;
+			case 2 :
+				this.cible = Cible.YNG_M;
+				break;
+			case 3 : 
+				this.cible = Cible.YNG_B;
+				break;
+			case 4 :
+				this.cible = Cible.YNG_C;
+				break;
+			case 5 : 
+				this.cible = Cible.YNG_P;
+				break;
+			default :
+				throw(new NumberException (inPos));
+			}
 			break;
 		case 'i':
-			this.cible = Cible.BNUI;
+			switch(inPos){
+			case 1 :
+				this.cible = Cible.BNUI_G;
+				break;
+			case 2 :
+				this.cible = Cible.BNUI_M;
+				break;
+			case 3 : 
+				this.cible = Cible.BNUI_B;
+				break;
+			case 4 :
+				this.cible = Cible.BNUI_C;
+				break;
+			case 5 : 
+				this.cible = Cible.BNUI_P;
+				break;
+			default :
+				throw(new NumberException (inPos));
+			}
 			break;
 		default: 
 			throw (new LetterException(inChar));
