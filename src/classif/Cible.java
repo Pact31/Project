@@ -15,7 +15,7 @@ public enum Cible {
 	 * La deuxieme represente la position de la main : Gorge, Menton, Bouche, Cote, Pommette.
 	 */
   	PDJ_G, PDJ_M, PDJ_B, PDJ_C, PDJ_P,
-  	KVZ_G, KVZ_M, KVA_B, KVZ_C, KVZ_P, 
+  	KVZ_G, KVZ_M, KVZ_B, KVZ_C, KVZ_P, 
   	SR_G, SR_M, SR_B, SR_C, SR_P, 
   	BNUI_G, BNUI_M, BNUI_B, BNUI_C, BNUI_P,
   	MTF_G, MTF_M, MTF_B, MTF_C, MTF_P,

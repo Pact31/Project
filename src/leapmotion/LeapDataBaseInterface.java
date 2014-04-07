@@ -6,7 +6,6 @@ public interface LeapDataBaseInterface {
 	
 	//Ajout d'une frame associee à une clef dans la base de donnee.
 	//On associe une clef a huits touches du clavier, ici des char.
-	public void put( Frame frame, char inChar) throws IllegalArgumentException, NullPointerException, LetterException;
 	
 	//Creation de la base de donnee et enregistrement a la suite du fichier 
 	//passe en argument. L'utilisateur positionne sa main, appuie sur la

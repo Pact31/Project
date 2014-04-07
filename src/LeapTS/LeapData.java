@@ -23,7 +23,7 @@ public class LeapData extends FrameTS{
 		this.cible = cible;
 	}
 	
-		public LeapData( Frame frame,char inChar) throws IllegalArgumentException, NullPointerException, LetterException{
+		public LeapData( Frame frame,char inChar, int inPos) throws IllegalArgumentException, NullPointerException, LetterException, NumberException{
 		super(frame);
 		switch(inChar){
 		case 'a' : 
