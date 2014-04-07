@@ -1,16 +1,16 @@
 package leapmotion;
 
 import LeapTS.LeapData;
-import classif.classification.Apprentissage;
-import classif.classification.BanqueApprentissage;
+import classif.Apprentissage;
+import classif.BanqueApprentissage;
 
 public class main {
 
 	public static void main(String[] args) throws Exception {
 		LeapDataBase DB = new LeapDataBase();
 		
-		DB.write("baseLeap.dat");
-		DB.read("baseLeap.dat");
+		DB.write("baseLeap4.dat");
+		DB.read("baseLeap4.dat");
 		for (LeapData leapData : DB.table){
 		System.out.println(leapData.getCible());
 		}

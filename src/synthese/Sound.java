@@ -71,7 +71,7 @@ public void run ()  {
 		while (numberBytesRead != -1) {
 			
 			numberBytesRead = ais.read(samples, 0,length);
-			if (numberBytesRead != 1){
+			if (numberBytesRead != -1){
 				sdl.write(samples, 0,numberBytesRead);
 			}
 		}

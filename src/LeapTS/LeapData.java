@@ -4,7 +4,7 @@ import leapmotion.LetterException;
 
 import com.leapmotion.leap.Frame;
 
-import classification.Cible;
+import classif.Cible;
 
 public class LeapData extends FrameTS{
 

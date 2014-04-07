@@ -5,13 +5,13 @@ import javax.swing.JMenuBar;
 
 public class DrawingMenuBar extends JMenuBar{
 
-	private final OptionMenu fileMenu ;
+	private final WindowOptionMenu fileMenu ;
 	
 	public DrawingMenuBar(DrawingApp drawingApp)
 	{
 		super() ;
 		
 		// Create and add menus
-		add(fileMenu = new OptionMenu(drawingApp)) ;
+		add(fileMenu = new WindowOptionMenu(drawingApp)) ;
 	}
 }

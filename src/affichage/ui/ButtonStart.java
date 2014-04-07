@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
 import affichage.model.DrawingAppModel;
@@ -47,9 +48,13 @@ public class ButtonStart extends JButton
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-
+		
 		DrawingAppModel model = drawingApp.getModel();
-		drawingApp.getHandSpeakController().launchceLeapMotion();
+		try {
+			drawingApp.getHandSpeakController().launchceLeapMotion();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		drawingApp.update(model, null);
 
 	}

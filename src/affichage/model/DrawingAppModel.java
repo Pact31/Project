@@ -4,46 +4,101 @@ import java.util.Hashtable;
 import java.util.Observable;
 import java.awt.Color;
 import java.io.File;
-
-import affichage.gestures.*;
-
+import leapmotion.LeapDataBase;
+import classif.BanqueApprentissage;
+import classif.adaboost.Adaboost;
+import classif.kppv.Kppv;
 import synthese.Sound;
 
 public class DrawingAppModel extends Observable{
 
 	private 	String		msg					= 	"NO detection!";
-	private 	Boolean 	handleClick 		= 	false;
-	private 	Color		currentButtonColor	=	Color.CYAN;
 	private 	String		currentButtonMark	=	"START";
 	private		String		currentGesture		=	"NO detection!";
-	private		File		currentBank			=	null;
+	private    String      currentClassifier    =    "KPPV";
+	private 	Boolean 	handleClick 		= 	false;
+	private 	Color		currentButtonColor	=	Color.CYAN;
 	private		boolean    currentCibleOption  =   true;
 	private    Hashtable<String, String> soundSource = new Hashtable<String, String>();
+	private    Adaboost    adaboost;
+	private    Kppv        kppv;
+	private    LeapDataBase currentleapDataBase = new LeapDataBase();
 	
-	public DrawingAppModel(){
+	public DrawingAppModel() throws Exception{
+		
+		System.out.println("Set sound source");
 		setSoundSource();
+		
+		int T = 5;
+		int k = 3;
+		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
+		
+		leapDataBase.read("baseLeap3.dat");
+		
+		System.out.println("Base de test initialisée");
+		
+		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
+		
+		System.out.println("Banque d'apprentissage initialisée");
+		
+		//Adaboost adaboost =new Adaboost(banque, T);
+		//adaboost = new Adaboost(banque, T);
+		System.out.print("AdaBoost initialisé" + " ");
+			
+		//Kppv kppv = new Kppv(banque, k);
+		//kppv = new Kppv(banque, k);
+		System.out.print("Kppv initialisé");
+
 	}
+	
+	public Adaboost getAdaboost(){
+		
+		return adaboost;
+	
+	}
+	
+	public Kppv getKppv(){
+		
+		return kppv;
+	
+	}
+	
 	
 	private void setSoundSource(){
 		
-		soundSource.put("SR", "data/di.wav");
-		soundSource.put("PDJ", "data/di.wav");
+		soundSource.put("SR  ", "data/so(seau).wav");
+		soundSource.put("PDJ ", "data/di.wav");
 		soundSource.put("BNUI", "data/bi.wav");
-		soundSource.put("G", "data/geu(bleu).wav");
-		soundSource.put("KVZ", "data/zeu(bleu).wav");
-		soundSource.put("YNG", "data/ping.wav");
-		soundSource.put("ICHGNW", "data/cha(court).wav");
-		soundSource.put("MDF", "data/teu.wav");
+		soundSource.put(" G  ", "data/geu(bleu).wav");
+		soundSource.put("KVZ ", "data/zeu(bleu).wav");
+		soundSource.put("YNG ", "data/ping.wav");
+		soundSource.put("ICHG", "data/cha(court).wav");
+		soundSource.put("MTF ", "data/teu.wav");
 		
 	}
 	
+	public String getCurrentClassifier(){
+		
+		return currentClassifier;
+	
+	}
+	
+	public void setCurrentClassifer(String c){
+	
+		currentClassifier = c;
+	
+	}
 	
 	public boolean getCurrentCibleOption(){
+	
 		return currentCibleOption;
+	
 	}
 	
 	public void setCurrentCibleOption(boolean i){
+	
 		currentCibleOption = i;
+	
 	}
 	
 	public String getCurrentMessage(){
@@ -106,21 +161,37 @@ public class DrawingAppModel extends Observable{
 		
 	}
 	
-	public void setCurrentBank(File file){
+	public void setCurrentBank(File file) throws Exception{
 		
-		this.currentBank = file;
-	
+		int T=5;
+		int k=3;
+		currentleapDataBase.read(file.getAbsolutePath());
+		
+		BanqueApprentissage banque = new BanqueApprentissage(currentleapDataBase);
+		
+		System.out.println("Banque d'apprentissage initialisée");
+		
+		//Adaboost adaboost =new Adaboost(banque, T);
+		adaboost = new Adaboost(banque, T);
+		System.out.print("AdaBoost initialisé");
+			
+		//Kppv kppv = new Kppv(banque, k);
+		kppv = new Kppv(banque, k);
+		System.out.print("Kppv initialisé");
+
 	}
 	
-	public File getCurrentBank(){
+	public LeapDataBase getCurrentBank(){
 		
-		return currentBank;
+		return currentleapDataBase;
 		
 	}
  
 	public void setCurrentSound(String msg){
 	
+		//System.out.println(msg);
 		if(soundSource.containsKey(msg)){
+			System.out.println(msg);
 			msg = soundSource.get(msg);
 			Thread song = new Sound(msg);
         	song.run();

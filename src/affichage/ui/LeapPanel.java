@@ -6,7 +6,7 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
-import affichage.ui_leapmotion.OurFinger;
+import affichage.uiLeapMotion.OurFinger;
 
 
 public class LeapPanel extends JPanel{
@@ -28,7 +28,7 @@ public class LeapPanel extends JPanel{
     @Override
     public void paintComponent(Graphics g) {
         
-        g.setColor(Color.WHITE);
+        g.setColor(Color.white);
         g.fillRect(0, 0, width, height);
         
         for (int i =0; i< tab.size(); i++) {
