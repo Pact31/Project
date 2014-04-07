@@ -72,7 +72,9 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 			entree = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
 			inChar = (char) entree.read();
-			inPos = (int) entree.read();
+			inPos = (int) entree.read() - 48; //le 1 correspond a 49
+			
+			System.out.println(inChar + "___" + inPos);
 
 
 			if(inChar == 'q'){ //quitter le programme
