@@ -2,6 +2,7 @@ import java.io.File;
 
 import LeapTS.FrameTS;
 
+import adaboost.Adaboost;
 import affichage.model.DrawingAppModel;
 
 import com.leapmotion.leap.Controller;
@@ -9,13 +10,12 @@ import com.leapmotion.leap.Frame;
 
 import synthese.Sound;
 import classification.Cible;
-import classification.Classificateur;
 import classification.Entree;
 
 
 public class Start {
 
-	public static void start(Classificateur c, DrawingAppModel model) throws Exception{//fonction à exécuter par l'interface graphique à chaque pression sur le boutton Start
+	public static void start(Adaboost a, DrawingAppModel model) throws Exception{//fonction à exécuter par l'interface graphique à chaque pression sur le boutton Start
 		
 		System.out.println("Début de la séquence de traduction!");
 		
@@ -24,10 +24,9 @@ public class Start {
 		FrameTS framets = new FrameTS(frame);
 		Entree e = new Entree(framets);
 		
-		
 		System.out.println("Une nouvelle entrée a été crée!");
 		
-		Cible cible = c.classifier(e);//on trouve la classe asociée à l'entrée
+		Cible cible = a.predict(e);//on trouve la classe asociée à l'entrée
 				
 		System.out.println("La cible détéctée est :"+cible);
 		

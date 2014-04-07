@@ -32,7 +32,7 @@ public class TestAdaboost {
 		System.out.println("l'élément " +i + " de la banque a pour cible : "+ banque.getApprentissage(i).getCible());
 		
 		
-		System.out.println("la classe prédite par adaboost pour cet élément est : " + adaboost.predict(banque.getApprentissage(i)));
+		System.out.println("la classe prédite par adaboost pour cet élément est : " + adaboost.classifier(banque.getApprentissage(i)));
 		
 	}
 
