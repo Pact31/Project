@@ -74,7 +74,7 @@ public class RunnableLeap extends Thread{
 				e1.printStackTrace();
 			}
 			//rajouter ici commande sur model pour faire passer le voyant au vert
-			Entree e = new Entree(this.control);//remplacer par le code pour faire la moyenne
+			Entree e = new Entree(this.control);//remplacer par le code pour faire la moyenne ou autre méthode d'aquisition
 			//rajouter ici commandesur model pour faire passer le voyant au rouge
 			try {
 				this.chain.put(e);
