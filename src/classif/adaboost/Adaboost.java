@@ -180,6 +180,7 @@ public class Adaboost extends Classificateur{
 		}
 		this.learn(T);
 	}
+
 	public Cible classifier(Entree e){
 		int k = this.predictClassOf(e);
 		return Cible.values()[k];

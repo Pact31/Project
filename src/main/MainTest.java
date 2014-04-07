@@ -1,5 +1,7 @@
 package main;
 
+import java.io.File;
+
 import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
@@ -27,7 +29,7 @@ public class MainTest {
 		 */
 		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
 		threadLeapMotion.start();
-		//
+	
 	}
 }
 

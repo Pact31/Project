@@ -35,7 +35,12 @@ implements ActionListener
 	   
 	   if (returnVal == JFileChooser.APPROVE_OPTION) {
            File file = fc.getSelectedFile();
-           drawingAppModel.setCurrentBank(file);
+           try {
+        	   drawingAppModel.setCurrentBank(file);
+           } catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+           }
            //This is where a real application would open the file.
            drawingAppModel.setCurrentMessage("Opening: " + file.getName() + "." + "\n");
        } 

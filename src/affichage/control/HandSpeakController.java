@@ -1,11 +1,18 @@
 package affichage.control;
 
 import java.awt.Color;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
+import leapmotion.LeapDataBase;
+
+import classif.BanqueApprentissage;
 import classif.Cible;
 import classif.ClassificateurInterface;
 import classif.Entree;
+import classif.kppv.Kppv;
 
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
@@ -50,6 +57,7 @@ public class HandSpeakController
 				msg = start(model.getAdaboost());
 				//msg="NO detection!";
 			//msg = kppvClassification();
+
 			model.setCurrentMessage(msg);
 			model.setCurrentSound(msg);
 			//model.setCurrentGesture(kppvClassification());
@@ -72,21 +80,57 @@ public class HandSpeakController
 		
 	}
 	
-	private String kppvClassification(){
-		// TODO add the classifier Kppv
+	private Cible kppvClassification(){
 		
-		Classifier classifier = new Classifier();
+		/*Classifier classifier = new Classifier();
 		//if(classifier.contaisThum())
 		    return classifier.getGestures();
 		//else
 		//	return classifier.getGestures() + "thum";
+		*/
+		LeapDataBase leapDataBase = new LeapDataBase();
+		try {
+			leapDataBase.read("LeapHnv22.dat");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
+		
+				
+		Controller controller = new Controller();
+		
+		System.out.println("Appuer sur une touche pour valider");
+		
+		BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
+		try {
+			char inChar = (char) buf.read();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		Frame frame = controller.frame();
+		FrameTS framets = new FrameTS(frame);
+		Entree entree = new Entree(framets);
+		
+		Kppv classificateur = new Kppv(banque,3);
+		System.out.println(classificateur.classifier(entree));
+		return classificateur.classifier(entree);
 	}
 	
 	private String adaboostClassification(){
 		// TODO add the classifier adaboost
+		Controller controller = new Controller();
 		
-		return "HelloWorld adaboost";
+		Frame frame = controller.frame();
+		FrameTS framets = new FrameTS(frame);
+		Entree entree = new Entree(framets);
+		
+		//Cible c = model.getAdaboost().predict(entree);
+		//System.out.println(c);
+		return "NO detection!";
 		
 	}
 
