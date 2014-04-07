@@ -10,6 +10,10 @@ package classif;
 
 
 public enum Cible {
+	/* 
+	 * La premiere partir correspond aux consonnes codees par les clefs
+	 * La deuxieme represente la position de la main : Gorge, Menton, Bouche, Cote, Pommette.
+	 */
   	PDJ_G, PDJ_M, PDJ_B, PDJ_C, PDJ_P,
   	KVZ_G, KVZ_M, KVA_B, KVZ_C, KVZ_P, 
   	SR_G, SR_M, SR_B, SR_C, SR_P, 
@@ -17,5 +21,5 @@ public enum Cible {
   	MTF_G, MTF_M, MTF_B, MTF_C, MTF_P,
   	ICHGNW_G, ICHGNW_M, ICHGNW_B, ICHGNW_C, ICHGNW_P,
   	G_G, G_M, G_B, G_C, G_P,
-  	YNG_G, YNG_M, YNG_B, YNG_C, YNG_P; //Correspond aux diff�rentes "consonnes" cod�es par les clefs.
+  	YNG_G, YNG_M, YNG_B, YNG_C, YNG_P; 
 }
