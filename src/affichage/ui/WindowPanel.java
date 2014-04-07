@@ -13,10 +13,14 @@ extends JPanel
 	private static final long serialVersionUID = 1L;
 	
 	private final LeapPanel leapPanel;
-	private final ButtonStartPanel buttonsPanel;
+	//private final ButtonStartPanel buttonsPanel;
 	private final ResultPanel resultPanel;
 	private final GesturePanel gesturePanel;
 	private final ButtonLeftPanel buttonLeftPanel;
+	private final ButtonExecutionPanel buttonExecutionPanel;
+	private final ButtonStopPanel buttonStopPanel;
+	
+	
 	public WindowPanel(DrawingApp drawingApp) throws IOException{
 	
 		super();
@@ -42,9 +46,17 @@ extends JPanel
 		gesturePanel.setBounds(805, 50, 566, 595);
 		add(gesturePanel);
 		
-		buttonsPanel = new ButtonStartPanel(drawingApp);
-		buttonsPanel.setBounds(500, 20, 200, 50);
-		add(buttonsPanel);
+		//buttonsPanel = new ButtonStartPanel(drawingApp);
+		//buttonsPanel.setBounds(500, 20, 200, 50);
+		//add(buttonsPanel);
+		
+		buttonExecutionPanel = new ButtonExecutionPanel(drawingApp);
+		buttonExecutionPanel.setBounds(520, 0, 200, 50);
+		add(buttonExecutionPanel);
+		
+		buttonStopPanel = new ButtonStopPanel(drawingApp);
+		buttonStopPanel.setBounds(720, 0, 200, 50);
+		add(buttonStopPanel);
 		
 		buttonLeftPanel = new ButtonLeftPanel(drawingApp);
 		buttonLeftPanel.setBounds(0, 0, 100, 50);
@@ -59,7 +71,7 @@ extends JPanel
 	
 	public void notifyForUpdate(){
 		
-		buttonsPanel.getButtonStart().notifyForUpdate();
+		//buttonsPanel.getButtonStart().notifyForUpdate();
 		resultPanel.notifyForUpdate();
 		gesturePanel.notifyForUpdate();
 		

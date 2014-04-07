@@ -8,7 +8,8 @@ import com.leapmotion.leap.InteractionBox;
 import affichage.ui.DrawingApp;
 import affichage.ui.LeapPanel;
 
-public class ThreadLeapMotion 	extends Thread
+public class ThreadLeapMotion 	
+extends Thread
 {
 	
 	private final DrawingApp drawingApp;

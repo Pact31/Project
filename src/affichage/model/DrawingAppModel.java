@@ -26,7 +26,9 @@ public class DrawingAppModel extends Observable{
 	
 	public DrawingAppModel() throws Exception{
 		
+		System.out.println("Set sound source");
 		setSoundSource();
+		
 		int T = 5;
 		int k = 3;
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
@@ -64,14 +66,14 @@ public class DrawingAppModel extends Observable{
 	
 	private void setSoundSource(){
 		
-		soundSource.put("SR", "data/so(seau).wav");
-		soundSource.put("PDJ", "data/di.wav");
+		soundSource.put("SR  ", "data/so(seau).wav");
+		soundSource.put("PDJ ", "data/di.wav");
 		soundSource.put("BNUI", "data/bi.wav");
-		soundSource.put("G", "data/geu(bleu).wav");
-		soundSource.put("KVZ", "data/zeu(bleu).wav");
-		soundSource.put("YNG", "data/ping.wav");
-		soundSource.put("ICHGNW", "data/cha(court).wav");
-		soundSource.put("MTF", "data/teu.wav");
+		soundSource.put(" G  ", "data/geu(bleu).wav");
+		soundSource.put("KVZ ", "data/zeu(bleu).wav");
+		soundSource.put("YNG ", "data/ping.wav");
+		soundSource.put("ICHG", "data/cha(court).wav");
+		soundSource.put("MTF ", "data/teu.wav");
 		
 	}
 	
@@ -187,7 +189,9 @@ public class DrawingAppModel extends Observable{
  
 	public void setCurrentSound(String msg){
 	
+		//System.out.println(msg);
 		if(soundSource.containsKey(msg)){
+			System.out.println(msg);
 			msg = soundSource.get(msg);
 			Thread song = new Sound(msg);
         	song.run();

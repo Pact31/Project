@@ -4,6 +4,8 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 
+import affichage.ui.game.DrawingGame;
+
 
 public class TitlePanel 
 extends JLabel
@@ -12,7 +14,8 @@ extends JLabel
 	private static final long serialVersionUID = 1L;
 	
 	//private final ButtonLearn learn;
-	private final DrawingMainMenu drawingMainMenu;
+	private DrawingMainMenu drawingMainMenu;
+	private DrawingGame drawingGame;
 	
 	public TitlePanel(DrawingMainMenu drawingMainMenu){
 
@@ -26,4 +29,16 @@ extends JLabel
 		setText("Hand Speak");
 	}
 	
+
+	public TitlePanel(DrawingGame drawingGame){
+
+		super();
+		
+		this.drawingGame = drawingGame;
+		this.setSize(new Dimension(100, 200));
+		//add(learn = new ButtonLearn(drawingMainMenu));
+		setFont(new Font("Serif", Font.ITALIC, 18));
+		setText("Hand Speak Game");
+	}
+
 }
