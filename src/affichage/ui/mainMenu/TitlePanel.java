@@ -1,4 +1,5 @@
 package affichage.ui.mainMenu;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
@@ -36,9 +37,11 @@ extends JLabel
 		
 		this.drawingGame = drawingGame;
 		this.setSize(new Dimension(100, 200));
+		
 		//add(learn = new ButtonLearn(drawingMainMenu));
 		setFont(new Font("Serif", Font.ITALIC, 18));
 		setText("Hand Speak Game");
 	}
+	
 
 }

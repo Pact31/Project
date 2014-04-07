@@ -21,7 +21,10 @@ extends JPanel
 		time1.setBounds(0, 0, 20, 20);
 		this.add(time1);
 		
-		threadTimeCount = new ThreadTimeCount(drawingGame, this);
+		
+		threadTimeCount = new ThreadTimeCount(drawingApp, drawingGame, this);
+		drawingApp.getModel().setCurrentThreadTimeCount(threadTimeCount);
+		
 		threadTimeCount.start();
 	}
 	

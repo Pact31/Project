@@ -31,7 +31,7 @@ implements ActionListener
 		
 		super();
 		//this.setSize(new Dimension(100, 10));
-		this.setBounds(450, 400, width, height);
+		this.setBounds(450, 460, width, height);
 		this.drawingMainMenu = drawingMainMenu;
 		image = ImageIO.read(new File("src/affichage/quit.png"));
 		addActionListener(this);
@@ -42,7 +42,7 @@ implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 
 		this.drawingMainMenu.close();
-		
+
 	}
 	
 	@Override

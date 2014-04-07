@@ -28,6 +28,7 @@ extends JPanel
 		else if(i > 20){
 			this.setBackground(Color.orange);
 		}
+		
 	}
 
 }

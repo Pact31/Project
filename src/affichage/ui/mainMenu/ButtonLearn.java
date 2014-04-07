@@ -31,7 +31,7 @@ implements ActionListener
 		
 		super();
 		//this.setSize(new Dimension(100, 10));
-		this.setBounds(450, 100, width, height);
+		this.setBounds(450, 90, width, height);
 		this.drawingMainMenu = drawingMainMenu;
 		image = ImageIO.read(new File("src/affichage/learning_icon.png"));
 		addActionListener(this);

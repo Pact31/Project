@@ -23,6 +23,7 @@ public class DrawingMainMenu extends JFrame
 	private final ButtonHelp                  	buttonHelp;
 	private final TitlePanel             		titlePanel;
 	private final ButtonQuit                  	buttonQuit;
+	private final ButtonGame					buttonGame;
 	
 	public DrawingMainMenu() throws IOException{
 		
@@ -37,6 +38,7 @@ public class DrawingMainMenu extends JFrame
 		
 		background = new Background(this);
 		setContentPane(background);
+		
 		titlePanel = new TitlePanel(this);
 		this.add(titlePanel);
 		
@@ -44,6 +46,7 @@ public class DrawingMainMenu extends JFrame
 		this.add(buttonLearn = new ButtonLearn(this));
 		this.add(buttonHelp = new ButtonHelp(this));
 		this.add(buttonQuit = new ButtonQuit(this));
+		this.add(buttonGame = new ButtonGame(this));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Hand Speak");

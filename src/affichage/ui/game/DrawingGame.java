@@ -23,11 +23,16 @@ public class DrawingGame extends JFrame
 	
 	private final WindowGame					windowGame;
 	
+	private  GameOverPanel				gameOverPanel;
 	
 	public DrawingGame(DrawingApp drawingApp) throws IOException{
 		
 		super("Drawing Application");
 		
+		/* intiation du panel Game Over*/
+		gameOverPanel = new GameOverPanel(drawingApp, this);
+		gameOverPanel.setBounds(0, 0, 500, 500);
+		/*-----------------------------*/
 		
 		this.setPreferredSize(new Dimension(800,600));
 		this.setLocation(100, 100);
@@ -49,6 +54,13 @@ public class DrawingGame extends JFrame
 	public void close(){
 		
 		this.setVisible(false);
+	
+	}
+	
+	public void setGameOver() throws IOException{
+		
+		this.setContentPane(gameOverPanel);
+		this.setVisible(true);
 	
 	}
 	
