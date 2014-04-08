@@ -1,15 +1,14 @@
 package reconnaissance;
 
+import classif.Cible;
 import classif.ClassificateurInterface;
 
 public interface ReconnaissanceInterface {
 	
-	public void setClassificateur(ClassificateurInterface classificateur);
+	public void setTime(long time);
+
+	public long getTime();
 	
-	public void setTiming(float timing);
-
-	public ClassificateurInterface getCleassificateur();
-
-	public float getTiming();
+	public Cible reconnaitre(Cible cible);
 
 }
