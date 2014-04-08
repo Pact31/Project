@@ -7,6 +7,7 @@ import java.io.File;
 
 import affichage.ui.OptionMenu.TextPanel;
 import affichage.ui.game.GameImagePanel;
+import affichage.ui.game.ScorePanel;
 import affichage.ui.game.ThreadTimeCount;
 import leapmotion.LeapDataBase;
 import classif.BanqueApprentissage;
@@ -33,17 +34,23 @@ public class DrawingAppModel extends Observable{
 	
 			/* Hand Speak Game   */
 	private    Hashtable<Integer, String> gameImage = new Hashtable<Integer, String>();
+	private    Hashtable<Integer, String> gameText = new Hashtable<Integer, String>();
 	private    ThreadTimeCount		currentThreadTimeCount = null;
 	private    Boolean		gameThreadRunning	= 	false;
 	private		String      currentWord  		= 	"Clic Start!";
 	private    TextPanel  textPanel           	= 	null;
 	private    GameImagePanel gameImagePanel	=	null;
+	private 	ScorePanel		scorePanel		= 	null;
+	private		boolean 	rightAnswer			=	true;
+	private    int         currentScore       	= 	0;
+	private 	int 		currentLevel		=	1;
 	
 	public DrawingAppModel() throws Exception{
 		
-		System.out.println("Set sound source");
+		System.out.println("Set game source");
 		setSoundSource();
 		setGameImage();
+		setGameText();
 		
 		int T = 5;
 		int k = 3;
@@ -94,6 +101,7 @@ public class DrawingAppModel extends Observable{
 	}
 	
 	private void setGameImage(){
+	
 		gameImage.put(1, "src/affichage/ui/game/images/consonnes_bn1.png");
 		gameImage.put(2, "src/affichage/ui/game/images/consonnes_g1.png");
 		gameImage.put(3, "src/affichage/ui/game/images/consonnes_ich1.png");
@@ -104,9 +112,50 @@ public class DrawingAppModel extends Observable{
 		gameImage.put(0, "src/affichage/ui/game/images/consonnes_sr1.png");
 		
 	}
-	
+		
 	public String getGameImage(int i){
 		return gameImage.get(i);
+	}
+	
+	private void setGameText(){
+		
+		gameText.put(1, "BNUI");
+		gameText.put(2, " G  ");
+		gameText.put(3, "ICHG");
+		gameText.put(4, "YNG ");
+		gameText.put(5, "KVZ ");
+		gameText.put(6, "MTF ");
+		gameText.put(7, "PDJ ");
+		gameText.put(0, "SR  ");
+		
+	}
+	
+	public String getGameText(int i){
+		return gameText.get(i);
+	}
+	
+	public void setRightAnswer(boolean i){
+		this.rightAnswer = i;
+	}
+	
+	public boolean getRightAnswer(){
+		return rightAnswer;
+	}
+	
+	public void setCurrentScore(int i){
+		this.currentScore = i;
+	}
+	
+	public int getCurrentScore(){
+		return currentScore;
+	}
+	
+	public void setCurrentLevel(int i){
+		this.currentLevel = i;
+	}
+	
+	public int getCurrentLevel(){
+		return currentLevel;
 	}
 	
 	public String getCurrentClassifier(){
@@ -191,10 +240,19 @@ public class DrawingAppModel extends Observable{
 	
 	public void setGameImagePanel(GameImagePanel g){
 		this.gameImagePanel = g;
+		
 	}
 	
 	public GameImagePanel getGameImagePanel(){
 		return gameImagePanel;
+	}
+	
+	public void setScorePanel(ScorePanel s){
+		this.scorePanel = s;
+	}
+	
+	public ScorePanel getScorePanel(){
+		return scorePanel;
 	}
 	
 	public void setCurrentGesture(String file){

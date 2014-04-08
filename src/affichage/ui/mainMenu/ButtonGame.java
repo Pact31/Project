@@ -45,15 +45,29 @@ implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 		
 		drawingMainMenu.close();
-		
+		/*DrawingAppModel		model				=	new	DrawingAppModel();
+		HandSpeakController handSpeakController = 	new HandSpeakController(model);
+		DrawingApp 			drawingApp 			= 	new DrawingApp(handSpeakController);
+		*/
 		DrawingAppModel model = null;
 		try {
+			System.out.println("Init dawingAppModel");
 			model = new	DrawingAppModel();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DrawingApp drawingApp = new DrawingApp(model);
+		
+		//HandSpeakController handSpeakController = 	new HandSpeakController(model);
+		//DrawingApp drawingApp = null;
+		
+		System.out.println("Init dawingApp");
+		DrawingApp drawingApp = null;
+		drawingApp = new DrawingApp(model);
+		
+		//ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
+		//threadLeapMotion.start();
+		
 		try {
 			DrawingGame drawingGame = new DrawingGame(drawingApp);
 		} catch (IOException e) {

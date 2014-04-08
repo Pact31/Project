@@ -29,4 +29,11 @@ extends JPanel
 		
 	}
 	
+	public void setScore(int i){
+		scorePanel.setText("Score : " + String.valueOf(i));
+	}
+	
+	public void setLevel(int i){
+		levelPanel.setText("Level : " + String.valueOf(i));
+	}
 }

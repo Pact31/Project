@@ -80,6 +80,29 @@ public class HandSpeakController
 		
 	}
 	
+	public void launchGame() throws Exception{
+		
+		//Boolean 		handleClick =	model.getHandleClick();
+		String 			msg			=	"NO detection!";
+		
+		// comment créer une classificateur?
+		if(model.getCurrentClassifier() == "KPPV")
+		//msg="NO detection!";
+			msg = start(model.getKppv());				
+		else
+			msg = start(model.getAdaboost());
+		//msg="NO detection!";
+		//msg = kppvClassification();
+
+		model.setCurrentMessage(msg);
+		model.setCurrentSound(msg);
+		//model.setCurrentGesture(kppvClassification());
+		//model.setCurrentGesture(msg);
+		//model.setCurrentBottonMark("STOP");
+		//model.setCurrentBottonColor(Color.RED);
+
+	}
+	
 	private Cible kppvClassification(){
 		
 		/*Classifier classifier = new Classifier();
@@ -154,15 +177,15 @@ public class HandSpeakController
 		
 		if(cible==Cible.PDJ){//cette suite de if permet de transformer la cible en String
 			s= "di";
-			msg = "PDJ";
+			msg = "PDJ ";
 		}
 		else if(cible==Cible.KVZ){
 			s= "zeu(renaitre)";
-			msg = "KVZ";
+			msg = "KVZ ";
 		}
 		else if(cible==Cible.SR){
 			s= "so(sol)";
-			msg = "SR";
+			msg = "SR  ";
 		}
 		else if(cible==Cible.BNUI){
 			s= "bi";
@@ -170,19 +193,19 @@ public class HandSpeakController
 		}
 		else if(cible==Cible.MTF){
 			s= "teu";
-			msg = "MTF";
+			msg = "MTF ";
 		}
 		else if(cible==Cible.ICHGNW){
 			s= "cha(court)";
-			msg = "ICHGNW";
+			msg = "ICHG";
 		}
 		else if(cible==Cible.G){
 			s= "geu(renaitre)";
-			msg = "G";
+			msg = " G  ";
 		}
 		else if(cible==Cible.YNG){
 			s= "ping";
-			msg = "YNG";
+			msg = "YNG ";
 		}
 		
 		if(s==""){
@@ -195,7 +218,7 @@ public class HandSpeakController
 		
 		File file = new File(fileName);//on vérifie si le fichier existe
         System.out.println(file.exists());
-        
+        model.setCurrentMessage(msg);
         return msg;
 	}
 	

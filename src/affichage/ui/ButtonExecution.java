@@ -45,6 +45,7 @@ implements ActionListener
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		drawingApp.update(model, null);
 		
 	}
 	

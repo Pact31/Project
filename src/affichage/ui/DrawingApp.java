@@ -42,17 +42,17 @@ public class DrawingApp extends JFrame
 	
 	}
 	
-	public DrawingApp(DrawingAppModel drawingAppModel){
+	public DrawingApp(DrawingAppModel model){
 		windowPanel = null;
-		handSpeakController = null;
 		drawingMenuBar = null;
-		this.drawingAppModel = drawingAppModel;
+		handSpeakController = 	new HandSpeakController(model);
+		this.drawingAppModel = handSpeakController.getDrawingAppModel();
 	}
 	
 	
 	public final DrawingAppModel getModel(){
 		
-		return drawingAppModel;
+		return this.drawingAppModel;
 		
 	}
 	

@@ -64,4 +64,8 @@ public class DrawingGame extends JFrame
 	
 	}
 	
+	public void pauseGame(){
+		this.setEnabled(false);
+	}
+	
 }

@@ -37,6 +37,7 @@ implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 		
 		drawingApp.getModel().setGameThreadRunning(false);
+		drawingGame.pauseGame();
 		
 	}
 	

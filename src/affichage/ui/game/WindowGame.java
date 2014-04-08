@@ -24,10 +24,7 @@ extends JPanel
 		
 		super();
 		
-		//Dimension(1366,768)
-		//setLayout(new BorderLayout());
 		this.setLayout(null);
-		//this.setBackground(Color);
 		
 		titlePanel = new TitlePanel(drawingGame);
 		titlePanel.setBounds(320, 0, 200, 100);
@@ -36,6 +33,7 @@ extends JPanel
 		scorePanel = new ScorePanel(drawingApp, drawingGame);
 		scorePanel.setBounds(480, 120, 320, 500);
 		this.add(scorePanel);
+		drawingApp.getModel().setScorePanel(scorePanel);
 		
 		gestureShowPanel = new GestureShowPanel(drawingApp, drawingGame);
 		gestureShowPanel.setBounds(0, 120, 480, 500);
@@ -45,6 +43,7 @@ extends JPanel
 		timeCountPanel.setBounds(0, 100, 800, 20);
 		this.add(timeCountPanel);
 		
+		/*------------ Buttons ----------------------*/
 		buttonGameStartPanel = new ButtonGameStartPanel(drawingApp, drawingGame);
 		buttonGameStartPanel.setBounds(10, 20, 100, 70);
 		this.add(buttonGameStartPanel);
@@ -52,6 +51,7 @@ extends JPanel
 		buttonGameStopPanel = new ButtonGameStopPanel(drawingApp, drawingGame);
 		buttonGameStopPanel.setBounds(700, 20, 100, 70);
 		this.add(buttonGameStopPanel);
+		/*--------------------------------------------*/
 	}
 	
 	
