@@ -202,7 +202,7 @@ public class LeapData extends FrameTS{
 	}
 	
 	
-	/*********************************Getters*****************/
+	/*********************************Getters***********************/
 	public Cible getCible(){
 		return this.cible;
 	}
