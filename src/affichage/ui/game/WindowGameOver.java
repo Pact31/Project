@@ -12,8 +12,7 @@ extends JPanel
 		
 		super();
 		this.setLayout(null);
-		
-		
+	
 	}
 	
 	

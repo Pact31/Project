@@ -24,7 +24,7 @@ extends JLabel
 		//add(backgroundPanel = new Background("src/affichage/background.png"));
 		//this.setBounds(500, 600, 500, 200);
 		setFont(new Font("Serif", Font.BOLD, 60));
-		setText("Game Over!!!");
+		setText("Pause!");
 	}
 	
 	

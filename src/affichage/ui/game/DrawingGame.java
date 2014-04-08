@@ -22,13 +22,15 @@ public class DrawingGame extends JFrame
 	private static final long serialVersionUID = 1L;
 	
 	private final WindowGame					windowGame;
-	
+	private DrawingApp					drawingApp;
 	private  GameOverPanel				gameOverPanel;
 	
 	public DrawingGame(DrawingApp drawingApp) throws IOException{
 		
+		
 		super("Drawing Application");
 		
+		this.drawingApp	= drawingApp;
 		/* intiation du panel Game Over*/
 		gameOverPanel = new GameOverPanel(drawingApp, this);
 		gameOverPanel.setBounds(0, 0, 500, 500);
@@ -64,8 +66,16 @@ public class DrawingGame extends JFrame
 	
 	}
 	
-	public void pauseGame(){
-		this.setEnabled(false);
+	public void pauseGame() throws IOException{
+		this.setGameOver();
+		//this.setEnabled(false);
+	}
+	
+	public void reprend(){
+		this.setContentPane(windowGame);
+		this.setVisible(true);
+		drawingApp.getModel().setGameThreadRunning(true);
+		
 	}
 	
 }

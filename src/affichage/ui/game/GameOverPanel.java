@@ -18,8 +18,9 @@ extends JComponent
 	private final Image image;
 	private ButtonRestart buttonRestart;
 	private ButtonMainMenu buttonMainMenu;
+	private ButtonGameReprend buttonGameReprend;
 	private GameOverTextPanel gameOverTextPanel;
-	
+
 	public GameOverPanel(DrawingApp drawingApp, DrawingGame drawingGame) throws IOException{
 		
 		image = ImageIO.read(new File("src/affichage/background.jpg"));
@@ -32,6 +33,9 @@ extends JComponent
 		
 		buttonMainMenu = new ButtonMainMenu(drawingGame);
 		this.add(buttonMainMenu);
+		
+		buttonGameReprend = new ButtonGameReprend(drawingApp, drawingGame);
+		this.add(buttonGameReprend);
 	}
 	
 	@Override

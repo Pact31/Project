@@ -14,8 +14,9 @@ extends JPanel
 {
 	
 	private final TextPanel 	textPanel;
-	private TextPanel 			wordPanel;
+	private GameCiblePanel 		gameCiblePanel;
 	private GameImagePanel     gameImagePanel;
+	private GameLisaTalkPanel      lisaTalkPanel;
 	
 	public GestureShowPanel(DrawingApp drawingApp, DrawingGame drawingGame) throws IOException{
 		
@@ -23,19 +24,21 @@ extends JPanel
 		this.setBackground(Color.pink);
 		
 		//imagePanel = new ImagePanel(drawingApp);
-		
+		lisaTalkPanel = new GameLisaTalkPanel(drawingApp, "hello!");
+		lisaTalkPanel.setBounds(40, 20, 400, 30);
+		this.add(lisaTalkPanel);
 		
 		textPanel = new TextPanel(drawingApp, "Show this gesture : ");
-		textPanel.setBounds(120, 320, 300, 20);
-		this.add(textPanel);
+		textPanel.setBounds(120, 20, 300, 30);
+		//this.add(textPanel);
 		
-		wordPanel = new TextPanel(drawingApp, drawingApp.getModel().getCurrentWord());
-		wordPanel.setBounds(180, 350, 100, 20);
-		drawingApp.getModel().setTextPanel(wordPanel);//add wordpanel in drawingAppModel
-		this.add(wordPanel);
+		gameCiblePanel = new GameCiblePanel(drawingApp, drawingApp.getModel().getCurrentWord());
+		gameCiblePanel.setBounds(100, 470, 400, 50);
+		//drawingApp.getModel().setTextPanel(gameCiblePanel);//add wordpanel in drawingAppModel
+		this.add(gameCiblePanel);
 		
 		gameImagePanel = new GameImagePanel(drawingApp, drawingGame);
-		gameImagePanel.setBounds(100, 20, 300, 500);
+		gameImagePanel.setBounds(0, 50, 600, 500);
 		drawingApp.getModel().setGameImagePanel(gameImagePanel);
 		this.add(gameImagePanel);
 	}

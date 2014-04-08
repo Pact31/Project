@@ -35,9 +35,12 @@ public class DrawingAppModel extends Observable{
 			/* Hand Speak Game   */
 	private    Hashtable<Integer, String> gameImage = new Hashtable<Integer, String>();
 	private    Hashtable<Integer, String> gameText = new Hashtable<Integer, String>();
+	private    Hashtable<String,  String> lisaTalkText = new Hashtable<String,String>(); 
 	private    ThreadTimeCount		currentThreadTimeCount = null;
 	private    Boolean		gameThreadRunning	= 	false;
 	private		String      currentWord  		= 	"Clic Start!";
+	private    String 		gameLevel			=	"facile";
+	private    String 		gameProcess			= 	"level";
 	private    TextPanel  textPanel           	= 	null;
 	private    GameImagePanel gameImagePanel	=	null;
 	private 	ScorePanel		scorePanel		= 	null;
@@ -51,6 +54,7 @@ public class DrawingAppModel extends Observable{
 		setSoundSource();
 		setGameImage();
 		setGameText();
+		setLisaTalkText();
 		
 		int T = 5;
 		int k = 3;
@@ -102,7 +106,7 @@ public class DrawingAppModel extends Observable{
 	
 	private void setGameImage(){
 	
-		gameImage.put(1, "src/affichage/ui/game/images/consonnes_bn1.png");
+		/*gameImage.put(1, "src/affichage/ui/game/images/consonnes_bn1.png");
 		gameImage.put(2, "src/affichage/ui/game/images/consonnes_g1.png");
 		gameImage.put(3, "src/affichage/ui/game/images/consonnes_ich1.png");
 		gameImage.put(4, "src/affichage/ui/game/images/consonnes_j1.png");
@@ -110,7 +114,43 @@ public class DrawingAppModel extends Observable{
 		gameImage.put(6, "src/affichage/ui/game/images/consonnes_mtf1.png");
 		gameImage.put(7, "src/affichage/ui/game/images/consonnes_pd1.png");
 		gameImage.put(0, "src/affichage/ui/game/images/consonnes_sr1.png");
+		*/
+		gameImage.put(0, "src/affichage/ui/game/images/car.png");
+		gameImage.put(1, "src/affichage/ui/game/images/car.png");
+		gameImage.put(2, "src/affichage/ui/game/images/maison.jpg");
+		gameImage.put(3, "src/affichage/ui/game/images/maison.jpg");
+		gameImage.put(4, "src/affichage/ui/game/images/car.png");
 		
+	}
+	
+	private void setLisaTalkText(){
+	
+		lisaTalkText.put("level", "Choisissez un niveau de difficulité:");
+		lisaTalkText.put("welcomeeasy", "Bravo, t'as choisi le niveau facile!");
+		lisaTalkText.put("welcomemoyen", "Bravo, t'as choisi le niveau moyen!");
+		lisaTalkText.put("welcomedifficult", "Bravo, t'as choisi le niveau dur!");
+		lisaTalkText.put("start", "Clic le boutton pour démmarer Le jeux.");
+		
+	}
+	
+	public String getLisaTalkText(String s){
+		return lisaTalkText.get(s);
+	}
+	
+	public void setGameLevel(String s){
+		this.gameLevel	= s;
+	}
+	
+	public void setGameProcess(String s){
+		this.gameProcess = s;
+	}
+	
+	public String getGameProcess(){
+		return gameProcess;
+	}
+	
+	public String getGameLevel(){
+		return gameLevel;
 	}
 		
 	public String getGameImage(int i){

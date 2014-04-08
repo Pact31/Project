@@ -33,10 +33,11 @@ public class MainTest {
 		//ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
 		//threadLeapMotion.start();
  				
-		DrawingMainMenu drawingMainMenu = new DrawingMainMenu();
+		//DrawingMainMenu drawingMainMenu = new DrawingMainMenu();
 		
-		//DrawingApp drawingApp = null;
-		//DrawingGame drawingGame = new DrawingGame(drawingApp);
+		DrawingAppModel		model				=	new	DrawingAppModel();
+		DrawingApp drawingApp = new DrawingApp(model);
+		DrawingGame drawingGame = new DrawingGame(drawingApp);
 	}
 }
 

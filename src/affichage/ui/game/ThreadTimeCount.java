@@ -44,36 +44,27 @@ extends Thread
 				running = drawingAppModel.getGameThreadRunning();
 				/* --- update the position of timer--- */
 				this.timePanel.setLocation(i);
-				
-				//drawingAppModel.getTextPanel().setText(String.valueOf(i));
-				
+								
+				randNum = random.nextInt(5);// get a random number between 0-7
+				updateGamePanel(randNum);
 				/* --- update the image and the text in the game panel ---*/
-				if(drawingAppModel.getRightAnswer()){
+				/*if(drawingAppModel.getRightAnswer()){
 					randNum = random.nextInt(8);// get a random number between 0-7
 					updateGamePanel(randNum);
 				}
 				else
 					launchDetection(randNum);
+				*/
 				
 				i++;
+				
 				/* timer */
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}
-			
-				if(i >= 45){
-					try {
-						this.drawingGame.setGameOver();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					this.currentThread().stop();
-				}
-					
+				}	
 			}
 		}
 		
@@ -81,17 +72,18 @@ extends Thread
 	
 	private void updateGamePanel(int i){
 		
+		System.out.println(i);
 		drawingAppModel.getScorePanel().setScore(score);
 		drawingAppModel.getScorePanel().setLevel(level);
 		try {
 			drawingAppModel.getGameImagePanel().setImage(drawingAppModel.getGameImage(i));
-			drawingAppModel.getTextPanel().setText(drawingAppModel.getGameText(i));
+			//drawingAppModel.getTextPanel().setText(drawingAppModel.getGameText(i));
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		score++;
-		drawingAppModel.setRightAnswer(false);
+		//drawingAppModel.setRightAnswer(false);
 		
 	}
 	
@@ -104,7 +96,7 @@ extends Thread
 			e.printStackTrace();
 		}
 		
-		if(model.getCurrentMessage()==model.getGameText(i))
+		if(model.getCurrentMessage() == model.getGameText(i))
 			model.setRightAnswer(true);
 	}
 

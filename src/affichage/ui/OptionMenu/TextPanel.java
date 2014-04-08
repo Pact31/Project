@@ -1,5 +1,8 @@
 package affichage.ui.OptionMenu;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 import javax.swing.JLabel;
 
 import affichage.ui.DrawingApp;
@@ -20,5 +23,4 @@ extends JLabel
 		this.drawingApp = drawingApp;
 
 	}
-	
 }

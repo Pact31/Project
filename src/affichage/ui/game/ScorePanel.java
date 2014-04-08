@@ -30,7 +30,7 @@ extends JPanel
 	}
 	
 	public void setScore(int i){
-		scorePanel.setText("Score : " + String.valueOf(i));
+		scorePanel.setText("Score : " + String.valueOf(i) + "/ 5");
 	}
 	
 	public void setLevel(int i){
