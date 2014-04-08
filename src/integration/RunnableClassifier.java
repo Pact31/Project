@@ -119,4 +119,5 @@ public class RunnableClassifier extends Thread{
 		//ajouter methode pour jouer le son associé au ArrayList 
 	}
 
+
 }
