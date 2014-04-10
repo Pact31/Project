@@ -18,13 +18,13 @@ public class Background
 extends JComponent{
 	
 	private Image image;
-	private MainMenuPanel mainMenuPanel;
+	//private MainMenuPanel mainMenuPanel;
 	
 	
 	public Background(DrawingMainMenu drawingMainMenu) throws IOException{
 		
 		image = ImageIO.read(new File("src/affichage/background.jpg"));
-		mainMenuPanel = new MainMenuPanel(drawingMainMenu);
+		//mainMenuPanel = new MainMenuPanel(drawingMainMenu);
 	}
 	
 	@Override

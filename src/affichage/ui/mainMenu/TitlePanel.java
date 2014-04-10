@@ -24,9 +24,9 @@ extends JLabel
 		
 		this.drawingMainMenu = drawingMainMenu;
 		this.setSize(new Dimension(100, 200));
-		this.setBounds(520, 0, 200, 100);
+		this.setBounds(480, 0, 200, 100);
 		//add(learn = new ButtonLearn(drawingMainMenu));
-		setFont(new Font("Serif", Font.ITALIC, 18));
+		setFont(new Font("Serif", Font.ITALIC, 20));
 		setText("Hand Speak");
 	}
 	

@@ -4,11 +4,13 @@ import java.awt.Dimension;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import affichage.model.DrawingAppModel;
 import affichage.control.HandSpeakController;
 
-public class DrawingApp extends JFrame
+public class DrawingApp extends JDialog
 	implements Observer
 {
 	
@@ -21,7 +23,7 @@ public class DrawingApp extends JFrame
 	
 	public DrawingApp(HandSpeakController controller) throws IOException{
 		
-		super("Drawing Application");
+		//super("Drawing Application");
 		
 		handSpeakController		=		controller;
 		drawingAppModel			=		handSpeakController.getDrawingAppModel();
@@ -34,11 +36,11 @@ public class DrawingApp extends JFrame
 		windowPanel = new WindowPanel(this);
 		setContentPane(windowPanel);
 			
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setTitle("Hand Speak");
 		
 		this.pack();//this sets components sizes,positions
-		this.setVisible(true);
+		this.setModal(true);
 	
 	}
 	
@@ -84,7 +86,15 @@ public class DrawingApp extends JFrame
 	
 	public void close(){
 		
-		this.setVisible(false);
+		//this.setVisible(false);
+		this.dispose();
 		
 	}
+	
+	public void open(){
+	
+		this.setVisible(true);
+	
+	}
+	
 }

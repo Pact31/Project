@@ -25,14 +25,14 @@ implements ActionListener
 	
 	private final DrawingMainMenu drawingMainMenu;
 	private final Image			image;
-	private final int             width =	250;
-	private final int				height = 100;
+	private final int             width =	150;
+	private final int				height = 150;
 	
-	public ButtonHelp(DrawingMainMenu drawingMainMenu) throws IOException{
+	public ButtonHelp(DrawingMainMenu drawingMainMenu, DrawingAppModel drawingAppModel) throws IOException{
 		
 		super();
 		//this.setSize(new Dimension(100, 10));
-		this.setBounds(450, 340, width, height);
+		this.setBounds(460, 250, width, height);
 		this.drawingMainMenu = drawingMainMenu;
 		image = ImageIO.read(new File("src/affichage/help.png"));
 		addActionListener(this);

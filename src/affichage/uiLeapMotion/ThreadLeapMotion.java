@@ -17,7 +17,7 @@ extends Thread
 	public ThreadLeapMotion(DrawingApp drawingApp){
 	
 		this.drawingApp = drawingApp;
-	
+	    
 	}
 	
 	private Vector normalizedPosition;

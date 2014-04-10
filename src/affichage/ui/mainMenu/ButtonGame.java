@@ -27,14 +27,14 @@ implements ActionListener
 	private final DrawingMainMenu drawingMainMenu;
 	private 		DrawingGame		drawingGame;
 	private final Image			image;
-	private final int             width =	250;
-	private final int				height = 100;
+	private final int             width =	150;
+	private final int				height = 150;
 	
-	public ButtonGame(DrawingMainMenu drawingMainMenu) throws IOException{
+	public ButtonGame(DrawingMainMenu drawingMainMenu, DrawingAppModel drawingAppModel) throws IOException{
 		
 		super();
 		//this.setSize(new Dimension(100, 10));
-		this.setBounds(450, 220, width, height);
+		this.setBounds(570, 90, width, height);
 		this.drawingMainMenu = drawingMainMenu;
 		image = ImageIO.read(new File("src/affichage/game_icon.png"));
 		addActionListener(this);

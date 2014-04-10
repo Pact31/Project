@@ -5,11 +5,13 @@ import java.util.Observable;
 import java.awt.Color;
 import java.io.File;
 
+import affichage.ui.DrawingApp;
 import affichage.ui.OptionMenu.TextPanel;
 import affichage.ui.game.GameCiblePanel;
 import affichage.ui.game.GameImagePanel;
 import affichage.ui.game.ScorePanel;
 import affichage.ui.game.ThreadTimeCount;
+import affichage.uiLeapMotion.ThreadLeapMotion;
 import leapmotion.LeapDataBase;
 import classif.BanqueApprentissage;
 import classif.adaboost.Adaboost;
@@ -18,7 +20,10 @@ import synthese.Sound;
 
 public class DrawingAppModel extends Observable{
 
-			/* Graphic User Interface */
+	/* DrawingApp */
+	private 	DrawingApp drawingApp			= 	null;
+	private 	ThreadLeapMotion threadLeapMotion = null;
+	/* Graphic User Interface */
 	private 	String		msg					= 	"NO detection!";
 	private 	String		currentButtonMark	=	"START";
 	private		String		currentGesture		=	"NO detection!";
@@ -27,7 +32,7 @@ public class DrawingAppModel extends Observable{
 	private 	Color		currentButtonColor	=	Color.CYAN;
 	private		boolean    currentCibleOption  =   true;
 	
-			/* Classification */
+	/* Classification */
 	private    Hashtable<String, String> 	soundSource = new Hashtable<String, String>();
 	private    Adaboost    					adaboost;
 	private    Kppv        					kppv;
@@ -57,8 +62,24 @@ public class DrawingAppModel extends Observable{
 			
 		//Kppv kppv = new Kppv(banque, k);
 		kppv = new Kppv(banque, k);
-		System.out.print("Kppv initialisé");
+		System.out.println("Kppv initialisé");
 
+	}
+	
+	public DrawingApp getDrawingApp(){
+		return this.drawingApp;
+	}
+	
+	public void setDrawingApp(DrawingApp d){
+		this.drawingApp = d;
+	}
+	
+	public ThreadLeapMotion getThreadLeapMotion(){
+		return this.threadLeapMotion;
+	}
+	
+	public void setThreadLeapMotion(ThreadLeapMotion t){
+		this.threadLeapMotion = t;
 	}
 	
 	public Adaboost getAdaboost(){

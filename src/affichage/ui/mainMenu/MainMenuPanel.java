@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-
+/*
 public class MainMenuPanel 
 extends JPanel
 {
@@ -24,4 +24,4 @@ extends JPanel
 		//this.setBounds(500, 600, 500, 200);
 		
 	}
-}
+}*/

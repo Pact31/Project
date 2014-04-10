@@ -23,16 +23,18 @@ implements ActionListener
 	private static final long serialVersionUID = 1L;
 	
 	private final DrawingMainMenu drawingMainMenu;
+	private final DrawingAppModel drawingAppModel;
 	private final Image			image;
-	private final int             width =	250;
-	private final int				height = 100;
+	private final int             width =	150;
+	private final int				height = 150;
 	
-	public ButtonLearn(DrawingMainMenu drawingMainMenu) throws IOException{
+	public ButtonLearn(DrawingMainMenu drawingMainMenu, DrawingAppModel drawingAppModel) throws IOException{
 		
 		super();
-		//this.setSize(new Dimension(100, 10));
-		this.setBounds(450, 90, width, height);
 		this.drawingMainMenu = drawingMainMenu;
+		this.drawingAppModel = drawingAppModel;
+		//this.setSize(new Dimension(100, 10));
+		this.setBounds(350, 90, width, height);
 		image = ImageIO.read(new File("src/affichage/learning_icon.png"));
 		addActionListener(this);
 		
@@ -40,29 +42,11 @@ implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		this.drawingMainMenu.close();
-		// TODO Auto-generated method stub
-		DrawingAppModel model = null;
-		try {
-			model = new	DrawingAppModel();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		HandSpeakController handSpeakController = 	new HandSpeakController(model);
-		DrawingApp drawingApp = null;
-		try {
-			drawingApp = new DrawingApp(handSpeakController);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		/*
-		 * use second thread for showing the detection of Leap Motion
-		*/ 
-		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
-		threadLeapMotion.start();
+		this.drawingMainMenu.close();
+		this.drawingAppModel.getDrawingApp().open();
+		this.drawingMainMenu.open();
+	
 	}
 	
 	@Override
@@ -71,5 +55,6 @@ implements ActionListener
 		g.drawImage(image, 0, 0, width, height, null);
 		
 	}
+	
 
 }

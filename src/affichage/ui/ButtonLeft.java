@@ -42,13 +42,6 @@ implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 
 		drawingApp.close();
-		   
-		try {
-			DrawingMainMenu drawingMainMenu = new DrawingMainMenu();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
 	}
 	

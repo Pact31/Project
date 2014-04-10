@@ -6,7 +6,6 @@ import java.io.IOException;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import affichage.ui.mainMenu.ButtonLearnPanel;
 import affichage.ui.mainMenu.DrawingMainMenu;
 
 public class GameOverTextPanel 
