@@ -22,7 +22,6 @@ public class DrawingAppModel extends Observable{
 
 	/* DrawingApp */
 	private 	DrawingApp drawingApp			= 	null;
-	private 	ThreadLeapMotion threadLeapMotion = null;
 	/* Graphic User Interface */
 	private 	String		msg					= 	"NO detection!";
 	private 	String		currentButtonMark	=	"START";
@@ -72,14 +71,6 @@ public class DrawingAppModel extends Observable{
 	
 	public void setDrawingApp(DrawingApp d){
 		this.drawingApp = d;
-	}
-	
-	public ThreadLeapMotion getThreadLeapMotion(){
-		return this.threadLeapMotion;
-	}
-	
-	public void setThreadLeapMotion(ThreadLeapMotion t){
-		this.threadLeapMotion = t;
 	}
 	
 	public Adaboost getAdaboost(){

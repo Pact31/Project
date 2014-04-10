@@ -99,12 +99,6 @@ public class DrawingMainMenu extends JFrame
 			e.printStackTrace();
 		}
 		drawingAppModel.setDrawingApp(drawingApp);
-		/*
-		 * use second thread for showing the detection of Leap Motion
-		*/ 
-		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
-		//threadLeapMotion.start();
-		drawingAppModel.setThreadLeapMotion(threadLeapMotion);
 	}
 	
 }

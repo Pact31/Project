@@ -40,11 +40,21 @@ implements ActionListener
 		
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
 		this.drawingMainMenu.close();
+	
+		/*
+		 * use second thread for showing the detection of Leap Motion
+		*/ 
+		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingAppModel.getDrawingApp());
+		threadLeapMotion.start();
+		
 		this.drawingAppModel.getDrawingApp().open();
+		
+		threadLeapMotion.stop();
 		this.drawingMainMenu.open();
 	
 	}
