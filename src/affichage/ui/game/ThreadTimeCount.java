@@ -17,7 +17,7 @@ extends Thread
 	private TimePanel      timePanel;
 	private DrawingGame    drawingGame;
 	private DrawingApp     drawingApp;
-	private DrawingAppModel drawingAppModel;
+	private DrawingGameModel drawingGameModel;
 	
 	public ThreadTimeCount(DrawingApp drawingApp, DrawingGame drawingGame, TimeCountPanel timeCountPanel){
 		
@@ -25,7 +25,7 @@ extends Thread
 		this.timePanel	= timeCountPanel.getTimePanel();
 		this.drawingGame = drawingGame;
 		this.drawingApp = drawingApp;
-		this.drawingAppModel	= drawingApp.getModel();	
+		this.drawingGameModel	= drawingGame.getModel();	
 		
 	}
 	
@@ -37,11 +37,11 @@ extends Thread
 		int randNum = 0;
 		while(true){
 			
-			running = drawingAppModel.getGameThreadRunning();
+			running = drawingGameModel.getGameThreadRunning();
 			
 			while(running){
 				
-				running = drawingAppModel.getGameThreadRunning();
+				running = drawingGameModel.getGameThreadRunning();
 				/* --- update the position of timer--- */
 				this.timePanel.setLocation(i);
 								
@@ -73,11 +73,11 @@ extends Thread
 	private void updateGamePanel(int i){
 		
 		System.out.println(i);
-		drawingAppModel.getScorePanel().setScore(score);
-		drawingAppModel.getScorePanel().setLevel(level);
+		drawingGameModel.getScorePanel().setScore(score);
+		drawingGameModel.getScorePanel().setLevel(level);
 		try {
-			drawingAppModel.getGameImagePanel().setImage(drawingAppModel.getGameImage(i));
-			//drawingAppModel.getTextPanel().setText(drawingAppModel.getGameText(i));
+			drawingGameModel.getGameImagePanel().setImage(drawingGameModel.getGameImage(i));
+			drawingGameModel.getGameCiblePanel().setCible(drawingGameModel.getGameText(i));
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
@@ -89,15 +89,15 @@ extends Thread
 	
 	private void launchDetection(int i){
 		
-		DrawingAppModel model = drawingApp.getModel();
+		//DrawingAppModel model = drawingApp.getModel();
 		try {
 			drawingApp.getHandSpeakController().launchGame();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		if(model.getCurrentMessage() == model.getGameText(i))
-			model.setRightAnswer(true);
+		if(drawingApp.getModel().getCurrentMessage() == drawingGameModel.getGameText(i))
+			drawingGameModel.setRightAnswer(true);
 	}
 
 }

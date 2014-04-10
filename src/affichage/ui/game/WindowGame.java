@@ -35,7 +35,7 @@ extends JPanel
 		scorePanel = new ScorePanel(drawingApp, drawingGame);
 		scorePanel.setBounds(600, 300, 200, 200);
 		this.add(scorePanel);
-		drawingApp.getModel().setScorePanel(scorePanel);
+		drawingGame.getModel().setScorePanel(scorePanel);
 		
 		gestureShowPanel = new GestureShowPanel(drawingApp, drawingGame);
 		gestureShowPanel.setBounds(0, 0, 600, 600);

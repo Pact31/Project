@@ -13,6 +13,8 @@ extends JLabel
 {
 
 	private DrawingApp drawingApp;
+	private String 		cible = "Bonjour!";
+	
 	public GameCiblePanel(DrawingApp drawingApp, String msg){
 		
 		super();
@@ -32,8 +34,15 @@ extends JLabel
 		
 		g.setColor(Color.black);
 		g.setFont(new Font("Serif", Font.BOLD, 18));
-		g.drawString("hello", 0, 25);
+		g.drawString(cible, 0, 25);
+		
+		this.repaint();
 			
 	}
+	
+	public void setCible(String c){
+		cible = c;
+	}
+	
 	
 }

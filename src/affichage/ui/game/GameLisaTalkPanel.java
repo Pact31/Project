@@ -18,15 +18,15 @@ extends JLabel
 implements MouseListener
 {
 
-	private DrawingApp drawingApp;
-	private DrawingAppModel drawingAppModel;
+	private DrawingGame drawingGame;
+	private DrawingGameModel drawingGameModel;
 	
-	public GameLisaTalkPanel(DrawingApp drawingApp, String msg){
+	public GameLisaTalkPanel(DrawingGame drawingGame, String msg){
 		
 		super("hello");
 		
-		this.drawingApp = drawingApp;
-		this.drawingAppModel = drawingApp.getModel();
+		this.drawingGame = drawingGame;
+		this.drawingGameModel = drawingGame.getModel();
 		addMouseListener(this);
 	
 	}
@@ -43,7 +43,7 @@ implements MouseListener
 		g.setColor(Color.black);
 		g.setFont(new Font("Serif", Font.BOLD, 15));
 				
-		g.drawString("Lisa :" + drawingAppModel.getLisaTalkText(drawingAppModel.getGameProcess()), 5, 22);
+		g.drawString("Lisa :" + drawingGameModel.getLisaTalkText(drawingGameModel.getGameProcess()), 5, 22);
 		
 		this.repaint();
 	}
@@ -52,8 +52,9 @@ implements MouseListener
 	public void mouseClicked(MouseEvent arg0) {
 		
 		// TODO Auto-generated method stub
-		if(drawingAppModel.getGameProcess().contains("welcome")){
-			drawingAppModel.setGameProcess("start");
+		if(drawingGameModel.getGameProcess().contains("welcome")){
+			drawingGameModel.setGameProcess("start");
+			drawingGameModel.setGameStart(true);
 		}
 		
 	}

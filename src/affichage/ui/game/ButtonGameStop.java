@@ -36,7 +36,7 @@ implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
-		drawingApp.getModel().setGameThreadRunning(false);
+		drawingGame.getModel().setGameThreadRunning(false);
 		
 		try {
 			drawingGame.pauseGame();

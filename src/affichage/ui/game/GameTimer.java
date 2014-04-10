@@ -3,23 +3,21 @@ package affichage.ui.game;
 
 import java.io.IOException;
 import java.util.Random;
-
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
-
 public class GameTimer 
 extends Thread
 {
 	
 	private DrawingGame drawingGame;
 	private DrawingApp drawingApp;
-	private DrawingAppModel model;
+	private DrawingGameModel model;
 
 	public GameTimer(DrawingApp drawingApp, DrawingGame drawingGame){
 		
 		this.drawingGame = drawingGame;
 		this.drawingApp = drawingApp;
-		this.model	= drawingApp.getModel();	
+		this.model	= drawingGame.getModel();	
 		
 	}
 	

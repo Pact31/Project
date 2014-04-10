@@ -24,7 +24,7 @@ extends JPanel
 		this.setBackground(Color.pink);
 		
 		//imagePanel = new ImagePanel(drawingApp);
-		lisaTalkPanel = new GameLisaTalkPanel(drawingApp, "hello!");
+		lisaTalkPanel = new GameLisaTalkPanel(drawingGame, "hello!");
 		lisaTalkPanel.setBounds(40, 20, 400, 30);
 		this.add(lisaTalkPanel);
 		
@@ -32,14 +32,14 @@ extends JPanel
 		textPanel.setBounds(120, 20, 300, 30);
 		//this.add(textPanel);
 		
-		gameCiblePanel = new GameCiblePanel(drawingApp, drawingApp.getModel().getCurrentWord());
+		gameCiblePanel = new GameCiblePanel(drawingApp, drawingGame.getModel().getCurrentWord());
 		gameCiblePanel.setBounds(100, 470, 400, 50);
-		//drawingApp.getModel().setTextPanel(gameCiblePanel);//add wordpanel in drawingAppModel
+		drawingGame.getModel().setGameCiblePanel(gameCiblePanel);//add wordpanel in drawingAppModel
 		this.add(gameCiblePanel);
 		
 		gameImagePanel = new GameImagePanel(drawingApp, drawingGame);
 		gameImagePanel.setBounds(0, 50, 600, 500);
-		drawingApp.getModel().setGameImagePanel(gameImagePanel);
+		drawingGame.getModel().setGameImagePanel(gameImagePanel);
 		this.add(gameImagePanel);
 	}
 	

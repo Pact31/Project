@@ -1,11 +1,8 @@
 package affichage.ui.game;
-import java.awt.Dimension;
+
 import java.io.IOException;
-
 import javax.swing.JPanel;
-
 import affichage.ui.DrawingApp;
-
 
 public class ButtonGameReprendPanel 
 extends JPanel

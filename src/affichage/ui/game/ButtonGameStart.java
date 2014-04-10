@@ -1,20 +1,14 @@
 package affichage.ui.game;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
-
-import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
-import affichage.ui.mainMenu.DrawingMainMenu;
 
 public class ButtonGameStart extends JButton
 implements ActionListener
@@ -42,7 +36,7 @@ implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
-		drawingApp.getModel().setGameThreadRunning(true);
+		drawingGame.getModel().setGameThreadRunning(true);
 		//drawingApp.getModel().getCurrentThreadTimeCount().start();
 		//drawingApp.getModel().getCurrentThreadTimeCount().notify();
 	}
