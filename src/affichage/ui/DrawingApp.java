@@ -11,15 +11,15 @@ import affichage.model.DrawingAppModel;
 import affichage.control.HandSpeakController;
 
 public class DrawingApp extends JDialog
-	implements Observer
+implements Observer
 {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private final WindowPanel 				windowPanel;
-	private final HandSpeakController 		handSpeakController;
-	private final DrawingMenuBar 			drawingMenuBar ;
-	private 		DrawingAppModel 		drawingAppModel;
+	private final 		WindowPanel 				windowPanel;
+	private final 		HandSpeakController 		handSpeakController;
+	private final 		DrawingMenuBar 				drawingMenuBar ;
+	private 			DrawingAppModel 			drawingAppModel;
 	
 	public DrawingApp(HandSpeakController controller) throws IOException{
 		
@@ -32,6 +32,7 @@ public class DrawingApp extends JDialog
 		this.setLocation(0, 200);
 		
 		setJMenuBar(drawingMenuBar = new DrawingMenuBar(this));
+		
 		//window content creation
 		windowPanel = new WindowPanel(this);
 		setContentPane(windowPanel);
@@ -45,10 +46,12 @@ public class DrawingApp extends JDialog
 	}
 	
 	public DrawingApp(DrawingAppModel model){
-		windowPanel = null;
-		drawingMenuBar = null;
-		handSpeakController = 	new HandSpeakController(model);
-		this.drawingAppModel = handSpeakController.getDrawingAppModel();
+	
+		this.windowPanel	 = null;
+		this.drawingMenuBar		= null;
+		this.handSpeakController =	 	new HandSpeakController(model);
+		this.drawingAppModel = 	handSpeakController.getDrawingAppModel();
+	
 	}
 	
 	

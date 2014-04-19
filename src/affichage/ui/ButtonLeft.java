@@ -15,8 +15,8 @@ import javax.swing.JButton;
 import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
+import affichage.ui.LeapMotion.ThreadLeapMotion;
 import affichage.ui.mainMenu.DrawingMainMenu;
-import affichage.uiLeapMotion.ThreadLeapMotion;
 
 public class ButtonLeft extends JButton
 implements ActionListener

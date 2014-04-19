@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -15,10 +16,10 @@ import javax.swing.JTextField;
 import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
-import affichage.uiLeapMotion.ThreadLeapMotion;
+import affichage.ui.LeapMotion.ThreadLeapMotion;
 
 
-public class DrawingMainMenu extends JFrame
+public class DrawingMainMenu extends JDialog
 {
 	
 	private static final long serialVersionUID = 1L;
@@ -34,7 +35,7 @@ public class DrawingMainMenu extends JFrame
 		
 	public DrawingMainMenu() throws IOException{
 		
-		super("Drawing Application");
+		super();
 		this.initClassifier();
 		
 		this.setPreferredSize(new Dimension(1100,600));
@@ -51,25 +52,27 @@ public class DrawingMainMenu extends JFrame
 		titlePanel = new TitlePanel(this);
 		this.add(titlePanel);
 		// add containers
-		this.add(buttonLearn = new ButtonLearn(this, drawingAppModel), BorderLayout.CENTER);
-		this.add(buttonGame = new ButtonGame(this, drawingAppModel), BorderLayout.CENTER);
-		this.add(buttonHelp = new ButtonHelp(this, drawingAppModel), BorderLayout.CENTER);
-		this.add(buttonQuit = new ButtonQuit(this, drawingAppModel));
+		this.add(buttonLearn  = new ButtonLearn(this, drawingAppModel), BorderLayout.CENTER);
+		this.add(buttonGame   = new ButtonGame(this, drawingAppModel), BorderLayout.CENTER);
+		this.add(buttonHelp   = new ButtonHelp(this, drawingAppModel), BorderLayout.CENTER);
+		this.add(buttonQuit   = new ButtonQuit(this, drawingAppModel));
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setTitle("Hand Speak");
 		
 		this.pack();//this sets components sizes,positions
+		this.setModal(true);
 		this.setVisible(true);
-		
 		
 		System.out.println("Main menu done.");
 	}
 	
 	public void close(){
 		
-		this.setVisible(false);
-
+		//this.setVisible(false);
+		this.dispose();
+		
 	}
 	
 	public void open(){
@@ -98,6 +101,7 @@ public class DrawingMainMenu extends JFrame
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		drawingAppModel.setDrawingApp(drawingApp);
 	}
 	

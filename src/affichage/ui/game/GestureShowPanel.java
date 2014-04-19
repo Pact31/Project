@@ -17,6 +17,7 @@ extends JPanel
 	private GameCiblePanel 		gameCiblePanel;
 	private GameImagePanel     gameImagePanel;
 	private GameLisaTalkPanel      lisaTalkPanel;
+	private TimeCountPanel       		timeCountPanel;
 	
 	public GestureShowPanel(DrawingApp drawingApp, DrawingGame drawingGame) throws IOException{
 		
@@ -41,6 +42,11 @@ extends JPanel
 		gameImagePanel.setBounds(0, 50, 600, 500);
 		drawingGame.getModel().setGameImagePanel(gameImagePanel);
 		this.add(gameImagePanel);
+		
+		timeCountPanel = new TimeCountPanel(drawingApp, drawingGame);
+		timeCountPanel.setBounds(0, 550, 600, 20);
+		this.add(timeCountPanel);
+		
 	}
 	
 	

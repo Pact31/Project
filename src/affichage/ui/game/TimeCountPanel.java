@@ -18,9 +18,8 @@ extends JPanel
 		this.setBackground(Color.black);
 		
 		time1 = new TimePanel(drawingGame, Color.green);
-		time1.setBounds(0, 0, 20, 20);
+		//time1.setBounds(0, 0, 20, 20);
 		this.add(time1);
-		
 		
 		threadTimeCount = new ThreadTimeCount(drawingApp, drawingGame, this);
 		drawingGame.getModel().setCurrentThreadTimeCount(threadTimeCount);

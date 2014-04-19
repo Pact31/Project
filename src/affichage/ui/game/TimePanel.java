@@ -20,14 +20,14 @@ extends JPanel
 	
 	public void setLocation(int i){
 	
-		this.setBounds(20*i, 0, 20, 20);
+		this.setBounds(i/*20*i*/, 0, 20, 20);
 		
-		if(i > 30){
+		/*if(i > 10){
 			this.setBackground(Color.red);
 		}
-		else if(i > 20){
+		else if(i > 5){
 			this.setBackground(Color.orange);
-		}
+		}*/
 		
 	}
 

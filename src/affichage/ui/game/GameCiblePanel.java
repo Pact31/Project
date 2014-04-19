@@ -14,6 +14,9 @@ extends JLabel
 
 	private DrawingApp drawingApp;
 	private String 		cible = "Bonjour!";
+	private String     previousCible = "";
+	private Color      color = Color.black;
+	private int		location = 0;
 	
 	public GameCiblePanel(DrawingApp drawingApp, String msg){
 		
@@ -29,19 +32,51 @@ extends JLabel
 		int h = this.getHeight();
 		int w = this.getWidth();
 
-		g.setColor(Color.blue);
+		g.setColor(Color.cyan);
 		g.drawRect(0, 0, w-1, h-1);
 		
-		g.setColor(Color.black);
 		g.setFont(new Font("Serif", Font.BOLD, 18));
-		g.drawString(cible, 0, 25);
+		g.setColor(color);
 		
-		this.repaint();
+		switch(location){
+		case 0: g.drawString(cible, 10, 30);
+			break;
+		case 1:	g.drawString(previousCible, 10, 30); 
+				//g.drawString(cible, 80, 30);
+			break;
+		case 2:	g.drawString(previousCible, 10, 30);
+				//g.drawString(cible, 150, 30);
+			break;
+		}
+		
+	
+		//this.repaint();
 			
 	}
 	
-	public void setCible(String c){
+	public void setCible(String c, int l){
+	
 		cible = c;
+		location = l;
+		
+		//System.out.println(c);
+		this.repaint();
+	
+		previousCible = previousCible + c;
+	}
+	
+	public void setColor(Color c){
+		
+		color = c;
+	
+	}
+	
+	public void clear(){
+		
+		previousCible = "";
+		location = 0;
+		this.repaint();
+		
 	}
 	
 	

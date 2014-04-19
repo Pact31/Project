@@ -6,12 +6,12 @@ import java.awt.Color;
 import java.io.File;
 
 import affichage.ui.DrawingApp;
+import affichage.ui.LeapMotion.ThreadLeapMotion;
 import affichage.ui.OptionMenu.TextPanel;
 import affichage.ui.game.GameCiblePanel;
 import affichage.ui.game.GameImagePanel;
 import affichage.ui.game.ScorePanel;
 import affichage.ui.game.ThreadTimeCount;
-import affichage.uiLeapMotion.ThreadLeapMotion;
 import leapmotion.LeapDataBase;
 import classif.BanqueApprentissage;
 import classif.adaboost.Adaboost;
@@ -60,7 +60,7 @@ public class DrawingAppModel extends Observable{
 		System.out.print("AdaBoost initialisé" + " ");
 			
 		//Kppv kppv = new Kppv(banque, k);
-		kppv = new Kppv(banque, k);
+		//kppv = new Kppv(banque, k);
 		System.out.println("Kppv initialisé");
 
 	}

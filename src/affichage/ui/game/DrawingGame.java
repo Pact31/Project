@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import affichage.ui.DrawingApp;
+import affichage.ui.game.model.DrawingGameModel;
 import affichage.ui.mainMenu.TitlePanel;
 import affichage.ui.mainMenu.TitlePanel;
 
@@ -43,6 +44,7 @@ public class DrawingGame extends JFrame
 		
 		//window content creation
 		windowGame = new WindowGame(drawingApp, this);
+		drawingGameModel.setWindowGame(windowGame);
 		this.setContentPane(windowGame);
 		
 		// add containers

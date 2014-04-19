@@ -2,7 +2,7 @@ package affichage.main;
 
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
-import affichage.uiLeapMotion.ThreadLeapMotion;
+import affichage.ui.LeapMotion.ThreadLeapMotion;
 import affichage.control.HandSpeakController;
 
 public class MainTest {

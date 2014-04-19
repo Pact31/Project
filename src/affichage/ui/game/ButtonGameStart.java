@@ -30,6 +30,7 @@ implements ActionListener
 		this.setSize(width, height);
 		image = ImageIO.read(new File("src/affichage/start_icon.png"));
 		addActionListener(this);
+		this.setEnabled(false);
 		
 	}
 
@@ -37,8 +38,10 @@ implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 		
 		drawingGame.getModel().setGameThreadRunning(true);
+		System.out.println("Game starts!");
 		//drawingApp.getModel().getCurrentThreadTimeCount().start();
 		//drawingApp.getModel().getCurrentThreadTimeCount().notify();
+		this.setEnabled(false);
 	}
 	
 	@Override

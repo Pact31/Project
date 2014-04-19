@@ -18,7 +18,6 @@ import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
 import LeapTS.FrameTS;
-import affichage.test_classification.Classifier;
 import affichage.model.DrawingAppModel;
 
 public class HandSpeakController 

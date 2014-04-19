@@ -36,6 +36,7 @@ extends JComponent
 		
 		buttonGameReprend = new ButtonGameReprend(drawingApp, drawingGame);
 		this.add(buttonGameReprend);
+	
 	}
 	
 	@Override

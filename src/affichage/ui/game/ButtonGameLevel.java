@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import affichage.ui.DrawingApp;
+import affichage.ui.game.model.DrawingGameModel;
 
 public class ButtonGameLevel extends JButton
 implements ActionListener
@@ -32,7 +33,7 @@ implements ActionListener
 		this.level = icon;
 		
 		this.setSize(width, height);
-		image = ImageIO.read(new File("src/affichage/ui/game/images/" + icon + ".png"));
+		image = ImageIO.read(new File("src/affichage/ui/game/images/levelIcon/" + icon + ".png"));
 		
 		addActionListener(this);
 		
@@ -45,10 +46,12 @@ implements ActionListener
 		
 		model.setGameProcess("welcome"+level);
 		model.setGameLevel(level);
-		this.buttonGameLevelPanel.setVisible(false);
 		
+		this.buttonGameLevelPanel.setEnableAction(false);
+		model.getWindowGame().setEnableStart(true);
 		//GameTimer gameTimer = new GameTimer(drawingApp, drawingGame);
 		//gameTimer.start();
+		
 
 	}
 

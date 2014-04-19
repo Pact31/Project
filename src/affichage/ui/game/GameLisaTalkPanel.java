@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
+import affichage.ui.game.model.DrawingGameModel;
 
 public class GameLisaTalkPanel 
 extends JLabel
@@ -43,7 +44,7 @@ implements MouseListener
 		g.setColor(Color.black);
 		g.setFont(new Font("Serif", Font.BOLD, 15));
 				
-		g.drawString("Lisa :" + drawingGameModel.getLisaTalkText(drawingGameModel.getGameProcess()), 5, 22);
+		g.drawString("Lisa : " + drawingGameModel.getLisaTalkText(drawingGameModel.getGameProcess()), 5, 22);
 		
 		this.repaint();
 	}

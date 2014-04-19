@@ -6,7 +6,7 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
-import affichage.uiLeapMotion.OurFinger;
+import affichage.ui.LeapMotion.OurFinger;
 
 
 public class LeapPanel extends JPanel{

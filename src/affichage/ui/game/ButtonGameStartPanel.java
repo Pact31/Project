@@ -26,4 +26,9 @@ extends JPanel
 	
 	}
 	
+	public void setButtonEnable(boolean b){
+		
+		this.buttonGameStart.setEnabled(b);
+	
+	}
 }

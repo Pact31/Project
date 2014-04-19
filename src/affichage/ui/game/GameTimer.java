@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Random;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
+import affichage.ui.game.model.DrawingGameModel;
 public class GameTimer 
 extends Thread
 {

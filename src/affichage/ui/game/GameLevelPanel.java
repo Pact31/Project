@@ -14,10 +14,10 @@ public class GameLevelPanel
 extends JPanel
 {
 	
-	private Image image = null;
-	private ButtonRestart buttonRestart;
-	private ButtonMainMenu buttonMainMenu;
-	private GameOverTextPanel gameOverTextPanel;
+	private Image 				image = null;
+	private ButtonRestart 		buttonRestart;
+	private ButtonMainMenu 		buttonMainMenu;
+	private GameOverTextPanel 	gameOverTextPanel;
 	
 	public GameLevelPanel(DrawingApp drawingApp, DrawingGame drawingGame) throws IOException{
 		

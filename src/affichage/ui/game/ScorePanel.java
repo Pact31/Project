@@ -17,7 +17,7 @@ extends JPanel
 	public ScorePanel(DrawingApp drawingApp, DrawingGame drawingGame){
 		
 		this.setLayout(null);
-		this.setBackground(Color.CYAN);
+		this.setBackground(Color.orange);
 		
 		scorePanel		= 	new TextPanel(drawingApp, "Score : ");
 		scorePanel.setBounds(50, 50, 100, 20);

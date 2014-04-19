@@ -15,7 +15,7 @@ import javax.swing.JButton;
 import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
-import affichage.uiLeapMotion.ThreadLeapMotion;
+import affichage.ui.LeapMotion.ThreadLeapMotion;
 
 public class ButtonLearn extends JButton
 implements ActionListener
@@ -31,11 +31,13 @@ implements ActionListener
 	public ButtonLearn(DrawingMainMenu drawingMainMenu, DrawingAppModel drawingAppModel) throws IOException{
 		
 		super();
+		
 		this.drawingMainMenu = drawingMainMenu;
 		this.drawingAppModel = drawingAppModel;
-		//this.setSize(new Dimension(100, 10));
 		this.setBounds(350, 90, width, height);
+		
 		image = ImageIO.read(new File("src/affichage/learning_icon.png"));
+		
 		addActionListener(this);
 		
 	}
@@ -53,7 +55,7 @@ implements ActionListener
 		threadLeapMotion.start();
 		
 		this.drawingAppModel.getDrawingApp().open();
-		
+		System.out.println("Lean App done, Main menu open");
 		threadLeapMotion.stop();
 		this.drawingMainMenu.open();
 	
