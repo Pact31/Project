@@ -20,6 +20,12 @@ extends Thread
 	    
 	}
 	
+	private boolean threadRunning = true;
+	public void threadStop(){
+		
+		threadRunning = false;
+		
+	}
 	private Vector normalizedPosition;
 	private Controller leap = new Controller();
 	
@@ -31,7 +37,7 @@ extends Thread
 	 */	
 		LeapPanel leapPanel = drawingApp.getWindowPanel().getLeapPanel();
 		
-		while(true){
+		while(threadRunning){
 			
 			InteractionBox ibox 	  = leap.frame().interactionBox();
 			PointableList  pointables = leap.frame().pointables();
@@ -61,7 +67,6 @@ extends Thread
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-			//System.out.println("leap");
         }
 		
 	}

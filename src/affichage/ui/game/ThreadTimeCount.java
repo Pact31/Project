@@ -35,6 +35,12 @@ extends Thread
 		
 	}
 	
+	private boolean threadRunning = true;
+	public void stopThread(){
+		
+		threadRunning = false;
+	}
+	
 	private Random random = new Random();
 	private ArrayList<String> word = new ArrayList<String>();
  	@Override
@@ -46,12 +52,12 @@ extends Thread
 		int counter2 = 0;
 		boolean count = true; 
 		
-		while(true){
+		while(threadRunning){
 
 			running = drawingGameModel.getGameThreadRunning();
 			System.out.print("");
 			
-			while(running){
+			while(running && threadRunning){
 				
 				i		= 0;
 				count   = true;
@@ -70,8 +76,9 @@ extends Thread
 				}
 
 				while(i < word.size()){
-					while(!drawingGameModel.getGameThreadRunning()){
+					while( (!drawingGameModel.getGameThreadRunning()) && threadRunning){
 						System.out.println("pause");
+						//System.out.println(drawingGameModel.getGameThreadRunning());
 					}
 					if(counter2 <= 0){
 						try {
@@ -137,8 +144,8 @@ extends Thread
 					System.out.println("Game Over!");
 				}
 			}
-		
 		}
+		System.out.println("Game thread done");
 		
 		
 	}

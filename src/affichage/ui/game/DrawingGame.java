@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -17,7 +18,7 @@ import affichage.ui.game.model.DrawingGameModel;
 import affichage.ui.mainMenu.TitlePanel;
 import affichage.ui.mainMenu.TitlePanel;
 
-public class DrawingGame extends JFrame
+public class DrawingGame extends JDialog
 {
 	
 	private static final long serialVersionUID = 1L;
@@ -30,7 +31,7 @@ public class DrawingGame extends JFrame
 	public DrawingGame(DrawingApp drawingApp) throws IOException{
 		
 		
-		super("Drawing Application");
+		super();
 		
 		this.drawingApp	= drawingApp;
 		drawingGameModel = new DrawingGameModel();
@@ -49,18 +50,22 @@ public class DrawingGame extends JFrame
 		
 		// add containers
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setTitle("Hand Speak");
 		
 		this.pack();//this sets components sizes,positions
+		this.setModal(true);
 		this.setVisible(true);
 		
 	}
 	
 	public void close(){
 		
-		this.setVisible(false);
-	
+		//this.setVisible(false);
+		this.getModel().getCurrentThreadTimeCount().stopThread();
+		this.dispose();
+		
 	}
 	
 	public void setGameOver() throws IOException{
@@ -76,6 +81,7 @@ public class DrawingGame extends JFrame
 	}
 	
 	public void reprend(){
+		
 		this.setContentPane(windowGame);
 		this.setVisible(true);
 		drawingGameModel.setGameThreadRunning(true);
@@ -83,7 +89,9 @@ public class DrawingGame extends JFrame
 	}
 	
 	public DrawingGameModel getModel(){
+		
 		return drawingGameModel;
+	
 	}
 	
 }

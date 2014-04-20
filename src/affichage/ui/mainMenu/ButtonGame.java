@@ -41,6 +41,7 @@ implements ActionListener
 		
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
@@ -74,6 +75,12 @@ implements ActionListener
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("Game done, Main menu open");
+		//threadLeapMotion.stop();
+		
+		//this.drawingGame.getModel().getCurrentThreadTimeCount().stop();
+		this.drawingMainMenu.open();
+	
 		
 	}
 	

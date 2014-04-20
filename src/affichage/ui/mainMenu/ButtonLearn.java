@@ -56,7 +56,7 @@ implements ActionListener
 		
 		this.drawingAppModel.getDrawingApp().open();
 		System.out.println("Lean App done, Main menu open");
-		threadLeapMotion.stop();
+		threadLeapMotion.threadStop();
 		this.drawingMainMenu.open();
 	
 	}
