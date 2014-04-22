@@ -1,6 +1,7 @@
 package integration;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import com.leapmotion.leap.Frame;
@@ -21,6 +22,7 @@ public class RunnableClassifier extends Thread{
 	private DrawingAppModel model;
 	private ArrayList<String> syllabes;
 	private String[][] correspondances;
+	private LinkedBlockingQueue<String> writingQueue;
 
 	public RunnableClassifier(int n, Classificateur c, LinkedBlockingQueue<Entree> chain, DrawingAppModel model) {
 		super();
@@ -92,6 +94,10 @@ public class RunnableClassifier extends Thread{
 		this.chain = chain;
 	}
 	
+	public void setWriterchain(LinkedBlockingQueue<String> writingQueue){
+		this.writingQueue = writingQueue;
+	}
+	
 	private String getSyllabe (Cible c){
 		int temp = c.ordinal();
 		int forme = temp/5;
@@ -100,23 +106,95 @@ public class RunnableClassifier extends Thread{
 	}
 	
 	public void run() {
+		
+		
+		Date date = new Date();//ce type de bloc de code est utilisé pour imprimer quelque chose dans le fichier de log 
+		String logMsg = date.toString() + "   Classifier : Begining run sequence";
+		try {
+			this.writingQueue.put(logMsg);
+		} catch (InterruptedException e2) {
+			e2.printStackTrace();
+		}
+		
+		
 		this.syllabes = new ArrayList<String>();
 		String mot = "";
 		for(int i = 0; i<N; i++){
+			
+			
+			date = new Date();//idem, impression dans le fichier de log
+			logMsg = date.toString() + "   Classifier : Begining translation sequence, trying to get a movement from the queue";
+			try {
+				this.writingQueue.put(logMsg);
+			} catch (InterruptedException e2) {
+				e2.printStackTrace();
+			}
+			
+			
 			Entree e = new Entree(new FrameTS(new Frame()));
 			try {
 				e = this.chain.take();
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
+			
+			
+			date = new Date();//idem, impression dans le fichier de log 
+			logMsg = date.toString() + "   Classifier : Movement acquired, trying to classify";
+			try {
+				this.writingQueue.put(logMsg);
+			} catch (InterruptedException e2) {
+				e2.printStackTrace();
+			}
+			
+			
 			Cible c = this.classif.classifier(e);
 			String s = getSyllabe(c);
 			this.syllabes.add(s);
 			mot = mot + s;
 			
+			date = new Date();//idem, impression dans le fichier de log 
+			logMsg = date.toString() + "   Classifier : Classification done, the syllable was : "+s+". End of round : "+(i+1);
+			try {
+				this.writingQueue.put(logMsg);
+			} catch (InterruptedException e2) {
+				e2.printStackTrace();
+			}
+			
 		}
+		
+		
+		date = new Date();//idem, impression dans le fichier de log 
+		logMsg = date.toString() + "   Classifier : Translation sequence completed, showing word on the screen : "+ mot;
+		try {
+			this.writingQueue.put(logMsg);
+		} catch (InterruptedException e2) {
+			e2.printStackTrace();
+		}
+		
+		
 		this.model.setCurrentMessage(mot);
+		
+		
+		date = new Date();//idem, impression dans le fichier de log 
+		logMsg = date.toString() + "   Classifier : Word is on screen, about to play the sound";
+		try {
+			this.writingQueue.put(logMsg);
+		} catch (InterruptedException e2) {
+			e2.printStackTrace();
+		}
+		
+		
 		//ajouter methode pour jouer le son associé au ArrayList 
+		
+		
+		date = new Date();//idem, impression dans le fichier de log 
+		logMsg = date.toString() + "   Classifier : Sound played, ending run sequence";
+		try {
+			this.writingQueue.put(logMsg);
+		} catch (InterruptedException e2) {
+			e2.printStackTrace();
+		}
 	}
 
 
