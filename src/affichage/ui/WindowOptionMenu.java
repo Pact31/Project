@@ -8,7 +8,7 @@ extends JMenu
 	
 	private final MenuItemQuit quitMenuItem ;
 	private final MenuItemOpenBank menuItemOpenBank;
-	private final MenuItemNewBank menuItemNewBank;
+	private final MenuItemSetting menuItemNewBank;
 	
 	public WindowOptionMenu(DrawingApp drawingApp){
 	
@@ -16,7 +16,7 @@ extends JMenu
 
 		// Create and add menu items
 		add(menuItemOpenBank = new MenuItemOpenBank(drawingApp));
-		add(menuItemNewBank = new MenuItemNewBank(drawingApp));
+		add(menuItemNewBank = new MenuItemSetting(drawingApp));
 	    add(quitMenuItem = new MenuItemQuit(drawingApp)) ;
 	
 	}

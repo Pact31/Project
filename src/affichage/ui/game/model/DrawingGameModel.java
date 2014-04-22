@@ -55,10 +55,10 @@ public class DrawingGameModel {
 		gameImage.put(0, "src/affichage/ui/game/images/consonnes_sr1.png");
 		*/
 		gameImage.put(0, "src/affichage/ui/game/images/car.png");
-		gameImage.put(1, "src/affichage/ui/game/images/car.png");
+		gameImage.put(1, "src/affichage/ui/game/images/jouet.jpg");
 		gameImage.put(2, "src/affichage/ui/game/images/maison.jpg");
-		gameImage.put(3, "src/affichage/ui/game/images/maison.jpg");
-		gameImage.put(4, "src/affichage/ui/game/images/car.png");
+		gameImage.put(3, "src/affichage/ui/game/images/lion.jpg");
+		gameImage.put(4, "src/affichage/ui/game/images/oiseau.jpg");
 		
 	}
 	
@@ -111,9 +111,24 @@ public class DrawingGameModel {
 		voiture.add(" tu -");
 		voiture.add(" re");
 		
-		gameWord.add(maison);
+		ArrayList<String> jouet =  new ArrayList<String>();
+		jouet.add("jou -");
+		jouet.add(" et");
+		
+		ArrayList<String> lion =  new ArrayList<String>();
+		lion.add("li -");
+		lion.add(" on");
+		
+		ArrayList<String> oiseau =  new ArrayList<String>();
+		oiseau.add("oi -");
+		oiseau.add(" seau");
+		
+		
 		gameWord.add(voiture);
-	
+		gameWord.add(jouet);
+		gameWord.add(maison);
+		gameWord.add(lion);
+		gameWord.add(oiseau);
 	}
 	
 	private void setGameText(){
@@ -127,14 +142,14 @@ public class DrawingGameModel {
 		gameText.put(6, "MTF ");
 		gameText.put(7, "PDJ ");
 		gameText.put(0, "SR  ");*/
+		gameText.put(0, gameWord.get(0));
 		gameText.put(1, gameWord.get(1));
-		gameText.put(2, gameWord.get(0));
-		gameText.put(3, gameWord.get(0));
-		gameText.put(4, gameWord.get(1));
-		gameText.put(5, gameWord.get(1));
-		gameText.put(6, gameWord.get(0));
-		gameText.put(7, gameWord.get(0));
-		gameText.put(0, gameWord.get(1));
+		gameText.put(2, gameWord.get(2));
+		gameText.put(3, gameWord.get(3));
+		gameText.put(4, gameWord.get(4));
+		//gameText.put(6, gameWord.get(0));
+		//gameText.put(7, gameWord.get(0));
+		//gameText.put(0, gameWord.get(1));
 		
 	}
 	

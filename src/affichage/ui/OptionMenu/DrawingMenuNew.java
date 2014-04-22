@@ -1,11 +1,13 @@
 package affichage.ui.OptionMenu;
 
 import java.awt.Dimension;
+
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import affichage.ui.DrawingApp;
 
 public class DrawingMenuNew 
-extends JFrame
+extends JDialog
 {
 	/**
 	 * 
@@ -16,7 +18,7 @@ extends JFrame
 	
 	public DrawingMenuNew(DrawingApp drawingApp){
 		
-		super("Drawing Application");
+		super();
 		
 		this.setPreferredSize(new Dimension(1000,300));
 		this.setLocation(100, 200);
@@ -27,11 +29,13 @@ extends JFrame
 		setContentPane(menuApprentiWindow);
 		
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setTitle("Choose a cible");
 		
+		this.setModal(true);
 		this.pack();//this sets components sizes,positions
 		this.setVisible(true);
-	
+		
 	}
 
 }

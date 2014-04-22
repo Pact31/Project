@@ -2,7 +2,7 @@ package affichage.ui.OptionMenu;
 
 import java.awt.FlowLayout;
 import javax.swing.JPanel;
-
+import javax.swing.JComboBox;
 import affichage.ui.DrawingApp;
 
 public class MenuApprentiWindow  extends JPanel{
@@ -29,10 +29,16 @@ public class MenuApprentiWindow  extends JPanel{
 	private final ButtonCiblePanel ciblePanel8;
 	private final ButtonOptionPanel buttonOptionPanel;
 	
+	private final String voyelleList[] = {"a", "b", "c", "d"};
+	private final String consonneList[] = {"a", "b", "c", "d"};
+	private JComboBox voyelleComboBox;
+	private JComboBox consonneComboBox;
+	
 	public MenuApprentiWindow(DrawingApp drawingApp){
 		
 		super();
 		
+		this.initGaps();
 		//setLayout(new FlowLayout());
 		this.setLayout(null);
 		
@@ -41,7 +47,7 @@ public class MenuApprentiWindow  extends JPanel{
 		add(textPanel);
 		
 		// button classifier option
-		classifierPanel = new TextPanel(drawingApp, "Classifier :");
+		classifierPanel = new TextPanel(drawingApp, "Classe :");
 		classifierPanel.setBounds(20, 140, 100, 40);
 		add(classifierPanel);
 		
@@ -51,17 +57,17 @@ public class MenuApprentiWindow  extends JPanel{
 		/*-----------------------------------------------------------*/
 		
 		// button save gesture / test son
-		optionSavePanel = new TextPanel(drawingApp, "Option :");
+		optionSavePanel = new TextPanel(drawingApp, "Sons test :");
 		optionSavePanel.setBounds(20, 60, 100, 40);
-		add(optionSavePanel);
+		//add(optionSavePanel);
 		
 		buttonOptionPanel = new ButtonOptionPanel(drawingApp);
 		buttonOptionPanel.setBounds(100, 60, 100, 40);
-		add(buttonOptionPanel);
+		//add(buttonOptionPanel);
 		/*----------------------------------------------------------*/
 		
 		// the cible panel
-		ciblePanel = new TextPanel(drawingApp, "Cible :");
+		ciblePanel = new TextPanel(drawingApp, "Sons test :");
 		ciblePanel.setBounds(20, 100, 100, 40);
 		add(ciblePanel);
 		
@@ -97,8 +103,18 @@ public class MenuApprentiWindow  extends JPanel{
 		ciblePanel8.setBounds( 800, 100, 100, 40);
 		add(ciblePanel8);
 		/*------------------------------------------------------------*/
+		voyelleComboBox.setBounds(100, 200, 100, 30);
+		add(voyelleComboBox);
 		
+		consonneComboBox.setBounds(300, 200, 100, 30);
+		add(consonneComboBox);
+	}
+	
+	private void initGaps(){
 		
+		voyelleComboBox = new JComboBox(voyelleList);
+		consonneComboBox = new JComboBox(consonneList);
+	
 	}
 	
 }

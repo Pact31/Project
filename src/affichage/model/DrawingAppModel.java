@@ -5,6 +5,8 @@ import java.util.Observable;
 import java.awt.Color;
 import java.io.File;
 
+import javax.swing.JComboBox;
+
 import affichage.ui.DrawingApp;
 import affichage.ui.LeapMotion.ThreadLeapMotion;
 import affichage.ui.OptionMenu.TextPanel;
@@ -29,13 +31,17 @@ public class DrawingAppModel extends Observable{
 	private    String      currentClassifier    =    "KPPV";
 	private 	Boolean 	handleClick 		= 	false;
 	private 	Color		currentButtonColor	=	Color.CYAN;
-	private		boolean    currentCibleOption  =   true;
+	private		boolean    currentCibleOption  =   false;//false for son; true for save
 	
 	/* Classification */
 	private    Hashtable<String, String> 	soundSource = new Hashtable<String, String>();
 	private    Adaboost    					adaboost;
 	private    Kppv        					kppv;
 	private    LeapDataBase 				currentleapDataBase = new LeapDataBase();
+	
+	/* Setting */
+	private JComboBox voyelleComboBox;
+	private JComboBox consonneComboBox;
 	
 
 	public DrawingAppModel() throws Exception{
@@ -222,5 +228,23 @@ public class DrawingAppModel extends Observable{
 		return currentGesture;
 		
 	}
+	
+	public void setComboBox(JComboBox v, JComboBox c){
+		
+		this.voyelleComboBox = v;
+		this.consonneComboBox = c;
+	
+	}
+	
+	public JComboBox getVoyelleComboBox(){
+		
+		return this.voyelleComboBox;
+	
+	}
 
+	public JComboBox getConsonneComboBox(){
+		
+		return this.consonneComboBox;
+		
+	}
 }

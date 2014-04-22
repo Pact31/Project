@@ -137,11 +137,12 @@ extends Thread
 				}
 						
 				this.clearGamePanel();
-				System.out.println(counter);
+				//System.out.println(counter);
 				counter++;
 				
 				if(counter == 5){
 					System.out.println("Game Over!");
+					
 				}
 			}
 		}
@@ -162,7 +163,6 @@ extends Thread
 		drawingGameModel.getScorePanel().setScore(score);
 		drawingGameModel.getScorePanel().setLevel(level);
 		drawingGameModel.getGameCiblePanel().setCible(word.get(i), i);
-		score++;
 		//drawingAppModel.setRightAnswer(false);
 		
 	}
@@ -176,9 +176,10 @@ extends Thread
 			e.printStackTrace();
 		}
 		
-		if(drawingApp.getModel().getCurrentMessage() == w)
+		if(drawingApp.getModel().getCurrentMessage() == w){
 			drawingGameModel.setRightAnswer(true);
-	
+			score++;
+		}
 	}
 
 	private void initLevelTime(){
