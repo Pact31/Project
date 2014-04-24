@@ -24,7 +24,7 @@ implements ActionListener
 	private final DrawingApp drawingApp;
 	private final Image			image;
 	private final int             width =	100;
-	private final int				height = 50;
+	private final int				height = 100;
 	
 	public ButtonExecution(DrawingApp drawingApp) throws IOException{
 		

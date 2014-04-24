@@ -34,8 +34,9 @@ extends JPanel
 		add(gesturePanel = new GesturePanel(drawingApp), BorderLayout.EAST);
 		add(buttonsPanel = new ButtonStartPanel(drawingApp), BorderLayout.NORTH);
 		*/
+		
 		leapPanel = new LeapPanel(drawingApp);
-		leapPanel.setBounds(0, 50, 800, 595);
+		leapPanel.setBounds(0, 100, 800, 545);
 		add(leapPanel);
 		
 		resultPanel = new ResultPanel(drawingApp);
@@ -43,7 +44,7 @@ extends JPanel
 		add(resultPanel);
 		
 		gesturePanel = new GesturePanel(drawingApp);
-		gesturePanel.setBounds(805, 50, 566, 595);
+		gesturePanel.setBounds(805, 100, 566, 595);
 		add(gesturePanel);
 		
 		//buttonsPanel = new ButtonStartPanel(drawingApp);
@@ -51,15 +52,15 @@ extends JPanel
 		//add(buttonsPanel);
 		
 		buttonExecutionPanel = new ButtonExecutionPanel(drawingApp);
-		buttonExecutionPanel.setBounds(520, 0, 200, 50);
+		buttonExecutionPanel.setBounds(540, 0, 150, 150);
 		add(buttonExecutionPanel);
 		
 		buttonStopPanel = new ButtonStopPanel(drawingApp);
-		buttonStopPanel.setBounds(720, 0, 200, 50);
+		buttonStopPanel.setBounds(720, 0, 150, 150);
 		add(buttonStopPanel);
 		
 		buttonLeftPanel = new ButtonLeftPanel(drawingApp);
-		buttonLeftPanel.setBounds(0, 0, 100, 50);
+		buttonLeftPanel.setBounds(0, 0, 100, 100);
 		add(buttonLeftPanel);
 	}
 	

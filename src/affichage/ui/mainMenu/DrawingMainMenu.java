@@ -37,13 +37,12 @@ public class DrawingMainMenu extends JDialog
 		
 		super();
 		this.initClassifier();
-		
+		this.setResizable(false);
 		this.setPreferredSize(new Dimension(1100,600));
 		this.setLocation(100, 100);
 		
 		//window content creation
 		//mainMenuPanel = new MainMenuPanel(this);
-		
 		background = new Background(this);
 		setContentPane(background);
 		
@@ -52,9 +51,9 @@ public class DrawingMainMenu extends JDialog
 		titlePanel = new TitlePanel(this);
 		this.add(titlePanel);
 		// add containers
-		this.add(buttonLearn  = new ButtonLearn(this, drawingAppModel), BorderLayout.CENTER);
-		this.add(buttonGame   = new ButtonGame(this, drawingAppModel), BorderLayout.CENTER);
-		this.add(buttonHelp   = new ButtonHelp(this, drawingAppModel), BorderLayout.CENTER);
+		this.add(buttonLearn  = new ButtonLearn(this, drawingAppModel));
+		this.add(buttonGame   = new ButtonGame(this, drawingAppModel));
+		this.add(buttonHelp   = new ButtonHelp(this, drawingAppModel));
 		this.add(buttonQuit   = new ButtonQuit(this, drawingAppModel));
 		
 		//setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);

@@ -1,6 +1,5 @@
 package affichage.ui.OptionMenu;
 
-import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
 import affichage.ui.DrawingApp;
@@ -12,10 +11,16 @@ public class MenuApprentiWindow  extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private final DrawingApp drawingApp;
+	
 	private final TextPanel textPanel;
 	private final TextPanel optionSavePanel;
 	private final TextPanel ciblePanel;
 	private final TextPanel classifierPanel;
+	private final TextPanel enregistrerPanel;
+	private final TextPanel consonnePanel;
+	private final TextPanel voyellePanel;
+	//private final TextPanel warningPanel;
 	
 	private final ButtonClassifierOptionPanel buttonClassifierOptionPanel;
 
@@ -28,21 +33,23 @@ public class MenuApprentiWindow  extends JPanel{
 	private final ButtonCiblePanel ciblePanel7;
 	private final ButtonCiblePanel ciblePanel8;
 	private final ButtonOptionPanel buttonOptionPanel;
+	private final ButtonLaunchSavePanel buttonLaunchSavePanel;
 	
-	private final String voyelleList[] = {"a", "b", "c", "d"};
-	private final String consonneList[] = {"a", "b", "c", "d"};
+	private final String voyelleList[] = {"a o oe", "ain eu", "i on an", "ais ou o", "u un é"};
+	private final String consonneList[] = {"PDJ", "KVZ", "SR", "BNUI", "MTF", "ICHG", "G", "YNG" };
 	private JComboBox voyelleComboBox;
 	private JComboBox consonneComboBox;
 	
 	public MenuApprentiWindow(DrawingApp drawingApp){
 		
 		super();
+		this.drawingApp = drawingApp;
 		
 		this.initGaps();
 		//setLayout(new FlowLayout());
 		this.setLayout(null);
 		
-		textPanel = new TextPanel(drawingApp, "Setting");
+		textPanel = new TextPanel(drawingApp, "Configuration");
 		textPanel.setBounds(450, 10, 100, 40);
 		add(textPanel);
 		
@@ -103,18 +110,37 @@ public class MenuApprentiWindow  extends JPanel{
 		ciblePanel8.setBounds( 800, 100, 100, 40);
 		add(ciblePanel8);
 		/*------------------------------------------------------------*/
-		voyelleComboBox.setBounds(100, 200, 100, 30);
+		enregistrerPanel = new TextPanel(drawingApp, "Enregistrer le son: ");
+		enregistrerPanel.setBounds(20, 200, 150, 40);
+		add(enregistrerPanel);
+		
+		voyellePanel = new TextPanel(drawingApp, "Voyelle");
+		voyellePanel.setBounds(210, 185, 100, 20);
+		add(voyellePanel);
+		
+		voyelleComboBox.setBounds(200, 210, 100, 30);
 		add(voyelleComboBox);
 		
-		consonneComboBox.setBounds(300, 200, 100, 30);
+		consonnePanel = new TextPanel(drawingApp, "Consonne");
+		consonnePanel.setBounds(330, 185, 100, 20);
+		add(consonnePanel);
+		
+		consonneComboBox.setBounds(320, 210, 100, 30);
 		add(consonneComboBox);
+		
+		buttonLaunchSavePanel = new ButtonLaunchSavePanel(drawingApp, "Enregistrer");
+		buttonLaunchSavePanel.setBounds(450, 210, 120, 40);
+		add(buttonLaunchSavePanel);
+		
+		//warningPanel = new TextPanel(drawingApp, "Il ne faut pas modifier  ")
 	}
 	
 	private void initGaps(){
 		
 		voyelleComboBox = new JComboBox(voyelleList);
 		consonneComboBox = new JComboBox(consonneList);
-	
+		this.drawingApp.getModel().setComboBox(voyelleComboBox, consonneComboBox);
+		
 	}
 	
 }

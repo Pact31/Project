@@ -41,8 +41,9 @@ public class DrawingGame extends JDialog
 		/*-----------------------------*/
 		
 		this.setPreferredSize(new Dimension(800,600));
+		this.setResizable(false);
 		this.setLocation(100, 100);
-		
+
 		//window content creation
 		windowGame = new WindowGame(drawingApp, this);
 		drawingGameModel.setWindowGame(windowGame);

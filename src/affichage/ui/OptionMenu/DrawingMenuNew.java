@@ -3,7 +3,6 @@ package affichage.ui.OptionMenu;
 import java.awt.Dimension;
 
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import affichage.ui.DrawingApp;
 
 public class DrawingMenuNew 
@@ -21,6 +20,7 @@ extends JDialog
 		super();
 		
 		this.setPreferredSize(new Dimension(1000,300));
+		this.setResizable(false);
 		this.setLocation(100, 200);
 		
 		//window content creation

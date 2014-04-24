@@ -29,7 +29,8 @@ implements Observer
 		drawingAppModel			=		handSpeakController.getDrawingAppModel();
 		
 		this.setPreferredSize(new Dimension(1366,768));
-		this.setLocation(0, 200);
+		this.setResizable(false);
+		this.setLocation(0, 0);
 		
 		setJMenuBar(drawingMenuBar = new DrawingMenuBar(this));
 		
