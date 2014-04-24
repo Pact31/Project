@@ -28,6 +28,10 @@ extends JPanel
 		
 		this.setLayout(null);
 		
+		gameButtonLevelPanel = new ButtonGameLevelPanel(drawingApp, drawingGame);
+		gameButtonLevelPanel.setBounds(450, 0, 150, 50);
+		this.add(gameButtonLevelPanel);
+		
 		/*
 		titlePanel = new TitlePanel(drawingGame);
 		titlePanel.setBounds(320, 0, 200, 100);
@@ -52,9 +56,6 @@ extends JPanel
 		drawingGame.getModel().setScorePanel(scorePanel);
 		
 		/*------------ Buttons ----------------------*/
-		gameButtonLevelPanel = new ButtonGameLevelPanel(drawingApp, drawingGame);
-		gameButtonLevelPanel.setBounds(450, 0, 150, 50);
-		this.add(gameButtonLevelPanel);
 		
 		buttonGameStartPanel = new ButtonGameStartPanel(drawingApp, drawingGame);
 		buttonGameStartPanel.setBounds(600, 500, 100, 120);
@@ -70,6 +71,12 @@ extends JPanel
 	public void setEnableStart(boolean b){
 		
 		buttonGameStartPanel.setButtonEnable(b);
+	
+	}
+	
+	public void setEnableLevel(boolean b){
+		
+		gameButtonLevelPanel.setEnableAction(b);
 	
 	}
 }

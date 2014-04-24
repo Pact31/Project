@@ -63,6 +63,7 @@ public class DrawingGame extends JDialog
 	public void close(){
 		
 		//this.setVisible(false);
+		this.getModel().setGameThreadRunning(false);
 		this.getModel().getCurrentThreadTimeCount().stopThread();
 		this.dispose();
 		
@@ -92,6 +93,21 @@ public class DrawingGame extends JDialog
 		
 		return drawingGameModel;
 	
+	}
+	
+	public void gameOver(int score){
+		
+		
+		if(score > 10){
+			this.drawingGameModel.setGameProcess("win");
+		}
+		else{
+			this.drawingGameModel.setGameProcess("fail");
+		}
+		
+		this.windowGame.setEnableStart(true);
+		this.windowGame.setEnableLevel(true);
+		
 	}
 	
 }

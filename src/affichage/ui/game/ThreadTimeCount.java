@@ -42,6 +42,7 @@ extends Thread
 	}
 	
 	private Random random = new Random();
+	private int numberWords = 5;
 	private ArrayList<String> word = new ArrayList<String>();
  	@Override
 	public void run(){
@@ -77,7 +78,7 @@ extends Thread
 
 				while(i < word.size()){
 					while( (!drawingGameModel.getGameThreadRunning()) && threadRunning){
-						System.out.println("pause");
+						//System.out.println("pause");
 						//System.out.println(drawingGameModel.getGameThreadRunning());
 					}
 					if(counter2 <= 0){
@@ -104,9 +105,16 @@ extends Thread
 						} catch (InterruptedException e1) {
 							e1.printStackTrace();
 						}
+						
 						i++;
 						counter2 = 0;
-						drawingGameModel.setGameProcess("continue");
+						if(counter < numberWords-1){
+							drawingGameModel.setGameProcess("continue");
+							
+						}
+						else
+							drawingGameModel.setGameProcess("lastWord");
+						
 						try {
 							Thread.sleep(3000);
 						} catch (InterruptedException e1) {
@@ -116,7 +124,7 @@ extends Thread
 					}
 					
 					try {
-						Thread.sleep(1000);
+						Thread.sleep(500);
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
@@ -137,14 +145,20 @@ extends Thread
 				}
 						
 				this.clearGamePanel();
-				//System.out.println(counter);
+				System.out.println(counter);
 				counter++;
 				
-				if(counter == 5){
-					System.out.println("Game Over!");
+				if(counter == 1){
 					
+					System.out.println("Game Over!");
+					drawingGameModel.setGameThreadRunning(false);
+					this.initGame();
+					this.updateGameBilan();
+					this.drawingGame.gameOver(this.score);
 				}
+			
 			}
+			
 		}
 		System.out.println("Game thread done");
 		
@@ -164,7 +178,13 @@ extends Thread
 		drawingGameModel.getScorePanel().setLevel(level);
 		drawingGameModel.getGameCiblePanel().setCible(word.get(i), i);
 		//drawingAppModel.setRightAnswer(false);
-		
+
+	}
+	
+	private void updateGameBilan(){
+	
+		drawingGameModel.getGameCiblePanel().setCible("Ton scores: " + String.valueOf(this.score) , 0);
+	
 	}
 	
 	private void launchDetection(String w){
@@ -188,6 +208,11 @@ extends Thread
 		levelTime.put("moyen", 		20);
 		levelTime.put("difficult", 	10);
 		
+	}
+	
+	private void initGame(){
+		this.counter = 0;
+		this.score = 0;
 	}
 	
 }

@@ -59,7 +59,7 @@ extends JLabel
 		cible = c;
 		location = l;
 		
-		//System.out.println(c);
+		System.out.println("set Cible");
 		this.repaint();
 	
 		previousCible = previousCible + c;

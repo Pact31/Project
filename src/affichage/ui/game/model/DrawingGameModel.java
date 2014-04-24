@@ -73,7 +73,9 @@ public class DrawingGameModel {
 		lisaTalkText.put("true", "Bravo, t'as fais la bonne geste!");
 		lisaTalkText.put("timeOut", "Tu dois faire la geste plus vite possible!");
 		lisaTalkText.put("continue", "Faire la prochaine geste!");
-		
+		lisaTalkText.put("lastWord", "C'est la dérnier mot!");
+		lisaTalkText.put("win", "Super! Tu peux essayer un niveau plus difficile!");
+		lisaTalkText.put("fail", "Essais encore une fois ce niveau!");
 	}
 	
 	public String getLisaTalkText(String s){
