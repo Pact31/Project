@@ -2,7 +2,9 @@ package leapmotion;
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -51,7 +53,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
     /*************************Fonctions diverses***********************/
 	
 	//Enregistre la base dans un fichier
-	public void write(String file) throws Exception {
+	public void write(String file) {
 
 		Controller controller = new Controller();
 		char inChar = 0;
@@ -66,22 +68,70 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 		while(true){//on gere la sortie de la boucle par le clavier
 			i++;
-			fos = new FileOutputStream(file); //on reeouvre un fichier a chaque tour de boucle pour enregistrer le fichier a chaque tour de boucle
-			oos = new ObjectOutputStream(fos);
+			try {
+				fos = new FileOutputStream(file);
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("Erreur lors de l'ouverture du fichier.");
+				e1.printStackTrace();
+			} //on reeouvre un fichier a chaque tour de boucle pour enregistrer le fichier a chaque tour de boucle
+			try {
+				oos = new ObjectOutputStream(fos);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("Erreur lors de l'ouverture du ObjectOutputStream.");
+				e1.printStackTrace();
+			}
 
 
 			entree = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
-			inChar = (char) entree.read();
-			inPos = (int) entree.read() - 48; //le 1 correspond a 49
+			try {
+				inChar = (char) entree.read();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("Erreur lors de la lecture au clavier du premier caractère.");
+				e1.printStackTrace();
+			}
+			try {
+				inPos = (int) entree.read() - 48;
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("Erreur lors de la lecture au clavier du second caractère.");
+				e1.printStackTrace();
+			} //le 1 correspond a 49
 			
 			System.out.println(inChar + "___" + inPos);
 
 
 			if(inChar == 'q'){ //quitter le programme
-				oos.writeObject(this.table);
-				oos.flush();
-				oos.close();
-				fos.close();
+				try {
+					oos.writeObject(this.table);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de l'écriture de la table dans le fichier.");
+					e.printStackTrace();
+				}
+				try {
+					oos.flush();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors du flush.");
+					e.printStackTrace();
+				}
+				try {
+					oos.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de la fermeture du ObjectOutputStream");
+					e.printStackTrace();
+				}
+				try {
+					fos.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de la fermeture du fichier.");
+					e.printStackTrace();
+				}
 				return;
 			}
 
@@ -90,7 +140,16 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			if(frame.hands().count() > 0 && frame.fingers().count() > 0){//on verifie que l'image n'est pas vide et qu'il y a bien une main
 				try{
 				System.out.println(i);
-				this.table.add(new LeapData(frame, inChar, inPos)); 
+				try {
+					this.table.add(new LeapData(frame, inChar, inPos));
+				} catch (IllegalArgumentException | NullPointerException e)
+				{
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de la création d'un nouvel objet LeapData");
+					e.printStackTrace();
+				} catch (NumberException e) {
+					System.out.println("Chiffre non valide");
+				}
 				} catch (LetterException e){
 					System.out.println("Caractere non valide");
 				} finally {}
@@ -100,10 +159,36 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			}
 						
 			
-			oos.writeObject(this.table);
-			oos.flush();
-			oos.close();
-			fos.close();
+			//Cette section de code est obligatoire pour le bon foncitonnement du programme mais n'est jamais executée
+			//car l'utilisateur appuie toujours sur "q".
+			try {
+					oos.writeObject(this.table);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de l'écriture de la table dans le fichier.");
+					e.printStackTrace();
+				}
+				try {
+					oos.flush();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors du flush.");
+					e.printStackTrace();
+				}
+				try {
+					oos.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de la fermeture du ObjectOutputStream");
+					e.printStackTrace();
+				}
+				try {
+					fos.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de la fermeture du fichier.");
+					e.printStackTrace();
+				}
 
 		}
 

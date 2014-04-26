@@ -21,7 +21,7 @@ public class Test {
 		public static void main(String[] args) throws Exception {
 
 		LeapDataBase leapDataBase = new LeapDataBase();
-		leapDataBase.write("baseTestPos.dat");
+		leapDataBase.read("baseTestPos.dat");
 		
 		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
@@ -37,7 +37,7 @@ public class Test {
 		FrameTS framets = new FrameTS(frame);
 		Entree entree = new Entree(framets);
 		
-		Kppv classificateur = new Kppv(banque,1);
+		Kppv classificateur = new Kppv(banque,3);
 		
 		/*for(Apprentissage apprentissage : banque.getAllApprentissage()){
 			System.out.println(apprentissage.getCible());

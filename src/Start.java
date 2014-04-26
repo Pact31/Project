@@ -30,28 +30,28 @@ public class Start {
 		
 		String s = "";
 		
-		if(cible==Cible.PDJ){//cette suite de if permet de transformer la cible en String
+		if(cible==Cible.PDJ_G){//cette suite de if permet de transformer la cible en String
 			s= "di";
 		}
-		else if(cible==Cible.KVZ){
+		else if(cible==Cible.KVZ_G){
 			s= "zeu(renaitre)";
 		}
-		else if(cible==Cible.SR){
+		else if(cible==Cible.SR_G){
 			s= "so(sol)";
 		}
-		else if(cible==Cible.BNUI){
+		else if(cible==Cible.BNUI_G){
 			s= "bi";
 		}
-		else if(cible==Cible.MTF){
+		else if(cible==Cible.MTF_G){
 			s= "teu";
 		}
-		else if(cible==Cible.ICHGNW){
+		else if(cible==Cible.ICHGNW_G){
 			s= "cha(court)";
 		}
-		else if(cible==Cible.G){
+		else if(cible==Cible.G_G){
 			s= "geu(renaitre)";
 		}
-		else if(cible==Cible.YNG){
+		else if(cible==Cible.YNG_G){
 			s= "ping";
 		}
 		

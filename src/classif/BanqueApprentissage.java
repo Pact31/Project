@@ -124,12 +124,12 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 	public int[] countCible(int k, Entree entree){
 		Apprentissage pivot;
 		Voisins v=getVoisins(k, entree);
-		int compteur[]={0,0,0,0,0,0,0,0};
+		int compteur[]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 		Cible c[]=Cible.values();
 		for(int i =0; i<v.size();i=i+1){
 			pivot=v.get(i);
 			int p=0;
-			while(pivot.getCible().equals(c[p])==false && p<8) p=p+1;
+			while(pivot.getCible().equals(c[p])==false && p<40) p=p+1;
 			compteur[p]=compteur[p]+1;
 		}
 		return compteur;

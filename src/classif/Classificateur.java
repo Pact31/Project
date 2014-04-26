@@ -49,7 +49,7 @@ public abstract class Classificateur implements ClassificateurInterface{
 		return reussite/length;
 	}
 	
-	public float crossTest(){
+	public float crossTest() throws Exception{
 		float reussite = 0;
 		ArrayList<CoupleBanqueApprentissage> banques = this.banque.divise();
 		int size = banque.size();

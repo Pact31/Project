@@ -39,7 +39,7 @@ public class Main {
 		
 		System.out.println("Banque d'apprentissage initialisee");
 		
-		Adaboost adaboost =new Adaboost(banque, T);
+	//	Adaboost adaboost =new Adaboost(banque, T);
 		System.out.print("AdaBoost initialise");
 			
 		Kppv kppv = new Kppv(banque, k);
