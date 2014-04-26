@@ -74,6 +74,12 @@ extends JPanel
 	
 	}
 	
+	public void setEnableStop(boolean b){
+		
+		buttonGameStopPanel.setButtonEnable(b);
+		
+	}
+	
 	public void setEnableLevel(boolean b){
 		
 		gameButtonLevelPanel.setEnableAction(b);

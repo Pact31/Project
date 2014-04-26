@@ -64,18 +64,18 @@ public class DrawingGameModel {
 	
 	private void setLisaTalkText(){
 	
-		lisaTalkText.put("level", "Choisissez un niveau de difficulité:");
-		lisaTalkText.put("welcomeeasy", "Bravo, t'as choisi le niveau facile!");
-		lisaTalkText.put("welcomemoyen", "Bravo, t'as choisi le niveau moyen!");
-		lisaTalkText.put("welcomedifficult", "Bravo, t'as choisi le niveau dur!");
-		lisaTalkText.put("start", "Clic le boutton pour démmarer Le jeux.");
-		lisaTalkText.put("false", "Ce n'est pas la bonne geste!");
-		lisaTalkText.put("true", "Bravo, t'as fais la bonne geste!");
-		lisaTalkText.put("timeOut", "Tu dois faire la geste plus vite possible!");
-		lisaTalkText.put("continue", "Faire la prochaine geste!");
-		lisaTalkText.put("lastWord", "C'est la dérnier mot!");
-		lisaTalkText.put("win", "Super! Tu peux essayer un niveau plus difficile!");
-		lisaTalkText.put("fail", "Essais encore une fois ce niveau!");
+		lisaTalkText.put("level", "Choisissez un niveau de difficulté:");
+		lisaTalkText.put("welcomeeasy", "Bravo, tu as choisi le niveau facil!");
+		lisaTalkText.put("welcomemoyen", "Bravo, tu as choisi le niveau moyen!");
+		lisaTalkText.put("welcomedifficult", "Bravo, tu as choisi le niveau difficil!");
+		lisaTalkText.put("start", "Clic le boutton pour démmarer le jeu.");
+		lisaTalkText.put("false", "Ce n'est pas le bon geste!");
+		lisaTalkText.put("true", "Bravo, tu as fais le bon geste!");
+		lisaTalkText.put("timeOut", "Tu dois faire le geste plus vite possible!");
+		lisaTalkText.put("continue", "Fais le prochain geste!");
+		lisaTalkText.put("lastWord", "C'est le dernier mot!");
+		lisaTalkText.put("win", "Super! Tu peux essayer un niveau plus difficil!");
+		lisaTalkText.put("fail", "Essais encore une fois ce niveau ou vas au niveau inférieur !");
 	}
 	
 	public String getLisaTalkText(String s){

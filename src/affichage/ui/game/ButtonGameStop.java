@@ -19,7 +19,7 @@ implements ActionListener
 	private final DrawingGame drawingGame;
 	private final Image			image;
 	private final int             width =	100;
-	private final int				height = 70;
+	private final int				height = 100;
 	
 	public ButtonGameStop(DrawingApp drawingApp, DrawingGame drawingGame) throws IOException{
 		
@@ -30,13 +30,12 @@ implements ActionListener
 		this.setSize(width, height);
 		image = ImageIO.read(new File("src/affichage/stop_icon.png"));
 		addActionListener(this);
+		this.setEnabled(false);
 		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
-		drawingGame.getModel().setGameThreadRunning(false);
 		
 		try {
 			drawingGame.pauseGame();

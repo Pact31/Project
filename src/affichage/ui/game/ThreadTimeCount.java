@@ -77,10 +77,18 @@ extends Thread
 				}
 
 				while(i < word.size()){
-					while( (!drawingGameModel.getGameThreadRunning()) && threadRunning){
-						//System.out.println("pause");
-						//System.out.println(drawingGameModel.getGameThreadRunning());
+				
+					if(counter < numberWords-1){
+						System.out.println(i);
+						launchDetection(word.get(i));
 					}
+
+					while( !(threadRunning = drawingGameModel.getGameThreadRunning()) && !this.threadRunning ){
+						//System.out.println(drawingGameModel.getGameThreadRunning());
+						//System.out.println("pause");
+					}
+					
+					/*--------------- update text --------------------------------------*/
 					if(counter2 <= 0){
 						try {
 							this.updateGamePanel(word, i);
@@ -91,12 +99,13 @@ extends Thread
 						}
 					}
 					
-					
+					/*--------------- time counter panel --------------------------------*/
 					if(count){
 						this.timePanel.setLocation(counter2*600/this.levelTime.get(drawingGameModel.getGameLevel()));
 						counter2++;
 					}
-
+					
+					/*--------------- timeout ------------------------------------------*/
 					if(counter2 >= this.levelTime.get(drawingGameModel.getGameLevel())){
 						
 						drawingGameModel.setGameProcess("timeOut");
@@ -106,8 +115,8 @@ extends Thread
 							e1.printStackTrace();
 						}
 						
-						i++;
 						counter2 = 0;
+						i++;
 						if(counter < numberWords-1){
 							drawingGameModel.setGameProcess("continue");
 							
@@ -122,20 +131,25 @@ extends Thread
 						}
 						
 					}
-					
+					/*-------------------------------------------------------------------*/
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
-					//launchDetection(word.get(i));
+					/*----------------------------------------------------------------------*/
+					
 					if(drawingGameModel.getRightAnswer()){
 						
 						drawingGameModel.setGameProcess("true");
 						//System.out.println("Process true");
 						i++;
 						counter2 = 0;
-						
+						try {
+							Thread.sleep(2000);
+						} catch (InterruptedException e1) {
+							e1.printStackTrace();
+						}
 					}
 					else{
 						drawingGameModel.setGameProcess("false");
@@ -148,13 +162,14 @@ extends Thread
 				System.out.println(counter);
 				counter++;
 				
-				if(counter == 1){
+				if(counter == this.numberWords){
 					
 					System.out.println("Game Over!");
 					drawingGameModel.setGameThreadRunning(false);
-					this.initGame();
 					this.updateGameBilan();
 					this.drawingGame.gameOver(this.score);
+					this.initGame();
+				
 				}
 			
 			}
@@ -183,14 +198,14 @@ extends Thread
 	
 	private void updateGameBilan(){
 	
-		drawingGameModel.getGameCiblePanel().setCible("Ton scores: " + String.valueOf(this.score) , 0);
+		drawingGameModel.getGameCiblePanel().setCible("Ton score: " + String.valueOf(this.score) , 0);
 	
 	}
 	
 	private void launchDetection(String w){
 		
 		//DrawingAppModel model = drawingApp.getModel();
-		try {
+		/*try {
 			drawingApp.getHandSpeakController().launchGame();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -199,7 +214,17 @@ extends Thread
 		if(drawingApp.getModel().getCurrentMessage() == w){
 			drawingGameModel.setRightAnswer(true);
 			score++;
+		}*/
+		int res = random.nextInt(10);// get a random number between 0-4
+		
+		if(res == 1){
+			drawingGameModel.setRightAnswer(true);
+			score++;
 		}
+		else{
+			drawingGameModel.setRightAnswer(false);
+		}
+	
 	}
 
 	private void initLevelTime(){

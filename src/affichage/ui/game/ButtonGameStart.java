@@ -15,17 +15,17 @@ implements ActionListener
 {
 	private static final long serialVersionUID = 1L;
 	
-	private final DrawingApp drawingApp;
-	private final DrawingGame drawingGame;
+	private final DrawingApp 		drawingApp;
+	private final DrawingGame 		drawingGame;
 	private final Image			image;
 	private final int             width =	100;
-	private final int				height = 70;
+	private final int				height = 100;
 	
 	public ButtonGameStart(DrawingApp drawingApp, DrawingGame drawingGame) throws IOException{
 		
 		super();
-		this.drawingApp = drawingApp;
-		this.drawingGame = drawingGame;
+		this.drawingApp 	 = 	drawingApp;
+		this.drawingGame	 = 	drawingGame;
 		
 		this.setSize(width, height);
 		image = ImageIO.read(new File("src/affichage/start_icon.png"));
@@ -38,6 +38,8 @@ implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 		
 		drawingGame.getModel().setGameThreadRunning(true);
+		drawingGame.getWindowGame().setEnableStop(true);
+		
 		System.out.println("Game starts!");
 		//drawingApp.getModel().getCurrentThreadTimeCount().start();
 		//drawingApp.getModel().getCurrentThreadTimeCount().notify();

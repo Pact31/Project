@@ -28,7 +28,7 @@ extends JPanel
 		scorePanel.setBounds(50, 50, 120, 20);
 		this.add(scorePanel);
 		
-		levelPanel      = 	new TextPanel(drawingApp, "Level : ");
+		levelPanel      = 	new TextPanel(drawingApp, "Niveau : ");
 		levelPanel.setBounds(50, 100, 120, 20);
 		this.add(levelPanel);
 		
@@ -45,8 +45,8 @@ extends JPanel
 	}
 	
 	private void setLevelText(){
-		levelText.put("easy", "facile");
-		levelText.put("moyen", "moyen");
-		levelText.put("difficult", "dur");
+		levelText.put("easy", "Facile");
+		levelText.put("moyen", "Moyen");
+		levelText.put("difficult", "Difficil");
 	}
 }

@@ -1,22 +1,13 @@
 package affichage.ui.game;
 
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.io.IOException;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 import affichage.ui.DrawingApp;
 import affichage.ui.game.model.DrawingGameModel;
-import affichage.ui.mainMenu.TitlePanel;
-import affichage.ui.mainMenu.TitlePanel;
 
 public class DrawingGame extends JDialog
 {
@@ -24,9 +15,9 @@ public class DrawingGame extends JDialog
 	private static final long serialVersionUID = 1L;
 	
 	private final WindowGame					windowGame;
-	private  	DrawingApp					drawingApp;
-	private  	GameOverPanel				gameOverPanel;
-	private    DrawingGameModel				drawingGameModel;
+	private  		DrawingApp					drawingApp;
+	private  		GameOverPanel				gameOverPanel;
+	private    	DrawingGameModel				drawingGameModel;
 	
 	public DrawingGame(DrawingApp drawingApp) throws IOException{
 		
@@ -78,15 +69,18 @@ public class DrawingGame extends JDialog
 	}
 	
 	public void pauseGame() throws IOException{
+		
+		this.getModel().setGameThreadRunning(false);
 		this.setGameOver();
 		//this.setEnabled(false);
+	
 	}
 	
 	public void reprend(){
 		
+		drawingGameModel.setGameThreadRunning(true);
 		this.setContentPane(windowGame);
 		this.setVisible(true);
-		drawingGameModel.setGameThreadRunning(true);
 		
 	}
 	
@@ -99,7 +93,7 @@ public class DrawingGame extends JDialog
 	public void gameOver(int score){
 		
 		
-		if(score > 10){
+		if(score > 8){
 			this.drawingGameModel.setGameProcess("win");
 		}
 		else{
@@ -108,6 +102,12 @@ public class DrawingGame extends JDialog
 		
 		this.windowGame.setEnableStart(true);
 		this.windowGame.setEnableLevel(true);
+		
+	}
+	
+	public WindowGame getWindowGame(){
+		
+		return this.windowGame;
 		
 	}
 	

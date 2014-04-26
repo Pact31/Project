@@ -24,4 +24,10 @@ extends JPanel
 	
 	}
 	
+	public void setButtonEnable(boolean b){
+		
+		buttonGameStop.setEnabled(b);
+		
+	}
+	
 }
