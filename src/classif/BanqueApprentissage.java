@@ -162,7 +162,7 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 	}
 	
 	//Renvoie une liste de CoupleBanqueApprentissage ou chaque base de Test a une longueur 0,6*taille base
-	public ArrayList<CoupleBanqueApprentissage> divise(){
+	public ArrayList<CoupleBanqueApprentissage> divise() throws Exception{
 		
 
 		
@@ -180,9 +180,22 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 			i.add(0);
 			j.add( 6 * size / 10);
 		}
-
-
 		
+		while(compareInfArrayList(j, listeSizeCible)){
+			BanqueApprentissage currentBanqueApprentissage = new BanqueApprentissage();
+			BanqueApprentissage currentBanqueTest= new BanqueApprentissage();
+			for(int p = 0; p < listeBanquesApprentissageCible.size(); p++){
+				currentBanqueTest.addBanqueApprentissage(listeBanquesApprentissageCible.get(p).subBanqueApprentissage(i.get(p),j.get(p)));
+				currentBanqueApprentissage.addBanqueApprentissage(listeBanquesApprentissageCible.get(p).subBanqueApprentissage(0,i.get(p)));
+				currentBanqueApprentissage.addBanqueApprentissage(listeBanquesApprentissageCible.get(p).subBanqueApprentissage(j.get(p),listeSizeCible.get(p)));
+				banques.add(new CoupleBanqueApprentissage(currentBanqueTest, currentBanqueApprentissage));
+				i.add(p,i.get(p) + 1);
+				j.add(p,j.get(p) + 1);
+			}
+				
+		}
+
+/*		
 		while((jPDJ < sizePDJ) &&
 			  (jKVZ < sizeKVZ) &&
 			  (jSR < sizeSR) &&
@@ -241,11 +254,11 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 			jYNG++;
 			
 		}
-		
+*/		
 		return banques;
 
 	}
-	
+
 	
 	/****************Iterator*******************/
 	public boolean hasNext(){
