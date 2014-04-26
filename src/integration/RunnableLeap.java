@@ -22,9 +22,15 @@ public class RunnableLeap extends Thread{
 	private long meanTime;
 	private long waitTime;
 	private DrawingAppModel model;
+	private boolean usingLog;
+	private Date date;
+	private String logMsg;
 
 	public RunnableLeap(Controller control, int n, LinkedBlockingQueue<Entree> chain, DrawingAppModel model) {
 		super();
+		this.date = new Date();
+		this.logMsg = "";
+		this.usingLog = true;
 		this.control = control;
 		N = n;
 		this.chain = chain;
@@ -67,60 +73,67 @@ public class RunnableLeap extends Thread{
 		this.chain = chain;
 	}
 	
+	public void setLogUse(boolean b){
+		this.usingLog = b;
+	}
+	
 	public void setWriterchain(LinkedBlockingQueue<String> writingQueue){
 		this.writingQueue = writingQueue;
 	}
 
 	public void run() {
 		
-		Date date = new Date();//ce type de bloc de code est utilisé pour imprimer quelque chose dans le fichier de log  
-		String logMsg = date.toString() + "   Leap : Begining run sequence";
-		try {
-			this.writingQueue.put(logMsg);
-		} catch (InterruptedException e2) {
-			e2.printStackTrace();
-		}
-		
-		for(int i=0; i<this.N; i++){
-			
-			date = new Date();//idem, impression dans le fichier de log
-			logMsg = date.toString() + "   Leap : Begining sleep";
+		if(this.usingLog){
+			this.date = new Date();//ce type de bloc de code est utilisé pour imprimer quelque chose dans le fichier de log  
+			this.logMsg = date.toString() + "   Leap : Begining run sequence";
 			try {
 				this.writingQueue.put(logMsg);
 			} catch (InterruptedException e2) {
 				e2.printStackTrace();
 			}
+		}
+
+		for(int i=0; i<this.N; i++){
 			
-			
+			if(this.usingLog){
+				this.date = new Date();//idem, impression dans le fichier de log
+				this.logMsg = date.toString() + "   Leap : Begining sleep";
+				try {
+					this.writingQueue.put(logMsg);
+				} catch (InterruptedException e2) {
+					e2.printStackTrace();
+				}
+			}
+
 			try {
 				sleep(this.waitTime);
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
 			
-			
-			date = new Date();//idem, impression dans le fichier de log
-			logMsg = date.toString() + "   Leap : Wake up and start capturing";
-			try {
-				this.writingQueue.put(logMsg);
-			} catch (InterruptedException e2) {
-				e2.printStackTrace();
+			if(this.usingLog){
+				this.date = new Date();//idem, impression dans le fichier de log
+				this.logMsg = this.date.toString() + "   Leap : Wake up and start capturing";
+				try {
+					this.writingQueue.put(this.logMsg);
+				} catch (InterruptedException e2) {
+					e2.printStackTrace();
+				}
 			}
-			
 			
 			//rajouter ici commande sur model pour faire passer le voyant au vert
 			Entree e = new Entree(this.control);//remplacer par le code pour faire la moyenne ou autre méthode d'aquisition
 			//rajouter ici commande sur model pour faire passer le voyant au rouge
 			
-			
-			date = new Date();//idem, impression dans le fichier de log 
-			logMsg = date.toString() + "   Leap : New movement captured, will try to put it in queue";
-			try {
-				this.writingQueue.put(logMsg);
-			} catch (InterruptedException e2) {
-				e2.printStackTrace();
+			if(this.usingLog){
+				this.date = new Date();//idem, impression dans le fichier de log 
+				this.logMsg = this.date.toString() + "   Leap : New movement captured, will try to put it in queue";
+				try {
+					this.writingQueue.put(this.logMsg);
+				} catch (InterruptedException e2) {
+					e2.printStackTrace();
+				}
 			}
-			
 			
 			try {
 				this.chain.put(e);
@@ -129,26 +142,26 @@ public class RunnableLeap extends Thread{
 			}
 			i++;
 			
-			
-			date = new Date();//idem, impression dans le fichier de log 
-			logMsg = date.toString() + "   Leap : Movement succesfully placed in queue, end of round : "+ (i+1);
+			if(this.usingLog){
+				this.date = new Date();//idem, impression dans le fichier de log 
+				this.logMsg = this.date.toString() + "   Leap : Movement succesfully placed in queue, end of round : "+ (i+1);
+				try {
+					this.writingQueue.put(this.logMsg);
+				} catch (InterruptedException e2) {
+					e2.printStackTrace();
+				}
+			}
+		}
+		
+		if(this.usingLog){
+			this.date = new Date();//idem, impression dans le fichier de log 
+			this.logMsg = this.date.toString() + "   Leap : Ending run sequence";
 			try {
-				this.writingQueue.put(logMsg);
+				this.writingQueue.put(this.logMsg);
 			} catch (InterruptedException e2) {
 				e2.printStackTrace();
 			}
 		}
-		
-		
-		date = new Date();//idem, impression dans le fichier de log 
-		logMsg = date.toString() + "   Leap : Ending run sequence";
-		try {
-			this.writingQueue.put(logMsg);
-		} catch (InterruptedException e2) {
-			e2.printStackTrace();
-		}
-		
-		
 	}
 
 

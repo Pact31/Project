@@ -21,17 +21,24 @@ public class RunnableClassifier extends Thread{
 	private LinkedBlockingQueue <Entree> chain;
 	private DrawingAppModel model;
 	private ArrayList<String> syllabes;
-	private String[][] correspondances;
+	//private String[][] correspondances;
+	private Dictionnary dico;
 	private LinkedBlockingQueue<String> writingQueue;
+	private boolean usingLog;
+	private Date date;
+	private String logMsg;
 
 	public RunnableClassifier(int n, Classificateur c, LinkedBlockingQueue<Entree> chain, DrawingAppModel model) {
 		super();
-		N = n;
+		this.date = new Date();
+		this.logMsg = "";
+		this.usingLog = true;
+		this.N = n;
 		this.classif = c;
 		this.chain = chain;
 		this.model = model;
 		this.syllabes = new ArrayList<String>();
-		this.correspondances = new String[8][5];
+		/*this.correspondances = new String[8][5];
 		this.correspondances[0][0]="deu";
 		this.correspondances[0][1]="da";
 		this.correspondances[0][2]="di";
@@ -71,7 +78,7 @@ public class RunnableClassifier extends Thread{
 		this.correspondances[7][1]="ya";
 		this.correspondances[7][2]="yi";
 		this.correspondances[7][3]="yo";
-		this.correspondances[7][4]="yu";
+		this.correspondances[7][4]="yu";*/
 	}
 
 	public int getN() {
@@ -80,6 +87,14 @@ public class RunnableClassifier extends Thread{
 
 	public void setN(int n) {
 		N = n;
+	}
+	
+	public void setDico(Dictionnary dico){
+		this.dico = dico;
+	}
+	
+	public void setLogUse(boolean b){
+		this.usingLog = b;
 	}
 
 	public Classificateur getClassif() {
@@ -102,34 +117,35 @@ public class RunnableClassifier extends Thread{
 		int temp = c.ordinal();
 		int forme = temp/5;
 		int main = 5-(temp%5);
-		return this.correspondances[forme][main];
+		//return this.correspondances[forme][main];
+		return this.dico.get(forme, main);
 	}
 	
 	public void run() {
 		
-		
-		Date date = new Date();//ce type de bloc de code est utilisé pour imprimer quelque chose dans le fichier de log 
-		String logMsg = date.toString() + "   Classifier : Begining run sequence";
-		try {
-			this.writingQueue.put(logMsg);
-		} catch (InterruptedException e2) {
-			e2.printStackTrace();
+		if(this.usingLog){
+			this.date = new Date();//ce type de bloc de code est utilisé pour imprimer quelque chose dans le fichier de log 
+			this.logMsg = this.date.toString() + "   Classifier : Begining run sequence";
+			try {
+				this.writingQueue.put(this.logMsg);
+			} catch (InterruptedException e2) {
+				e2.printStackTrace();
+			}
 		}
-		
 		
 		this.syllabes = new ArrayList<String>();
 		String mot = "";
 		for(int i = 0; i<N; i++){
 			
-			
-			date = new Date();//idem, impression dans le fichier de log
-			logMsg = date.toString() + "   Classifier : Begining translation sequence, trying to get a movement from the queue";
-			try {
-				this.writingQueue.put(logMsg);
-			} catch (InterruptedException e2) {
-				e2.printStackTrace();
+			if(this.usingLog){
+				this.date = new Date();//idem, impression dans le fichier de log
+				this.logMsg = this.date.toString() + "   Classifier : Begining translation sequence, trying to get a movement from the queue";
+				try {
+					this.writingQueue.put(this.logMsg);
+				} catch (InterruptedException e2) {
+					e2.printStackTrace();
+				}
 			}
-			
 			
 			Entree e = new Entree(new FrameTS(new Frame()));
 			try {
@@ -138,64 +154,64 @@ public class RunnableClassifier extends Thread{
 				e1.printStackTrace();
 			}
 			
-			
-			date = new Date();//idem, impression dans le fichier de log 
-			logMsg = date.toString() + "   Classifier : Movement acquired, trying to classify";
-			try {
-				this.writingQueue.put(logMsg);
-			} catch (InterruptedException e2) {
-				e2.printStackTrace();
+			if(this.usingLog){
+				this.date = new Date();//idem, impression dans le fichier de log 
+				this.logMsg = this.date.toString() + "   Classifier : Movement acquired, trying to classify";
+				try {
+					this.writingQueue.put(this.logMsg);
+				} catch (InterruptedException e2) {
+					e2.printStackTrace();
+				}
 			}
-			
 			
 			Cible c = this.classif.classifier(e);
 			String s = getSyllabe(c);
 			this.syllabes.add(s);
 			mot = mot + s;
 			
-			date = new Date();//idem, impression dans le fichier de log 
-			logMsg = date.toString() + "   Classifier : Classification done, the syllable was : "+s+". End of round : "+(i+1);
+			if(this.usingLog){
+				this.date = new Date();//idem, impression dans le fichier de log 
+				this.logMsg = this.date.toString() + "   Classifier : Classification done, the syllable was : "+s+". End of round : "+(i+1);
+				try {
+					this.writingQueue.put(this.logMsg);
+				} catch (InterruptedException e2) {
+					e2.printStackTrace();
+				}
+			}
+		}
+		
+		if(this.usingLog){
+			this.date = new Date();//idem, impression dans le fichier de log 
+			this.logMsg = this.date.toString() + "   Classifier : Translation sequence completed, showing word on the screen : "+ mot;
 			try {
-				this.writingQueue.put(logMsg);
+				this.writingQueue.put(this.logMsg);
 			} catch (InterruptedException e2) {
 				e2.printStackTrace();
 			}
-			
 		}
-		
-		
-		date = new Date();//idem, impression dans le fichier de log 
-		logMsg = date.toString() + "   Classifier : Translation sequence completed, showing word on the screen : "+ mot;
-		try {
-			this.writingQueue.put(logMsg);
-		} catch (InterruptedException e2) {
-			e2.printStackTrace();
-		}
-		
-		
+
 		this.model.setCurrentMessage(mot);
 		
-		
-		date = new Date();//idem, impression dans le fichier de log 
-		logMsg = date.toString() + "   Classifier : Word is on screen, about to play the sound";
-		try {
-			this.writingQueue.put(logMsg);
-		} catch (InterruptedException e2) {
-			e2.printStackTrace();
+		if(this.usingLog){
+			this.date = new Date();//idem, impression dans le fichier de log 
+			this.logMsg = this.date.toString() + "   Classifier : Word is on screen, about to play the sound";
+			try {
+				this.writingQueue.put(this.logMsg);
+			} catch (InterruptedException e2) {
+				e2.printStackTrace();
+			}
 		}
-		
-		
+
 		//ajouter methode pour jouer le son associé au ArrayList 
 		
-		
-		date = new Date();//idem, impression dans le fichier de log 
-		logMsg = date.toString() + "   Classifier : Sound played, ending run sequence";
-		try {
-			this.writingQueue.put(logMsg);
-		} catch (InterruptedException e2) {
-			e2.printStackTrace();
+		if(this.usingLog){
+			this.date = new Date();//idem, impression dans le fichier de log 
+			this.logMsg = this.date.toString() + "   Classifier : Sound played, ending run sequence";
+			try {
+				this.writingQueue.put(this.logMsg);
+			} catch (InterruptedException e2) {
+				e2.printStackTrace();
+			}
 		}
 	}
-
-
 }
