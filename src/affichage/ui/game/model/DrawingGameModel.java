@@ -32,7 +32,7 @@ public class DrawingGameModel {
 	private    int         					currentScore       		= 	0;
 	private 	int 							currentLevel			=	1;
 	private    	WindowGame                      windowGame              = 	null;
-
+	private 	boolean 						gameDone				= false;
 
 	public DrawingGameModel(){
 		
@@ -255,6 +255,14 @@ public class DrawingGameModel {
 	
 	public WindowGame getWindowGame(){
 		return this.windowGame;
+	}
+	
+	public void setGameDone(boolean b){
+		this.gameDone = b;
+	}
+	
+	public boolean getGameDone(){
+		return this.gameDone;
 	}
 
 }

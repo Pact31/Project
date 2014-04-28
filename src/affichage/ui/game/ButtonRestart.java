@@ -41,14 +41,17 @@ implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		drawingGame.getModel().setGameDone(true);
 		drawingGame.close();
-
+		
+		/*
 		try {
 			DrawingGame drawingGame = new DrawingGame(drawingApp);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		*/
 	}
 	
 	@Override

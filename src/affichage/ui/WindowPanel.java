@@ -1,6 +1,7 @@
 package affichage.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.io.IOException;
 
@@ -29,34 +30,24 @@ extends JPanel
 		//setLayout(new BorderLayout());
 		this.setLayout(null);
 		
-		/*add(leapPanel = new LeapPanel(drawingApp), BorderLayout.CENTER);
-		add(resultPanel = new ResultPanel(drawingApp), BorderLayout.SOUTH);
-		add(gesturePanel = new GesturePanel(drawingApp), BorderLayout.EAST);
-		add(buttonsPanel = new ButtonStartPanel(drawingApp), BorderLayout.NORTH);
-		*/
-		
 		leapPanel = new LeapPanel(drawingApp);
-		leapPanel.setBounds(0, 100, 800, 545);
+		leapPanel.setBounds(0, 100, 400, 600);
 		add(leapPanel);
 		
 		resultPanel = new ResultPanel(drawingApp);
-		resultPanel.setBounds(0, 600, 1366, 160 );
+		resultPanel.setBounds(500, 0, 400, 60 );
 		add(resultPanel);
 		
 		gesturePanel = new GesturePanel(drawingApp);
-		gesturePanel.setBounds(805, 100, 566, 595);
+		gesturePanel.setBounds(400, 100, 400, 600);
 		add(gesturePanel);
-		
-		//buttonsPanel = new ButtonStartPanel(drawingApp);
-		//buttonsPanel.setBounds(500, 20, 200, 50);
-		//add(buttonsPanel);
-		
+				
 		buttonExecutionPanel = new ButtonExecutionPanel(drawingApp);
-		buttonExecutionPanel.setBounds(540, 0, 150, 150);
+		buttonExecutionPanel.setBounds(150, 0, 150, 150);
 		add(buttonExecutionPanel);
 		
 		buttonStopPanel = new ButtonStopPanel(drawingApp);
-		buttonStopPanel.setBounds(720, 0, 150, 150);
+		buttonStopPanel.setBounds(300, 0, 150, 150);
 		add(buttonStopPanel);
 		
 		buttonLeftPanel = new ButtonLeftPanel(drawingApp);

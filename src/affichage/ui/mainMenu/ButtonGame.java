@@ -1,22 +1,15 @@
 package affichage.ui.mainMenu;
 
-import java.awt.Desktop;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
-
-import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
-import affichage.ui.LeapMotion.ThreadLeapMotion;
 import affichage.ui.game.DrawingGame;
 
 public class ButtonGame extends JButton
@@ -33,7 +26,6 @@ implements ActionListener
 	public ButtonGame(DrawingMainMenu drawingMainMenu, DrawingAppModel drawingAppModel) throws IOException{
 		
 		super();
-		//this.setSize(new Dimension(100, 10));
 		this.setBounds(570, 90, width, height);
 		this.drawingMainMenu = drawingMainMenu;
 		image = ImageIO.read(new File("src/affichage/game_icon.png"));
@@ -41,7 +33,6 @@ implements ActionListener
 		
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		

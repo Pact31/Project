@@ -1,11 +1,9 @@
 package affichage.ui;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -14,7 +12,6 @@ import javax.swing.JButton;
 
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
-import affichage.ui.mainMenu.DrawingMainMenu;
 
 public class ButtonExecution extends JButton
 implements ActionListener
@@ -35,16 +32,19 @@ implements ActionListener
 		addActionListener(this);
 		
 	}
-
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
 		DrawingAppModel model = drawingApp.getModel();
+		
 		try {
-			drawingApp.getHandSpeakController().launchceLeapMotion();
+			drawingApp.getHandSpeakController().launchLeapMotion();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		drawingApp.update(model, null);
 		
 	}

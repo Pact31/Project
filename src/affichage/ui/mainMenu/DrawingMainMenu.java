@@ -25,12 +25,12 @@ public class DrawingMainMenu extends JDialog
 	private static final long serialVersionUID = 1L;
 	
 	//private final MainMenuPanel 				mainMenuPanel;
-	private final Background					background;
-	private final ButtonLearn              	buttonLearn;
-	private final ButtonHelp                  	buttonHelp;
-	private final TitlePanel             		titlePanel;
-	private final ButtonQuit                  	buttonQuit;
-	private final ButtonGame					buttonGame;
+	private final 		Background					background;
+	private final 		ButtonLearn              	buttonLearn;
+	private final 		ButtonHelp                  buttonHelp;
+	private final 		TitlePanel             		titlePanel;
+	private final		ButtonQuit                  buttonQuit;
+	private final		ButtonGame					buttonGame;
 	private			DrawingAppModel				drawingAppModel;
 		
 	public DrawingMainMenu() throws IOException{
@@ -46,10 +46,9 @@ public class DrawingMainMenu extends JDialog
 		background = new Background(this);
 		setContentPane(background);
 		
-		//this.setLayout(new BorderLayout());
-		
 		titlePanel = new TitlePanel(this);
 		this.add(titlePanel);
+		
 		// add containers
 		this.add(buttonLearn  = new ButtonLearn(this, drawingAppModel));
 		this.add(buttonGame   = new ButtonGame(this, drawingAppModel));
@@ -69,7 +68,6 @@ public class DrawingMainMenu extends JDialog
 	
 	public void close(){
 		
-		//this.setVisible(false);
 		this.dispose();
 		
 	}
@@ -82,11 +80,9 @@ public class DrawingMainMenu extends JDialog
 	
 	private void initClassifier(){
 		
-		// TODO Auto-generated method stub
 		try {
 			drawingAppModel = new	DrawingAppModel();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -97,7 +93,6 @@ public class DrawingMainMenu extends JDialog
 		try {
 			drawingApp = new DrawingApp(handSpeakController);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

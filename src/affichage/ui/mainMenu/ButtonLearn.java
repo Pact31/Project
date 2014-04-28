@@ -1,20 +1,14 @@
 package affichage.ui.mainMenu;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
-
-import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
-import affichage.ui.DrawingApp;
 import affichage.ui.LeapMotion.ThreadLeapMotion;
 
 public class ButtonLearn extends JButton
@@ -42,7 +36,6 @@ implements ActionListener
 		
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
@@ -55,7 +48,7 @@ implements ActionListener
 		threadLeapMotion.start();
 		
 		this.drawingAppModel.getDrawingApp().open();
-		System.out.println("Lean App done, Main menu open");
+		System.out.println("Learn App done, Main menu open");
 		threadLeapMotion.threadStop();
 		this.drawingMainMenu.open();
 	
