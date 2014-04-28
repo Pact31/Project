@@ -53,7 +53,6 @@ public class ButtonStart extends JButton
 		try {
 			drawingApp.getHandSpeakController().launchceLeapMotion();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		drawingApp.update(model, null);

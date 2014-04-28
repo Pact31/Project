@@ -2,8 +2,11 @@ package affichage.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JMenuItem;
+
+import affichage.ui.mainMenu.DrawingMainMenu;
 
 
 public class MenuItemQuit extends JMenuItem
@@ -21,7 +24,16 @@ implements ActionListener
 
    @Override
    public void actionPerformed(ActionEvent e) {
-		System.exit(0);
+	   
+	   drawingApp.close();
+	   
+	   try {
+		   DrawingMainMenu drawingMainMenu = new DrawingMainMenu();
+	   } catch (IOException e1) {
+		   // TODO Auto-generated catch block
+		   e1.printStackTrace();
+	   }
+	   
    }
 
 }

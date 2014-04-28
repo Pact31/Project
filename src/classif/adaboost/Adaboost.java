@@ -19,6 +19,7 @@ public class Adaboost extends Classificateur{
 	
 	private void learn(int T){
 		
+		//System.out.println("number of Classes:" + numOfClasses);
 		for(int k = 0; k<numOfClasses; k++){
 			//System.out.println("Classe : "+k);
 			int[] prob = this.createBinaryProblem(k);
@@ -34,8 +35,10 @@ public class Adaboost extends Classificateur{
 				double minError = 1.0;//ca sera l'erreur mini pour cette iteration, on l'init a 1 (erreur maximale)
 				Weak bestWeak = new Weak(0, 0.0, 0);//sera le meilleur classifieur faible pour cette iteration
 				
+				//System.out.println("number of Carac:" + this.numOfCarac);
 				for(int m = 0; m<this.numOfCarac; m++){
 					for(int h=0; h<2; h++){
+						//System.out.println("learningBase:" + this.learningBase.size());
 						for(int n = 0; n<this.learningBase.size(); n++){//on teste tout les classifieurs possibles
 							
 							double currentError = 0.0;
@@ -45,7 +48,8 @@ public class Adaboost extends Classificateur{
 								
 								if(w.classify(this.learningBase.get(l).getMov().getCar())!=prob[l]){
 									currentError = currentError + distrib[l];
-								}	
+								}
+								
 							}
 							if(currentError<minError && currentError<0.5){//si on a trouvé une meilleur erreur mini on la recupere ainsi que le classifieur
 								minError = currentError;
@@ -61,8 +65,8 @@ public class Adaboost extends Classificateur{
 				
 				double norm = 0;//sera la somme de la distrib (pour la normalisation)
 				for(int i = 0; i<distrib.length; i++){//on maj la distrib
-						distrib[i]=distrib[i]*Math.exp(-this.corectors[k][j]*bestWeak.classify(this.learningBase.get(i).getMov().getCar())*prob[i]);
-						norm = norm + distrib[i];
+					distrib[i]=distrib[i]*Math.exp(-this.corectors[k][j]*bestWeak.classify(this.learningBase.get(i).getMov().getCar())*prob[i]);
+					norm = norm + distrib[i];
 				}
 				for(int i = 0; i<distrib.length; i++){//on normalise la distrib
 					distrib[i]=distrib[i]/norm;
@@ -167,11 +171,14 @@ public class Adaboost extends Classificateur{
 		this.acquireBase(b);
 		this.numOfCarac = this.learningBase.get(0).getMov().getCar().length;
 		this.numOfClasses=0;
+		//System.out.println(learningBase.size());
 		for(int i = 0; i<this.learningBase.size(); i++){
 			if(this.learningBase.get(i).getClasse()>this.numOfClasses){
 				this.numOfClasses=this.learningBase.get(i).getClasse();
 			}
 		}
+		//System.out.println(this.numOfClasses);
+		
 		this.numOfClasses++;
 		this.corectors = new double[this.numOfClasses][T];
 		this.strongClassif = new ArrayList<ArrayList<Weak>>();
@@ -180,6 +187,7 @@ public class Adaboost extends Classificateur{
 		}
 		this.learn(T);
 	}
+
 	public Cible classifier(Entree e){
 		int k = this.predictClassOf(e);
 		return Cible.values()[k];

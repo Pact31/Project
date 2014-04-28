@@ -6,7 +6,7 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
-import affichage.ui_leapmotion.OurFinger;
+import affichage.ui.LeapMotion.OurFinger;
 
 
 public class LeapPanel extends JPanel{
@@ -14,14 +14,14 @@ public class LeapPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	private final DrawingApp drawingApp;
-	private final int width = 800, height = 595;
+	private final int width = 800, height = 545;
     
 	private Color color = Color.BLUE;
     private Vector<OurFinger> tab = new Vector<OurFinger>();
      
     public LeapPanel (DrawingApp drawingApp) {
     	
-    	setLocation(0,32);
+    	
     	this.drawingApp = drawingApp;
     		
     }
@@ -29,7 +29,7 @@ public class LeapPanel extends JPanel{
     @Override
     public void paintComponent(Graphics g) {
         
-        g.setColor(Color.WHITE);
+        g.setColor(Color.white);
         g.fillRect(0, 0, width, height);
         
         for (int i =0; i< tab.size(); i++) {
