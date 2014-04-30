@@ -59,7 +59,7 @@ public class DrawingGameModel {
 		gameImage.put(2, "src/affichage/ui/game/images/maison.jpg");
 		gameImage.put(3, "src/affichage/ui/game/images/lion.jpg");
 		gameImage.put(4, "src/affichage/ui/game/images/oiseau.jpg");
-		
+		gameImage.put(5, "src/affichage/ui/game/images/gare.jpg");
 	}
 	
 	private void setLisaTalkText(){
@@ -125,12 +125,16 @@ public class DrawingGameModel {
 		oiseau.add("oi -");
 		oiseau.add(" seau");
 		
+		ArrayList<String> gare =  new ArrayList<String>();
+		oiseau.add("ga -");
+		oiseau.add(" re");
 		
 		gameWord.add(voiture);
 		gameWord.add(jouet);
 		gameWord.add(maison);
 		gameWord.add(lion);
 		gameWord.add(oiseau);
+		gameWord.add(gare);
 	}
 	
 	private void setGameText(){

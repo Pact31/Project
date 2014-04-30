@@ -2,6 +2,8 @@ package affichage.ui.OptionMenu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
 import javax.swing.JButton;
 import leapmotion.LeapDataBase;
 import affichage.model.DrawingAppModel;
@@ -31,11 +33,13 @@ implements ActionListener
 	
 	}
 	
+	private File file;
 	public void actionPerformed(ActionEvent arg0) {
 		
-		//drawingApp.update(model, null);
+		String u = (String)this.drawingAppModel.getUsersComboBox().getSelectedItem();
 		String v = (String)this.drawingAppModel.getVoyelleComboBox().getSelectedItem();
 		String c = (String)this.drawingAppModel.getConsonneComboBox().getSelectedItem();
+		
 		this.launchSaveOperation(v, c);
 		
 	}

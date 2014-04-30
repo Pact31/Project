@@ -42,7 +42,7 @@ public class DrawingAppModel extends Observable{
 	/* Setting */
 	private JComboBox voyelleComboBox;
 	private JComboBox consonneComboBox;
-	
+	private JComboBox usersComboBox;
 
 	public DrawingAppModel() throws Exception{
 		
@@ -229,11 +229,11 @@ public class DrawingAppModel extends Observable{
 		
 	}
 	
-	public void setComboBox(JComboBox v, JComboBox c){
+	public void setComboBox(JComboBox v, JComboBox c, JComboBox u){
 		
 		this.voyelleComboBox = v;
 		this.consonneComboBox = c;
-	
+		this.usersComboBox = u;
 	}
 	
 	public JComboBox getVoyelleComboBox(){
@@ -245,6 +245,12 @@ public class DrawingAppModel extends Observable{
 	public JComboBox getConsonneComboBox(){
 		
 		return this.consonneComboBox;
+		
+	}
+	
+	public JComboBox getUsersComboBox(){
+		
+		return this.usersComboBox;
 		
 	}
 }
