@@ -89,14 +89,14 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 				inChar = (char) entree.read();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
-				System.out.println("Erreur lors de la lecture au clavier du premier caractËre.");
+				System.out.println("Erreur lors de la lecture au clavier du premier caractÔøΩre.");
 				e1.printStackTrace();
 			}
 			try {
 				inPos = (int) entree.read() - 48;
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
-				System.out.println("Erreur lors de la lecture au clavier du second caractËre.");
+				System.out.println("Erreur lors de la lecture au clavier du second caractÔøΩre.");
 				e1.printStackTrace();
 			} //le 1 correspond a 49
 			
@@ -108,7 +108,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 					oos.writeObject(this.table);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
-					System.out.println("Erreur lors de l'Ècriture de la table dans le fichier.");
+					System.out.println("Erreur lors de l'ÔøΩcriture de la table dans le fichier.");
 					e.printStackTrace();
 				}
 				try {
@@ -145,13 +145,9 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 				} catch (IllegalArgumentException | NullPointerException e)
 				{
 					// TODO Auto-generated catch block
-					System.out.println("Erreur lors de la crÈation d'un nouvel objet LeapData");
+					System.out.println("Erreur lors de la crÔøΩation d'un nouvel objet LeapData");
 					e.printStackTrace();
-				} catch (NumberException e) {
-					System.out.println("Chiffre non valide");
 				}
-				} catch (LetterException e){
-					System.out.println("Caractere non valide");
 				} finally {}
 			}
 			else {
@@ -159,13 +155,13 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			}
 						
 			
-			//Cette section de code est obligatoire pour le bon foncitonnement du programme mais n'est jamais executÈe
+			//Cette section de code est obligatoire pour le bon foncitonnement du programme mais n'est jamais executÔøΩe
 			//car l'utilisateur appuie toujours sur "q".
 			try {
 					oos.writeObject(this.table);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
-					System.out.println("Erreur lors de l'Ècriture de la table dans le fichier.");
+					System.out.println("Erreur lors de l'√©criture de la table dans le fichier.");
 					e.printStackTrace();
 				}
 				try {
@@ -194,6 +190,50 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 
 
+	}
+	
+	
+		//Enregistre la base dans un fichier
+	public void write(String file, String c, String v) {
+
+		Controller controller = new Controller();
+		ObjectOutputStream oos = null;
+		FileOutputStream fos = null;
+
+
+			try {
+				fos = new FileOutputStream(file);
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("Erreur lors de l'ouverture du fichier.");
+				e1.printStackTrace();
+			} //on reeouvre un fichier a chaque tour de boucle pour enregistrer le fichier a chaque tour de boucle
+			try {
+				oos = new ObjectOutputStream(fos);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("Erreur lors de l'ouverture du ObjectOutputStream.");
+				e1.printStackTrace();
+			}
+
+			Frame frame = controller.frame();//capute de l'image leapmotion
+			
+			if(frame.hands().count() > 0 && frame.fingers().count() > 0){//on verifie que l'image n'est pas vide et qu'il y a bien une main
+				try{
+				try {
+					this.table.add(new LeapData(frame, c, v));
+				} catch (IllegalArgumentException | NullPointerException e)
+				{
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de la cr√©ation d'un nouvel objet LeapData");
+					e.printStackTrace();
+				}
+				} finally {}
+			}
+			else {
+				System.out.println("L'image capturee n'est pas valide. Elle n'est pas enregistreee.");
+			}
+						
 	}
 
 	
