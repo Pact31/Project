@@ -1,6 +1,6 @@
 package integration;
 
-public class Dictionnary {
+public class Dictionnary {//il faut enlever tout les mot avec autre chose que deux syllabes ou sinon faire une méthode pour retourner le nbr de syllabes en fonction du mot
 private String[][] dico;
 
 
@@ -50,9 +50,9 @@ public void init(){
 public String get(int i,int j){
 	return (this.dico[i][j]);
 }
-public void changedico(String nom){
+public void changedico(String nom){//cette succession de if ne fonctionnera pas... il faut tout refaire
 	if (nom=="papa"||nom=="salle"||nom=="papi"||nom=="mami"||nom=="gomme"||nom=="page"||nom=="cage"||nom=="bille"||nom=="mousse"||nom=="balle"||nom=="masque"||nom=="caillou"||nom=="mal"){}
-	else if (nom=="chat"||nom=="canne"||nom=="chapeau"||nom=="souche"||nom=="chaud"||nom=="chameau"||nom=="chou"||nom=="chevaux"||nom=="cheveux"||nom=="bouche"||nom=="lache"||nom=="couhe"||nom=="mouche"){
+	else if (nom=="chat"||nom=="canne"||nom=="chapeau"||nom=="souche"||nom=="chaud"||nom=="chameau"||nom=="chou"||nom=="chevaux"||nom=="cheveux"||nom=="bouche"||nom=="lache"||nom=="couhe"||nom=="mouche"){//enlever chat, chaud, chou
 		this.dico[5][0]="cheu";
 		this.dico[5][1]="cha";
 		this.dico[5][2]="chon";
@@ -60,7 +60,7 @@ public void changedico(String nom){
 		this.dico[5][4]="chu";	
 		this.dico[3][0]="neu";	
 	}
-	else if(nom=="garage"||nom=="barre"||nom=="case"||nom=="base"||nom=="rhume"||nom=="gare"||nom=="riz"||nom=="mer"||nom=="rose"||nom=="rat"||nom=="rue"||nom=="peur"||nom=="carreaux"||nom=="riche"){
+	else if(nom=="garage"||nom=="barre"||nom=="case"||nom=="base"||nom=="rhume"||nom=="gare"||nom=="riz"||nom=="mer"||nom=="rose"||nom=="rat"||nom=="rue"||nom=="peur"||nom=="carreaux"||nom=="riche"){//enlever riz, rat, rue, garage
 		this.dico[2][0]="reu";
 		this.dico[2][1]="ra";
 		this.dico[2][2]="ri";
@@ -70,7 +70,7 @@ public void changedico(String nom){
 		this.dico[5][0]="cheu";
 		
 	}
-    else if(nom=="deux"||nom=="dame"|nom=="dent"||nom=="vent"||nom=="devant"||nom=="vol"||nom=="dé"||nom=="douze"||nom=="zoo"||nom=="donner"||nom=="nouveau"||nom=="vase"){
+    else if(nom=="deux"||nom=="dame"|nom=="dent"||nom=="vent"||nom=="devant"||nom=="vol"||nom=="dé"||nom=="douze"||nom=="zoo"||nom=="donner"||nom=="nouveau"||nom=="vase"){//il faut enlever deux, dent, vent, dé, zoo
     	this.dico[0][0]="deu";
     	this.dico[0][1]="da";
     	this.dico[0][2]="don";
@@ -92,7 +92,7 @@ public void changedico(String nom){
     	this.dico[3][3]="nou";
     	this.dico[3][4]="né";
 }
-	else if(nom=="télé"||nom=="tour"||nom=="route"||nom=="huit"||nom=="oui"){
+	else if(nom=="télé"||nom=="tour"||nom=="route"||nom=="huit"||nom=="oui"){//il faut enlever 'oui'
 		this.dico[5][0]="teu";
 		this.dico[5][1]="ta";
 		this.dico[5][2]="ti";
@@ -110,14 +110,14 @@ public void changedico(String nom){
 		this.dico[5][4]="wu";
 	}
 
-	else if(nom=="fille"||nom=="file"||nom=="fumée"||nom=="feuille"||nom=="feu"||nom=="facile"||nom=="faché"){
+	else if(nom=="fille"||nom=="file"||nom=="fumée"||nom=="feuille"||nom=="feu"||nom=="facile"||nom=="faché"){//il faut enlever facile
 		this.dico[4][0]="feu";
 		this.dico[4][1]="fa";
 		this.dico[4][2]="fi";
 		this.dico[4][3]="fou";
 		this.dico[4][4]="fé";
 		this.dico[5][4]="ché";
-	}else if(nom=="nid"||nom=="nager"||nom=="jus"||nom=="juge"||nom=="garage"||nom=="giraffe"){
+	}else if(nom=="nid"||nom=="nager"||nom=="jus"||nom=="juge"||nom=="garage"||nom=="giraffe"){//il faut enlever giraffe et garage et nid, et garage apparait deux fois
 		this.dico[3][0]="neu";
 		this.dico[3][1]="na";
 		this.dico[3][2]="ni";
@@ -135,7 +135,7 @@ public void changedico(String nom){
 		this.dico[2][4]="ru";
 		this.dico[4][0]="feu";
 	}
-	else if(nom=="vague"||nom=="valise"||nom=="cave"){
+	else if(nom=="vague"||nom=="valise"||nom=="cave"){//il faut enlever valise
 		this.dico[1][0]="veu";
 		this.dico[1][1]="va";
 		this.dico[1][2]="vi";
@@ -147,7 +147,7 @@ public void changedico(String nom){
 		this.dico[4][3]="to";
 		this.dico[3][4]="bé";
 	}
-	else if(nom=="main"||nom=="faim"){
+	else if(nom=="main"||nom=="faim"){//enlever les deux
 		this.dico[4][0]="min";
 	}else if(nom=="non"){
 			this.dico[3][0]="neu";
@@ -156,7 +156,7 @@ public void changedico(String nom){
 			this.dico[3][3]="nou";
 			this.dico[3][4]="né";	
 	}
-	else if(nom=="faim"){
+	else if(nom=="faim"){//pourquoi "faim" apparait-il en double?
 		this.dico[4][0]="fin";
 		
 	}

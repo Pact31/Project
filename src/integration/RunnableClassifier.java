@@ -85,15 +85,15 @@ public class RunnableClassifier extends Thread{
 		return N;
 	}
 
-	public void setN(int n) {
+	public void setN(int n) {//il faut modifier ce param en fonction du mot qu'on veut déchiffrer!! (correspond au nombre de syllabes)
 		N = n;
 	}
 	
-	public void setDico(Dictionnary dico){
+	public void setDico(Dictionnary dico){//il faut refaire setDico à chaque fois qu'on choisit un nouveau mot
 		this.dico = dico;
 	}
 	
-	public void setLogUse(boolean b){
+	public void setLogUse(boolean b){//vaut true si on utilise le système de log, init à true par défaut (voir constructeur)
 		this.usingLog = b;
 	}
 
@@ -101,19 +101,19 @@ public class RunnableClassifier extends Thread{
 		return classif;
 	}
 
-	public void setClassif(Classificateur c) {
+	public void setClassif(Classificateur c) {//utilisée pour changer le classificateur (choisir entre kppv et adaboost)
 		this.classif = c;
 	}
 
-	public void setChain(LinkedBlockingQueue<Entree> chain) {
+	public void setChain(LinkedBlockingQueue<Entree> chain) {//côté "consammateur" de la file
 		this.chain = chain;
 	}
 	
-	public void setWriterchain(LinkedBlockingQueue<String> writingQueue){
+	public void setWriterchain(LinkedBlockingQueue<String> writingQueue){//pour le fichier de log
 		this.writingQueue = writingQueue;
 	}
 	
-	private String getSyllabe (Cible c){
+	private String getSyllabe (Cible c){//trouve la syllabe dans le dico qui correspond à la cible
 		int temp = c.ordinal();
 		int forme = temp/5;
 		int main = 5-(temp%5);

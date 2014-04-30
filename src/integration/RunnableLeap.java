@@ -13,7 +13,7 @@ import com.leapmotion.leap.Controller;
 
 public class RunnableLeap extends Thread{
 
-	private Controller control;//remplacer le controlleur par la classe qui implémente la méthode faisant la moyenne des position
+	private Controller control;//remplacer le controlleur par la classe qui implémente la méthode faisant la moyenne des position ou qui récupère l'Entree d'une autre manière
 	private int N;
 	private LinkedBlockingQueue<Entree> chain;
 	private LinkedBlockingQueue<String> writingQueue;
@@ -39,11 +39,11 @@ public class RunnableLeap extends Thread{
 		this.setWaitTimeNum(1);
 	}
 
-	public void setN(int n) {
+	public void setN(int n) {//il faut modifier ce param en fonction du mot qu'on veut déchiffrer!! (correspond au nombre de syllabes)
 		N = n;
 	}
 
-	public void setMeanTimeNum(int meanTimeNum) {
+	public void setMeanTimeNum(int meanTimeNum) {//il faut mettre un bouton pour changer ce param
 		this.meanTimeNum = meanTimeNum;
 		if(this.meanTimeNum == 1){
 			this.meanTime = 1000;
@@ -56,7 +56,7 @@ public class RunnableLeap extends Thread{
 		}
 	}
 
-	public void setWaitTimeNum(int waitTimeNum) {
+	public void setWaitTimeNum(int waitTimeNum) {//il faut mettre un bouton pour changer ce param
 		this.waitTimeNum = waitTimeNum;
 		if(this.waitTimeNum == 1){
 			this.waitTime = 1000;
@@ -73,11 +73,11 @@ public class RunnableLeap extends Thread{
 		this.chain = chain;
 	}
 	
-	public void setLogUse(boolean b){
+	public void setLogUse(boolean b){//mettre un bouton pour activer ou désactiver le fichier de log
 		this.usingLog = b;
 	}
 	
-	public void setWriterchain(LinkedBlockingQueue<String> writingQueue){
+	public void setWriterchain(LinkedBlockingQueue<String> writingQueue){//pour le fichier de log
 		this.writingQueue = writingQueue;
 	}
 
@@ -122,7 +122,20 @@ public class RunnableLeap extends Thread{
 			}
 			
 			//rajouter ici commande sur model pour faire passer le voyant au vert
-			Entree e = new Entree(this.control);//remplacer par le code pour faire la moyenne ou autre méthode d'aquisition
+			
+			try {//remplacer ces trois blocks par le code pour faire la moyenne ou autre méthode d'aquisition	
+				sleep(this.meanTime/2);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
+				
+			Entree e = new Entree(this.control);
+			try {
+				sleep(this.meanTime/2);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
+			
 			//rajouter ici commande sur model pour faire passer le voyant au rouge
 			
 			if(this.usingLog){

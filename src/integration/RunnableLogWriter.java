@@ -48,18 +48,21 @@ public class RunnableLogWriter extends Thread{
 		return writingQueue;
 	}
 	
-	public void setN(int n){
+	public void setN(int n){//il faut modifier ce param en fonction du mot à traduire (correspond au nombre de syllabes)
 		this.N = n;
 	}
 	
 	public void run(){
 		for(int i = 0; i<7*this.N+6; i++){
+			
 			String s = "";
+			
 			try {
 				s = this.writingQueue.take();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			
 			try {
 				this.writer.newLine();
 				this.writer.write(s);
@@ -67,10 +70,10 @@ public class RunnableLogWriter extends Thread{
 				e.printStackTrace();
 			}
 		}
+		
 		try {
 			this.writer.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
