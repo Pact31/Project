@@ -154,8 +154,7 @@ public class HandSpeakController
 	 * 
 	 * */
 	public void launchEnregister(String v, String c){
-		
-		
+				
 	}
 	/*------------------------------------------------------------*/
 	

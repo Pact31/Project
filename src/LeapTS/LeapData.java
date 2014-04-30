@@ -1,7 +1,9 @@
 package LeapTS;
 
+import leapmotion.ConsonneException;
 import leapmotion.LetterException;
 import leapmotion.NumberException;
+import leapmotion.VoyelleException;
 
 import com.leapmotion.leap.Frame;
 
@@ -24,7 +26,8 @@ public class LeapData extends FrameTS{
 		this.cible = cible;
 	}
 	
-		public LeapData( Frame frame,char inChar, int inPos) throws IllegalArgumentException, NullPointerException, LetterException, NumberException{
+	//Constructeur ligne de commande avec les lettres pour designer les consonnes et les chiffres pour designer les voyelles
+	public LeapData( Frame frame,char inChar, int inPos) throws IllegalArgumentException, NullPointerException, LetterException, NumberException{
 		super(frame);
 		switch(inChar){
 		case 'a' : 
@@ -197,6 +200,184 @@ public class LeapData extends FrameTS{
 			break;
 		default: 
 			throw (new LetterException(inChar));
+			
+		}
+	}
+	
+	//Concstructeur string
+		public LeapData( Frame frame,String c, String v) throws IllegalArgumentException, NullPointerException, ConsonneException, VoyelleException{
+		super(frame);
+		switch(c){
+		case "PDJ" : 
+			switch(v){
+			case "u un é" :
+				this.cible = Cible.PDJ_G;
+				break;
+			case "ais ou o" :
+				this.cible = Cible.PDJ_M;
+				break;
+			case "i on an" : 
+				this.cible = Cible.PDJ_B;
+				break;
+			case "a o oe" :
+				this.cible = Cible.PDJ_C;
+				break;
+			case "ain eu" : 
+				this.cible = Cible.PDJ_P;
+				break;
+			default :
+				throw(new VoyelleException (v));
+			}
+			break;
+		case "KVZ":
+			switch(v){
+			case "u un é" :
+				this.cible = Cible.KVZ_G;
+				break;
+			case "ais ou o" :
+				this.cible = Cible.KVZ_M;
+				break;
+			case "i on an" : 
+				this.cible = Cible.KVZ_B;
+				break;
+			case "a o oe" :
+				this.cible = Cible.KVZ_C;
+				break;
+			case "ain eu" : 
+				this.cible = Cible.KVZ_P;
+				break;
+			default :
+				throw(new VoyelleException (v));
+			}
+			break;
+		case "SR":
+			switch(v){
+			case "u un é" :
+				this.cible = Cible.SR_G;
+				break;
+			case "ais ou o" :
+				this.cible = Cible.SR_M;
+				break;
+			case "i on an" : 
+				this.cible = Cible.SR_B;
+				break;
+			case "a o oe" :
+				this.cible = Cible.SR_C;
+				break;
+			case "ain eu" : 
+				this.cible = Cible.SR_P;
+				break;
+			default :
+				throw(new VoyelleException (v));
+			}
+			break;
+		case "G":
+			switch(v){
+			case "u un é" :
+				this.cible = Cible.G_G;
+				break;
+			case "ais ou o" :
+				this.cible = Cible.G_M;
+				break;
+			case "i on an" : 
+				this.cible = Cible.G_B;
+				break;
+			case "a o oe" :
+				this.cible = Cible.G_C;
+				break;
+			case "ain eu" : 
+				this.cible = Cible.G_P;
+				break;
+			default :
+				throw(new VoyelleException (v));
+			}
+			break;
+		case "ICHGNW":
+			switch(v){
+			case "u un é" :
+				this.cible = Cible.ICHGNW_G;
+				break;
+			case "ais ou o" :
+				this.cible = Cible.ICHGNW_M;
+				break;
+			case "i on an" : 
+				this.cible = Cible.ICHGNW_B;
+				break;
+			case "a o oe" :
+				this.cible = Cible.ICHGNW_C;
+				break;
+			case "ain eu" : 
+				this.cible = Cible.ICHGNW_P;
+				break;
+			default :
+				throw(new VoyelleException (v));
+			}
+			break;
+		case "MTF": 			
+			switch(v){
+			case "u un é" :
+				this.cible = Cible.MTF_G;
+				break;
+			case "ais ou o" :
+				this.cible = Cible.MTF_M;
+				break;
+			case "i on an" : 
+				this.cible = Cible.MTF_B;
+				break;
+			case "a o oe" :
+				this.cible = Cible.MTF_C;
+				break;
+			case "ain eu" : 
+				this.cible = Cible.MTF_P;
+				break;
+			default :
+				throw(new VoyelleException (v));
+			}
+			break;
+		case "YNG": 
+			switch(v){
+			case "u un é" :
+				this.cible = Cible.YNG_G;
+				break;
+			case "ais ou o" :
+				this.cible = Cible.YNG_M;
+				break;
+			case "i on an" : 
+				this.cible = Cible.YNG_B;
+				break;
+			case "a o oe" :
+				this.cible = Cible.YNG_C;
+				break;
+			case "ain eu" : 
+				this.cible = Cible.YNG_P;
+				break;
+			default :
+				throw(new VoyelleException (v));
+			}
+			break;
+		case "BNUI":
+			switch(v){
+			case "u un é" :
+				this.cible = Cible.BNUI_G;
+				break;
+			case "ais ou o" :
+				this.cible = Cible.BNUI_M;
+				break;
+			case "i on an" : 
+				this.cible = Cible.BNUI_B;
+				break;
+			case "a o oe" :
+				this.cible = Cible.BNUI_C;
+				break;
+			case "ain eu" : 
+				this.cible = Cible.BNUI_P;
+				break;
+			default :
+				throw(new VoyelleException (v));
+			}
+			break;
+		default: 
+			throw (new ConsonneException(c));
 			
 		}
 	}
