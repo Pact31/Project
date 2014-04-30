@@ -51,7 +51,7 @@ public class ButtonStart extends JButton
 		
 		DrawingAppModel model = drawingApp.getModel();
 		try {
-			drawingApp.getHandSpeakController().launchceLeapMotion();
+			drawingApp.getHandSpeakController().launchLeapMotion();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

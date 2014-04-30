@@ -24,19 +24,18 @@ extends JPanel
 
 		this.drawingApp = drawingApp;
 		
-		//this.setLayout(null);
-		this.setLayout(new GridLayout(1,3));
+		this.setLayout(null);
 		
 		buttonGameLevel = new ButtonGameLevel(drawingApp, drawingGame, "easy", this);
-		//buttonGameLevel.setBounds(0, 0, 50, 50);
+		buttonGameLevel.setBounds(0, 0, 50, 50);
 		this.add(buttonGameLevel);
 		
 		buttonGameLevel2 = new ButtonGameLevel(drawingApp, drawingGame, "moyen", this);
-		//buttonGameLevel2.setBounds(50, 0, 50, 50);
+		buttonGameLevel2.setBounds(50, 0, 50, 50);
 		this.add(buttonGameLevel2);
 		
 		buttonGameLevel3 = new ButtonGameLevel(drawingApp, drawingGame, "difficult", this);
-		//buttonGameLevel3.setBounds(100, 0, 50, 50);
+		buttonGameLevel3.setBounds(100, 0, 50, 50);
 		this.add(buttonGameLevel3);
 		
 	}

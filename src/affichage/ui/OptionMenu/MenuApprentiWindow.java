@@ -110,8 +110,8 @@ public class MenuApprentiWindow  extends JPanel{
 		ciblePanel8.setBounds( 800, 100, 100, 40);
 		add(ciblePanel8);
 		/*------------------------------------------------------------*/
-		enregistrerPanel = new TextPanel(drawingApp, "Enregistrer le son: ");
-		enregistrerPanel.setBounds(20, 200, 150, 40);
+		enregistrerPanel = new TextPanel(drawingApp, "Enregistrer les gestes: ");
+		enregistrerPanel.setBounds(20, 200, 200, 40);
 		add(enregistrerPanel);
 		
 		voyellePanel = new TextPanel(drawingApp, "Voyelle");

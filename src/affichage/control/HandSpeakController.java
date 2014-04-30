@@ -40,7 +40,7 @@ public class HandSpeakController
 	
 	
 	@Override
-	public void launchceLeapMotion() throws Exception{
+	public void launchLeapMotion() throws Exception{
 		
 		Boolean 		handleClick =	model.getHandleClick();
 		String 			msg			=	"NO detection!";
@@ -79,82 +79,6 @@ public class HandSpeakController
 		
 	}
 	
-	public void launchGame() throws Exception{
-		
-		//Boolean 		handleClick =	model.getHandleClick();
-		String 			msg			=	"NO detection!";
-		
-		// comment créer une classificateur?
-		if(model.getCurrentClassifier() == "KPPV")
-		//msg="NO detection!";
-			msg = start(model.getKppv());				
-		else
-			msg = start(model.getAdaboost());
-		//msg="NO detection!";
-		//msg = kppvClassification();
-
-		model.setCurrentMessage(msg);
-		model.setCurrentSound(msg);
-		//model.setCurrentGesture(kppvClassification());
-		//model.setCurrentGesture(msg);
-		//model.setCurrentBottonMark("STOP");
-		//model.setCurrentBottonColor(Color.RED);
-
-	}
-	
-	private Cible kppvClassification(){
-		
-		/*Classifier classifier = new Classifier();
-		//if(classifier.contaisThum())
-		    return classifier.getGestures();
-		//else
-		//	return classifier.getGestures() + "thum";
-		*/
-		LeapDataBase leapDataBase = new LeapDataBase();
-		try {
-			leapDataBase.read("baseTestPos.dat");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
-		
-				
-		Controller controller = new Controller();
-		
-		System.out.println("Appuer sur une touche pour valider");
-		
-		BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
-		try {
-			char inChar = (char) buf.read();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-			
-		Frame frame = controller.frame();
-		FrameTS framets = new FrameTS(frame);
-		Entree entree = new Entree(framets);
-		
-		Kppv classificateur = new Kppv(banque,3);
-		System.out.println(classificateur.classifier(entree));
-		return classificateur.classifier(entree);
-	}
-	
-	private String adaboostClassification(){
-		// TODO add the classifier adaboost
-		Controller controller = new Controller();
-		
-		Frame frame = controller.frame();
-		FrameTS framets = new FrameTS(frame);
-		Entree entree = new Entree(framets);
-		
-		//Cible c = model.getAdaboost().predict(entree);
-		//System.out.println(c);
-		return "NO detection!";
-		
-	}
 
 	private String start(ClassificateurInterface c) throws Exception {
 		
@@ -219,6 +143,36 @@ public class HandSpeakController
         System.out.println(file.exists());
         model.setCurrentMessage(msg);
         return msg;
+	}
+	
+	
+	/*
+	 * a completer par l'enregistement de la base 
+	 * arguments: String vayelle, String Consonne definie sous la forme 
+	 * 				private final String voyelleList[] = {"a o oe", "ain eu", "i on an", "ais ou o", "u un é"};
+	 * 				private final String consonneList[] = {"PDJ", "KVZ", "SR", "BNUI", "MTF", "ICHG", "G", "YNG" };
+	 * 
+	 * */
+	public void launchEnregister(String v, String c){
+		
+		
+	}
+	/*------------------------------------------------------------*/
+	
+	/*
+	 * a completer par la classification
+	 * la classification doit revois un resultat "msg" sous forme String
+	 */
+	public void launchGame(){
+		
+		String res = "No detection!";
+		
+		/*
+		 * a completer
+		 */
+	
+		model.setCurrentMessage(res);
+	
 	}
 	
 }

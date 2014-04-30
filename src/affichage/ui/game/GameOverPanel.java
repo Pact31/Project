@@ -29,7 +29,7 @@ extends JComponent
 		this.add(gameOverTextPanel);
 		
 		buttonRestart = new ButtonRestart(drawingApp, drawingGame);
-		this.add(buttonRestart);
+		//this.add(buttonRestart);
 		
 		buttonMainMenu = new ButtonMainMenu(drawingGame);
 		this.add(buttonMainMenu);

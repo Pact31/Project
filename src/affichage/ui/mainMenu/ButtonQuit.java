@@ -1,21 +1,16 @@
 package affichage.ui.mainMenu;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 
-import affichage.control.HandSpeakController;
 import affichage.model.DrawingAppModel;
-import affichage.ui.DrawingApp;
-import affichage.ui.LeapMotion.ThreadLeapMotion;
 
 public class ButtonQuit extends JButton
 implements ActionListener
@@ -23,6 +18,7 @@ implements ActionListener
 	private static final long serialVersionUID = 1L;
 	
 	private final DrawingMainMenu 		drawingMainMenu;
+	private final DrawingAppModel     drawingAppModel;
 	private final Image				image;
 	private final int             	width 		=		200;
 	private final int					height 		= 		150;
@@ -33,6 +29,7 @@ implements ActionListener
 
 		this.setBounds(430, 410, width, height);
 		this.drawingMainMenu = drawingMainMenu;
+		this.drawingAppModel = drawingAppModel;
 		
 		image = ImageIO.read(new File("src/affichage/quit.png"));
 		
@@ -45,7 +42,8 @@ implements ActionListener
 		
 		
 		this.drawingMainMenu.close();
-
+		this.drawingAppModel.getDrawingApp().close();
+		
 	}
 	
 	@Override

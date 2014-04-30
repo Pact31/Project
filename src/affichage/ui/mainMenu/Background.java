@@ -1,22 +1,21 @@
 package affichage.ui.mainMenu;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class Background 
 extends JComponent{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1872806178250761250L;
+
 	private Image image;
 	//private MainMenuPanel mainMenuPanel;
 	

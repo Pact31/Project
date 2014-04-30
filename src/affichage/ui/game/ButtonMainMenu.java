@@ -38,15 +38,9 @@ implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		drawingGame.getModel().setGameDone(true);
 		drawingGame.close();
 		   
-		/*try {
-			DrawingMainMenu drawingMainMenu = new DrawingMainMenu();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}*/
-		
 	}
 	
 	@Override

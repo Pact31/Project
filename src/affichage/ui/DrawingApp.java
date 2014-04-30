@@ -28,7 +28,7 @@ implements Observer
 		handSpeakController		=		controller;
 		drawingAppModel			=		handSpeakController.getDrawingAppModel();
 		
-		this.setPreferredSize(new Dimension(1366,768));
+		this.setPreferredSize(new Dimension(820,720));
 		this.setResizable(false);
 		this.setLocation(0, 0);
 		
@@ -90,7 +90,6 @@ implements Observer
 	
 	public void close(){
 		
-		//this.setVisible(false);
 		this.dispose();
 		
 	}

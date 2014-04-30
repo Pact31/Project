@@ -53,7 +53,7 @@ extends Thread
 		int counter2 = 0;
 		boolean count = true; 
 		
-		while(threadRunning){
+		while(threadRunning && !drawingGame.getModel().getGameDone()){
 
 			running = drawingGameModel.getGameThreadRunning();
 			System.out.print("");
@@ -72,29 +72,28 @@ extends Thread
 				try {
 					drawingGameModel.getGameImagePanel().setImage(drawingGameModel.getGameImage(randNum));
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
-				while(i < word.size()){
+				while(i < word.size() && !drawingGameModel.getGameDone()){
 				
 					if(counter < numberWords-1){
-						System.out.println(i);
-						launchDetection(word.get(i));
+						//System.out.println(i);
+						launchDetectionSimulation(word.get(i));
 					}
 
 					while( !(threadRunning = drawingGameModel.getGameThreadRunning()) && !this.threadRunning ){
-						//System.out.println(drawingGameModel.getGameThreadRunning());
 						//System.out.println("pause");
+						if(drawingGameModel.getGameDone())
+							break;
 					}
 					
 					/*--------------- update text --------------------------------------*/
 					if(counter2 <= 0){
 						try {
 							this.updateGamePanel(word, i);
-							System.out.println("update Game Panel" + word.get(i));
+							//System.out.println("update Game Panel" + word.get(i));
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 					}
@@ -202,7 +201,28 @@ extends Thread
 	
 	}
 	
-	private void launchDetection(String w){
+	
+
+	private void initLevelTime(){
+		
+		levelTime.put("easy", 		30);
+		levelTime.put("moyen", 		20);
+		levelTime.put("difficult", 	10);
+		
+	}
+	
+	private void initGame(){
+		this.counter = 0;
+		this.score = 0;
+	}
+	
+	/*-----------------------------------------------------------------------
+	 * il faut remplacer les codes ci-dessous par une méthode classification qui
+ 	 * revois le résultat par un string.
+	 * 
+	 * ---------------------------------------------------------------------*/
+	
+	private void launchDetectionSimulation(String w){
 		
 		//DrawingAppModel model = drawingApp.getModel();
 		/*try {
@@ -224,20 +244,20 @@ extends Thread
 		else{
 			drawingGameModel.setRightAnswer(false);
 		}
-	
-	}
-
-	private void initLevelTime(){
-		
-		levelTime.put("easy", 		30);
-		levelTime.put("moyen", 		20);
-		levelTime.put("difficult", 	10);
 		
 	}
 	
-	private void initGame(){
-		this.counter = 0;
-		this.score = 0;
-	}
+	private void launchDetection(String w){
+		
+		drawingApp.getHandSpeakController().launchGame();
 	
+		if(drawingApp.getModel().getCurrentMessage() == w){
+			drawingGameModel.setRightAnswer(true);
+			score++;
+		}
+		else{
+			drawingGameModel.setRightAnswer(false);
+		}
+	
+	}
 }

@@ -4,7 +4,7 @@ package affichage.control;
 public interface HandSpeakControllerInterface {
 	
 	
-	public void launchceLeapMotion() throws Exception;
+	public void launchLeapMotion() throws Exception;
 	
 	
 }

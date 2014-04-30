@@ -31,9 +31,7 @@ implements ActionListener
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		//drawingApp.getModel().setCurrentMessage("Veuillez positionner votre main au dessus de la Leap motion, appuyer sur la touche de la clef correspondante et valider pour enregistrer.");
-		//drawingApp.update(drawingApp.getModel(), null);
+
 		drawingApp.getModel().setCurrentCibleOption(option);
 		
 		if(option)

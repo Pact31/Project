@@ -41,7 +41,9 @@ implements ActionListener
 	}
 	
 	private void launchSaveOperation(String v, String c){
+		
 		System.out.println("Enregistrer la geste :" + v + " et " + c);
+		drawingApp.getHandSpeakController().launchEnregister(v, c);
 	}
 	
 	
