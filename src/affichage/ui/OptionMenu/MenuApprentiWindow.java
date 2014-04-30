@@ -37,8 +37,11 @@ public class MenuApprentiWindow  extends JPanel{
 	
 	private final String voyelleList[] = {"a o oe", "ain eu", "i on an", "ais ou o", "u un é"};
 	private final String consonneList[] = {"PDJ", "KVZ", "SR", "BNUI", "MTF", "ICHG", "G", "YNG" };
+	private final String users[]		=	{"pere", "mere", "moi"};
+	
 	private JComboBox voyelleComboBox;
 	private JComboBox consonneComboBox;
+	private JComboBox usersComboBox;
 	
 	public MenuApprentiWindow(DrawingApp drawingApp){
 		
@@ -128,6 +131,9 @@ public class MenuApprentiWindow  extends JPanel{
 		consonneComboBox.setBounds(320, 210, 100, 30);
 		add(consonneComboBox);
 		
+		usersComboBox.setBounds(580, 210, 100, 30);
+		add(usersComboBox);
+		
 		buttonLaunchSavePanel = new ButtonLaunchSavePanel(drawingApp, "Enregistrer");
 		buttonLaunchSavePanel.setBounds(450, 210, 120, 40);
 		add(buttonLaunchSavePanel);
@@ -139,7 +145,8 @@ public class MenuApprentiWindow  extends JPanel{
 		
 		voyelleComboBox = new JComboBox(voyelleList);
 		consonneComboBox = new JComboBox(consonneList);
-		this.drawingApp.getModel().setComboBox(voyelleComboBox, consonneComboBox);
+		usersComboBox = new JComboBox(users);
+		this.drawingApp.getModel().setComboBox(voyelleComboBox, consonneComboBox, usersComboBox);
 		
 	}
 	

@@ -63,6 +63,9 @@ public class DrawingMainMenu extends JDialog
 		this.setModal(true);
 		this.setVisible(true);
 		
+		//this.close();
+		this.drawingAppModel.getDrawingApp().close();
+		
 		System.out.println("Main menu done.");
 	}
 	
@@ -79,6 +82,7 @@ public class DrawingMainMenu extends JDialog
 	}
 	
 	private void initClassifier(){
+		System.out.println("initial classifier");
 		
 		try {
 			drawingAppModel = new	DrawingAppModel();

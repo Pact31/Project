@@ -48,7 +48,7 @@ extends JPanel
 		
 		buttonStopPanel = new ButtonStopPanel(drawingApp);
 		buttonStopPanel.setBounds(300, 0, 150, 150);
-		add(buttonStopPanel);
+		//add(buttonStopPanel);
 		
 		buttonLeftPanel = new ButtonLeftPanel(drawingApp);
 		buttonLeftPanel.setBounds(0, 0, 100, 100);
