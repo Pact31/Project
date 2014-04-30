@@ -131,12 +131,13 @@ public class Entree {
 	//Donne la distance d'un element a la base d'appentissage
 	public double getDistance(Entree entree){
 	
-		return Math.pow((Math.pow(getD1().getDistance(entree.getD1()),2)
+		return Math.pow(
+				 Math.pow(getD1().getDistance(entree.getD1()),2)
 				+Math.pow(getD2().getDistance(entree.getD2()),2)
 				+Math.pow(getD3().getDistance(entree.getD3()),2)
 				+Math.pow(getD4().getDistance(entree.getD4()),2)
-				+Math.pow(getD5().getDistance(entree.getD5()),2)),0.5
-				+entree.getM().getDistance(entree.getM())); //On ne prend pas en compte la position du centre de la main
+				+Math.pow(getD5().getDistance(entree.getD5()),2)
+				+Math.pow(getM().getDistance(entree.getM()),2),0.5); //On ne prend pas en compte la position du centre de la main
 																 //dans le prototype allege
 	
 	}

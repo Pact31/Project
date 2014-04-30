@@ -10,28 +10,28 @@ public class KnownMov {
 	public KnownMov(Apprentissage a) {
 		this.mov = new Mouvement(a);
 		
-		if(a.getCible()==Cible.PDJ){
+		if(a.getCible()==Cible.PDJ_G){
 			this.classe=0;
 		}
-		else if (a.getCible()==Cible.KVZ){
+		else if (a.getCible()==Cible.KVZ_G){
 			this.classe=1;
 		}
-		else if (a.getCible()==Cible.SR){
+		else if (a.getCible()==Cible.SR_G){
 			this.classe=2;
 		}
-		else if (a.getCible()==Cible.BNUI){
+		else if (a.getCible()==Cible.BNUI_G){
 			this.classe=3;
 		}
-		else if (a.getCible()==Cible.MTF){
+		else if (a.getCible()==Cible.MTF_G){
 			this.classe=4;
 		}
-		else if (a.getCible()==Cible.ICHGNW){
+		else if (a.getCible()==Cible.ICHGNW_G){
 			this.classe=5;
 		}
-		else if (a.getCible()==Cible.G){
+		else if (a.getCible()==Cible.G_G){
 			this.classe=6;
 		}
-		else if (a.getCible()==Cible.YNG){
+		else if (a.getCible()==Cible.YNG_G){
 			this.classe=7;
 		}
 	}

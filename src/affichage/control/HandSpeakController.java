@@ -112,7 +112,7 @@ public class HandSpeakController
 		*/
 		LeapDataBase leapDataBase = new LeapDataBase();
 		try {
-			leapDataBase.read("LeapHnv22.dat");
+			leapDataBase.read("baseTestPos.dat");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -174,35 +174,35 @@ public class HandSpeakController
 		String s = "";
 		String msg = "No detection!";
 		
-		if(cible==Cible.PDJ){//cette suite de if permet de transformer la cible en String
+		if(cible==Cible.PDJ_G){//cette suite de if permet de transformer la cible en String
 			s= "di";
 			msg = "PDJ ";
 		}
-		else if(cible==Cible.KVZ){
+		else if(cible==Cible.KVZ_G){
 			s= "zeu(renaitre)";
 			msg = "KVZ ";
 		}
-		else if(cible==Cible.SR){
+		else if(cible==Cible.SR_G){
 			s= "so(sol)";
 			msg = "SR  ";
 		}
-		else if(cible==Cible.BNUI){
+		else if(cible==Cible.BNUI_G){
 			s= "bi";
 			msg = "BNUI";
 		}
-		else if(cible==Cible.MTF){
+		else if(cible==Cible.MTF_G){
 			s= "teu";
 			msg = "MTF ";
 		}
-		else if(cible==Cible.ICHGNW){
+		else if(cible==Cible.ICHGNW_G){
 			s= "cha(court)";
 			msg = "ICHG";
 		}
-		else if(cible==Cible.G){
+		else if(cible==Cible.G_G){
 			s= "geu(renaitre)";
 			msg = " G  ";
 		}
-		else if(cible==Cible.YNG){
+		else if(cible==Cible.YNG_G){
 			s= "ping";
 			msg = "YNG ";
 		}

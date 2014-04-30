@@ -53,7 +53,7 @@ public class DrawingAppModel extends Observable{
 		int k = 3;
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		leapDataBase.read("baseLeap3.dat");
+		leapDataBase.read("baseTestPos.dat");
 		
 		System.out.println("Base de test initialisée");
 		

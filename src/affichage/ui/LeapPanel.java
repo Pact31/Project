@@ -44,9 +44,9 @@ public class LeapPanel extends JPanel{
         tab.clear();
     }
     
-    public void setPosition(OurFinger d) {
+    public void setPosition(OurFinger ourFinger) {
         
-        tab.add(d);
+        tab.add(ourFinger);
         
     }
     
