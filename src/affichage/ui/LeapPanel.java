@@ -36,7 +36,7 @@ public class LeapPanel extends JPanel{
         	
             color = new Color(0, 0, 0, 100 - tab.elementAt(i).getZ());
             g.setColor(color);
-            g.fillOval(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 20);//circle
+            g.fillOval(tab.elementAt(i).getX(), tab.elementAt(i).getY()+30, 20, 20);//circle
             //g.fillArc(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 200, 0, 200);//triangle
         
         }

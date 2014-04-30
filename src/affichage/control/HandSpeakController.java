@@ -45,7 +45,7 @@ public class HandSpeakController
 		Boolean 		handleClick =	model.getHandleClick();
 		String 			msg			=	"NO detection!";
 		
-		if( !handleClick ){
+		//if( !handleClick ){
 			
 			
 			// comment créer une classificateur?
@@ -61,21 +61,21 @@ public class HandSpeakController
 			model.setCurrentSound(msg);
 			//model.setCurrentGesture(kppvClassification());
 			model.setCurrentGesture(msg);
-			model.setCurrentBottonMark("STOP");
-			model.setCurrentBottonColor(Color.RED);
+			//model.setCurrentBottonMark("STOP");
+			//model.setCurrentBottonColor(Color.RED);
 		
-		}
-		else{
+		//}
+		/*else{
 
 			msg	= null;
 			model.setCurrentMessage(msg);
 			model.setCurrentGesture("NO detection!");
-			model.setCurrentBottonMark("START");
-			model.setCurrentBottonColor(Color.CYAN);
+			//model.setCurrentBottonMark("START");
+			//model.setCurrentBottonColor(Color.CYAN);
 		
-		}
+		}*/
 		
-		model.setHandleClick(!handleClick);
+		//model.setHandleClick(!handleClick);
 		
 	}
 	

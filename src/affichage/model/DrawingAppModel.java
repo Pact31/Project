@@ -66,7 +66,7 @@ public class DrawingAppModel extends Observable{
 		System.out.print("AdaBoost initialisé" + " ");
 			
 		//Kppv kppv = new Kppv(banque, k);
-		//kppv = new Kppv(banque, k);
+		kppv = new Kppv(banque, k);
 		System.out.println("Kppv initialisé");
 
 	}
