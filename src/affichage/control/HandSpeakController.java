@@ -153,8 +153,9 @@ public class HandSpeakController
 	 * 				private final String consonneList[] = {"PDJ", "KVZ", "SR", "BNUI", "MTF", "ICHG", "G", "YNG" };
 	 * 
 	 * */
-	public void launchEnregister(String v, String c){
-			
+	public void launchEnregister(String file, String c, String v){
+		LeapDataBase base = model.getCurrentBank();
+		base.write(file, c, v);	
 	}
 	/*------------------------------------------------------------*/
 	
