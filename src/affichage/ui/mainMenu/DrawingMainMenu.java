@@ -63,8 +63,8 @@ public class DrawingMainMenu extends JDialog
 		this.setModal(true);
 		this.setVisible(true);
 		
+		//this.drawingAppModel.getDrawingApp().close();
 		//this.close();
-		this.drawingAppModel.getDrawingApp().close();
 		
 		System.out.println("Main menu done.");
 	}

@@ -38,6 +38,7 @@ implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 		
 		drawingGame.getModel().setGameThreadRunning(true);
+		//drawingGame.getModel().getCurrentThreadTimeCount().run();
 		drawingGame.getWindowGame().setEnableStop(true);
 		
 		System.out.println("Game starts!");

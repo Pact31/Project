@@ -54,6 +54,16 @@ extends JLabel
 			
 	}
 	
+	public void setBilan(String c, int l){
+		
+		cible = c;
+		location = l;
+		System.out.println("set Bilan");
+		
+		this.repaint();
+		
+	}
+	
 	public void setCible(String c, int l){
 	
 		cible = c;
