@@ -36,7 +36,7 @@ public class GesturePanel extends JPanel{
 
 		imageVoyelle   = ImageIO.read(new File(gesture + "Image16.png"));
 		imageConsonne  = ImageIO.read(new File(gesture + "Image30.png"));
-		this.showGestures(this.getGraphics(), Cible.G_G);
+		//this.showGestures(this.getGraphics(), Cible.G_G);
 		setBackground(Color.WHITE);
 		
 	}

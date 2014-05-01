@@ -75,7 +75,7 @@ extends Thread
 				
 				randNum = imageList.get(counter);
 				/* --- update the position of timer--- */
-				//word = drawingGameModel.getGameText(randNum);
+				word = drawingGameModel.getGameText(randNum);
 				mot = drawingGameModel.getDico().getDictionnaire().get(randNum);
 				
 				try {
@@ -85,11 +85,11 @@ extends Thread
 				}
 
 				while(i < word.size() && !drawingGameModel.getGameDone()){
-				
+					
 					if(counter < numberWords-1){
 						//System.out.println(i);
 						launchDetectionSimulation(word.get(i));
-						//this.launchDetection(drawingGameModel.getGameCible(randNum), i);
+						//this.launchDetection(mot, i);
 					}
 
 					while( !(threadRunning = drawingGameModel.getGameThreadRunning()) && !this.threadRunning ){
@@ -259,11 +259,11 @@ extends Thread
 		
 	}
 	
-	private void launchDetection(ArrayList<Cible> c, int i){
+	private void launchDetection(Mot m, int i){
 		
 		drawingApp.getHandSpeakController().launchGame();
 	
-		if(drawingApp.getModel().getCurrentCible() == c.get(i)){
+		if(drawingApp.getModel().getCurrentCible() == m.getCibles().get(i)){
 			drawingGameModel.setRightAnswer(true);
 			score++;
 		}
