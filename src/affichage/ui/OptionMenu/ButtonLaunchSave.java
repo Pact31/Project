@@ -46,7 +46,7 @@ implements ActionListener
 	
 	private void launchSaveOperation(String u, String c, String v){
 		
-		System.out.println("Enregistrer le geste :" + c + " et " + c);
+		System.out.println("Enregistrer le geste :" + c + " et " + v);
 		drawingApp.getHandSpeakController().launchEnregister(u,c,v);
 	}
 	

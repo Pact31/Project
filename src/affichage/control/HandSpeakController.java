@@ -170,8 +170,21 @@ public class HandSpeakController
 		/*
 		 * a completer
 		 */
-	
+		
 		model.setCurrentMessage(res);
+		
+		Controller controller = new Controller();
+		Frame frame = controller.frame();
+		FrameTS framets = new FrameTS(frame);
+		Entree entree = new Entree(framets);
+			
+		
+		if(model.getCurrentClassifier() == "KPPV")
+				//msg="NO detection!";
+				model.setCurrentMessage(model.getKppv().classifier(entree));				
+			else
+				msg = model.getAdaboost().classifier(entree);
+
 	
 	}
 	
