@@ -395,12 +395,12 @@ public class LeapData extends FrameTS{
 		}catch (IllegalArgumentException | NullPointerException e)
 		{
 			// TODO Auto-generated catch block
-			System.out.println("Erreur lors de la cr�ation d'un nouvel objet LeapData");
+			System.out.println("Erreur lors de la création d'un nouvel objet LeapData");
 			e.printStackTrace();
 		} catch (VoyelleException e) {
 			System.out.println("Voyelle non valide");
 		} catch (ConsonneException e){
-			System.out.println("Consonne non valide");
+			System.out.println(e.getMessage());
 		} finally {}
 	}
 	

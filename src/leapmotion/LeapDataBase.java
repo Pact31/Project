@@ -238,22 +238,46 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 	
 	//Importation d'une base depuis un fichier
-	public void read(String file) throws Exception{
+	public void read(String file){
 
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
 
 
-		fis = new FileInputStream(file);
-		ois = new ObjectInputStream(fis); 
-
-		try{
-			this.table = (ArrayList<LeapData>) ois.readObject();
-		}catch(EOFException e){
-
+		try {
+			fis = new FileInputStream(file);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-		ois.close();
-		fis.close();
+		try {
+			ois = new ObjectInputStream(fis);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
+
+		try {
+			this.table = (ArrayList<LeapData>) ois.readObject();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			ois.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			fis.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 

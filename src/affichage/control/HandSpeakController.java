@@ -155,7 +155,7 @@ public class HandSpeakController
 	 * */
 	public void launchEnregister(String file, String c, String v){
 		LeapDataBase base = model.getCurrentBank();
-		base.write(file, c, v);	
+		base.write(file+".dat", c, v);	
 	}
 	/*------------------------------------------------------------*/
 	
