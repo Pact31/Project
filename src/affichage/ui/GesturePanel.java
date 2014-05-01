@@ -11,6 +11,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import classif.Cible;
+
 import affichage.gestures.Gestures;
 import affichage.gestures.GesturesPositions;
 
@@ -23,7 +25,7 @@ public class GesturePanel extends JPanel{
 	private final GesturesPositions 	gesturesPositions = new GesturesPositions();
 	private final Image				image;
 	private final int             	width =	400;
-	private final int					height = 600;
+	private final int					height = 1000;
 	private String gesture = "src/affichage/notice.png";
 	
 	
@@ -47,23 +49,30 @@ public class GesturePanel extends JPanel{
 		g.drawImage(image, 0, 0, width, height, null);
 	}
 	
-
+	
+	private Cible cible;
 	public void notifyForUpdate(){
 		
-		gesture	=	drawingApp.getModel().getCurrentGesture();
-		showGestures(this.getGraphics(), gesture);
+		//gesture	=	drawingApp.getModel().getCurrentGesture();
+		cible = drawingApp.getModel().getCurrentCible();
+		showGestures(this.getGraphics(), cible);
 	
 		//image	=	drawingApp.getModel().setCurrentGesture(file)
 	}
 	
-	
-	private void showGestures(Graphics g, String gesture){
+	private String				imageVoyelle;
+	private String				imageConsonne;
+	private void showGestures(Graphics g, Cible cible){
 		
-		Gestures gestures=gesturesPositions.getGestures(gesture);
+		//Gestures gestures=gesturesPositions.getGestures(gesture);
+		Gestures gestures = gesturesPositions.getGestures(cible);
 		
-		g.drawImage(image, 0, 0, width, height, null);
-		g.setColor(Color.blue);
-		g.drawOval(gestures.getX(), gestures.getY(), gestures.getHeight(), gestures.getWidth());
+		imageVoyelle = gestures.getVoyelle();
+		imageConsonne = gestures.getConsonne();
+		g.drawImage(imageVoyelle, 0, 0, width, height, null);
+		g.drawImage(imageVoyelle, 0, 0, width, height, null);
+		//g.setColor(Color.blue);
+		//g.drawOval(gestures.getX(), gestures.getY(), gestures.getHeight(), gestures.getWidth());
 	}
 
 }

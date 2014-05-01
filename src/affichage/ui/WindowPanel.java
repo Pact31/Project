@@ -38,7 +38,7 @@ extends JPanel
 		add(resultPanel);
 		
 		gesturePanel = new GesturePanel(drawingApp);
-		gesturePanel.setBounds(400, 100, 400, 600);
+		gesturePanel.setBounds(400, 100, 400, 1000);
 		add(gesturePanel);
 				
 		buttonExecutionPanel = new ButtonExecutionPanel(drawingApp);
