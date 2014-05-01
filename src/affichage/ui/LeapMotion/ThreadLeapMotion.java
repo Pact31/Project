@@ -1,10 +1,13 @@
 package affichage.ui.LeapMotion;
 
 import com.leapmotion.leap.Controller;
+import com.leapmotion.leap.Hand;
+import com.leapmotion.leap.HandList;
 import com.leapmotion.leap.Pointable;
 import com.leapmotion.leap.PointableList;
 import com.leapmotion.leap.Vector;
 import com.leapmotion.leap.InteractionBox;
+
 import affichage.ui.DrawingApp;
 import affichage.ui.LeapPanel;
 
@@ -41,8 +44,9 @@ extends Thread
 			
 			InteractionBox ibox 	  = leap.frame().interactionBox();
 			PointableList  pointables = leap.frame().pointables();
-		    //int j=0;
-		    //int j=0;
+			HandList hands = leap.frame().hands();
+
+			
 			for(int p = 0; p < pointables.count(); p++) {
             
 				Pointable pointable = pointables.get(p);
@@ -58,6 +62,18 @@ extends Thread
 			
 			//drawingApp.getModel().setCurrentMessage(String.format("Number of fingers %d", j));
 			//drawingApp.update(drawingApp.getModel(), null);
+			for(int p = 0; p < hands.count(); p++) {
+            
+				Hand hand = hands.get(p);
+				normalizedPosition  = ibox.normalizePoint(hand.stabilizedPalmPosition());
+            
+				int x = (int) (normalizedPosition.getX()       * leapPanel.getWidth());
+				int y = (int) (600 - normalizedPosition.getY() * leapPanel.getHeight());
+				int z = (int) (normalizedPosition.getZ()       * 100);
+            
+				leapPanel.setPosition( new OurFinger(x, y, z) );
+				//j= p;
+			}
 			
 			leapPanel.repaint();
 		

@@ -16,7 +16,7 @@ public class LeapPanel extends JPanel{
 	private final DrawingApp drawingApp;
 	private final int width = 400, height = 600;
     
-	private Color color = Color.BLUE;
+	private Color color = Color.blue;
     private Vector<OurFinger> tab = new Vector<OurFinger>();
      
     public LeapPanel (DrawingApp drawingApp) {
@@ -31,6 +31,12 @@ public class LeapPanel extends JPanel{
         
         g.setColor(Color.white);
         g.fillRect(0, 0, width, height);
+        g.setColor(Color.black);
+        g.drawLine(0, 150, 400, 150);
+        g.drawLine(0, 300, 400, 300);
+        g.drawLine(0, 450, 400, 450);
+        g.drawLine(200, 0, 200, 150);
+        g.drawLine(399,0,399,600);
         
         for (int i =0; i< tab.size(); i++) {
         	
