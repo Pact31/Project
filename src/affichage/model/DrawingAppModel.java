@@ -13,7 +13,7 @@ import classif.BanqueApprentissage;
 import classif.Cible;
 import classif.adaboost.Adaboost;
 import classif.kppv.Kppv;
-import synthese.Sound;
+import syntheseParole.Sound;
 
 public class DrawingAppModel extends Observable{
 
