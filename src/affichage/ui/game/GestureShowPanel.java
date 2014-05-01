@@ -38,7 +38,7 @@ extends JPanel
 		this.add(gameCiblePanel);
 		
 		gameImagePanel = new GameImagePanel(drawingApp, drawingGame);
-		gameImagePanel.setBounds(0, 50, 600, 500);
+		gameImagePanel.setBounds(0, 50, 600, 400);
 		drawingGame.getModel().setGameImagePanel(gameImagePanel);
 		this.add(gameImagePanel);
 		
