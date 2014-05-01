@@ -2,8 +2,12 @@ package affichage.ui;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 import java.util.Vector;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import affichage.ui.LeapMotion.OurFinger;
@@ -28,9 +32,16 @@ public class LeapPanel extends JPanel{
    
     @Override
     public void paintComponent(Graphics g) {
-        
-        g.setColor(Color.white);
-        g.fillRect(0, 0, width, height);
+    	g.setColor(Color.white);
+    	g.fillRect(0,0,width,height);
+        try {
+			Image image = ImageIO.read(new File("src/affichage/face.png"));
+			g.drawImage(image, 0, 0, 300, height, null);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         g.setColor(Color.black);
         g.drawLine(0, 150, 400, 150);
         g.drawLine(0, 300, 400, 300);

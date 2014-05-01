@@ -31,12 +31,12 @@ public class GesturePanel extends JPanel{
 		super();
 		
 		this.drawingApp = drawingApp;
-		image = ImageIO.read(new File("src/affichage/lpc2.jpg"));
+		image = ImageIO.read(new File("src/affichage/notice.png"));
 		setBackground(Color.WHITE);
 		
 	}
 	
-	private String gesture = "src/affichage/lpc2.jpg";
+	private String gesture = "src/affichage/notice.png";
 	
 	@Override
 	protected void paintComponent(Graphics g) {
