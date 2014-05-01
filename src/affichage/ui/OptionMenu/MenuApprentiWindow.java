@@ -36,7 +36,7 @@ public class MenuApprentiWindow  extends JPanel{
 	private final ButtonLaunchSavePanel buttonLaunchSavePanel;
 	
 	private final String voyelleList[] = {"a o oe", "ain eu", "i on an", "ais ou o", "u un é"};
-	private final String consonneList[] = {"PDJ", "KVZ", "SR", "BNUI", "MTF", "ICHG", "G", "YNG" };
+	private final String consonneList[] = {"PDJ", "KVZ", "SR", "BNUI", "MTF", "ICHGNW", "G", "YNG" };
 	private final String users[]		=	{"pere", "mere", "moi"};
 	
 	private JComboBox voyelleComboBox;

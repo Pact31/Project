@@ -1,6 +1,5 @@
 import leapmotion.LeapDataBase;
 import classif.BanqueApprentissage;
-import classif.adaboost.Adaboost;
 import classif.kppv.Kppv;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
@@ -31,7 +30,7 @@ public class Main {
 		int k = 3;
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		leapDataBase.read("baseLeap3.dat");
+		leapDataBase.read("baseTestPos.dat");
 		
 		System.out.println("Base de test initialisee");
 		
@@ -39,7 +38,11 @@ public class Main {
 		
 		System.out.println("Banque d'apprentissage initialisee");
 		
+<<<<<<< HEAD
 		Adaboost adaboost =new Adaboost(banque, T);
+=======
+	//	Adaboost adaboost =new Adaboost(banque, T);
+>>>>>>> pactHub/hassen
 		System.out.print("AdaBoost initialise");
 			
 		Kppv kppv = new Kppv(banque, k);
@@ -52,7 +55,9 @@ public class Main {
 		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
 		threadLeapMotion.start();
 		
+<<<<<<< HEAD
 		System.out.print("Interface graphique initialise");*/
+		System.out.print("Interface graphique initialise");
 		
 	}
 	

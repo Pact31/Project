@@ -124,12 +124,12 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 	public int[] countCible(int k, Entree entree){
 		Apprentissage pivot;
 		Voisins v=getVoisins(k, entree);
-		int compteur[]={0,0,0,0,0,0,0,0};
+		int compteur[]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 		Cible c[]=Cible.values();
 		for(int i =0; i<v.size();i=i+1){
 			pivot=v.get(i);
 			int p=0;
-			while(pivot.getCible().equals(c[p])==false && p<8) p=p+1;
+			while(pivot.getCible().equals(c[p])==false && p<40) p=p+1;
 			compteur[p]=compteur[p]+1;
 		}
 		return compteur;
@@ -147,51 +147,55 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 		return BanqueApprentissageCible;
 	}
 	
+	
+	public boolean compareInfArrayList(ArrayList<Integer> l1, ArrayList<Integer> l2) throws Exception{
+		if(l1.size() != l2.size()){
+			throw new Exception("Les deux listes n'ont pas la meme longueur.");
+		}
+		else{
+			boolean bool = true;
+			for(int i = 0; i < l1.size(); i++){
+				bool = bool && (l1.get(i) < l2.get(i));
+			}
+			return bool;
+		}
+	}
+	
 	//Renvoie une liste de CoupleBanqueApprentissage ou chaque base de Test a une longueur 0,6*taille base
-	public ArrayList<CoupleBanqueApprentissage> divise(){
+	public ArrayList<CoupleBanqueApprentissage> divise() throws Exception{
 		
 
 		
 		ArrayList<CoupleBanqueApprentissage> banques = new ArrayList<CoupleBanqueApprentissage>();
+		ArrayList<BanqueApprentissage> listeBanquesApprentissageCible = new ArrayList<BanqueApprentissage>();
+		ArrayList<Integer> listeSizeCible = new ArrayList<Integer>();
+		ArrayList<Integer> i = new ArrayList<Integer>();
+		ArrayList <Integer> j = new ArrayList<Integer>();
+		
+		for(Cible cible : Cible.values()){
+			BanqueApprentissage banque = banqueApprentissageCible(cible);
+			int size = banque.size();
+			listeBanquesApprentissageCible.add(banque);
+			listeSizeCible.add(banque.size());
+			i.add(0);
+			j.add( 6 * size / 10);
+		}
+		
+		while(compareInfArrayList(j, listeSizeCible)){
+			BanqueApprentissage currentBanqueApprentissage = new BanqueApprentissage();
+			BanqueApprentissage currentBanqueTest= new BanqueApprentissage();
+			for(int p = 0; p < listeBanquesApprentissageCible.size(); p++){
+				currentBanqueTest.addBanqueApprentissage(listeBanquesApprentissageCible.get(p).subBanqueApprentissage(i.get(p),j.get(p)));
+				currentBanqueApprentissage.addBanqueApprentissage(listeBanquesApprentissageCible.get(p).subBanqueApprentissage(0,i.get(p)));
+				currentBanqueApprentissage.addBanqueApprentissage(listeBanquesApprentissageCible.get(p).subBanqueApprentissage(j.get(p),listeSizeCible.get(p)));
+				banques.add(new CoupleBanqueApprentissage(currentBanqueTest, currentBanqueApprentissage));
+				i.add(p,i.get(p) + 1);
+				j.add(p,j.get(p) + 1);
+			}
 				
-		BanqueApprentissage banqueApprentissagePDJ = banqueApprentissageCible(Cible.PDJ);
-		BanqueApprentissage banqueApprentissageKVZ = banqueApprentissageCible(Cible.KVZ);
-		BanqueApprentissage banqueApprentissageSR = banqueApprentissageCible(Cible.SR);
-		BanqueApprentissage banqueApprentissageBNUI = banqueApprentissageCible(Cible.BNUI);
-		BanqueApprentissage banqueApprentissageMTF = banqueApprentissageCible(Cible.MTF);
-		BanqueApprentissage banqueApprentissageICHGNW = banqueApprentissageCible(Cible.ICHGNW);
-		BanqueApprentissage banqueApprentissageG = banqueApprentissageCible(Cible.G);
-		BanqueApprentissage banqueApprentissageYNG = banqueApprentissageCible(Cible.YNG);
-		
-		int sizePDJ = banqueApprentissagePDJ.size();
-		int sizeKVZ = banqueApprentissageKVZ.size();
-		int sizeSR = banqueApprentissageSR.size();
-		int sizeBNUI = banqueApprentissageBNUI.size();
-		int sizeMTF = banqueApprentissageMTF.size();
-		int sizeICHGNW = banqueApprentissageICHGNW.size();
-		int sizeG = banqueApprentissageG.size();
-		int sizeYNG = banqueApprentissageYNG.size();
+		}
 
-		int iPDJ = 0;
-		int iKVZ = 0;
-		int iSR = 0;
-		int iBNUI = 0;
-		int iMTF = 0;
-		int iICHGNW = 0;
-		int iG = 0;
-		int iYNG = 0;
-		
-		
-		int jPDJ = 6 * sizePDJ / 10;
-		int jKVZ = 6*sizeKVZ / 10;
-		int jSR = 6*sizeSR / 10;
-		int jBNUI = 6*sizeBNUI / 10;
-		int jMTF = 6*sizeMTF / 10;
-		int jICHGNW = 6*sizeICHGNW / 10;
-		int jG = 6*sizeG / 10;
-		int jYNG = 6*sizeYNG /  10;
-
-		
+/*		
 		while((jPDJ < sizePDJ) &&
 			  (jKVZ < sizeKVZ) &&
 			  (jSR < sizeSR) &&
@@ -250,11 +254,11 @@ public class BanqueApprentissage implements Iterator<Apprentissage>{
 			jYNG++;
 			
 		}
-		
+*/		
 		return banques;
 
 	}
-	
+
 	
 	/****************Iterator*******************/
 	public boolean hasNext(){

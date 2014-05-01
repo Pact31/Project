@@ -1,11 +1,17 @@
 package classif;
 
+<<<<<<< HEAD
 <<<<<<< HEAD:src/classif/Entree.java
 =======
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
 >>>>>>> pactHub/Adaboost2:src/classif/Entree.java
+=======
+import com.leapmotion.leap.Controller;
+import com.leapmotion.leap.Frame;
+
+>>>>>>> pactHub/hassen
 import LeapTS.FrameTS;
 import LeapTS.VectorTS;
 
@@ -134,16 +140,22 @@ public class Entree {
 	//Donne la distance d'un element a la base d'appentissage
 	public double getDistance(Entree entree){
 	
-		return Math.pow((Math.pow(getD1().getDistance(entree.getD1()),2)
+		return Math.pow(
+				 Math.pow(getD1().getDistance(entree.getD1()),2)
 				+Math.pow(getD2().getDistance(entree.getD2()),2)
 				+Math.pow(getD3().getDistance(entree.getD3()),2)
 				+Math.pow(getD4().getDistance(entree.getD4()),2)
+<<<<<<< HEAD
 				+Math.pow(getD5().getDistance(entree.getD5()),2)),0.5
 <<<<<<< HEAD:src/classif/Entree.java
 				/*+entree.getM().getDistance(element.getM())*/); //On ne prend pas en compte la position du centre de la main
 =======
 				+entree.getM().getDistance(entree.getM())); //On ne prend pas en compte la position du centre de la main
 >>>>>>> pactHub/Adaboost2:src/classif/Entree.java
+=======
+				+Math.pow(getD5().getDistance(entree.getD5()),2)
+				+Math.pow(getM().getDistance(entree.getM()),2),0.5); //On ne prend pas en compte la position du centre de la main
+>>>>>>> pactHub/hassen
 																 //dans le prototype allege
 	
 	}

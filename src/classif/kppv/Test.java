@@ -22,16 +22,22 @@ public class Test {
 
 		LeapDataBase leapDataBase = new LeapDataBase();
 <<<<<<< HEAD
+<<<<<<< HEAD
 		leapDataBase.read("baseLeap3.dat");
 =======
 		leapDataBase.write("baseTestPos.dat");
 >>>>>>> pactHub/Adaboost2
+=======
+		leapDataBase.read("baseTestPos.dat");
+		//leapDataBase.write("baseTestPos.dat");
+>>>>>>> pactHub/hassen
 		
 		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
 				
 		Controller controller = new Controller();
 		
+		for(int i = 0; i < 10; i++){
 		System.out.println("Appuyer sur une touche pour valider");
 		
 		BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
@@ -42,10 +48,14 @@ public class Test {
 		Entree entree = new Entree(framets);
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		Kppv classificateur = new Kppv(banque,5);
 =======
 		Kppv classificateur = new Kppv(banque,1);
 >>>>>>> pactHub/Adaboost2
+=======
+		Kppv classificateur = new Kppv(banque,3);
+>>>>>>> pactHub/hassen
 		
 		/*for(Apprentissage apprentissage : banque.getAllApprentissage()){
 			System.out.println(apprentissage.getCible());
@@ -54,7 +64,7 @@ public class Test {
 		
 			
 		System.out.println(classificateur.classifier(entree));
-		
+		}
 				
 
 	}

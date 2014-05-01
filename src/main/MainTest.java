@@ -40,5 +40,6 @@ public class MainTest {
 		DrawingGame drawingGame = new DrawingGame(drawingApp);
 		*/
 	}
+
 }
 

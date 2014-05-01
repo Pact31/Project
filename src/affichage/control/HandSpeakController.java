@@ -15,7 +15,6 @@ import classif.kppv.Kppv;
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
-import LeapTS.FrameTS;
 import affichage.model.DrawingAppModel;
 
 public class HandSpeakController 
@@ -75,53 +74,54 @@ public class HandSpeakController
 		
 	}
 	
+
 	private String start(ClassificateurInterface c) throws Exception {
 		
-		System.out.println("Début de la séquence de traduction!");
+		System.out.println("Debut de la sequence de traduction!");
 		
 		Controller controller = new Controller(); //ces quatre preimères lignes permettent d'acquérir une nouvelle Entree 
 		Frame frame = controller.frame();
 		FrameTS framets = new FrameTS(frame);
 		Entree e = new Entree(framets);
 		
-		System.out.println("Une nouvelle entrée a été crée!");
+		System.out.println("Une nouvelle entree a ete creee!");
 		
 		Cible cible = c.classifier(e);//on trouve la classe asociée à l'entrée
 				
-		System.out.println("La cible détéctée est :"+cible);
+		System.out.println("La cible detectee est :"+cible);
 		
 		String s = "";
 		String msg = "No detection!";
 		
-		if(cible==Cible.PDJ){//cette suite de if permet de transformer la cible en String
+		if(cible==Cible.PDJ_G){//cette suite de if permet de transformer la cible en String
 			s= "di";
 			msg = "PDJ ";
 		}
-		else if(cible==Cible.KVZ){
+		else if(cible==Cible.KVZ_G){
 			s= "zeu(renaitre)";
 			msg = "KVZ ";
 		}
-		else if(cible==Cible.SR){
+		else if(cible==Cible.SR_G){
 			s= "so(sol)";
 			msg = "SR  ";
 		}
-		else if(cible==Cible.BNUI){
+		else if(cible==Cible.BNUI_G){
 			s= "bi";
 			msg = "BNUI";
 		}
-		else if(cible==Cible.MTF){
+		else if(cible==Cible.MTF_G){
 			s= "teu";
 			msg = "MTF ";
 		}
-		else if(cible==Cible.ICHGNW){
+		else if(cible==Cible.ICHGNW_G){
 			s= "cha(court)";
 			msg = "ICHG";
 		}
-		else if(cible==Cible.G){
+		else if(cible==Cible.G_G){
 			s= "geu(renaitre)";
 			msg = " G  ";
 		}
-		else if(cible==Cible.YNG){
+		else if(cible==Cible.YNG_G){
 			s= "ping";
 			msg = "YNG ";
 		}
@@ -132,8 +132,8 @@ public class HandSpeakController
 		
 		String fileName = "data/"+s+".wav";//sera le nom du fichier joué
 		
-		System.out.println("Le fichier son qui va être joué est : "+fileName);
-		
+		System.out.println("Le fichier son qui va etre joue est : "+fileName);
+			// 
 		File file = new File(fileName);//on vérifie si le fichier existe
         System.out.println(file.exists());
         model.setCurrentMessage(msg);
@@ -148,9 +148,9 @@ public class HandSpeakController
 	 * 				private final String consonneList[] = {"PDJ", "KVZ", "SR", "BNUI", "MTF", "ICHG", "G", "YNG" };
 	 * 
 	 * */
-	public void launchEnregister(String v, String c){
-		
-		
+	public void launchEnregister(String file, String c, String v){
+		LeapDataBase base = model.getCurrentBank();
+		base.write(file+".dat", c, v);	
 	}
 	/*------------------------------------------------------------*/
 	
@@ -165,8 +165,22 @@ public class HandSpeakController
 		/*
 		 * a completer
 		 */
+		
+		model.setCurrentMessage(res);
+		
+		Controller controller = new Controller();
+		Frame frame = controller.frame();
+		FrameTS framets = new FrameTS(frame);
+		Entree entree = new Entree(framets);
+			
+		
+		if(model.getCurrentClassifier() == "KPPV")
+				//msg="NO detection!";
+				model.setCurrentMessage(model.getKppv().classifier(entree));				
+			else
+				msg = model.getAdaboost().classifier(entree);
+
 	
-		model.setCurrentCible(res);
 	}
 	
 }

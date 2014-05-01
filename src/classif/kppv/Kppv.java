@@ -35,7 +35,7 @@ public class Kppv extends Classificateur{
 		int compteur[]=this.banque.countCible(k, entree);
 		int indice=0;
 		int pivot=compteur[0];
-		for (int i=0;i<8;i=i+1){
+		for (int i=0;i<40;i=i+1){
 			if (compteur[i]>pivot){
 				pivot=compteur[i];
 				indice=i;

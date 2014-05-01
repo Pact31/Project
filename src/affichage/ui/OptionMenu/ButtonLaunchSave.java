@@ -45,14 +45,14 @@ implements ActionListener
 		String v = (String)this.drawingAppModel.getVoyelleComboBox().getSelectedItem();
 		String c = (String)this.drawingAppModel.getConsonneComboBox().getSelectedItem();
 		
-		this.launchSaveOperation(v, c);
+		this.launchSaveOperation(u, c, v);
 		
 	}
 	
-	private void launchSaveOperation(String v, String c){
+	private void launchSaveOperation(String u, String c, String v){
 		
-		System.out.println("Enregistrer la geste :" + v + " et " + c);
-		drawingApp.getHandSpeakController().launchEnregister(v, c);
+		System.out.println("Enregistrer le geste :" + c + " et " + v);
+		drawingApp.getHandSpeakController().launchEnregister(u,c,v);
 	}
 	
 	
