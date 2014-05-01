@@ -49,7 +49,7 @@ public class Entree {
 
 	public void setFrameTS(FrameTS frameTS){
 
-		this.m = frameTS.getHandList().get(0).getPalmPosition();
+		this.m = new VectorTS(0,0,0);/*frameTS.getHandList().get(0).getPalmPosition();*/
 
 		int fingerLength = frameTS.getFingerList().size();
 
@@ -141,7 +141,7 @@ public class Entree {
 				+Math.pow(getD2().getDistance(entree.getD2()),2)
 				+Math.pow(getD3().getDistance(entree.getD3()),2)
 				+Math.pow(getD4().getDistance(entree.getD4()),2)
-				+Math.pow(getM().getDistance(entree.getM()),2),0.5); //On ne prend pas en compte la position du centre de la main
+				/*+Math.pow(getM().getDistance(entree.getM()),2)*/,0.5); //On ne prend pas en compte la position du centre de la main
 
 																 //dans le prototype allege
 	

@@ -22,4 +22,12 @@ public class Gestures
 		return "src/affichage/images/cible/" + c + ".png";
 	}
 	
+	public String getV(){
+		return v;
+	}
+	
+	public String getC(){
+		return c;
+	}
+	
 }

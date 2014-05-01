@@ -12,7 +12,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import classif.Cible;
-
 import affichage.gestures.Gestures;
 import affichage.gestures.GesturesPositions;
 
@@ -36,7 +35,7 @@ public class GesturePanel extends JPanel{
 
 		imageVoyelle   = ImageIO.read(new File(gesture + "Image16.png"));
 		imageConsonne  = ImageIO.read(new File(gesture + "Image30.png"));
-		this.showGestures(this.getGraphics(), Cible.G_G);
+		//this.showGestures(this.getGraphics(), Cible.G_G);
 		setBackground(Color.WHITE);
 		
 	}
@@ -62,7 +61,7 @@ public class GesturePanel extends JPanel{
 		//image	=	drawingApp.getModel().setCurrentGesture(file)
 	}
 	private void showGestures(Graphics g, Cible cible) throws IOException{
-		
+		System.out.print("q");
 		//Gestures gestures=gesturesPositions.getGestures(gesture);
 		Gestures gestures = gesturesPositions.getGestures(cible);
 		

@@ -226,6 +226,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 				try{
 				try {
 					this.table.add(new LeapData(frame, c, v));
+					System.out.println("YOLO");
 				} catch (IllegalArgumentException | NullPointerException e)
 				{
 					// TODO Auto-generated catch block
@@ -237,6 +238,35 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			else {
 				System.out.println("L'image capturee n'est pas valide. Elle n'est pas enregistreee.");
 			}
+			
+			try {
+					oos.writeObject(this.table);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de l'écriture de la table dans le fichier.");
+					e.printStackTrace();
+				}
+				try {
+					oos.flush();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors du flush.");
+					e.printStackTrace();
+				}
+				try {
+					oos.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de la fermeture du ObjectOutputStream");
+					e.printStackTrace();
+				}
+				try {
+					fos.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur lors de la fermeture du fichier.");
+					e.printStackTrace();
+				}
 						
 	}
 
