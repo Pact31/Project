@@ -15,8 +15,8 @@ public class RunnableLeap extends Thread{
 
 	private Controller control;//remplacer le controlleur par la classe qui implémente la méthode faisant la moyenne des position ou qui récupère l'Entree d'une autre manière
 	private int N;
-	private LinkedBlockingQueue<Entree> chain;
 	private LinkedBlockingQueue<String> writingQueue;
+	private LinkedBlockingQueue <Entree> chain;
 	private int meanTimeNum;
 	private int waitTimeNum;
 	private long meanTime;

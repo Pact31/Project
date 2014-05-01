@@ -16,18 +16,8 @@ public class Main {
 	 */
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		
 
-		if(args.length!=3){
-			System.out.println("utilisation : T, k");
-		}
-		
-		
-		//int T = Integer.valueOf(args[0]).intValue();//nombre de tour d'apprentissage pour adaboost
-		
-		//int k = Integer.valueOf(args[1]).intValue();//nombre de voisins pour kppv
-		
-		int T = 6;
+		/*int T = 6;
 		int k = 3;
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
@@ -52,7 +42,8 @@ public class Main {
 		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingApp);
 		threadLeapMotion.start();
 		
-		System.out.print("Interface graphique initialise");
+		System.out.print("Interface graphique initialise");*/
+		
 		
 		
 	}
