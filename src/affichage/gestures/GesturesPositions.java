@@ -25,6 +25,7 @@ public class GesturesPositions
 		allGestures.put(Cible.G_M, new Gestures("GC", "M"));
 		allGestures.put(Cible.G_P, new Gestures("GC", "P"));
 		
+		
 		allGestures.put(Cible.ICHGNW_B, new Gestures("ICHGNW", "B"));
 		allGestures.put(Cible.ICHGNW_C, new Gestures("ICHGNW", "C"));
 		allGestures.put(Cible.ICHGNW_G, new Gestures("ICHGNW", "GV"));
@@ -55,11 +56,11 @@ public class GesturesPositions
 		allGestures.put(Cible.MTF_M, new Gestures("MTF", "M"));
 		allGestures.put(Cible.MTF_P, new Gestures("MTF", "P"));
 		
-		allGestures.put(Cible.PDJ_B, new Gestures("MTF", "B"));
-		allGestures.put(Cible.PDJ_C, new Gestures("MTF", "C"));
-		allGestures.put(Cible.PDJ_G, new Gestures("MTF", "GV"));
-		allGestures.put(Cible.PDJ_M, new Gestures("MTF", "M"));
-		allGestures.put(Cible.PDJ_P, new Gestures("MTF", "P"));
+		allGestures.put(Cible.PDJ_B, new Gestures("PDJ", "B"));
+		allGestures.put(Cible.PDJ_C, new Gestures("PDJ", "C"));
+		allGestures.put(Cible.PDJ_G, new Gestures("PDJ", "GV"));
+		allGestures.put(Cible.PDJ_M, new Gestures("PDJ", "M"));
+		allGestures.put(Cible.PDJ_P, new Gestures("PDJ", "P"));
 		
 		
 	}

@@ -25,8 +25,8 @@ public class GesturePanel extends JPanel{
 	private final GesturesPositions 	gesturesPositions = new GesturesPositions();
 	//private final Image				image;
 	private String gesture = "src/affichage/images/cible/";
-	private Image				imageConsonne;
-	private Image				imageVoyelle;
+	private Image				imageConsonne = ImageIO.read(new File(gesture + "Image16.png"));
+	private Image				imageVoyelle  = ImageIO.read(new File(gesture + "Image30.png"));
 	
 	public GesturePanel(DrawingApp drawingApp) throws IOException{
 		

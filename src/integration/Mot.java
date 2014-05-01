@@ -34,7 +34,6 @@ public class Mot {
 	public ArrayList<Cible> getCibles() {
 		return cibles;
 	}
-	
-	
+	 
 
 }

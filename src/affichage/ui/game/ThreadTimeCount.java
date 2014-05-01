@@ -9,6 +9,7 @@ import java.util.Random;
 
 import classif.Cible;
 
+import affichage.gestures.GesturesPositions;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
 import affichage.ui.game.model.DrawingGameModel;
@@ -86,8 +87,8 @@ extends Thread
 
 				while(i < word.size() && !drawingGameModel.getGameDone()){
 					
+					
 					if(counter < numberWords-1){
-						//System.out.println(i);
 						launchDetectionSimulation(word.get(i));
 						//this.launchDetection(mot, i);
 					}
@@ -116,7 +117,9 @@ extends Thread
 					
 					/*--------------- timeout ------------------------------------------*/
 					if(counter2 >= this.levelTime.get(drawingGameModel.getGameLevel())){
+						/*a completer le son*/
 						
+						/*---------------------------------------*/
 						drawingGameModel.setGameProcess("timeOut");
 						try {
 							Thread.sleep(3000);
@@ -129,9 +132,12 @@ extends Thread
 						if(counter < numberWords-1){
 							drawingGameModel.setGameProcess("continue");
 							
+							
 						}
-						else
+						else{
 							drawingGameModel.setGameProcess("lastWord");
+							
+						}
 						
 						try {
 							Thread.sleep(3000);
@@ -258,12 +264,15 @@ extends Thread
 		}
 		
 	}
+	private GesturesPositions gesturesPositions = new GesturesPositions();
 	
 	private void launchDetection(Mot m, int i){
 		
+		/*faut faire un setCurrentMessage dans handSpeakController*/
 		drawingApp.getHandSpeakController().launchGame();
-	
-		if(drawingApp.getModel().getCurrentCible() == m.getCibles().get(i)){
+		String v = drawingApp.getModel().getCurrentMessage();
+		
+		if(v.contains(gesturesPositions.getGestures(m.getCibles().get(i)).getC())){
 			drawingGameModel.setRightAnswer(true);
 			score++;
 		}
@@ -272,5 +281,6 @@ extends Thread
 		}
 	
 	}
+	
 }
 

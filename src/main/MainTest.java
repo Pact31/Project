@@ -34,7 +34,9 @@ public class MainTest {
 		//threadLeapMotion.start();
  				
 		DrawingMainMenu drawingMainMenu = new DrawingMainMenu();
-		
+		//String a = " abc ";
+		//String b = "abc";
+		//System.out.println(b.contains(a));
 		/*DrawingAppModel		model				=	new	DrawingAppModel();
 		DrawingApp drawingApp = new DrawingApp(model);
 		DrawingGame drawingGame = new DrawingGame(drawingApp);

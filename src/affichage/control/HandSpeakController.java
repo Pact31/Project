@@ -95,6 +95,8 @@ public class HandSpeakController
 		String s = "";
 		String msg = "No detection!";
 		
+		
+		
 		if(cible==Cible.PDJ_G){//cette suite de if permet de transformer la cible en String
 			s= "di";
 			msg = "PDJ ";
@@ -117,7 +119,7 @@ public class HandSpeakController
 		}
 		else if(cible==Cible.ICHGNW_G){
 			s= "cha(court)";
-			msg = "ICHG";
+			msg = "ICHGNW";
 		}
 		else if(cible==Cible.G_G){
 			s= "geu(renaitre)";

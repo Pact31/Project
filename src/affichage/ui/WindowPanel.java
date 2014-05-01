@@ -34,7 +34,7 @@ extends JPanel
 		add(leapPanel);
 		
 		resultPanel = new ResultPanel(drawingApp);
-		resultPanel.setBounds(400, 0, 400, 60 );
+		resultPanel.setBounds(250, 0, 400, 60 );
 		add(resultPanel);
 		
 		gesturePanel = new GesturePanel(drawingApp);
