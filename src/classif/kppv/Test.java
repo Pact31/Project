@@ -21,7 +21,11 @@ public class Test {
 		public static void main(String[] args) throws Exception {
 
 		LeapDataBase leapDataBase = new LeapDataBase();
+<<<<<<< HEAD
 		leapDataBase.read("baseLeap3.dat");
+=======
+		leapDataBase.write("baseTestPos.dat");
+>>>>>>> pactHub/Adaboost2
 		
 		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
@@ -37,7 +41,11 @@ public class Test {
 		FrameTS framets = new FrameTS(frame);
 		Entree entree = new Entree(framets);
 		
+<<<<<<< HEAD
 		Kppv classificateur = new Kppv(banque,5);
+=======
+		Kppv classificateur = new Kppv(banque,1);
+>>>>>>> pactHub/Adaboost2
 		
 		/*for(Apprentissage apprentissage : banque.getAllApprentissage()){
 			System.out.println(apprentissage.getCible());

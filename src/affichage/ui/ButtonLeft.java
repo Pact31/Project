@@ -7,10 +7,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
-
 import affichage.ui.DrawingApp;
 
 public class ButtonLeft extends JButton
@@ -22,7 +20,7 @@ implements ActionListener
 	private final Image			image;
 	private final int             width =	100;
 	private final int				height = 100;
-	
+
 	public ButtonLeft(DrawingApp drawingApp) throws IOException{
 		
 		super();

@@ -7,14 +7,18 @@ import classif.Cible;
 import classif.Classificateur;
 import classif.Entree;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> pactHub/Adaboost2
 public class Adaboost extends Classificateur{
 	private int numOfCarac;
 	private int numOfClasses;
 	private ArrayList<ArrayList<Weak>> strongClassif;
 	private ArrayList<KnownMov> learningBase;
 	private double[][] corectors;
+	private int T;
 	
 	
 	private void learn(int T){
@@ -32,6 +36,7 @@ public class Adaboost extends Classificateur{
 			
 			for(int j= 0; j<T; j++){//boucle d'apprentissage
 				
+<<<<<<< HEAD
 				double minError = 1.0;//ca sera l'erreur mini pour cette iteration, on l'init a 1 (erreur maximale)
 				Weak bestWeak = new Weak(0, 0.0, 0);//sera le meilleur classifieur faible pour cette iteration
 				
@@ -60,13 +65,23 @@ public class Adaboost extends Classificateur{
 				}
 				
 				//System.out.println(minError);
+=======
+				Weak bestWeak = this.getBestWeak(distrib, prob);
+				double minError = this.calculateError(distrib, bestWeak, prob);
+				
+>>>>>>> pactHub/Adaboost2
 				this.strongClassif.get(k).add(bestWeak);
 				this.corectors[k][j]=(Math.log((1-minError)/minError))/2;
 				
 				double norm = 0;//sera la somme de la distrib (pour la normalisation)
 				for(int i = 0; i<distrib.length; i++){//on maj la distrib
+<<<<<<< HEAD
 					distrib[i]=distrib[i]*Math.exp(-this.corectors[k][j]*bestWeak.classify(this.learningBase.get(i).getMov().getCar())*prob[i]);
 					norm = norm + distrib[i];
+=======
+						distrib[i]=distrib[i]*Math.exp(-this.corectors[k][j]*bestWeak.classify(this.learningBase.get(i).getMov().getCar())*prob[i]);
+						norm = norm + distrib[i];
+>>>>>>> pactHub/Adaboost2
 				}
 				for(int i = 0; i<distrib.length; i++){//on normalise la distrib
 					distrib[i]=distrib[i]/norm;
@@ -75,52 +90,36 @@ public class Adaboost extends Classificateur{
 		}
 	}
 	
-	//je garde ça au cas où
+	private double calculateError(double[] distrib, Weak weak, int[] prob){
+		double error = 0;
+		for(int l=0; l<this.learningBase.size(); l++){//on calcule l'erreur faite par ce classifieur
+				if(weak.classify(this.learningBase.get(l).getMov().getCar())!=prob[l]){
+				error = error + distrib[l];
+			}	
+		}
+		return error;
+	}
 	
-	/*private void learn(int T){
-
+	private Weak getBestWeak(double[] distrib, int[] prob){
+		double minError = 1.0;//ca sera l'erreur mini pour cette iteration, on l'init a 1 (erreur maximale)
+		Weak bestWeak = new Weak(0, 0.0, 0);//sera le meilleur classifieur faible pour cette iteration
 		
-		double[] distrib = new double[this.learningBase.size()];
-		
-		for(int i = 0; i<distrib.length; i++){//init de la distrib
-			distrib[i]=1/distrib.length;
-		}
-		
-		for(int j= 0; j<T; j++){//boucle d'apprentissage
-			
-			double minError = 1;//ca sera l'erreur mini pour cette iteration, on l'init a 1 (erreur maximale)
-			Weak bestWeak = new Weak(maxSeuil, Math.PI/3.5);//sera le meilleur classifieur faible pour cette iteration
-			
-			for(int k = 1; k<=numSteps; k++){//on teste tout les classifieurs possibles
-				
-				double currentError = 0;
-				Weak w = new Weak(k*maxSeuil/numSteps, Math.PI/3.5);//on cree un nouveau classifieur faible avec un certain seuil
-				
-				for(int l=0; l<this.learningBase.size(); l++){//on calcule l'erreur faite par ce classifieur
+		for(int m = 0; m<this.numOfCarac; m++){
+			for(int h=0; h<2; h++){
+				for(int n = 0; n<this.learningBase.size(); n++){//on teste tout les classifieurs possibles
 					
-					if(w.classify(this.learningBase.get(l).getMov())!=this.learningBase.get(l).getClasse()){
-						currentError = currentError + distrib[l];
-					}	
+					Weak w = new Weak(m,this.learningBase.get(n).getMov().getCar()[m], (-1)^h);//on cree un nouveau classifieur faible avec un certain seuil
+					double currentError = this.calculateError(distrib, w, prob);
+					
+					if(currentError<minError && currentError<0.5){//si on a trouvé une meilleur erreur mini on la recupere ainsi que le classifieur
+						minError = currentError;
+						bestWeak = w;
+					}
 				}
-				if(currentError<minError){//si on a trouvé une meilleur erreur mini on la recupere ainsi que le classifieur
-					minError = currentError;
-					bestWeak = w;
-				}
-			}
-			this.weakBase.add(bestWeak);
-			this.corectors[j]=(Math.log((1-minError)/minError))/2;
-			
-			double norm = 0;//sera la somme de la distrib (pour la normalisation)
-			for(int i = 0; i<distrib.length; i++){//on maj la distrib
-					distrib[i]=distrib[i]*Math.exp(-this.corectors[j]*bestWeak.classify(this.learningBase.get(i).getMov())*this.learningBase.get(i).getClasse());
-					norm = norm + distrib[i];
-			}
-			for(int i = 0; i<distrib.length; i++){//on normalise la distrib
-				distrib[i]=distrib[i]/norm;
 			}
 		}
-		
-	}*/
+		return bestWeak;
+	}
 	
 	private void acquireBase(BanqueApprentissage b){
 		for(int i = 0; i<b.size(); i++){
@@ -138,6 +137,7 @@ public class Adaboost extends Classificateur{
 				aux = aux + this.corectors[j][i]*this.strongClassif.get(j).get(i).classify(mov.getCar());
 			}
 			reply[j]=aux;
+			System.out.println(reply[j]);
 		}
 		int rep = 0;
 		for(int k = 0; k<this.strongClassif.size(); k ++){
@@ -167,6 +167,10 @@ public class Adaboost extends Classificateur{
 	
 	public Adaboost (BanqueApprentissage b, int T){
 		super(b);
+<<<<<<< HEAD
+=======
+		this.T = T;
+>>>>>>> pactHub/Adaboost2
 		this.learningBase = new ArrayList<KnownMov>();
 		this.acquireBase(b);
 		this.numOfCarac = this.learningBase.get(0).getMov().getCar().length;
@@ -185,13 +189,32 @@ public class Adaboost extends Classificateur{
 		for(int i =0; i<this.numOfClasses; i++){
 			this.strongClassif.add(new ArrayList<Weak>());
 		}
+<<<<<<< HEAD
 		this.learn(T);
 	}
 
+=======
+		this.learn(this.T);
+	}
+	
+	@Override
+>>>>>>> pactHub/Adaboost2
 	public Cible classifier(Entree e){
 		int k = this.predictClassOf(e);
 		return Cible.values()[k];
 	}
 
+	
+	@Override
+	public void setBanque(BanqueApprentissage banque){
+		this.banque = banque;
+		ArrayList<KnownMov> b = new ArrayList<KnownMov>();
+		for(int i = 0; i<banque.size(); i++){
+			b.add(new KnownMov(banque.getApprentissage(i)));
+		}
+		this.learningBase = b;
+		this.learn(this.T);
+	}
+	
 	
 }

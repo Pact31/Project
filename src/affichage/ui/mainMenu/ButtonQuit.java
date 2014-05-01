@@ -6,11 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
 import affichage.model.DrawingAppModel;
 
 public class ButtonQuit extends JButton
@@ -31,7 +29,6 @@ implements ActionListener
 		this.setIcon(new ImageIcon("src/affichage/quit1.png"));
 		this.drawingMainMenu = drawingMainMenu;
 		this.drawingAppModel = drawingAppModel;
-			
 		addActionListener(this);
 		
 	}
@@ -44,5 +41,4 @@ implements ActionListener
 		this.drawingAppModel.getDrawingApp().close();
 		
 	}
-	
 }

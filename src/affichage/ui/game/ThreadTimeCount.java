@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Random;
 
+import classif.Cible;
+
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
 import affichage.ui.game.model.DrawingGameModel;
@@ -83,6 +85,7 @@ extends Thread
 					if(counter < numberWords-1){
 						//System.out.println(i);
 						launchDetectionSimulation(word.get(i));
+						//this.launchDetection(drawingGameModel.getGameCible(randNum), i);
 					}
 
 					while( !(threadRunning = drawingGameModel.getGameThreadRunning()) && !this.threadRunning ){
@@ -252,11 +255,11 @@ extends Thread
 		
 	}
 	
-	private void launchDetection(String w){
+	private void launchDetection(ArrayList<Cible> c, int i){
 		
 		drawingApp.getHandSpeakController().launchGame();
 	
-		if(drawingApp.getModel().getCurrentMessage() == w){
+		if(drawingApp.getModel().getCurrentCible() == c.get(i)){
 			drawingGameModel.setRightAnswer(true);
 			score++;
 		}
@@ -266,3 +269,4 @@ extends Thread
 	
 	}
 }
+

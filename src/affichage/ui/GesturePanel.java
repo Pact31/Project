@@ -24,6 +24,7 @@ public class GesturePanel extends JPanel{
 	private final Image				image;
 	private final int             	width =	400;
 	private final int					height = 600;
+	private String gesture = "src/affichage/lpc2.jpg";
 	
 	
 	public GesturePanel(DrawingApp drawingApp) throws IOException{
@@ -31,12 +32,11 @@ public class GesturePanel extends JPanel{
 		super();
 		
 		this.drawingApp = drawingApp;
-		image = ImageIO.read(new File("src/affichage/lpc2.jpg"));
+		image = ImageIO.read(new File(gesture));
 		setBackground(Color.WHITE);
 		
 	}
 	
-	private String gesture = "src/affichage/lpc2.jpg";
 	
 	@Override
 	protected void paintComponent(Graphics g) {

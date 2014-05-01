@@ -11,7 +11,6 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import affichage.model.DrawingAppModel;
-
 public class ButtonHelp extends JButton
 implements ActionListener
 {
@@ -28,7 +27,6 @@ implements ActionListener
 		this.setBounds(460, 250, width, height);
 		this.setIcon(new ImageIcon("src/affichage/help1.png"));
 		this.drawingMainMenu = drawingMainMenu;
-
 		addActionListener(this);
 		
 	}

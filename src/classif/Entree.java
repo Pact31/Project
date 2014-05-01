@@ -1,5 +1,11 @@
 package classif;
 
+<<<<<<< HEAD:src/classif/Entree.java
+=======
+import com.leapmotion.leap.Controller;
+import com.leapmotion.leap.Frame;
+
+>>>>>>> pactHub/Adaboost2:src/classif/Entree.java
 import LeapTS.FrameTS;
 import LeapTS.VectorTS;
 
@@ -39,7 +45,7 @@ public class Entree {
 
 	/**********************Contructeurs************************/
 
-	public Entree(FrameTS frameTS){
+	public void setFrameTS(FrameTS frameTS){
 
 		this.m = frameTS.getHandList().get(0).getPalmPosition();
 
@@ -82,6 +88,16 @@ public class Entree {
 		}
 
 	}
+	
+	public Entree(FrameTS frameTS){
+		this.setFrameTS(frameTS);
+	}
+	
+	public Entree(Controller controller){
+		Frame frame = controller.frame();
+		FrameTS frameTS = new FrameTS(frame);
+		this.setFrameTS(frameTS);	
+	}
 
 
 	
@@ -123,7 +139,11 @@ public class Entree {
 				+Math.pow(getD3().getDistance(entree.getD3()),2)
 				+Math.pow(getD4().getDistance(entree.getD4()),2)
 				+Math.pow(getD5().getDistance(entree.getD5()),2)),0.5
+<<<<<<< HEAD:src/classif/Entree.java
 				/*+entree.getM().getDistance(element.getM())*/); //On ne prend pas en compte la position du centre de la main
+=======
+				+entree.getM().getDistance(entree.getM())); //On ne prend pas en compte la position du centre de la main
+>>>>>>> pactHub/Adaboost2:src/classif/Entree.java
 																 //dans le prototype allege
 	
 	}

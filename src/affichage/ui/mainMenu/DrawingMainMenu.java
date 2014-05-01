@@ -45,7 +45,6 @@ public class DrawingMainMenu extends JDialog
 		//mainMenuPanel = new MainMenuPanel(this);
 		background = new Background(this);
 		setContentPane(background);
-		
 		titlePanel = new TitlePanel(this);
 		this.add(titlePanel);
 		

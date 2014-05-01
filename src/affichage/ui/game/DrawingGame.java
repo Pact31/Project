@@ -111,5 +111,4 @@ public class DrawingGame extends JDialog
 		return this.windowGame;
 		
 	}
-	
 }
