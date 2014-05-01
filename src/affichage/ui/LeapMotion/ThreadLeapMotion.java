@@ -10,17 +10,27 @@ import com.leapmotion.leap.InteractionBox;
 
 import affichage.ui.DrawingApp;
 import affichage.ui.LeapPanel;
+import affichage.ui.game.DrawingGame;
 
 public class ThreadLeapMotion 	
 extends Thread
 {
 	
-	private final DrawingApp drawingApp;
+	private  DrawingApp drawingApp;
+	private  DrawingGame drawingGame;
+	private  LeapPanel leapPanel;
 	
 	public ThreadLeapMotion(DrawingApp drawingApp){
 	
 		this.drawingApp = drawingApp;
-	    
+		leapPanel = drawingApp.getWindowPanel().getLeapPanel();
+	}
+	
+	public ThreadLeapMotion(DrawingGame drawingGame){
+		
+		this.drawingGame = drawingGame;
+		leapPanel = drawingGame.getWindowGame().getLeapPanel();
+	
 	}
 	
 	private boolean threadRunning = true;
@@ -38,10 +48,9 @@ extends Thread
 	 * http://2froblog.wordpress.com/2013/09/01/developper-sur-la-leap-motion-en-java/
 	 * @author francois
 	 */	
-		LeapPanel leapPanel = drawingApp.getWindowPanel().getLeapPanel();
-		
 		while(threadRunning){
 			
+			System.out.println("leap run");
 			InteractionBox ibox 	  = leap.frame().interactionBox();
 			PointableList  pointables = leap.frame().pointables();
 			HandList hands = leap.frame().hands();
@@ -55,7 +64,10 @@ extends Thread
 				int x = (int) (normalizedPosition.getX()       * leapPanel.getWidth());
 				int y = (int) (600 - normalizedPosition.getY() * leapPanel.getHeight());
 				int z = (int) (normalizedPosition.getZ()       * 100);
-            
+            	
+				/*int x =100;
+				int y =100;
+				int z =100;*/
 				leapPanel.setPosition( new OurFinger(x, y, z) );
 				//j= p;
 			}

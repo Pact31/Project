@@ -31,7 +31,7 @@ public class DrawingGame extends JDialog
 		gameOverPanel.setBounds(0, 0, 500, 500);
 		/*-----------------------------*/
 		
-		this.setPreferredSize(new Dimension(800,600));
+		this.setPreferredSize(new Dimension(1200,600));
 		this.setResizable(false);
 		this.setLocation(100, 100);
 

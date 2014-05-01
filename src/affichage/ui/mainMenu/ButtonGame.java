@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
+import affichage.ui.LeapMotion.ThreadLeapMotion;
 import affichage.ui.game.DrawingGame;
 
 public class ButtonGame extends JButton
@@ -20,6 +21,7 @@ implements ActionListener
 	
 	private final DrawingMainMenu drawingMainMenu;
 	private 		DrawingGame		drawingGame;
+	private        DrawingAppModel drawingAppModel;
 	//private final Image			image;
 	private final int             width =	150;
 	private final int				height = 150;
@@ -30,6 +32,7 @@ implements ActionListener
 		this.setBounds(570, 90, width, height);
 		this.setIcon(new ImageIcon("src/affichage/game1.png"));
 		this.drawingMainMenu = drawingMainMenu;
+		this.drawingAppModel = drawingAppModel;
 		addActionListener(this);
 		
 	}
@@ -42,6 +45,9 @@ implements ActionListener
 		HandSpeakController handSpeakController = 	new HandSpeakController(model);
 		DrawingApp 			drawingApp 			= 	new DrawingApp(handSpeakController);
 		*/
+		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingAppModel.getDrawingApp());
+		threadLeapMotion.start();
+		
 		DrawingAppModel model = null;
 		try {
 			System.out.println("Init dawingAppModel");

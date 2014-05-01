@@ -26,7 +26,6 @@ public class LeapPanel extends JPanel{
      
     public LeapPanel (DrawingApp drawingApp) {
     	
-    	
     	this.drawingApp = drawingApp;
     		
     }
@@ -52,7 +51,7 @@ public class LeapPanel extends JPanel{
         
         for (int i =0; i< tab.size(); i++) {
         	
-            color = new Color(0, 0, 0, 100 - tab.elementAt(i).getZ());
+            color = new Color(91, 191, 217, /*100 - tab.elementAt(i).getZ()*/100);
             g.setColor(color);
             g.fillOval(tab.elementAt(i).getX(), tab.elementAt(i).getY()+30, 20, 20);//circle
             //g.fillArc(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 200, 0, 200);//triangle
