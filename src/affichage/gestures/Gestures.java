@@ -4,12 +4,22 @@ package affichage.gestures;
 public class Gestures 
 {
 	
-	private final String v;
 	private final String c;
+	private final String v;
 	
-	public Gestures(String v, String c){
+	public Gestures(String c, String v){
 		this.v = v;
 		this.c = c;
+	}
+	
+	public String getVoyelle(){
+		
+		return "src/affichage/images/cible/" + v + ".png";
+	}
+	
+	public String getConsone(){
+		
+		return "src/affichage/images/cible/" + c + ".png";
 	}
 	
 }

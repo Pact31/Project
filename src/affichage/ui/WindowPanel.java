@@ -34,15 +34,15 @@ extends JPanel
 		add(leapPanel);
 		
 		resultPanel = new ResultPanel(drawingApp);
-		resultPanel.setBounds(500, 0, 400, 60 );
+		resultPanel.setBounds(400, 0, 400, 60 );
 		add(resultPanel);
 		
 		gesturePanel = new GesturePanel(drawingApp);
-		gesturePanel.setBounds(400, 100, 400, 1000);
+		gesturePanel.setBounds(400, 0, 400, 700);
 		add(gesturePanel);
 				
 		buttonExecutionPanel = new ButtonExecutionPanel(drawingApp);
-		buttonExecutionPanel.setBounds(150, 0, 150, 150);
+		buttonExecutionPanel.setBounds(100, 0, 150, 150);
 		add(buttonExecutionPanel);
 		
 		buttonStopPanel = new ButtonStopPanel(drawingApp);
@@ -60,7 +60,7 @@ extends JPanel
 	
 	}
 	
-	public void notifyForUpdate(){
+	public void notifyForUpdate() throws IOException{
 		
 		//buttonsPanel.getButtonStart().notifyForUpdate();
 		resultPanel.notifyForUpdate();

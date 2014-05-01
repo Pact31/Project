@@ -44,9 +44,9 @@ public class LeapPanel extends JPanel{
 			e.printStackTrace();
 		}
         g.setColor(Color.black);
-        g.drawLine(0, 150, 400, 150);
-        g.drawLine(0, 300, 400, 300);
-        g.drawLine(0, 450, 400, 450);
+        g.drawLine(0, 170, 400, 170);
+        g.drawLine(0, 320, 400, 320);
+        g.drawLine(0, 470, 400, 470);
         g.drawLine(200, 0, 200, 150);
         g.drawLine(399,0,399,600);
         

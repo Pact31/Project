@@ -23,11 +23,10 @@ public class GesturePanel extends JPanel{
 	
 	private final DrawingApp 			drawingApp;	
 	private final GesturesPositions 	gesturesPositions = new GesturesPositions();
-	private final Image				image;
-	private final int             	width =	400;
-	private final int					height = 1000;
-	private String gesture = "src/affichage/notice.png";
-	
+	//private final Image				image;
+	private String gesture = "src/affichage/images/cible/";
+	private Image				imageConsonne;
+	private Image				imageVoyelle;
 	
 	public GesturePanel(DrawingApp drawingApp) throws IOException{
 		
@@ -35,8 +34,9 @@ public class GesturePanel extends JPanel{
 		
 		this.drawingApp = drawingApp;
 
-		image = ImageIO.read(new File(gesture));
-
+		imageVoyelle   = ImageIO.read(new File(gesture + "Image16.png"));
+		imageConsonne  = ImageIO.read(new File(gesture + "Image30.png"));
+		//this.showGestures(this.getGraphics(), Cible.BNUI_P);
 		setBackground(Color.WHITE);
 		
 	}
@@ -46,12 +46,14 @@ public class GesturePanel extends JPanel{
 	protected void paintComponent(Graphics g) {
 	
 		super.paintComponent(g);
-		g.drawImage(image, 0, 0, width, height, null);
+		g.drawImage(imageVoyelle, 0, 0, 400, 300, null);
+		g.drawImage(imageConsonne, 50, 300, 300,400, null);
+		
 	}
 	
 	
 	private Cible cible;
-	public void notifyForUpdate(){
+	public void notifyForUpdate() throws IOException{
 		
 		//gesture	=	drawingApp.getModel().getCurrentGesture();
 		cible = drawingApp.getModel().getCurrentCible();
@@ -59,20 +61,17 @@ public class GesturePanel extends JPanel{
 	
 		//image	=	drawingApp.getModel().setCurrentGesture(file)
 	}
-	
-	private String				imageVoyelle;
-	private String				imageConsonne;
-	private void showGestures(Graphics g, Cible cible){
+	private void showGestures(Graphics g, Cible cible) throws IOException{
 		
 		//Gestures gestures=gesturesPositions.getGestures(gesture);
 		Gestures gestures = gesturesPositions.getGestures(cible);
 		
-		imageVoyelle = gestures.getVoyelle();
-		imageConsonne = gestures.getConsonne();
-		g.drawImage(imageVoyelle, 0, 0, width, height, null);
-		g.drawImage(imageVoyelle, 0, 0, width, height, null);
-		//g.setColor(Color.blue);
-		//g.drawOval(gestures.getX(), gestures.getY(), gestures.getHeight(), gestures.getWidth());
+		System.out.println(gestures.getVoyelle());
+		File file = new File(gestures.getVoyelle());
+		System.out.println(file.exists());
+		imageVoyelle = ImageIO.read(new File(gestures.getVoyelle()));
+		imageConsonne = ImageIO.read(new File(gestures.getConsone()));
+		this.repaint();
 	}
 
 }

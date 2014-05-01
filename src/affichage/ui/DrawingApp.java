@@ -26,7 +26,7 @@ implements Observer
 		handSpeakController		=		controller;
 		drawingAppModel			=		handSpeakController.getDrawingAppModel();
 		
-		this.setPreferredSize(new Dimension(820,1000));
+		this.setPreferredSize(new Dimension(820,700));
 		this.setResizable(false);
 		this.setLocation(0, 0);
 		
@@ -76,11 +76,16 @@ implements Observer
 	@Override
 	public void update(Observable obervable, Object parameter) {
 	
-		notifyForUpdate();
+		try {
+			notifyForUpdate();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 	}
 	
-	public void notifyForUpdate(){
+	public void notifyForUpdate() throws IOException{
 	
 		windowPanel.notifyForUpdate();
 	
