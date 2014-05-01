@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import affichage.ui.DrawingApp;
 import affichage.ui.game.model.DrawingGameModel;
@@ -19,7 +20,6 @@ implements ActionListener
 	private final DrawingApp drawingApp;
 	private final DrawingGame drawingGame;
 	private final ButtonGameLevelPanel buttonGameLevelPanel;
-	private final Image			image;
 	private final int             width =	50;
 	private final int				height = 50;
 	private final String			level;
@@ -33,7 +33,7 @@ implements ActionListener
 		this.level = icon;
 		
 		this.setSize(width, height);
-		image = ImageIO.read(new File("src/affichage/ui/game/images/levelIcon/" + icon + ".png"));
+		this.setIcon(new ImageIcon("src/affichage/ui/game/images/levelIcon/" + icon + ".png"));
 		
 		addActionListener(this);
 		
@@ -53,13 +53,6 @@ implements ActionListener
 		//gameTimer.start();
 		
 
-	}
-
-	@Override
-	public void paintComponent(Graphics g){
-
-		g.drawImage(image, 0, 0, width, height, null);
-		
 	}
 
 }

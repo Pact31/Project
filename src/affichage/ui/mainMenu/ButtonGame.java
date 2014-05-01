@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
@@ -19,7 +20,7 @@ implements ActionListener
 	
 	private final DrawingMainMenu drawingMainMenu;
 	private 		DrawingGame		drawingGame;
-	private final Image			image;
+	//private final Image			image;
 	private final int             width =	150;
 	private final int				height = 150;
 	
@@ -27,8 +28,8 @@ implements ActionListener
 		
 		super();
 		this.setBounds(570, 90, width, height);
+		this.setIcon(new ImageIcon("src/affichage/game1.png"));
 		this.drawingMainMenu = drawingMainMenu;
-		image = ImageIO.read(new File("src/affichage/game_icon.png"));
 		addActionListener(this);
 		
 	}
@@ -75,11 +76,4 @@ implements ActionListener
 		
 	}
 	
-	@Override
-	public void paintComponent(Graphics g){
-
-		g.drawImage(image, 0, 0, width, height, null);
-		
-	}
-
 }

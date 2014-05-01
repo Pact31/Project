@@ -54,13 +54,13 @@ public class DrawingGameModel {
 		gameImage.put(7, "src/affichage/ui/game/images/consonnes_pd1.png");
 		gameImage.put(0, "src/affichage/ui/game/images/consonnes_sr1.png");
 		*/
-		gameImage.put(0, "src/affichage/ui/game/images/car.png");
-		gameImage.put(1, "src/affichage/ui/game/images/jouet.jpg");
-		gameImage.put(2, "src/affichage/ui/game/images/maison.jpg");
-		gameImage.put(3, "src/affichage/ui/game/images/lion.jpg");
-		gameImage.put(4, "src/affichage/ui/game/images/oiseau.jpg");
-		gameImage.put(5, "src/affichage/ui/game/images/gare.jpg");
-		gameImage.put(6, "src/affichage/ui/game/images/chat.jpg");
+		gameImage.put(0, "src/affichage/ui/game/images/games/car.png");
+		gameImage.put(1, "src/affichage/ui/game/images/games/jouet.png");
+		gameImage.put(2, "src/affichage/ui/game/images/games/maison.png");
+		gameImage.put(3, "src/affichage/ui/game/images/games/lion.png");
+		gameImage.put(4, "src/affichage/ui/game/images/games/oiseau.png");
+		gameImage.put(5, "src/affichage/ui/game/images/games/gare.png");
+		gameImage.put(6, "src/affichage/ui/game/images/games/chat.png");
 	}
 	
 	private void setLisaTalkText(){

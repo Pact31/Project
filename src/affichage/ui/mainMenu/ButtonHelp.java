@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import affichage.model.DrawingAppModel;
 
@@ -17,17 +18,17 @@ implements ActionListener
 	private static final long serialVersionUID = 1L;
 	
 	private final DrawingMainMenu drawingMainMenu;
-	private final Image			image;
 	private final int             width =	150;
 	private final int				height = 150;
 	
 	public ButtonHelp(DrawingMainMenu drawingMainMenu, DrawingAppModel drawingAppModel) throws IOException{
 		
 		super();
-		//this.setSize(new Dimension(100, 10));
+		
 		this.setBounds(460, 250, width, height);
+		this.setIcon(new ImageIcon("src/affichage/help1.png"));
 		this.drawingMainMenu = drawingMainMenu;
-		image = ImageIO.read(new File("src/affichage/help.png"));
+
 		addActionListener(this);
 		
 	}
@@ -44,11 +45,4 @@ implements ActionListener
 		}
 	}
 	
-	@Override
-	public void paintComponent(Graphics g){
-
-		g.drawImage(image, 0, 0, width, height, null);
-		
-	}
-
 }

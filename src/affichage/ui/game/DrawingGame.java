@@ -50,6 +50,7 @@ public class DrawingGame extends JDialog
 		this.setModal(true);
 		this.setVisible(true);
 		
+		this.close();
 	}
 	
 	public void close(){

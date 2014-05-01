@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,8 +27,8 @@ extends JPanel
 	
 	public GameImagePanel(DrawingApp drawingApp, DrawingGame drawingGame) throws IOException{
 		
-		image = ImageIO.read(new File("src/affichage/ui/game/images/maison.jpg"));
-		
+		image = ImageIO.read(new File("src/affichage/ui/game/images/games/maison.png"));
+		//this.setIcon(new ImageIcon("src/affichage/ui/game/images/maison.png"));
 	}
 	
 	@Override
@@ -42,6 +43,7 @@ extends JPanel
 	public void setImage(String imageLocation) throws IOException{
 
 		image = ImageIO.read(new File(imageLocation));
+		//this.setIcon(new ImageIcon(imageLocation));
 	
 	}
 	
