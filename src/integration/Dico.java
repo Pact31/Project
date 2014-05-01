@@ -1,3 +1,5 @@
+package integration;
+
 import java.util.ArrayList;
 
 import classif.Cible;
