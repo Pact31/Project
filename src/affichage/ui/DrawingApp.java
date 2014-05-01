@@ -4,9 +4,7 @@ import java.awt.Dimension;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import affichage.model.DrawingAppModel;
 import affichage.control.HandSpeakController;
 

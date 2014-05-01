@@ -20,7 +20,7 @@ extends JPanel
 	
 	public void setLocation(int i){
 	
-		this.setBounds(i/*20*i*/, 0, 20, 20);
+		this.setBounds(i/*20*i*/, 20, 20, 20);
 		
 		/*if(i > 10){
 			this.setBackground(Color.red);

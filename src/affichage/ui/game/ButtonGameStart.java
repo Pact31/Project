@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import affichage.ui.DrawingApp;
 
@@ -17,7 +18,7 @@ implements ActionListener
 	
 	private final DrawingApp 		drawingApp;
 	private final DrawingGame 		drawingGame;
-	private final Image			image;
+	//private final Image			image;
 	private final int             width =	100;
 	private final int				height = 100;
 	
@@ -28,7 +29,8 @@ implements ActionListener
 		this.drawingGame	 = 	drawingGame;
 		
 		this.setSize(width, height);
-		image = ImageIO.read(new File("src/affichage/start_icon.png"));
+		this.setIcon(new ImageIcon("src/affichage/start_icon.png"));
+		//image = ImageIO.read(new File("src/affichage/start_icon.png"));
 		addActionListener(this);
 		this.setEnabled(false);
 		
@@ -46,12 +48,12 @@ implements ActionListener
 		//drawingApp.getModel().getCurrentThreadTimeCount().notify();
 		this.setEnabled(false);
 	}
-	
+	/*
 	@Override
 	public void paintComponent(Graphics g){
 
 		g.drawImage(image, 0, 0, width, height, null);
 		
-	}
+	}*/
 
 }
