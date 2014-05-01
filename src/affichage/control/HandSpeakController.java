@@ -78,6 +78,42 @@ public class HandSpeakController
 		
 	}
 	
+	public void launchLeapMotion2() throws Exception{
+		
+		Boolean 		handleClick =	model.getHandleClick();
+		String 			msg			=	"NO detection!";
+					
+			
+			// comment créer une classificateur?
+			if(model.getCurrentClassifier() == "KPPV")
+				//msg="NO detection!";
+				msg = start2(model.getKppv());				
+			else
+				msg = start2(model.getAdaboost());
+				//msg="NO detection!";
+			//msg = kppvClassification();
+
+			model.setCurrentMessage(msg);
+			model.setCurrentSound(msg);
+			//model.setCurrentGesture(kppvClassification());
+			model.setCurrentGesture(msg);
+			//model.setCurrentBottonMark("STOP");
+			//model.setCurrentBottonColor(Color.RED);
+		
+		//}
+		/*else{
+
+			msg	= null;
+			model.setCurrentMessage(msg);
+			model.setCurrentGesture("NO detection!");
+			//model.setCurrentBottonMark("START");
+			//model.setCurrentBottonColor(Color.CYAN);
+		
+		}*/
+		
+		//model.setHandleClick(!handleClick);
+		
+	}	
 
 	private String start(ClassificateurInterface c) throws Exception {
 		
@@ -122,7 +158,7 @@ public class HandSpeakController
 		}
 		else if(s=="ICHGNW"){
 			s= "cha(court)";
-			msg = "ICHG";
+			msg = "ICHGNW";
 		}
 		else if(s=="GC"){
 			s= "geu(renaitre)";
@@ -152,6 +188,78 @@ public class HandSpeakController
         return msg;
 	}
 	
+	private String start2(ClassificateurInterface c) throws Exception {
+		
+		System.out.println("Debut de la sequence de traduction!");
+		
+		Controller controller = new Controller(); //ces quatre preimères lignes permettent d'acquérir une nouvelle Entree 
+		Frame frame = controller.frame();
+		FrameTS framets = new FrameTS(frame);
+		Entree e = new Entree(framets);
+		
+		System.out.println("Une nouvelle entree a ete creee!");
+		
+		Cible cible = c.classifier(e);//on trouve la classe asociée à l'entrée
+				
+		System.out.println("La cible detectee est :"+cible);
+		
+		String s = "";
+		String msg = "No detection!";
+		
+		
+		s = gesturesPositions.getGestures(cible).getC();
+				
+		if(s == "PDJ"){//cette suite de if permet de transformer la cible en String
+			s= "di";
+			msg = "PDJ ";
+		}
+		else if(s  == "KVZ"){
+			s= "zeu(renaitre)";
+			msg = "KVZ ";
+		}
+		else if(s == "SR"){
+			s= "so(sol)";
+			msg = "SR  ";
+		}
+		else if(s == "BNUI"){
+			s= "bi";
+			msg = "BNUI";
+		}
+		else if(s == "MTF"){
+			s= "teu";
+			msg = "MTF ";
+		}
+		else if(s=="ICHGNW"){
+			s= "cha(court)";
+			msg = "ICHGNW";
+		}
+		else if(s=="GC"){
+			s= "geu(renaitre)";
+			msg = " G  ";
+		}
+		else if(s=="YNG"){
+			s= "ping";
+			msg = "YNG ";
+		}
+		else{
+			System.out.println("Erreur : le signe n'est pas reconnu");
+		}
+		
+		if(s==""){
+			throw new Exception();
+		}
+		
+		String fileName = "data/"+s+".wav";//sera le nom du fichier joué
+		
+		System.out.println("Le fichier son qui va etre joue est : "+fileName);
+			// 
+		File file = new File(fileName);//on vérifie si le fichier existe
+        System.out.println(file.exists());
+        model.setCurrentMessage(msg);
+        model.setCurrentCible(cible);
+        return msg;
+	}	
+	
 	
 	/*
 	 * a completer par l'enregistement de la base 
@@ -172,7 +280,7 @@ public class HandSpeakController
 	 */
 	public void launchGame(){
 		
-		Cible res = null;
+		Cible res = Cible.PDJ_B;
 		
 		/*
 		 * a completer

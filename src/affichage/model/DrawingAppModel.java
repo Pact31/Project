@@ -49,7 +49,7 @@ public class DrawingAppModel extends Observable{
 		int k = 3;
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		leapDataBase.read("baseTestPos.dat");
+		leapDataBase.read("pere.dat");
 		
 		System.out.println("Base de test initialisée");
 		
@@ -96,7 +96,7 @@ public class DrawingAppModel extends Observable{
 		soundSource.put(" G  ", "data/geu(bleu).wav");
 		soundSource.put("KVZ ", "data/zeu(bleu).wav");
 		soundSource.put("YNG ", "data/ping.wav");
-		soundSource.put("ICHG", "data/cha(court).wav");
+		soundSource.put("ICHGNW", "data/cha(court).wav");
 		soundSource.put("MTF ", "data/teu.wav");
 	
 	}

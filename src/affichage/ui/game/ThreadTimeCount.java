@@ -8,7 +8,7 @@ import java.util.Hashtable;
 import java.util.Random;
 
 import classif.Cible;
-
+import affichage.gestures.GesturesPositions;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
 import affichage.ui.game.model.DrawingGameModel;
@@ -75,7 +75,7 @@ extends Thread
 				
 				randNum = imageList.get(counter);
 				/* --- update the position of timer--- */
-				//word = drawingGameModel.getGameText(randNum);
+				word = drawingGameModel.getGameText(randNum);
 				mot = drawingGameModel.getDico().getDictionnaire().get(randNum);
 				
 				try {
@@ -84,12 +84,17 @@ extends Thread
 					e.printStackTrace();
 				}
 
-				while(i < word.size() && !drawingGameModel.getGameDone()){
+				while(i < mot.getCibles().size() && !drawingGameModel.getGameDone()){
 				
 					if(counter < numberWords-1){
 						//System.out.println(i);
-						launchDetectionSimulation(word.get(i));
-						//this.launchDetection(drawingGameModel.getGameCible(randNum), i);
+						//launchDetectionSimulation(word.get(i));
+						try {
+							this.launchDetection(mot, i);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 
 					while( !(threadRunning = drawingGameModel.getGameThreadRunning()) && !this.threadRunning ){
@@ -259,16 +264,19 @@ extends Thread
 		
 	}
 	
-	private void launchDetection(ArrayList<Cible> c, int i){
-		
+	private GesturesPositions gesturesPositions = new GesturesPositions();
+	private void launchDetection(Mot m, int i) throws Exception{
 		drawingApp.getHandSpeakController().launchGame();
-	
-		if(drawingApp.getModel().getCurrentCible() == c.get(i)){
+		String c = gesturesPositions.getGestures(drawingApp.getModel().getCurrentCible()).getC(); //currentMessage = consonne
+		
+		if(c.contains(gesturesPositions.getGestures(m.getCibles().get(i)).getC())){ // si getC et c sont égales. 
 			drawingGameModel.setRightAnswer(true);
+			System.out.println("CACA");
 			score++;
 		}
 		else{
 			drawingGameModel.setRightAnswer(false);
+			System.out.println("BOUDIN");
 		}
 	
 	}

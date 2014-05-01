@@ -19,7 +19,7 @@ public class Dico {
 				ArrayList<Cible> cibles = new ArrayList<Cible>() ;
 
 				syllSynVoc.add("mai"); syllSynVoc.add("zon");
-				syllIntGraph.add("mai");syllIntGraph.add("son");
+				syllIntGraph.add(" mai ");syllIntGraph.add(" son ");
 				cibles.add(Cible.MTF_M);cibles.add(Cible.KVZ_B);
 				Mot maison = new Mot("maison",syllSynVoc,syllIntGraph,cibles) ;
 
@@ -30,8 +30,8 @@ public class Dico {
 
 				syllSynVoc2.add("oi"); 
 				syllSynVoc2.add("zo");
-				syllIntGraph2.add("oi");
-				syllIntGraph2.add("seau");
+				syllIntGraph2.add(" oi ");
+				syllIntGraph2.add(" seau ");
 				cibles2.add(Cible.ICHGNW_C);
 				cibles2.add(Cible.KVZ_C);
 				Mot oiseau = new Mot("oiseau",syllSynVoc2,syllIntGraph2,cibles2) ;
@@ -42,7 +42,7 @@ public class Dico {
 				ArrayList<Cible> cibles3 = new ArrayList<Cible>() ;
 
 				syllSynVoc3.add("cha(court)"); 
-				syllIntGraph3.add("chat");
+				syllIntGraph3.add(" chat ");
 				cibles3.add(Cible.ICHGNW_C);
 				Mot chat = new Mot("chat",syllSynVoc3,syllIntGraph3,cibles3) ;
 
@@ -54,9 +54,9 @@ public class Dico {
 				syllSynVoc4.add("mou"); 
 				syllSynVoc4.add("fa(court)");
 				syllSynVoc4.add("sa(court)");
-				syllIntGraph4.add("Mu");
-				syllIntGraph4.add("fa");
-				syllIntGraph4.add("sa");
+				syllIntGraph4.add(" Mu ");
+				syllIntGraph4.add(" fa ");
+				syllIntGraph4.add(" sa ");
 				cibles4.add(Cible.MTF_M);
 				cibles4.add(Cible.MTF_C);
 				cibles4.add(Cible.SR_C);
@@ -69,8 +69,8 @@ public class Dico {
 
 				syllSynVoc5.add("vé"); 
 				syllSynVoc5.add("lo");
-				syllIntGraph5.add("vé");
-				syllIntGraph5.add("lo");
+				syllIntGraph5.add(" vé ");
+				syllIntGraph5.add(" lo ");
 				cibles5.add(Cible.KVZ_C);
 				cibles5.add(Cible.ICHGNW_C);
 				Mot vélo = new Mot("vélo",syllSynVoc5,syllIntGraph5,cibles5) ;
@@ -83,9 +83,9 @@ public class Dico {
 				syllSynVoc6.add("va"); 
 				syllSynVoc6.add("li");
 				syllSynVoc6.add("zeu(bleu)");
-				syllIntGraph6.add("va");
-				syllIntGraph6.add("li");
-				syllIntGraph6.add("se");
+				syllIntGraph6.add(" va ");
+				syllIntGraph6.add(" li ");
+				syllIntGraph6.add(" se ");
 				cibles6.add(Cible.KVZ_C);
 				cibles6.add(Cible.ICHGNW_B);
 				cibles6.add(Cible.KVZ_P);
@@ -98,8 +98,8 @@ public class Dico {
 
 				syllSynVoc7.add("sou"); 
 				syllSynVoc7.add("ri");
-				syllIntGraph7.add("sou");
-				syllIntGraph7.add("ris");
+				syllIntGraph7.add(" sou ");
+				syllIntGraph7.add(" ris ");
 				cibles7.add(Cible.SR_M);
 				cibles7.add(Cible.SR_B);
 				Mot souris = new Mot("souris",syllSynVoc7,syllIntGraph7,cibles7) ;
@@ -112,9 +112,9 @@ public class Dico {
 				syllSynVoc8.add("gi"); 
 				syllSynVoc8.add("ra");
 				syllSynVoc8.add("feu(bleu)");
-				syllIntGraph8.add("gi");
-				syllIntGraph8.add("ra");
-				syllIntGraph8.add("fe");
+				syllIntGraph8.add(" gi ");
+				syllIntGraph8.add(" ra ");
+				syllIntGraph8.add(" fe ");
 				cibles8.add(Cible.PDJ_B);
 				cibles8.add(Cible.SR_C);
 				cibles8.add(Cible.MTF_P);
@@ -127,8 +127,8 @@ public class Dico {
 
 				syllSynVoc9.add("cha(court)"); 
 				syllSynVoc9.add("mo");
-				syllIntGraph9.add("cha");
-				syllIntGraph9.add("meau");
+				syllIntGraph9.add(" cha ");
+				syllIntGraph9.add(" meau ");
 				cibles9.add(Cible.ICHGNW_C);
 				cibles9.add(Cible.MTF_C);
 				Mot chameau = new Mot("chameau",syllSynVoc9,syllIntGraph9,cibles9) ;
@@ -140,8 +140,8 @@ public class Dico {
 
 				syllSynVoc10.add("ru"); 
 				syllSynVoc10.add("meu");
-				syllIntGraph10.add("rhu");
-				syllIntGraph10.add("me");
+				syllIntGraph10.add(" rhu ");
+				syllIntGraph10.add(" me ");
 				cibles10.add(Cible.SR_G);
 				cibles10.add(Cible.MTF_P);
 				Mot  rhume  = new Mot("rhume",syllSynVoc10,syllIntGraph10,cibles10) ;
@@ -153,8 +153,8 @@ public class Dico {
 
 				syllSynVoc11.add("cha(court)"); 
 				syllSynVoc11.add("po(beau)");
-				syllIntGraph11.add("cha");
-				syllIntGraph11.add("peau");
+				syllIntGraph11.add(" cha ");
+				syllIntGraph11.add(" peau ");
 				cibles11.add(Cible.ICHGNW_C);
 				cibles11.add(Cible.PDJ_C);
 				Mot chapeau = new Mot("chapeau",syllSynVoc11,syllIntGraph11,cibles11) ;
@@ -165,7 +165,7 @@ public class Dico {
 				ArrayList<Cible> cibles12 = new ArrayList<Cible>() ;
 
 				syllSynVoc12.add("deu(bleu)"); 
-				syllIntGraph12.add("deux");
+				syllIntGraph12.add(" deux ");
 				cibles12.add(Cible.PDJ_P);
 				Mot deux = new Mot("deux",syllSynVoc12,syllIntGraph12,cibles12) ;
 
@@ -176,8 +176,8 @@ public class Dico {
 
 				syllSynVoc13.add("ro"); 
 				syllSynVoc13.add("zeu(bleu)");
-				syllIntGraph13.add("ro");
-				syllIntGraph13.add("se");
+				syllIntGraph13.add(" ro ");
+				syllIntGraph13.add(" se ");
 				cibles13.add(Cible.SR_C);
 				cibles13.add(Cible.KVZ_P);
 				Mot rose = new Mot("rose",syllSynVoc13,syllIntGraph13,cibles13) ;
@@ -189,8 +189,8 @@ public class Dico {
 
 				syllSynVoc14.add("kou"); 
 				syllSynVoc14.add("to(beau)");
-				syllIntGraph14.add("cou");
-				syllIntGraph14.add("teau");
+				syllIntGraph14.add(" cou ");
+				syllIntGraph14.add(" teau ");
 				cibles14.add(Cible.KVZ_B);
 				cibles14.add(Cible.MTF_C);
 				Mot couteau = new Mot("couteau",syllSynVoc14,syllIntGraph14,cibles14) ;
@@ -201,7 +201,7 @@ public class Dico {
 				ArrayList<Cible> cibles15 = new ArrayList<Cible>() ;
 
 				syllSynVoc15.add("main"); 
-				syllIntGraph15.add("main");
+				syllIntGraph15.add(" main ");
 				cibles15.add(Cible.MTF_P);
 				Mot main  = new Mot("main",syllSynVoc15,syllIntGraph15,cibles15) ;
 
@@ -212,8 +212,8 @@ public class Dico {
 
 				syllSynVoc16.add("fa(court)"); 
 				syllSynVoc16.add("ché");
-				syllIntGraph16.add("fa");
-				syllIntGraph16.add("ché");
+				syllIntGraph16.add(" fa ");
+				syllIntGraph16.add(" ché ");
 				cibles16.add(Cible.MTF_C);
 				cibles16.add(Cible.ICHGNW_G);
 				Mot faché = new Mot("faché",syllSynVoc16,syllIntGraph16,cibles16) ;
@@ -225,8 +225,8 @@ public class Dico {
 
 				syllSynVoc17.add("va(court)"); 
 				syllSynVoc17.add("geu(bleu)");
-				syllIntGraph17.add("va");
-				syllIntGraph17.add("gue");
+				syllIntGraph17.add(" va ");
+				syllIntGraph17.add(" gue ");
 				cibles17.add(Cible.KVZ_C);
 				cibles17.add(Cible.G_P);
 				Mot vague = new Mot("vague",syllSynVoc17,syllIntGraph17,cibles17) ;
@@ -238,8 +238,8 @@ public class Dico {
 
 				syllSynVoc18.add("bé"); 
 				syllSynVoc18.add("bé");
-				syllIntGraph18.add("bé");
-				syllIntGraph18.add("bé");
+				syllIntGraph18.add(" bé ");
+				syllIntGraph18.add(" bé ");
 				cibles18.add(Cible.BNUI_G);
 				cibles18.add(Cible.BNUI_G);
 				Mot bébé = new Mot("bébé",syllSynVoc18,syllIntGraph18,cibles18) ;
@@ -251,8 +251,8 @@ public class Dico {
 
 				syllSynVoc19.add("ka(court)"); 
 				syllSynVoc19.add("ro");
-				syllIntGraph19.add("ca");
-				syllIntGraph19.add("rreau");
+				syllIntGraph19.add(" ca ");
+				syllIntGraph19.add(" rreau ");
 				cibles19.add(Cible.KVZ_C);
 				cibles19.add(Cible.SR_M);
 				Mot carreau = new Mot("carreau",syllSynVoc19,syllIntGraph19,cibles19) ;
@@ -263,7 +263,7 @@ public class Dico {
 				ArrayList<Cible> cibles20 = new ArrayList<Cible>() ;
 
 				syllSynVoc20.add("dé"); 
-				syllIntGraph20.add("dé");
+				syllIntGraph20.add(" dé ");
 				cibles20.add(Cible.PDJ_G);
 				Mot dé = new Mot("dé",syllSynVoc20,syllIntGraph20,cibles20) ;
 
