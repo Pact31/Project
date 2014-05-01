@@ -17,7 +17,7 @@ public class DrawingGame extends JDialog
 	private final WindowGame					windowGame;
 	private  		DrawingApp					drawingApp;
 	private  		GameOverPanel				gameOverPanel;
-	private    	DrawingGameModel				drawingGameModel;
+	private    		DrawingGameModel				drawingGameModel;
 	
 	public DrawingGame(DrawingApp drawingApp) throws IOException{
 		
@@ -94,7 +94,7 @@ public class DrawingGame extends JDialog
 	public void gameOver(int score){
 		
 		
-		if(score > 8){
+		if(score > 5){
 			this.drawingGameModel.setGameProcess("win");
 		}
 		else{
