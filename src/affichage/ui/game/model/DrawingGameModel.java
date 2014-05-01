@@ -3,6 +3,8 @@ package affichage.ui.game.model;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import classif.Cible;
+
 import affichage.ui.OptionMenu.TextPanel;
 import affichage.ui.game.GameCiblePanel;
 import affichage.ui.game.GameImagePanel;
@@ -14,7 +16,10 @@ public class DrawingGameModel {
 	
 		/* Hand Speak Game   */
 	private    Hashtable<Integer, String> 		gameImage 				= 	new Hashtable<Integer, String>();
+	
 	private    Hashtable<Integer, ArrayList<String>> 		gameText 	= 	new Hashtable<Integer, ArrayList<String>>();
+	private    Hashtable<Integer, ArrayList<Cible>> 		gameCible 	= 	new Hashtable<Integer, ArrayList<Cible>>();
+	
 	private    Hashtable<String,  String> 		lisaTalkText 			= 	new Hashtable<String,String>(); 
 	private		ArrayList<ArrayList<String>>	gameWord				=   new ArrayList<ArrayList<String>>();
 	
@@ -40,27 +45,21 @@ public class DrawingGameModel {
 		setGameWord();
 		setGameText();
 		setLisaTalkText();
-
+		setGameCible();
+	
 	}
 	
 	private void setGameImage(){
 		
-		/*gameImage.put(1, "src/affichage/ui/game/images/consonnes_bn1.png");
-		gameImage.put(2, "src/affichage/ui/game/images/consonnes_g1.png");
-		gameImage.put(3, "src/affichage/ui/game/images/consonnes_ich1.png");
-		gameImage.put(4, "src/affichage/ui/game/images/consonnes_j1.png");
-		gameImage.put(5, "src/affichage/ui/game/images/consonnes_kvz1.png");
-		gameImage.put(6, "src/affichage/ui/game/images/consonnes_mtf1.png");
-		gameImage.put(7, "src/affichage/ui/game/images/consonnes_pd1.png");
-		gameImage.put(0, "src/affichage/ui/game/images/consonnes_sr1.png");
-		*/
-		gameImage.put(0, "src/affichage/ui/game/images/car.png");
-		gameImage.put(1, "src/affichage/ui/game/images/jouet.jpg");
-		gameImage.put(2, "src/affichage/ui/game/images/maison.jpg");
-		gameImage.put(3, "src/affichage/ui/game/images/lion.jpg");
-		gameImage.put(4, "src/affichage/ui/game/images/oiseau.jpg");
-		gameImage.put(5, "src/affichage/ui/game/images/gare.jpg");
+		gameImage.put(0, "src/affichage/ui/game/images/games/car.png");
+		gameImage.put(1, "src/affichage/ui/game/images/games/jouet.png");
+		gameImage.put(2, "src/affichage/ui/game/images/games/maison.png");
+		gameImage.put(3, "src/affichage/ui/game/images/games/lion.png");
+		gameImage.put(4, "src/affichage/ui/game/images/games/oiseau.png");
+		gameImage.put(5, "src/affichage/ui/game/images/games/gare.png");
+		gameImage.put(6, "src/affichage/ui/game/images/games/chat.png");
 	}
+	
 	
 	private void setLisaTalkText(){
 	
@@ -76,6 +75,7 @@ public class DrawingGameModel {
 		lisaTalkText.put("lastWord", "C'est le dernier mot!");
 		lisaTalkText.put("win", "Super! Tu peux essayer un niveau plus difficil!");
 		lisaTalkText.put("fail", "Essais encore une fois ce niveau ou vas au niveau inférieur !");
+	
 	}
 	
 	public String getLisaTalkText(String s){
@@ -126,8 +126,11 @@ public class DrawingGameModel {
 		oiseau.add(" seau");
 		
 		ArrayList<String> gare =  new ArrayList<String>();
-		oiseau.add("ga -");
-		oiseau.add(" re");
+		gare.add("ga -");
+		gare.add(" re");
+		
+		ArrayList<String> chat =  new ArrayList<String>();
+		chat.add("chat");
 		
 		gameWord.add(voiture);
 		gameWord.add(jouet);
@@ -135,27 +138,30 @@ public class DrawingGameModel {
 		gameWord.add(lion);
 		gameWord.add(oiseau);
 		gameWord.add(gare);
+		gameWord.add(chat);
+	}
+	
+	private void setGameCible(){
+		
+		ArrayList<Cible> voiture = new ArrayList<Cible>();
+		
+		gameCible.put(0, voiture);
+	}
+	
+	
+	public ArrayList<Cible> getGameCible(int i){
+		return gameCible.get(i);
 	}
 	
 	private void setGameText(){
 		
-		//ArrayList<String>
-		/*gameText.put(1, "BNUI");
-		gameText.put(2, " G  ");
-		gameText.put(3, "ICHG");
-		gameText.put(4, "YNG ");
-		gameText.put(5, "KVZ ");
-		gameText.put(6, "MTF ");
-		gameText.put(7, "PDJ ");
-		gameText.put(0, "SR  ");*/
 		gameText.put(0, gameWord.get(0));
 		gameText.put(1, gameWord.get(1));
 		gameText.put(2, gameWord.get(2));
 		gameText.put(3, gameWord.get(3));
 		gameText.put(4, gameWord.get(4));
-		//gameText.put(6, gameWord.get(0));
-		//gameText.put(7, gameWord.get(0));
-		//gameText.put(0, gameWord.get(1));
+		gameText.put(5, gameWord.get(5));
+		gameText.put(6, gameWord.get(6));
 		
 	}
 	

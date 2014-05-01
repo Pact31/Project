@@ -12,7 +12,6 @@ public class MenuApprentiWindow  extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	private final DrawingApp drawingApp;
-	
 	private final TextPanel textPanel;
 	private final TextPanel optionSavePanel;
 	private final TextPanel ciblePanel;
@@ -21,6 +20,7 @@ public class MenuApprentiWindow  extends JPanel{
 	private final TextPanel consonnePanel;
 	private final TextPanel voyellePanel;
 	//private final TextPanel warningPanel;
+
 	
 	private final ButtonClassifierOptionPanel buttonClassifierOptionPanel;
 

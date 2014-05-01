@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Random;
 
+import classif.Cible;
+
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
 import affichage.ui.game.model.DrawingGameModel;
@@ -44,6 +46,8 @@ extends Thread
 	private Random random = new Random();
 	private int numberWords = 5;
 	private ArrayList<String> word = new ArrayList<String>();
+	private ArrayList<Integer> imageList = new ArrayList<Integer>();
+	
  	@Override
 	public void run(){
 		
@@ -52,6 +56,8 @@ extends Thread
 		int i = 0;
 		int counter2 = 0;
 		boolean count = true; 
+		
+		this.initGame();
 		
 		while(threadRunning && !drawingGame.getModel().getGameDone()){
 
@@ -62,11 +68,10 @@ extends Thread
 				
 				i		= 0;
 				count   = true;
-				running = drawingGameModel.getGameThreadRunning();
 				
-				randNum = random.nextInt(5);// get a random number between 0-4
+				
+				randNum = imageList.get(counter);
 				/* --- update the position of timer--- */
-				//this.timePanel.setLocation(i);
 				word = drawingGameModel.getGameText(randNum);
 				
 				try {
@@ -80,6 +85,7 @@ extends Thread
 					if(counter < numberWords-1){
 						//System.out.println(i);
 						launchDetectionSimulation(word.get(i));
+						//this.launchDetection(drawingGameModel.getGameCible(randNum), i);
 					}
 
 					while( !(threadRunning = drawingGameModel.getGameThreadRunning()) && !this.threadRunning ){
@@ -132,7 +138,7 @@ extends Thread
 					}
 					/*-------------------------------------------------------------------*/
 					try {
-						Thread.sleep(500);
+						Thread.sleep(100);
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
@@ -165,12 +171,15 @@ extends Thread
 					
 					System.out.println("Game Over!");
 					drawingGameModel.setGameThreadRunning(false);
+					//this.threadRunning = false;
+					
 					this.updateGameBilan();
 					this.drawingGame.gameOver(this.score);
 					this.initGame();
 				
 				}
-			
+				running = drawingGameModel.getGameThreadRunning();
+				
 			}
 			
 		}
@@ -188,6 +197,7 @@ extends Thread
 	private void updateGamePanel(ArrayList<String> word, int i) throws IOException{
 		
 		//System.out.println(i);
+		System.out.println("update game panel");
 		drawingGameModel.getScorePanel().setScore(score);
 		drawingGameModel.getScorePanel().setLevel(level);
 		drawingGameModel.getGameCiblePanel().setCible(word.get(i), i);
@@ -196,9 +206,9 @@ extends Thread
 	}
 	
 	private void updateGameBilan(){
-	
-		drawingGameModel.getGameCiblePanel().setCible("Ton score: " + String.valueOf(this.score) , 0);
-	
+		System.out.println("update game bilan");
+		drawingGameModel.getGameCiblePanel().setBilan("Ton score: " + String.valueOf(this.score) , 0);
+		this.imageList.clear();
 	}
 	
 	
@@ -210,10 +220,19 @@ extends Thread
 		levelTime.put("difficult", 	10);
 		
 	}
-	
+
 	private void initGame(){
+		
+		int i = 0;
+		while(this.imageList.size() != this.numberWords){
+			i = random.nextInt(7);		
+			if(!this.imageList.contains(i))
+				this.imageList.add(i);
+		}
+		
 		this.counter = 0;
 		this.score = 0;
+	
 	}
 	
 	/*-----------------------------------------------------------------------
@@ -224,17 +243,6 @@ extends Thread
 	
 	private void launchDetectionSimulation(String w){
 		
-		//DrawingAppModel model = drawingApp.getModel();
-		/*try {
-			drawingApp.getHandSpeakController().launchGame();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		if(drawingApp.getModel().getCurrentMessage() == w){
-			drawingGameModel.setRightAnswer(true);
-			score++;
-		}*/
 		int res = random.nextInt(10);// get a random number between 0-4
 		
 		if(res == 1){
@@ -247,11 +255,11 @@ extends Thread
 		
 	}
 	
-	private void launchDetection(String w){
+	private void launchDetection(ArrayList<Cible> c, int i){
 		
 		drawingApp.getHandSpeakController().launchGame();
 	
-		if(drawingApp.getModel().getCurrentMessage() == w){
+		if(drawingApp.getModel().getCurrentCible() == c.get(i)){
 			drawingGameModel.setRightAnswer(true);
 			score++;
 		}
@@ -261,3 +269,4 @@ extends Thread
 	
 	}
 }
+

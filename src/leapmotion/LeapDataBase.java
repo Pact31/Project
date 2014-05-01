@@ -85,6 +85,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 
 
 			entree = new BufferedReader(new InputStreamReader(System.in));//lecture de la touche tappee au clavier
+
 			try {
 				inChar = (char) entree.read();
 			} catch (IOException e1) {
@@ -99,6 +100,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 				System.out.println("Erreur lors de la lecture au clavier du second caract�re.");
 				e1.printStackTrace();
 			} //le 1 correspond a 49
+
 			
 			System.out.println(inChar + "___" + inPos);
 
@@ -140,6 +142,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 			if(frame.hands().count() > 0 && frame.fingers().count() > 0){//on verifie que l'image n'est pas vide et qu'il y a bien une main
 				try{
 				System.out.println(i);
+
 				try {
 					this.table.add(new LeapData(frame, inChar, inPos));
 				} catch (IllegalArgumentException | NullPointerException e)
@@ -148,6 +151,7 @@ public final class LeapDataBase implements Serializable, LeapDataBaseInterface {
 					System.out.println("Erreur lors de la cr�ation d'un nouvel objet LeapData");
 					e.printStackTrace();
 				}
+
 				} finally {}
 			}
 			else {

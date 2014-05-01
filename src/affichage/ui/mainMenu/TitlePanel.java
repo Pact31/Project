@@ -34,5 +34,4 @@ extends JLabel
 		setText("Hand Speak Game");
 	}
 	
-
 }

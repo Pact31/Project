@@ -3,6 +3,11 @@ package classif;
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
+
+
+import com.leapmotion.leap.Controller;
+import com.leapmotion.leap.Frame;
+
 import LeapTS.FrameTS;
 import LeapTS.VectorTS;
 
@@ -136,8 +141,8 @@ public class Entree {
 				+Math.pow(getD2().getDistance(entree.getD2()),2)
 				+Math.pow(getD3().getDistance(entree.getD3()),2)
 				+Math.pow(getD4().getDistance(entree.getD4()),2)
-				+Math.pow(getD5().getDistance(entree.getD5()),2)
 				+Math.pow(getM().getDistance(entree.getM()),2),0.5); //On ne prend pas en compte la position du centre de la main
+
 																 //dans le prototype allege
 	
 	}

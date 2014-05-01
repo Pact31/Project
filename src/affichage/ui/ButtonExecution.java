@@ -32,8 +32,7 @@ implements ActionListener
 		addActionListener(this);
 		
 	}
-	
-	
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
@@ -44,8 +43,6 @@ implements ActionListener
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		drawingApp.update(model, null);
 		
 	}
 	

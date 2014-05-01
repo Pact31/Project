@@ -20,8 +20,7 @@ extends JPanel
 	private final ButtonLeftPanel buttonLeftPanel;
 	private final ButtonExecutionPanel buttonExecutionPanel;
 	private final ButtonStopPanel buttonStopPanel;
-	
-	
+
 	public WindowPanel(DrawingApp drawingApp) throws IOException{
 	
 		super();

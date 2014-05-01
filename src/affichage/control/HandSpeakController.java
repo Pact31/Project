@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import leapmotion.LeapDataBase;
-
 import classif.BanqueApprentissage;
 import classif.Cible;
 import classif.ClassificateurInterface;
@@ -44,9 +43,7 @@ public class HandSpeakController
 		
 		Boolean 		handleClick =	model.getHandleClick();
 		String 			msg			=	"NO detection!";
-		
-		//if( !handleClick ){
-			
+					
 			
 			// comment créer une classificateur?
 			if(model.getCurrentClassifier() == "KPPV")
@@ -165,13 +162,13 @@ public class HandSpeakController
 	 */
 	public void launchGame(){
 		
-		String res = "No detection!";
+		Cible res = null;
 		
 		/*
 		 * a completer
 		 */
 		
-		model.setCurrentMessage(res);
+		model.setCurrentCible(res);
 		
 		Controller controller = new Controller();
 		Frame frame = controller.frame();
@@ -181,9 +178,9 @@ public class HandSpeakController
 		
 		if(model.getCurrentClassifier() == "KPPV")
 				//msg="NO detection!";
-				model.setCurrentMessage(model.getKppv().classifier(entree));				
+				model.setCurrentCible(model.getKppv().classifier(entree));				
 			else
-				msg = model.getAdaboost().classifier(entree);
+				model.setCurrentCible(model.getAdaboost().classifier(entree));
 
 	
 	}

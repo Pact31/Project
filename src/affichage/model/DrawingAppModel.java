@@ -8,14 +8,9 @@ import java.io.File;
 import javax.swing.JComboBox;
 
 import affichage.ui.DrawingApp;
-import affichage.ui.LeapMotion.ThreadLeapMotion;
-import affichage.ui.OptionMenu.TextPanel;
-import affichage.ui.game.GameCiblePanel;
-import affichage.ui.game.GameImagePanel;
-import affichage.ui.game.ScorePanel;
-import affichage.ui.game.ThreadTimeCount;
 import leapmotion.LeapDataBase;
 import classif.BanqueApprentissage;
+import classif.Cible;
 import classif.adaboost.Adaboost;
 import classif.kppv.Kppv;
 import synthese.Sound;
@@ -26,6 +21,7 @@ public class DrawingAppModel extends Observable{
 	private 	DrawingApp drawingApp			= 	null;
 	/* Graphic User Interface */
 	private 	String		msg					= 	"NO detection!";
+	private 	Cible       cible				= 	null;
 	private 	String		currentButtonMark	=	"START";
 	private		String		currentGesture		=	"NO detection!";
 	private    String      currentClassifier    =    "KPPV";
@@ -57,7 +53,7 @@ public class DrawingAppModel extends Observable{
 		
 		System.out.println("Base de test initialisée");
 		
-		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
+		//BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
 		System.out.println("Banque d'apprentissage initialisée");
 		
@@ -66,7 +62,7 @@ public class DrawingAppModel extends Observable{
 		System.out.print("AdaBoost initialisé" + " ");
 			
 		//Kppv kppv = new Kppv(banque, k);
-		kppv = new Kppv(banque, k);
+		//kppv = new Kppv(banque, k);
 		System.out.println("Kppv initialisé");
 
 	}
@@ -102,7 +98,7 @@ public class DrawingAppModel extends Observable{
 		soundSource.put("YNG ", "data/ping.wav");
 		soundSource.put("ICHG", "data/cha(court).wav");
 		soundSource.put("MTF ", "data/teu.wav");
-		
+	
 	}
 	
 	
@@ -141,6 +137,19 @@ public class DrawingAppModel extends Observable{
 		this.msg = msg;
 		
 	}
+	
+	public Cible getCurrentCible(){
+		
+		return cible;
+		
+	}
+	
+	public void setCurrentCible(Cible c){
+		
+		this.cible = c;
+		
+	}
+	
 	
 	public void setCurrentBottonColor(Color c){
 		
@@ -190,12 +199,12 @@ public class DrawingAppModel extends Observable{
 		System.out.println("Banque d'apprentissage initialisée");
 		
 		//Adaboost adaboost =new Adaboost(banque, T);
-		adaboost = new Adaboost(banque, T);
-		System.out.print("AdaBoost initialisé");
+		//adaboost = new Adaboost(banque, T);
+		//System.out.print("AdaBoost initialisé");
 			
 		//Kppv kppv = new Kppv(banque, k);
-		kppv = new Kppv(banque, k);
-		System.out.print("Kppv initialisé");
+		//kppv = new Kppv(banque, k);
+		//System.out.print("Kppv initialisé");
 
 	}
 	
@@ -244,8 +253,7 @@ public class DrawingAppModel extends Observable{
 
 	public JComboBox getConsonneComboBox(){
 		
-		return this.consonneComboBox;
-		
+		return this.consonneComboBox;		
 	}
 	
 	public JComboBox getUsersComboBox(){

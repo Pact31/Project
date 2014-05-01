@@ -20,6 +20,7 @@ implements ActionListener
 	private final DrawingApp drawingApp;
 	private final DrawingAppModel drawingAppModel;
 	private final String name;
+	//private    LeapDataBase 	leapDataBase = new LeapDataBase();
 	
 	public ButtonLaunchSave(DrawingApp drawingApp, String name){
 		
@@ -36,6 +37,10 @@ implements ActionListener
 	private File file;
 	public void actionPerformed(ActionEvent arg0) {
 		
+		//file.
+		//leapDataBase.read(file.)
+		//currentleapDataBase.read(file.getAbsolutePath());
+		//drawingApp.update(model, null);
 		String u = (String)this.drawingAppModel.getUsersComboBox().getSelectedItem();
 		String v = (String)this.drawingAppModel.getVoyelleComboBox().getSelectedItem();
 		String c = (String)this.drawingAppModel.getConsonneComboBox().getSelectedItem();

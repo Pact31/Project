@@ -17,7 +17,7 @@ extends JPanel
 
 		this.setLayout(null);
 		this.add(new ButtonLeft(drawingApp));
-	
-	}
+
+}
 	
 }

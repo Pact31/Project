@@ -2,8 +2,11 @@ package LeapTS;
 
 import leapmotion.ConsonneException;
 import leapmotion.LetterException;
+
 import leapmotion.NumberException;
+
 import leapmotion.VoyelleException;
+
 
 import com.leapmotion.leap.Frame;
 
@@ -25,6 +28,9 @@ public class LeapData extends FrameTS{
 		super(frame);
 		this.cible = cible;
 	}
+
+
+
 	
 	//Constructeur ligne de commande avec les lettres pour designer les consonnes et les chiffres pour designer les voyelles
 	public LeapData( Frame frame,char inChar, int inPos){
@@ -386,6 +392,7 @@ public class LeapData extends FrameTS{
 				break;
 			default :
 				throw(new VoyelleException (v));
+
 			}
 			break;
 		default: 
