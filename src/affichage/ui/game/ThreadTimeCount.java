@@ -1,5 +1,7 @@
 package affichage.ui.game;
 
+import integration.Mot;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -44,9 +46,10 @@ extends Thread
 	}
 	
 	private Random random = new Random();
-	private int numberWords = 5;
+	private int numberWords = 4;
 	private ArrayList<String> word = new ArrayList<String>();
 	private ArrayList<Integer> imageList = new ArrayList<Integer>();
+	private Mot mot;
 	
  	@Override
 	public void run(){
@@ -72,7 +75,8 @@ extends Thread
 				
 				randNum = imageList.get(counter);
 				/* --- update the position of timer--- */
-				word = drawingGameModel.getGameText(randNum);
+				//word = drawingGameModel.getGameText(randNum);
+				mot = drawingGameModel.getDico().getDictionnaire().get(randNum);
 				
 				try {
 					drawingGameModel.getGameImagePanel().setImage(drawingGameModel.getGameImage(randNum));
@@ -225,7 +229,7 @@ extends Thread
 		
 		int i = 0;
 		while(this.imageList.size() != this.numberWords){
-			i = random.nextInt(7);		
+			i = random.nextInt(4);		
 			if(!this.imageList.contains(i))
 				this.imageList.add(i);
 		}

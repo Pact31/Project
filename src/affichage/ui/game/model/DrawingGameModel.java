@@ -1,5 +1,7 @@
 package affichage.ui.game.model;
 
+import integration.Dico;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -38,7 +40,8 @@ public class DrawingGameModel {
 	private 	int 							currentLevel			=	1;
 	private    	WindowGame                      windowGame              = 	null;
 	private 	boolean 						gameDone				= false;
-
+	private 	Dico							dico;
+	
 	public DrawingGameModel(){
 		
 		setGameImage();
@@ -46,18 +49,19 @@ public class DrawingGameModel {
 		setGameText();
 		setLisaTalkText();
 		setGameCible();
+		dico = new Dico();
 	
 	}
 	
 	private void setGameImage(){
 		
-		gameImage.put(0, "src/affichage/ui/game/images/games/car.png");
-		gameImage.put(1, "src/affichage/ui/game/images/games/jouet.png");
-		gameImage.put(2, "src/affichage/ui/game/images/games/maison.png");
+		gameImage.put(0, "src/affichage/ui/game/images/games/maison.png");
+		gameImage.put(1, "src/affichage/ui/game/images/games/oiseau.png");
+		gameImage.put(2, "src/affichage/ui/game/images/games/chat.png");
 		gameImage.put(3, "src/affichage/ui/game/images/games/lion.png");
-		gameImage.put(4, "src/affichage/ui/game/images/games/oiseau.png");
-		gameImage.put(5, "src/affichage/ui/game/images/games/gare.png");
-		gameImage.put(6, "src/affichage/ui/game/images/games/chat.png");
+		gameImage.put(4, "src/affichage/ui/game/images/games/car.png");
+		gameImage.put(5, "src/affichage/ui/game/images/games/jouet.png");
+		gameImage.put(6, "src/affichage/ui/game/images/games/gare.png");
 	}
 	
 	
@@ -118,8 +122,9 @@ public class DrawingGameModel {
 		jouet.add(" et");
 		
 		ArrayList<String> lion =  new ArrayList<String>();
-		lion.add("li -");
-		lion.add(" on");
+		lion.add("mou -");
+		lion.add(" fa");
+		lion.add("sa");
 		
 		ArrayList<String> oiseau =  new ArrayList<String>();
 		oiseau.add("oi -");
@@ -132,13 +137,13 @@ public class DrawingGameModel {
 		ArrayList<String> chat =  new ArrayList<String>();
 		chat.add("chat");
 		
+		gameWord.add(maison);
+		gameWord.add(oiseau);
+		gameWord.add(chat);
+		gameWord.add(lion);
 		gameWord.add(voiture);
 		gameWord.add(jouet);
-		gameWord.add(maison);
-		gameWord.add(lion);
-		gameWord.add(oiseau);
 		gameWord.add(gare);
-		gameWord.add(chat);
 	}
 	
 	private void setGameCible(){
@@ -148,6 +153,9 @@ public class DrawingGameModel {
 		gameCible.put(0, voiture);
 	}
 	
+	public Dico getDico(){
+		return this.dico;
+	}
 	
 	public ArrayList<Cible> getGameCible(int i){
 		return gameCible.get(i);
