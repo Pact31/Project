@@ -45,9 +45,6 @@ implements ActionListener
 		HandSpeakController handSpeakController = 	new HandSpeakController(model);
 		DrawingApp 			drawingApp 			= 	new DrawingApp(handSpeakController);
 		*/
-		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingAppModel.getDrawingApp());
-		threadLeapMotion.start();
-		
 		DrawingAppModel model = null;
 		try {
 			System.out.println("Init dawingAppModel");
@@ -56,6 +53,7 @@ implements ActionListener
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		//HandSpeakController handSpeakController = 	new HandSpeakController(model);
 		//DrawingApp drawingApp = null;

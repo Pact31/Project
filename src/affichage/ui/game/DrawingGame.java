@@ -26,6 +26,8 @@ public class DrawingGame extends JDialog
 		
 		this.drawingApp	= drawingApp;
 		drawingGameModel = new DrawingGameModel();
+		
+		
 		/* intiation du panel Game Over*/
 		gameOverPanel = new GameOverPanel(drawingApp, this);
 		gameOverPanel.setBounds(0, 0, 500, 500);

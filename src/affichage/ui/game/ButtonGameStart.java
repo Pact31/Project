@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import affichage.ui.DrawingApp;
+import affichage.ui.LeapMotion.ThreadLeapMotion;
 
 public class ButtonGameStart extends JButton
 implements ActionListener
@@ -44,10 +45,17 @@ implements ActionListener
 		drawingGame.getWindowGame().setEnableStop(true);
 		
 		System.out.println("Game starts!");
+		
+		
+		ThreadLeapMotion threadLeapMotion 		=	new	ThreadLeapMotion(drawingGame);
+		threadLeapMotion.start();
+		
 		//drawingApp.getModel().getCurrentThreadTimeCount().start();
 		//drawingApp.getModel().getCurrentThreadTimeCount().notify();
 		this.setEnabled(false);
 	}
+	
+	
 	/*
 	@Override
 	public void paintComponent(Graphics g){

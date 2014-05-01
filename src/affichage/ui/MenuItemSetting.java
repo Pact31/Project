@@ -28,7 +28,7 @@ implements ActionListener
 	  //DrawingAppModel drawingAppModel = drawingApp.getModel();
 	  //drawingAppModel.setCurrentMessage("phase d'apprentissage");
 	  //drawingApp.update(drawingAppModel, null);
-	  drawingApp.setVisible(false);
+	  //drawingApp.setVisible(false);
 	  DrawingMenuNew drawingMenuNew = new DrawingMenuNew(drawingApp);
 	  drawingApp.setVisible(true);
    }

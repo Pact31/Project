@@ -43,15 +43,15 @@ public class LeapPanel extends JPanel{
 			e.printStackTrace();
 		}
         g.setColor(Color.black);
-        g.drawLine(0, 170, 400, 170);
-        g.drawLine(0, 320, 400, 320);
-        g.drawLine(0, 470, 400, 470);
+        g.drawLine(0, 150, 400, 150);
+        g.drawLine(0, 300, 400, 300);
+        g.drawLine(0, 450, 400, 450);
         g.drawLine(200, 0, 200, 150);
         g.drawLine(399,0,399,600);
         
         for (int i =0; i< tab.size(); i++) {
         	
-            color = new Color(91, 191, 217, /*100 - tab.elementAt(i).getZ()*/100);
+            color = new Color(91, 191, 217, 100 - tab.elementAt(i).getZ());
             g.setColor(color);
             g.fillOval(tab.elementAt(i).getX(), tab.elementAt(i).getY()+30, 20, 20);//circle
             //g.fillArc(tab.elementAt(i).getX(), tab.elementAt(i).getY(), 20, 200, 0, 200);//triangle

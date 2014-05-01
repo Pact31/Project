@@ -38,6 +38,7 @@ extends Thread
 		
 		threadRunning = false;
 		
+		
 	}
 	private Vector normalizedPosition;
 	private Controller leap = new Controller();
@@ -50,7 +51,7 @@ extends Thread
 	 */	
 		while(threadRunning){
 			
-			System.out.println("leap run");
+			//System.out.println("leap run");
 			InteractionBox ibox 	  = leap.frame().interactionBox();
 			PointableList  pointables = leap.frame().pointables();
 			HandList hands = leap.frame().hands();
