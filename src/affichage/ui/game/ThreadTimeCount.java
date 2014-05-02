@@ -46,7 +46,7 @@ extends Thread
 	}
 	
 	private Random random = new Random();
-	private int numberWords = 4;
+	private int numberWords = 18;
 	private ArrayList<String> word = new ArrayList<String>();
 	private ArrayList<Integer> imageList = new ArrayList<Integer>();
 	private Mot mot;
@@ -226,7 +226,7 @@ extends Thread
 		
 		levelTime.put("easy", 		30);
 		levelTime.put("moyen", 		20);
-		levelTime.put("difficult", 	10);
+		levelTime.put("difficult", 	4);
 		
 	}
 
@@ -234,7 +234,7 @@ extends Thread
 		
 		int i = 0;
 		while(this.imageList.size() != this.numberWords){
-			i = random.nextInt(4);		
+			i = random.nextInt(18);		
 			if(!this.imageList.contains(i))
 				this.imageList.add(i);
 		}
@@ -271,12 +271,13 @@ extends Thread
 		
 		if(c.contains(gesturesPositions.getGestures(m.getCibles().get(i)).getC())){ // si getC et c sont égales. 
 			drawingGameModel.setRightAnswer(true);
-			System.out.println("CACA");
+			System.out.println("Correct");
+		//	WaveFile waveFile = new WaveFile();
 			score++;
 		}
 		else{
 			drawingGameModel.setRightAnswer(false);
-			System.out.println("BOUDIN");
+			System.out.println("Incorrect");
 		}
 	
 	}

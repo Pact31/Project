@@ -13,6 +13,7 @@ public class Dico {
 	
 	public Dico(){
 		this.dictionnaire = new ArrayList<Mot>();
+
 		//maison
 				ArrayList<String> syllSynVoc = new ArrayList<String>() ;
 				ArrayList<String> syllIntGraph = new ArrayList<String>() ;
