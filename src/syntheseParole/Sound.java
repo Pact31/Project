@@ -1,4 +1,4 @@
-package syntheseParole;
+package syntheseparole;
 
 import java.io.DataInputStream;
 import java.io.File;

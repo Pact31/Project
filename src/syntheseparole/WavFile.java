@@ -11,6 +11,7 @@ package syntheseparole;
 // Version 1.0
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class WavFile
 {
@@ -46,7 +47,7 @@ public class WavFile
 	private long frameCounter;				// Current number of frames read or written
 
 	// Cannot instantiate WavFile directly, must either use newWavFile() or openWavFile()
-	private WavFile()
+	 WavFile()
 	{
 		buffer = new byte[BUFFER_SIZE];
 	}
@@ -698,7 +699,22 @@ public class WavFile
 		out.printf("Valid Bits: %d, Bytes per sample: %d\n", validBits, bytesPerSample);
 	}
 	
-	public static WavFile cat(String filename1, String filename2) throws IOException, WavFileException{
+	
+	public String isolateString (String filename) {
+		
+		int length = filename.length();
+		String isolated = filename.substring(5,length-4);
+		return isolated; 
+		
+	}
+	
+	public String desisolateString (String diphone) {
+		
+		String filepathname = String.format("data/%s.wav", diphone);
+		return filepathname;
+	}
+	
+	public WavFile cat(String filename1, String filename2) throws IOException, WavFileException{
 		
 		final int windowp = 512;
 		
@@ -711,8 +727,8 @@ public class WavFile
 		
 		/* Affichage des diiférentes informations */
 		
-		readWavFile1.display();
-		readWavFile2.display();
+		//readWavFile1.display();
+		//readWavFile2.display();
 		
 		/* Récupération de la longueur du son en terme des frames */
 		
@@ -771,8 +787,13 @@ public class WavFile
 		
 		/* Création du fichier son de sortie */
 		
+		String str1 = isolateString(filename1);
+		String str2 = isolateString(filename2);
 		
-		WavFile finalsound = newWavFile(new File("out23.wav"), 2, numFrames1 + numFrames2, 16, 2);
+		
+		String finalsoundname = String.format("%s+%s.wav",str1,str2);
+		
+		WavFile finalsound = newWavFile(new File(finalsoundname), 2, numFrames1 + numFrames2, 16, 48000);
 		
 		finalsound.writeFrames(bigbuffer, numFrames1 + numFrames2);
 		
@@ -781,63 +802,53 @@ public class WavFile
 		finalsound.close();
 		
 		
+		
 		return finalsound;
 	}
+	
+	public File getFile() {
+		return file;
+	}
 
-	public static void main(String[] args) throws IOException, WavFileException
-	{
+	public void setFile(File file) {
+		this.file = file;
+	}
+
+	public WavFile wordsynthetise (ArrayList<String> array ) throws IOException, WavFileException {
 		
-                File filesong = new File("data/ping.wav");
-                System.out.println(filesong.exists());
-				WavFile readWavFile = openWavFile(filesong);
-				readWavFile.display();
-
-				long numFrames = readWavFile.getNumFrames();
-				int numChannels = readWavFile.getNumChannels();
-				int validBits = readWavFile.getValidBits();
-				long sampleRate = readWavFile.getSampleRate();
-
-				//WavFile readWavFile = newWavFile(new File("in.wav"), numChannels, numFrames, validBits, sampleRate);
-				int FramesToBeRead = 14869;
-				int buffersize = (int) (readWavFile.getNumChannels()*FramesToBeRead);
-				double[] buffer1 = new double[buffersize];
-				readWavFile.readFrames(buffer1, FramesToBeRead);
-				
-				cat("data/pu.wav","data/py.wav");
-				
-
-				/*final int BUF_SIZE = 5001;
-
-//				int[] buffer = new int[BUF_SIZE * numChannels];
-//				long[] buffer = new long[BUF_SIZE * numChannels];
-				double[] buffer = new double[BUF_SIZE * numChannels];
-
-				int framesRead = 0;
-				int framesWritten = 0;
-
-				do
-				{
-					framesRead = readWavFile.readFrames(buffer, BUF_SIZE);
-					framesWritten = writeWavFile.writeFrames(buffer, BUF_SIZE);
-					System.out.printf("%d %d\n", framesRead, framesWritten);
-				}
-				while (framesRead != 0);
-				
-				readWavFile.close();
-				writeWavFile.close();
-			}
-
-			WavFile writeWavFile = newWavFile(new File("out2.wav"), 1, 10, 23, 44100);
-			double[] buffer = new double[10];
-			writeWavFile.writeFrames(buffer, 10);
-			writeWavFile.close();
+		int numberofelements = array.size();
+		
+		WavFile wavfile = new WavFile();
+		
+		if (numberofelements == 2){
+			
+			String str1 = wavfile.desisolateString(array.get(0));
+			String str2 = wavfile.desisolateString(array.get(1));
+			
+			wavfile = wavfile.cat(str1, str2);
+			
 		}
-		catch (Exception e)
-		{
-			System.err.println(e);
-			e.printStackTrace();
+		
+		if (numberofelements == 3){
+			
+			String str1 = wavfile.desisolateString(array.get(0));
+			String str2 = wavfile.desisolateString(array.get(1));
+			String str3 = wavfile.desisolateString(array.get(2));
+			
+			WavFile wavfile1 = new WavFile();
+			
+			wavfile1 = wavfile1.cat(str1, str2);
+			
+			String str = wavfile1.file.getName();
+			
+			wavfile = wavfile.cat(str, str3);
+		
 		}
-	}*/
-}
+		
+		return wavfile;
+		
+		}
+
+	
 	
 }
