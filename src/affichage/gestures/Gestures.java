@@ -25,6 +25,7 @@ public class Gestures
 	public String getV(){
 		return v;
 	}
+
 	public String getC(){
 		return c;
 	}

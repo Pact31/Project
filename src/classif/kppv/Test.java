@@ -22,16 +22,16 @@ public class Test {
 
 		LeapDataBase leapDataBase = new LeapDataBase();
 
-		leapDataBase.read("baseLeap3.dat");
+	//	leapDataBase.read("baseLeap3.dat");
 
-		leapDataBase.read("baseTestPos.dat");
+		leapDataBase.read("pere.dat");
 		//leapDataBase.write("baseTestPos.dat");
 
 		
 		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
 				
-		Controller controller = new Controller();
+		/*Controller controller = new Controller();
 		
 		for(int i = 0; i < 10; i++){
 		System.out.println("Appuyer sur une touche pour valider");
@@ -41,7 +41,7 @@ public class Test {
 			
 		Frame frame = controller.frame();
 		FrameTS framets = new FrameTS(frame);
-		Entree entree = new Entree(framets);
+		Entree entree = new Entree(framets);*/
 		
 		Kppv classificateur = new Kppv(banque,3);
 
@@ -52,7 +52,7 @@ public class Test {
 		*/
 		
 			
-		System.out.println(classificateur.classifier(entree));
+		System.out.println(classificateur.crossTest());
 		}
 				
 
@@ -60,5 +60,3 @@ public class Test {
 
 
 
-
-}

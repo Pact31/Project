@@ -8,7 +8,6 @@ import java.util.Hashtable;
 import java.util.Random;
 
 import classif.Cible;
-
 import affichage.gestures.GesturesPositions;
 import affichage.model.DrawingAppModel;
 import affichage.ui.DrawingApp;
@@ -47,7 +46,7 @@ extends Thread
 	}
 	
 	private Random random = new Random();
-	private int numberWords = 15;
+	private int numberWords = 18;
 	private ArrayList<String> word = new ArrayList<String>();
 	private ArrayList<Integer> imageList = new ArrayList<Integer>();
 	private Mot mot;
@@ -86,11 +85,17 @@ extends Thread
 				}
 
 				while(i < mot.getCibles().size() && !drawingGameModel.getGameDone()){
-					
-					
+				
 					if(counter < numberWords-1){
-						launchDetectionSimulation(word.get(i));
-						//this.launchDetection(mot, i);
+						//System.out.println(i);
+						//launchDetectionSimulation(word.get(i));
+						try {
+							this.launchDetection(mot, i);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
 					}
 
 					while( !(threadRunning = drawingGameModel.getGameThreadRunning()) && !this.threadRunning ){
@@ -148,7 +153,7 @@ extends Thread
 					}
 					/*-------------------------------------------------------------------*/
 					try {
-						Thread.sleep(800);
+						Thread.sleep(1000);
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
@@ -227,7 +232,7 @@ extends Thread
 		
 		levelTime.put("easy", 		30);
 		levelTime.put("moyen", 		20);
-		levelTime.put("difficult", 	10);
+		levelTime.put("difficult", 	4);
 		
 	}
 
@@ -235,8 +240,8 @@ extends Thread
 		
 		int i = 0;
 		while(this.imageList.size() != this.numberWords){
-			i = random.nextInt(7);		
-			//if(!this.imageList.contains(i))
+			i = random.nextInt(18);		
+			if(!this.imageList.contains(i))
 				this.imageList.add(i);
 		}
 		
@@ -264,20 +269,21 @@ extends Thread
 		}
 		
 	}
-	private GesturesPositions gesturesPositions = new GesturesPositions();
 	
-	private void launchDetection(Mot m, int i){
-		
-		/*faut faire un setCurrentMessage dans handSpeakController*/
+	private GesturesPositions gesturesPositions = new GesturesPositions();
+	private void launchDetection(Mot m, int i) throws Exception{
 		drawingApp.getHandSpeakController().launchGame();
-		String v = drawingApp.getModel().getCurrentMessage();
+		String c = gesturesPositions.getGestures(drawingApp.getModel().getCurrentCible()).getC(); //currentMessage = consonne
 		
-		if(v.contains(gesturesPositions.getGestures(m.getCibles().get(i)).getC())){
+		if(c.contains(gesturesPositions.getGestures(m.getCibles().get(i)).getC())){ // si getC et c sont égales. 
 			drawingGameModel.setRightAnswer(true);
+			System.out.println("Correct");
+		//	WaveFile waveFile = new WaveFile();
 			score++;
 		}
 		else{
 			drawingGameModel.setRightAnswer(false);
+			System.out.println("Incorrect");
 		}
 	
 	}

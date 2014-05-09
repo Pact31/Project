@@ -21,7 +21,7 @@ public class DrawingAppModel extends Observable{
 	private 	DrawingApp drawingApp			= 	null;
 	/* Graphic User Interface */
 	private 	String		msg					= 	"NO detection!";
-	private 	Cible       cible				= 	Cible.G_B;
+	private 	Cible       cible				= 	Cible.BNUI_B;
 	private 	String		currentButtonMark	=	"START";
 	private		String		currentGesture		=	"NO detection!";
 	private    String      currentClassifier    =    "KPPV";
@@ -49,21 +49,21 @@ public class DrawingAppModel extends Observable{
 		int k = 3;
 		LeapDataBase leapDataBase = new LeapDataBase();//initialisation de la base de donnée
 		
-		//leapDataBase.read("baseTestPos.dat");
+		leapDataBase.read("pere.dat");
 		
 		//System.out.println("Base de test initialisée");
 		
-		//BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
+		BanqueApprentissage banque = new BanqueApprentissage(leapDataBase);
 		
 		//System.out.println("Banque d'apprentissage initialisée");
 		
 		//Adaboost adaboost =new Adaboost(banque, T);
-		//adaboost = new Adaboost(banque, T);
-		//System.out.print("AdaBoost initialisé" + " ");
+		adaboost = new Adaboost(banque, T);
+		System.out.print("AdaBoost initialisé" + " ");
 			
 		//Kppv kppv = new Kppv(banque, k);
-		//kppv = new Kppv(banque, k);
-		//System.out.println("Kppv initialisé");
+		kppv = new Kppv(banque, k);
+		System.out.println("Kppv initialisé");
 
 	}
 	

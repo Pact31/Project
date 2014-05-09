@@ -59,9 +59,23 @@ public class DrawingGameModel {
 		gameImage.put(1, "src/affichage/ui/game/images/games/oiseau.png");
 		gameImage.put(2, "src/affichage/ui/game/images/games/chat.png");
 		gameImage.put(3, "src/affichage/ui/game/images/games/lion.png");
-		gameImage.put(4, "src/affichage/ui/game/images/games/car.png");
-		gameImage.put(5, "src/affichage/ui/game/images/games/jouet.png");
-		gameImage.put(6, "src/affichage/ui/game/images/games/gare.png");
+		gameImage.put(4, "src/affichage/ui/game/images/games/velo.png");
+		gameImage.put(5, "src/affichage/ui/game/images/games/valise.png");
+		gameImage.put(6, "src/affichage/ui/game/images/games/souris.png");
+		gameImage.put(7, "src/affichage/ui/game/images/games/girafe.png");
+		gameImage.put(8, "src/affichage/ui/game/images/games/rhume.png");
+		gameImage.put(9, "src/affichage/ui/game/images/games/chapeau.png");
+		gameImage.put(10, "src/affichage/ui/game/images/games/rose.png");
+		gameImage.put(11, "src/affichage/ui/game/images/games/deux.png");
+		gameImage.put(12, "src/affichage/ui/game/images/games/couteau.png");
+		gameImage.put(13, "src/affichage/ui/game/images/games/main.png");
+		gameImage.put(14, "src/affichage/ui/game/images/games/vague.png");
+		gameImage.put(15, "src/affichage/ui/game/images/games/bebe.png");
+		gameImage.put(16, "src/affichage/ui/game/images/games/carreau.png");
+		gameImage.put(17, "src/affichage/ui/game/images/games/de.png");
+		
+		
+		
 	}
 	
 	
@@ -108,6 +122,7 @@ public class DrawingGameModel {
 	
 	private void setGameWord(){
 		
+		/*
 		ArrayList<String> maison = new ArrayList<String>();
 		maison.add("mai -");
 		maison.add(" son");
@@ -136,14 +151,24 @@ public class DrawingGameModel {
 		
 		ArrayList<String> chat =  new ArrayList<String>();
 		chat.add("chat");
+		*/
+		
+		Dico dico = new Dico();
+		
+		for(int i = 0; i < 18; i++){
+			gameWord.add(dico.getDictionnaire().get(i).getSyllIntGraph());
+
+		}
+		
+		/*
 		
 		gameWord.add(maison);
 		gameWord.add(oiseau);
-		gameWord.add(chat);
+		gameWord.add(dico.getDictionnaire().get(2).getSyllIntGraph());
 		gameWord.add(lion);
 		gameWord.add(voiture);
 		gameWord.add(jouet);
-		gameWord.add(gare);
+		gameWord.add(gare);*/
 	}
 	
 	private void setGameCible(){
@@ -162,14 +187,10 @@ public class DrawingGameModel {
 	}
 	
 	private void setGameText(){
+		for(int i = 0; i<18;i++){
+			gameText.put(i, gameWord.get(i));
+		}
 		
-		gameText.put(0, gameWord.get(0));
-		gameText.put(1, gameWord.get(1));
-		gameText.put(2, gameWord.get(2));
-		gameText.put(3, gameWord.get(3));
-		gameText.put(4, gameWord.get(4));
-		gameText.put(5, gameWord.get(5));
-		gameText.put(6, gameWord.get(6));
 		
 	}
 	

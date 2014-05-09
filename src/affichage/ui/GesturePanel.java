@@ -12,7 +12,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import classif.Cible;
-
 import affichage.gestures.Gestures;
 import affichage.gestures.GesturesPositions;
 
@@ -62,7 +61,7 @@ public class GesturePanel extends JPanel{
 		//image	=	drawingApp.getModel().setCurrentGesture(file)
 	}
 	private void showGestures(Graphics g, Cible cible) throws IOException{
-		
+		System.out.print("q");
 		//Gestures gestures=gesturesPositions.getGestures(gesture);
 		Gestures gestures = gesturesPositions.getGestures(cible);
 		
