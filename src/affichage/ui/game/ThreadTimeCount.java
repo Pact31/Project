@@ -47,7 +47,7 @@ extends Thread
 	}
 	
 	private Random random = new Random();
-	private int numberWords = 4;
+	private int numberWords = 15;
 	private ArrayList<String> word = new ArrayList<String>();
 	private ArrayList<Integer> imageList = new ArrayList<Integer>();
 	private Mot mot;
@@ -85,7 +85,7 @@ extends Thread
 					e.printStackTrace();
 				}
 
-				while(i < word.size() && !drawingGameModel.getGameDone()){
+				while(i < mot.getCibles().size() && !drawingGameModel.getGameDone()){
 					
 					
 					if(counter < numberWords-1){
@@ -148,7 +148,7 @@ extends Thread
 					}
 					/*-------------------------------------------------------------------*/
 					try {
-						Thread.sleep(100);
+						Thread.sleep(800);
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
@@ -235,8 +235,8 @@ extends Thread
 		
 		int i = 0;
 		while(this.imageList.size() != this.numberWords){
-			i = random.nextInt(4);		
-			if(!this.imageList.contains(i))
+			i = random.nextInt(7);		
+			//if(!this.imageList.contains(i))
 				this.imageList.add(i);
 		}
 		
